@@ -1,511 +1,598 @@
-# 🚀 AI ENGINEER + APP DEVELOPER ROADMAP
-## TCS Recruits Udemy Track — Sai
+# AI ENGINEER ROADMAP
 
-Goal:
-Become a startup-ready AI Engineer who can build and deploy real AI-powered applications,
-while continuing Flutter/mobile development and DSA/interview preparation.
+## Goal
+
+Become a startup-ready AI Engineer who can build, evaluate, deploy, and scale real AI-powered applications.
 
 Primary identity:
-AI Product Engineer / AI Application Engineer
+
+AI Engineer / AI Application Engineer
 
 Secondary specialization:
+
 Voice AI / Realtime AI
 
-==================================================
-## 0. DAILY SYSTEM
-==================================================
 
-AI Engineering:
-    3 hours/day
 
-Flutter / Mobile:
-    3–4 hours/day
-
-DSA / Interview:
-    1–1.5 hours/day
-
-YouTube:
-    <= 3 hours/week
-
-Rule:
-    Courses are not the goal.
-    Every course must produce usable engineering ability.
-
-Course completion rule:
-    REQUIRED courses = 100% completion.
-    Do not jump to the next required course early.
-
-Study method for every course:
-    1. Watch the lecture.
-    2. Code everything yourself.
-    3. Rebuild the examples without looking.
-    4. Finish the course projects.
-    5. Make short notes only for concepts you cannot recall.
-    6. Push important work to GitHub.
-    7. Move to the next course only after the current course is complete.
-
-Recommended playback:
-    1.25x–1.5x when the material is easy.
-    1x when coding/debugging.
-
-==================================================
 ## PHASE 1 — AI ENGINEERING FOUNDATION
-==================================================
+
 
 ### COURSE 1
+
 Title:
+
 Machine Learning for Absolute Beginners - Level 1
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/machine-learning-for-absolute-beginners-level-1
 
 Roadmap coverage:
-    - AI vs ML vs DL
-    - supervised learning
-    - unsupervised learning
-    - regression
-    - classification
-    - clustering
-    - dimensionality reduction
-    - overfitting
-    - basic model-training intuition
+
+- AI vs ML vs DL
+- supervised learning
+- unsupervised learning
+- regression
+- classification
+- clustering
+- dimensionality reduction
+- overfitting
+- basic model-training intuition
 
 Estimated course time:
-    ~4.5 hours
+
+~4.5 hours
 
 Target completion:
-    2 days
+
+2 days
 
 Daily effort:
-    ~2–2.5 hours AI/day
+
+~2–2.5 hours/day
 
 Completion condition:
-    100% course completed
-    + understand the ML vocabulary
-    + reproduce the basic examples
+
+100% course completed
++ understand the ML vocabulary
++ reproduce the basic examples
 
 IMPORTANT:
-    Do not turn this into a Data Science career.
-    This is only the foundation.
+
+Do not turn this into a Data Science career.
+
+This is only the foundation.
+
 
 --------------------------------------------------
 
 ### COURSE 2
+
 Title:
+
 The AI Engineer Course 2026: Complete AI Engineer Bootcamp
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/the-ai-engineer-course-complete-ai-engineer-bootcamp
 
 Roadmap coverage:
-    - Python for AI
-    - AI fundamentals
-    - NLP
-    - Transformers
-    - LLM fundamentals
-    - LangChain
-    - Hugging Face
-    - foundation-model APIs
-    - AI application development
-    - basic speech-to-text exposure
+
+- Python for AI
+- AI fundamentals
+- NLP
+- Transformers
+- LLM fundamentals
+- LangChain
+- Hugging Face
+- foundation-model APIs
+- AI application development
+- basic speech-to-text exposure
 
 Course length:
-    ~29.7 hours
+
+~29.7 hours
 
 Target completion:
-    12–14 days
+
+12–14 days
 
 Daily effort:
-    ~3 hours/day
+
+~3 hours/day
 
 Completion condition:
-    100% course completed
-    + all exercises/projects completed
-    + rebuild important examples yourself
+
+100% course completed
++ all exercises/projects completed
++ rebuild important examples yourself
 
 This is the bridge:
-    ML foundation
-        ↓
-    Modern AI Engineering
 
-==================================================
+ML foundation
+    ↓
+Modern AI Engineering
+
+
+
 ## PHASE 2 — BACKEND FOR AI PRODUCTS
-==================================================
+
 
 ### COURSE 3
+
 Title:
+
 FastAPI with GenAI and AgenticAI project - From Basic to AI
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/fastapi-with-genai-and-agenticai-project
 
 Roadmap coverage:
-    - FastAPI
-    - REST APIs
-    - Pydantic
-    - database integration
-    - authentication
-    - WebSockets
-    - SSE
-    - LLM integration
-    - RAG backend
-    - production-style AI API architecture
+
+- FastAPI
+- REST APIs
+- Pydantic
+- database integration
+- authentication
+- WebSockets
+- SSE
+- LLM integration
+- RAG backend
+- production-style AI API architecture
 
 Course length:
-    ~10.6 hours
+
+~10.6 hours
 
 Target completion:
-    5–6 days
+
+5–6 days
 
 Daily effort:
-    ~2–3 hours/day
+
+~2–3 hours/day
 
 Completion condition:
-    100%
-    + complete all projects
-    + understand every API you build
+
+100%
++ complete all projects
++ understand every API you build
 
 Result:
-    You can build the backend of an AI product.
 
-==================================================
+You can build the backend of an AI product.
+
+
+
 ## PHASE 3 — CORE LLM ENGINEERING
-==================================================
+
 
 ### COURSE 4 ⭐⭐⭐ MAIN CORE COURSE
+
 Title:
+
 AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/llm-engineering-master-ai-and-large-language-models
 
 Roadmap coverage:
-    - LLM engineering
-    - frontier vs open-source models
-    - model selection
-    - LLM application architecture
-    - RAG
-    - embeddings
-    - multimodal AI
-    - function calling
-    - fine-tuning
-    - QLoRA
-    - autonomous agents
-    - multi-agent systems
-    - real AI projects
+
+- LLM engineering
+- frontier vs open-source models
+- model selection
+- LLM application architecture
+- RAG
+- embeddings
+- multimodal AI
+- function calling
+- fine-tuning
+- QLoRA
+- autonomous agents
+- multi-agent systems
+- real AI projects
 
 Course length:
-    ~33.5 hours
+
+~33.5 hours
 
 Target completion:
-    14–16 days
+
+14–16 days
 
 Daily effort:
-    ~3 hours/day
+
+~3 hours/day
 
 RULE:
-    COMPLETE 100%.
+
+COMPLETE 100%.
 
 DO NOT:
-    skip projects
-    skip difficult lectures
-    rush through the course just to finish it
+
+- skip projects
+- skip difficult lectures
+- rush through the course just to finish it
 
 This is the MAIN spine of the roadmap.
 
 After this course you should be capable of building:
-    RAG applications
-    LLM applications
-    tool-using AI systems
-    fine-tuned models
-    agentic systems
 
-==================================================
+- RAG applications
+- LLM applications
+- tool-using AI systems
+- fine-tuned models
+- agentic systems
+
+
+
 ## PHASE 4 — RAG + VECTOR DATABASE DEPTH
-==================================================
+
 
 ### COURSE 5
+
 Title:
+
 Vector Databases Fundamentals to Production [2026 Edition]
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/vector-databases-ai
 
 Roadmap coverage:
-    - embeddings
-    - vector databases
-    - Pinecone
-    - Chroma
-    - pgvector
-    - semantic search
-    - hybrid search
-    - chunking
-    - HNSW
-    - retrieval optimization
-    - production RAG database decisions
+
+- embeddings
+- vector databases
+- Pinecone
+- Chroma
+- pgvector
+- semantic search
+- hybrid search
+- chunking
+- HNSW
+- retrieval optimization
+- production RAG database decisions
 
 Course length:
-    ~8.3 hours
+
+~8.3 hours
 
 Target completion:
-    4–5 days
+
+4–5 days
 
 Daily effort:
-    ~2 hours/day
+
+~2 hours/day
 
 Completion:
-    100%
+
+100%
 
 Main project:
-    Build one production-style RAG system using PostgreSQL + pgvector.
 
-==================================================
+Build one production-style RAG system using PostgreSQL + pgvector.
+
+
+
 ## PHASE 5 — FINE-TUNING SPECIALIZATION
-==================================================
+
 
 ### COURSE 6
+
 Title:
+
 LLM Fine-Tuning with Hugging Face: LoRA, QLoRA, PEFT
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/fine-tuning-llm-with-hugging-face-transformers
 
 Roadmap coverage:
-    - Hugging Face Transformers
-    - PEFT
-    - LoRA
-    - QLoRA
-    - 4-bit quantization
-    - fine-tuning custom datasets
-    - BERT/LLM fine-tuning
-    - LLaMA-style models
-    - practical model adaptation
+
+- Hugging Face Transformers
+- PEFT
+- LoRA
+- QLoRA
+- 4-bit quantization
+- fine-tuning custom datasets
+- BERT/LLM fine-tuning
+- LLaMA-style models
+- practical model adaptation
 
 Course length:
-    ~14.4 hours
+
+~14.4 hours
 
 Target completion:
-    6–7 days
+
+6–7 days
 
 Daily effort:
-    ~2–3 hours/day
+
+~2–3 hours/day
 
 Completion:
-    100%
+
+100%
 
 Main project:
-    Fine-tune one open-source model.
-    Compare:
-        base model
-        vs
-        fine-tuned model
+
+Fine-tune one open-source model.
+
+Compare:
+
+base model
+    vs
+fine-tuned model
 
 IMPORTANT:
-    This is a specialization.
-    Do not take another fine-tuning course after this.
 
-==================================================
+This is the only dedicated fine-tuning course in the roadmap.
+
+Do not take another full fine-tuning course afterward.
+
+
+
 ## PHASE 6 — AI EVALUATION
-==================================================
+
 
 ### COURSE 7
+
 Title:
+
 Evaluation for LLM Applications
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/evaluation-for-llm-applications
 
 Roadmap coverage:
-    - LLM evaluation
-    - human vs automated evaluation
-    - error analysis
-    - RAG evaluation
-    - monitoring
-    - feedback loops
-    - cost optimization
+
+- LLM evaluation
+- human vs automated evaluation
+- error analysis
+- RAG evaluation
+- monitoring
+- feedback loops
+- cost optimization
 
 Course length:
-    ~1 hour
+
+~1 hour
 
 Target completion:
-    1 day
+
+1 day
 
 Completion:
-    100%
+
+100%
+
 
 --------------------------------------------------
 
 ### COURSE 8
+
 Title:
+
 Testing AI Systems with DeepEval: AI Agents, Chatbots & RAG
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/rag-llm-evaluation-ai-test
 
 Roadmap coverage:
-    - DeepEval
-    - answer relevancy
-    - faithfulness
-    - precision / recall
-    - golden datasets
-    - RAG testing
-    - agent/tool testing
-    - safety testing
-    - multi-turn evaluation
+
+- DeepEval
+- answer relevancy
+- faithfulness
+- precision / recall
+- golden datasets
+- RAG testing
+- agent/tool testing
+- safety testing
+- multi-turn evaluation
 
 Course length:
-    ~7.7 hours
+
+~7.7 hours
 
 Target completion:
-    4 days
+
+4 days
+
+Daily effort:
+
+~2 hours/day
 
 Completion:
-    100%
+
+100%
 
 Result:
-    You can measure whether your AI actually works.
 
-==================================================
+You can measure whether your AI actually works.
+
+
+
 ## PHASE 7 — AGENTIC AI + MCP
-==================================================
+
 
 ### COURSE 9
+
 Title:
+
 AI Engineer Agentic Track: The Complete Agent & MCP Course
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/the-complete-agentic-ai-engineering-course
 
 Roadmap coverage:
-    - AI Agents
-    - agent workflows
-    - OpenAI Agents SDK
-    - CrewAI
-    - LangGraph
-    - AutoGen
-    - MCP
-    - tools
-    - memory
-    - multi-agent systems
-    - browser agents
-    - agent orchestration
-    - real-world agent projects
+
+- AI Agents
+- agent workflows
+- OpenAI Agents SDK
+- CrewAI
+- LangGraph
+- AutoGen
+- MCP
+- tools
+- memory
+- multi-agent systems
+- browser agents
+- agent orchestration
+- real-world agent projects
 
 Course length:
-    ~21.1 hours
+
+~21.1 hours
 
 Target completion:
-    8–10 days
+
+8–10 days
 
 Daily effort:
-    ~2.5–3 hours/day
+
+~2.5–3 hours/day
 
 Completion:
-    100%
+
+100%
 
 IMPORTANT:
-    This is the main Agentic AI course.
-    Do not add another large agent framework course afterward.
+
+This is the main Agentic AI course.
+
+Do not add another large agent-framework course afterward.
 
 You learn the concepts once,
-then implement with multiple frameworks where useful.
+then understand how those concepts map across different frameworks.
 
-==================================================
+
+
 ## PHASE 8 — PRODUCTION AI ENGINEERING
-==================================================
+
 
 ### COURSE 10
+
 Title:
+
 AI Engineer Production Track: Deploy LLMs & Agents at Scale
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/generative-and-agentic-ai-in-production
 
 Roadmap coverage:
-    - production AI architecture
-    - AWS
-    - Azure
-    - GCP
-    - Vercel
-    - Bedrock
-    - SageMaker
-    - Docker/container deployment
-    - Terraform
-    - GitHub Actions
-    - CI/CD
-    - observability
-    - security
-    - guardrails
-    - scalable AI systems
+
+- production AI architecture
+- AWS
+- Azure
+- GCP
+- Vercel
+- Bedrock
+- SageMaker
+- Docker/container deployment
+- Terraform
+- GitHub Actions
+- CI/CD
+- observability
+- security
+- guardrails
+- scalable AI systems
 
 Course length:
-    ~18.7 hours
+
+~18.7 hours
 
 Target completion:
-    7–9 days
+
+7–9 days
 
 Daily effort:
-    ~2.5–3 hours/day
+
+~2.5–3 hours/day
 
 Completion:
-    100%
+
+100%
 
 Result:
-    You can move from:
-        "AI project"
-    to:
-        "deployable AI product"
 
-==================================================
+You can move from:
+
+"AI project"
+
+to:
+
+"deployable AI product"
+
+
+
 ## PHASE 9 — VOICE AI SPECIALIZATION
-==================================================
+
 
 DO NOT START THIS BEFORE THE CORE AI ENGINEERING STACK IS COMPLETE.
 
 ### COURSE 11
+
 Title:
+
 Mastering Voice AI: From ASR to Emotion AI to Voice Cloning
 
 TCS Recruits:
+
 https://tcsrecruits.udemy.com/course/mastering-speech-language-models-from-asr-to-emotion-ai
 
 Roadmap coverage:
-    - speech AI
-    - ASR
-    - speech recognition
-    - speech synthesis
-    - SpeechLMs
-    - audio features
-    - emotion recognition
-    - voice cloning
-    - speech evaluation
+
+- speech AI
+- ASR
+- speech recognition
+- speech synthesis
+- SpeechLMs
+- audio features
+- emotion recognition
+- voice cloning
+- speech evaluation
 
 Course length:
-    ~19.6 hours
+
+~19.6 hours
 
 Target completion:
-    7–9 days
+
+7–9 days
 
 Daily effort:
-    ~2.5–3 hours/day
+
+~2.5–3 hours/day
 
 Completion:
-    100%
+
+100%
 
 NOTE:
-    Voice AI is a SPECIALIZATION.
-    It is not required before you become a general AI Engineer.
 
-==================================================
+Voice AI is a SPECIALIZATION.
+
+It is not required before becoming a general AI Engineer.
+
+
+
 ## TOTAL TIMELINE
-==================================================
+
 
 Core AI Engineer path:
 
 Course 1     2 days
-Course 2    12–14 days
+Course 2     12–14 days
 Course 3     5–6 days
-Course 4    14–16 days
+Course 4     14–16 days
 Course 5     4–5 days
 Course 6     6–7 days
 Course 7     1 day
@@ -514,181 +601,152 @@ Course 9     8–10 days
 Course 10    7–9 days
 
 TOTAL CORE:
-    approximately 63–74 focused study days
+
+approximately 63–74 focused study days
 
 At ~3 hours/day:
-    approximately 190–220 hours of focused AI learning.
+
+approximately 190–220 hours of focused AI learning.
 
 Voice specialization:
-    +7–9 days
+
++7–9 days
 
 IMPORTANT:
-    This is an execution estimate, not a promise.
-    Coding/debugging can expand the calendar.
 
-==================================================
-## WHAT YOU SHOULD BUILD
-==================================================
+This is an execution estimate, not a promise.
 
-Project 1:
-    AI Chat Application
+Coding, debugging, projects, and deployment can expand the calendar.
 
-Stack:
-    Flutter
-    FastAPI
-    PostgreSQL
-    LLM API
 
-After Course 4:
 
-Project 2:
-    Production RAG Assistant
+## PROJECT ROADMAP
+
+
+### PROJECT 1 — AI CHAT APPLICATION
+
+After Course 3–4
 
 Stack:
-    FastAPI
-    PostgreSQL
-    pgvector
-    embeddings
-    RAG
-    evaluation
 
-After Course 6:
-
-Project 3:
-    Fine-Tuned AI Application
-
-Stack:
-    Hugging Face
-    LoRA / QLoRA
-    FastAPI
-    model evaluation
-
-After Course 9:
-
-Project 4:
-    Autonomous AI Agent
-
-Features:
-    tools
-    memory
-    MCP
-    LangGraph
-    multi-agent workflow
-    human approval
-
-After Course 10:
-
-Project 5:
-    Deployed AI Product
+- FastAPI
+- PostgreSQL
+- LLM API
 
 Requirements:
-    authentication
-    database
-    AI backend
-    evaluation
-    observability
-    CI/CD
-    Docker
-    cloud deployment
 
-After Course 11:
+- conversation handling
+- API integration
+- authentication
+- database persistence
+- streaming responses
 
-Project 6:
-    Voice AI Agent
 
-Features:
-    STT
-    LLM
-    TTS
-    realtime conversation
-    tool calling
+### PROJECT 2 — PRODUCTION RAG ASSISTANT
 
-==================================================
-## PARALLEL FLUTTER PATH
-==================================================
+After Course 5
 
-AI study does NOT replace Flutter.
+Stack:
 
-Continue Flutter every day.
+- FastAPI
+- PostgreSQL
+- pgvector
+- embeddings
+- RAG
+- evaluation
 
-Flutter progression:
+Requirements:
 
-    Dart
-      ↓
-    Flutter fundamentals
-      ↓
-    UI + responsive design
-      ↓
-    Figma
-      ↓
-    State management
-      ↓
-    REST APIs
-      ↓
-    local storage
-      ↓
-    Firebase
-      ↓
-    architecture
-      ↓
-    deployment
-      ↓
-    AI integration
+- document ingestion
+- chunking
+- embeddings
+- vector search
+- retrieval
+- grounded responses
+- citations
+- evaluation
 
-Final product architecture:
 
-    Flutter
-       ↓
-    FastAPI
-       ↓
-    PostgreSQL
-       ↓
-    AI/LLM
-       ↓
-    RAG
-       ↓
-    Agents
-       ↓
-    Tools / APIs
-       ↓
-    Production cloud
+### PROJECT 3 — FINE-TUNED AI APPLICATION
 
-==================================================
-## DSA / INTERVIEW TRACK
-==================================================
+After Course 6
 
-Do DSA separately.
+Stack:
 
-Target:
-    1–1.5 hours/day
+- Hugging Face
+- LoRA / QLoRA
+- FastAPI
+- model evaluation
 
-Focus:
-    Arrays
-    Strings
-    Hashing
-    Two Pointers
-    Sliding Window
-    Binary Search
-    Stack / Queue
-    Linked List
-    Trees
-    Graphs
-    Dynamic Programming
+Requirements:
 
-Goal:
-    Maintain interview readiness while building AI + mobile skills.
+- dataset preparation
+- fine-tuning
+- base-vs-fine-tuned comparison
+- evaluation
+- API integration
 
-==================================================
+
+### PROJECT 4 — AUTONOMOUS AI AGENT
+
+After Course 9
+
+Requirements:
+
+- tools
+- memory
+- MCP
+- LangGraph
+- multi-agent workflow
+- human approval
+- external API integration
+
+
+### PROJECT 5 — DEPLOYED AI PRODUCT
+
+After Course 10
+
+Requirements:
+
+- authentication
+- database
+- AI backend
+- evaluation
+- observability
+- CI/CD
+- Docker
+- cloud deployment
+- logging
+- monitoring
+- security
+
+
+### PROJECT 6 — VOICE AI AGENT
+
+After Course 11
+
+Requirements:
+
+- STT
+- LLM
+- TTS
+- realtime conversation
+- tool calling
+- conversation state
+- voice-specific evaluation
+
+
+
 ## JOB-READY CHECKPOINT
-==================================================
 
-Start startup networking/application activity when you can:
+
+Start serious startup networking and applications when you can:
 
 [ ] Build an LLM application independently
 [ ] Build a production RAG system
 [ ] Build an AI agent with tools
 [ ] Use MCP
-[ ] Evaluate RAG/agents
+[ ] Evaluate RAG and agents
 [ ] Build FastAPI AI backends
 [ ] Work with PostgreSQL/pgvector
 [ ] Dockerize an AI application
@@ -699,24 +757,27 @@ Start startup networking/application activity when you can:
 
 Target roles:
 
-    AI Engineer
-    AI Application Engineer
-    Applied AI Engineer
-    GenAI Engineer
-    Agentic AI Engineer
-    AI Backend Engineer
-    Founding AI Engineer
-    Voice AI Engineer
+- AI Engineer
+- AI Application Engineer
+- Applied AI Engineer
+- GenAI Engineer
+- Agentic AI Engineer
+- AI Backend Engineer
+- Founding AI Engineer
+- Voice AI Engineer
 
-==================================================
+
+
 ## GOLDEN RULE
-==================================================
+
 
 Do not measure progress by:
-    number of courses completed.
+
+number of courses completed.
 
 Measure progress by:
-    number of AI systems you can build independently.
+
+number of AI systems you can build independently.
 
 COURSE
     ↓
@@ -726,6 +787,8 @@ CODE
     ↓
 PROJECT
     ↓
+EVALUATE
+    ↓
 DEPLOY
     ↓
 GITHUB
@@ -734,10 +797,45 @@ LINKEDIN
     ↓
 NEXT LEVEL
 
-END GOAL:
 
-    BECOME AN AI ENGINEER
-              +
-    BECOME AN APP DEVELOPER
-              =
-    AI PRODUCT ENGINEER
+
+## END GOAL
+
+
+BECOME A STARTUP-READY AI ENGINEER
+
+Core capabilities:
+
+Python
+FastAPI
+SQL/PostgreSQL
+Machine Learning fundamentals
+Deep Learning fundamentals
+NLP
+Transformers
+LLMs
+RAG
+Vector Databases
+Fine-Tuning
+LoRA / QLoRA
+LLM Evaluation
+AI Agents
+MCP
+Observability
+LLMOps / MLOps
+Docker
+Cloud Deployment
+AI Security
+Voice AI specialization
+
+Final profile:
+
+AI ENGINEER
++
+AI APPLICATION BUILDER
++
+AGENTIC AI
++
+PRODUCTION ENGINEERING
++
+OPTIONAL VOICE AI SPECIALIZATION
