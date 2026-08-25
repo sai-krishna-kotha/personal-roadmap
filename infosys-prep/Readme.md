@@ -1,613 +1,771 @@
-# Infosys SP/DSE Round 2 Preparation Roadmap
+# Infosys SP/DSE — Round 2 Coding Assessment + Technical Interview Preparation Roadmap
 
-## Preparation Window
+## Preparation Start
 
-**Start:** 11:00 PM, 25 August 2026
-**Assessment:** 5 or 6 September 2026
-**Preparation Duration:** 11 days
-**Target:** Infosys Specialist Programmer (SP) / Digital Specialist Engineer (DSE)
+**25 August 2026 — 11:00 PM**
 
----
+## Target
 
-# 1. Preparation Objective
+Prepare for:
 
-The goal of this preparation is **not** to revise the exact problems from the first coding assessment.
-
-The first-round problems are being used only as a **difficulty and pattern signal**.
-
-The preparation must build the ability to independently solve a new coding problem under a restricted, offline, proctored environment and then defend the solution technically in an interview.
-
-The preparation has five major goals:
-
-1. Independently solve Easy and Medium DSA problems reliably.
-2. Develop the ability to recognize and derive Medium-Hard and Hard algorithmic patterns.
-3. Become comfortable coding without AI, autocomplete, Copilot, online search, or external help.
-4. Prepare for technical interview topics: OOP, DBMS, SQL, OS, CN, DSA, backend concepts, projects, and resume.
-5. Develop the ability to explain, defend, optimize, and debug one's own solution.
+1. Infosys in-person / proctored Round 2 coding assessment.
+2. Subsequent SP/DSE technical interview.
+3. Coding questions in the interview.
+4. SQL + DBMS.
+5. OOP.
+6. Operating Systems.
+7. Computer Networks.
+8. Projects and resume deep-dive.
+9. Backend / software-development fundamentals.
+10. Basic system-design and engineering reasoning.
+11. HR / behavioral questions.
 
 ---
 
-# 2. Expected Assessment Level
+# 1. What This Preparation Is Optimized For
 
-The preparation should assume a competitive-programming-oriented assessment rather than a simple interview coding round.
+The Round 1 questions already experienced are NOT the problems to memorize.
 
-The target difficulty should be approximately:
+They are being used as a **difficulty signal**.
 
-* Easy / Easy-Medium
-* Medium
-* Medium-Hard
-* Hard / Complex
+The observed first-round style indicates that the preparation must eventually reach:
 
-The exact number, distribution, and topic of questions may vary.
-
-Preparation therefore focuses on **problem-solving patterns**, not memorization of a fixed question bank.
-
-The first-round questions indicate that the following level of thinking may be relevant:
-
-* Greedy with Heap
-* State-Based Dynamic Programming
-* Knapsack Variations
+* Medium and Medium-Hard DSA
+* Hard DP/state-DP
+* Greedy + heap
+* Graphs and trees
 * Counting DP
-* Subsequence DP
 * Interval DP
-* Trees
-* Graphs
-* Mathematical Optimization
-* Number Theory / Diophantine reasoning
-* Large-constraint optimization
+* Mathematical optimization
+* Large-constraint problems
+* Problems where brute force is obviously impossible
+* Problems requiring independent derivation rather than memorization
 
-The second assessment should therefore be approached as:
+Infosys officially describes HackWithInfy Round 2 as a **three-hour coding assessment** hosted on the Infosys Assessment Platform. Infosys' 2026 material describes Round 2 as a face-to-face coding challenge. Recent 2026 candidate reports also show variation in exact question formats and difficulty, so preparation should target the strongest likely level rather than assume one fixed question pattern.
 
-> Understand constraints → identify the mathematical structure → select the pattern → derive the state/transition → estimate complexity → implement → test → optimize.
+Recent 2026 reports also show that interviews may contain:
 
----
-
-# 3. Core Preparation Philosophy
-
-## Do not memorize solutions.
-
-Memorize:
-
-```text
-Problem characteristics
-        ↓
-Pattern recognition
-        ↓
-State / invariant
-        ↓
-Transition / recurrence
-        ↓
-Proof intuition
-        ↓
-Complexity
-        ↓
-Implementation
-        ↓
-Testing
-```
-
-The objective is to make the above process automatic.
-
----
-
-# 4. Daily Study Structure
-
-Each preparation day should be divided approximately as follows.
-
-## DSA / Coding
-
-**3.5–4.5 hours**
-
-Focus on:
-
-* Concept understanding
-* Pattern recognition
-* Independent problem solving
-* Medium and hard problem exposure
-* Timed coding
-
-## CS Fundamentals
-
-**1.5–2 hours**
-
-Rotate through:
-
+* Coding problems
+* DSA explanation
+* SQL queries
 * OOP
 * DBMS
-* SQL
-* OS
-* Computer Networks
+* OS/CN
+* Project questions
+* Resume-based technical questions
+* System/development questions for SP-oriented roles
 
-## Projects / Resume / Interview
+For example, a recent August 2026 SP/DSE interview report described coding followed by SQL, further coding/approach explanation, and approximately 25 technical questions. Other recent reports describe project-heavy interviews and DSA/SQL/OOP questioning.
+
+Therefore:
+
+> The goal is not merely to pass a coding contest.
+>
+> The goal is to become independently capable of solving Infosys-level coding problems and then defending your engineering knowledge in the interview.
+
+---
+
+# 2. Preparation Philosophy
+
+The preparation will follow this progression:
+
+```text
+Known DSA Basics
+        ↓
+Pattern Recognition
+        ↓
+Easy Independent Solving
+        ↓
+Medium Independent Solving
+        ↓
+Combining Patterns
+        ↓
+State-Based Problems
+        ↓
+Advanced DP / Graph / Greedy
+        ↓
+Large-Constraint Mathematical Problems
+        ↓
+Infosys-Level Mixed Problems
+        ↓
+Timed 3-Hour Assessment
+        ↓
+Technical Interview
+```
+
+Do NOT learn by memorizing solutions.
+
+For every DSA topic:
+
+```text
+Understand the idea
+        ↓
+Understand when it is useful
+        ↓
+Learn the basic template
+        ↓
+Solve an easy example
+        ↓
+Solve a medium example
+        ↓
+Solve an unfamiliar variation
+        ↓
+Explain the solution without code
+```
+
+---
+
+# 3. Daily Time Structure
+
+The exact clock may change depending on the day, but the general allocation is:
+
+## Coding / DSA
+
+**3.5–5 hours**
+
+## Core CS / Interview
+
+**2–2.5 hours**
+
+## Projects / Resume / Technical communication
 
 **1–1.5 hours**
 
-Focus on:
+## Final recall / verbal explanation
 
-* Project architecture
-* Technical decisions
-* Technologies used
-* Debugging experiences
-* Trade-offs
-* Backend concepts
-* Resume questions
-* Technical explanation
+**30–45 minutes**
 
-## Final Recall
+Total:
 
-**30 minutes**
+**7–9 hours of focused preparation per full day**
 
-No tutorials.
+Do not attempt 12–14 hours of low-quality studying.
 
-No solutions.
-
-No AI.
-
-Recall the day's concepts from memory and explain them aloud.
+The objective is independent problem-solving ability.
 
 ---
 
-# 5. Strict AI Usage Rule
+# 4. Strict AI Rule
 
-From the beginning of this preparation until the assessment:
+From this preparation onward:
 
-## First attempt must be AI-free.
+## First attempt = No AI
 
-For every new coding problem:
+For every coding problem:
 
-### Step 1 — Understand
+```text
+Read the problem
+    ↓
+Understand constraints
+    ↓
+Write examples manually
+    ↓
+Think of brute force
+    ↓
+Find why brute force fails
+    ↓
+Identify the pattern
+    ↓
+Derive optimized approach
+    ↓
+Code
+    ↓
+Test
+```
 
-Read the problem carefully.
+Do not ask AI for the solution during the first attempt.
 
-Identify:
+If completely stuck:
 
-* Inputs
-* Outputs
-* Constraints
-* Special conditions
-* Required complexity
+1. Re-read constraints.
+2. Build a brute-force solution mentally.
+3. Try a smaller example.
+4. Identify the bottleneck.
+5. Ask which data structure could remove that bottleneck.
+6. Only then consult an explanation.
 
-### Step 2 — Build examples
+After seeing a solution:
 
-Create small examples manually.
+**Close it.**
 
-### Step 3 — Think of brute force
+Then re-derive and implement it independently.
 
-Even if it is too slow.
+---
 
-### Step 4 — Identify the bottleneck
+# 5. Coding Environment Rule
 
-Ask:
+Starting from the second half of preparation:
 
-> Why does brute force fail?
+Practice without:
 
-### Step 5 — Derive the optimized solution
+* Copilot
+* autocomplete
+* AI coding assistants
+* solution search
+* code generators
 
-Look for:
+Use:
 
-* Hashing
-* Prefix sums
-* Two pointers
-* Sliding window
-* Binary search
-* Greedy
-* Heap
+* plain editor
+* terminal
+* compiler/interpreter
+* standard input/output
+* handwritten notes for reasoning
+
+Use Python because it is your fastest implementation language.
+
+Become comfortable with:
+
+```python
+import sys
+
+def solve():
+    data = sys.stdin.buffer.read().split()
+    # parse input
+    # solve
+    # print answer
+
+if __name__ == "__main__":
+    solve()
+```
+
+Know how to write:
+
+* arrays
+* dictionaries
+* sets
+* stacks
+* queues
+* heaps
+* BFS
+* DFS
+* binary search
 * DP
-* Graph traversal
-* Tree structure
-* Mathematical reduction
+* graph representations
 
-### Step 6 — Implement independently
-
-No autocomplete or AI assistance.
-
-### Step 7 — Debug independently
-
-Use print statements, tiny test cases, and manual tracing.
-
-### Step 8 — Only then use a solution if completely stuck
-
-If a solution must be consulted:
-
-1. Understand the idea.
-2. Close the solution.
-3. Wait.
-4. Re-derive the implementation independently.
-5. Code it without copying.
-
-The goal is to eliminate dependency on AI before the exam.
+without depending on IDE assistance.
 
 ---
 
-# 6. Day 0 — 25 August, 11:00 PM–12:30 AM
+# 6. DSA MASTER TOPIC ORDER
 
-## Objective
+The topic order is deliberately designed to progress from your existing basic knowledge toward the difficulty shown by the first assessment.
 
-Start the preparation system and establish the current baseline.
-
-### DSA
-
-Review only the following:
+## Tier 1 — High-frequency fundamentals
 
 * Arrays
 * Strings
-* HashMap
-* Set
-* Sorting
-* Big-O
-* Recursion basics
-
-Do not spend time relearning syntax.
-
-The purpose is to ensure the fundamentals are fluent.
-
-### First Pattern Group
-
-Introduce:
-
-* Hashing for frequency and lookup
+* Hashing
 * Prefix Sum
+* Difference Array concept
 * Two Pointers
 * Sliding Window
+* Sorting
+* Binary Search
+* Stack
+* Monotonic Stack
+* Queue
+* Deque
+* Heap / Priority Queue
 
-Understand:
+## Tier 2 — Core algorithmic patterns
 
-### Hashing
+* Greedy
+* Intervals
+* Recursion
+* Backtracking basics
+* 1D DP
+* 2D DP
+* 0/1 Knapsack
+* Unbounded Knapsack
+* Subset Sum
+* State DP
+* Counting DP
 
-When direct lookup or frequency information can eliminate repeated searching.
+## Tier 3 — Advanced interview / assessment patterns
 
-### Prefix Sum
+* LIS
+* LCS
+* Tree DFS
+* Tree BFS
+* BST
+* Tree DP
+* Graph DFS
+* Graph BFS
+* Connected Components
+* Cycle Detection
+* Topological Sort
+* Shortest Path
+* DSU
 
-When repeated range/subarray calculations appear.
+## Tier 4 — Harder assessment concepts
 
-### Two Pointers
-
-When two positions can move through ordered/structured data.
-
-### Sliding Window
-
-When a contiguous range expands/contracts under a condition.
-
-### Problems
-
-Solve 2–3 problems only.
-
-Focus on reasoning rather than quantity.
-
-### Interview
-
-Begin OOP:
-
-* Class
-* Object
-* Encapsulation
-* Inheritance
-* Polymorphism
-* Abstraction
-
-Understand the difference between:
-
-* Overloading
-* Overriding
-* Compile-time polymorphism
-* Runtime polymorphism
-* Composition
-* Inheritance
+* Interval DP
+* Partition DP
+* DP with multiple states
+* DP with "last choice"
+* DP with used/not-used state
+* DP with parity
+* Optimization DP
+* Mathematical optimization
+* GCD
+* Extended Euclid
+* Diophantine equations
+* Modular arithmetic
+* Binary Search on Answer
 
 ---
 
-# 7. 26 August — Hashing, Prefix, Two Pointers, Binary Search
+# 7. DAY 1 — 25 AUGUST
 
-## DSA Concepts
+# 11:00 PM START
 
-### 1. Hashing
+## Hashing + Prefix Sum + Two Pointers + Sliding Window
 
-Master:
+Because basic DSA is already familiar, do not spend the night learning syntax.
 
-* Frequency maps
+The purpose of Day 1 is pattern recognition.
+
+---
+
+## Concept 1 — Hashing
+
+Understand:
+
+* Frequency counting
+* Fast lookup
 * Duplicate detection
-* Lookup optimization
-* Prefix + HashMap
-* Counting states
+* Complement lookup
+* Mapping
+* Counting occurrences
+* Prefix-sum + hashmap
 
-Typical transformation:
+### Practice
+
+1. Two Sum
+2. Contains Duplicate
+3. Valid Anagram
+4. Longest Consecutive Sequence
+5. Subarray Sum Equals K
+
+---
+
+## Concept 2 — Prefix Sum
+
+Understand:
 
 ```text
-O(N²)
-↓
-HashMap
-↓
-O(N)
+prefix[i]
+range sum
+subarray sum
+prefix + hashmap
 ```
 
-### 2. Prefix Sum
+### Practice
 
-Master:
+1. Range Sum Query
+2. Subarray Sum Equals K
+3. Find Pivot Index
+4. Contiguous Array
 
-* Prefix array
-* Range sum
-* Subarray sum
-* Prefix + HashMap
+---
 
-### 3. Two Pointers
+## Concept 3 — Two Pointers
 
-Master:
+Understand:
 
 * Opposite-direction pointers
 * Same-direction pointers
-* Sorted-array patterns
-* In-place movement
+* Sorted-array applications
+* Removing redundant search
 
-### 4. Sliding Window
+### Practice
 
-Master:
+1. Two Sum II
+2. 3Sum
+3. Container With Most Water
+4. Remove Duplicates from Sorted Array
 
-* Fixed-size window
-* Variable-size window
-* Frequency-maintaining window
-* Expand/shrink technique
+---
 
-### 5. Binary Search
+## Concept 4 — Sliding Window
 
-Learn:
+Understand:
 
-* Standard binary search
-* Lower bound concept
-* Upper bound concept
-* Search over answer
-* Feasibility function
+* Fixed window
+* Variable window
+* Frequency-based window
+* Expand / shrink logic
 
-Important pattern:
+### Practice
 
-```text
-low
-high
-mid
-is_feasible(mid)
-```
-
-### Coding Target
-
-4–5 problems:
-
-* 1 hashing
-* 1 prefix sum
-* 1 sliding window/two pointers
-* 1 binary search
-* 1 mixed medium problem
+1. Longest Substring Without Repeating Characters
+2. Longest Repeating Character Replacement
+3. Minimum Size Subarray Sum
+4. Permutation in String
 
 ---
 
 ## Interview — OOP
 
-Study in depth:
+Study:
 
-* Class and object
+* Class
+* Object
+* Constructor
 * Encapsulation
 * Inheritance
-* Abstraction
 * Polymorphism
-* Overloading
-* Overriding
-* Abstract class
-* Interface
+* Abstraction
+* Method Overloading
+* Method Overriding
+* Composition
+* Association
+* "is-a" vs "has-a"
+
+Then understand:
+
+* Static vs dynamic binding
+* Interface vs abstract class
 * Composition vs inheritance
-* Is-a relationship
-* Has-a relationship
-* Runtime dispatch
-* Basic SOLID principles
+* Why abstraction is useful
+* Why encapsulation matters
 
-Prepare practical examples.
+### Interview Questions
 
-Be able to answer:
-
-> What is polymorphism?
-
-Then:
-
-> Give an example.
-
-Then:
-
-> What is the difference between overloading and overriding?
-
-Then:
-
-> Why is composition often preferred over inheritance?
+1. What is OOP?
+2. Explain the four pillars.
+3. Explain polymorphism with an example.
+4. Overloading vs overriding.
+5. Abstraction vs encapsulation.
+6. Interface vs abstract class.
+7. Composition vs inheritance.
+8. What is dynamic dispatch?
+9. Why use private fields?
+10. Give a real-world example of polymorphism.
 
 ---
 
-# 8. 27 August — Stack, Heap, Greedy
+## Project Preparation
 
-## DSA Concepts
+Prepare answers to:
 
-### 1. Stack
+* What problem does your project solve?
+* Why did you build it?
+* What exactly did you implement?
+* Why these technologies?
+* What was the hardest part?
+* What bug took the most time?
+* How did you debug it?
+* How does the request flow through the system?
+* How is data stored?
+* How is authentication handled?
+* What would you change for production?
+
+---
+
+# 8. DAY 2 — 26 AUGUST
+
+# Binary Search + Stack + Heap
+
+## Concept 1 — Binary Search
 
 Learn:
 
-* Basic stack operations
-* Parentheses problems
-* Expression-related basics
+* Basic binary search
+* First occurrence
+* Last occurrence
+* Lower bound concept
+* Upper bound concept
+* Binary Search on Answer
+
+### Practice
+
+1. Binary Search
+2. Search Insert Position
+3. First and Last Position of Element
+4. Search in Rotated Sorted Array
+5. Koko Eating Bananas
+6. Capacity to Ship Packages Within D Days
+
+The last two are particularly important because they train:
+
+```text
+binary search
+        +
+feasibility function
+```
+
+---
+
+## Concept 2 — Stack
+
+Learn:
+
+* LIFO
+* Expression structure
+* Matching pairs
 * Monotonic stack
-* Next Greater Element
-* Previous Greater/Smaller Element
 
-Core recognition:
+### Practice
 
-```text
-Need nearest previous/next greater/smaller
-        ↓
-Think Monotonic Stack
-```
-
-### 2. Heap / Priority Queue
-
-Learn:
-
-* Min Heap
-* Max Heap
-* Push / Pop
-* Top K
-* Streaming minimum/maximum
-* Two-heap concept
-* Heap + Greedy
-
-### 3. Greedy
-
-Learn:
-
-* Local vs global optimization
-* Sorting-based greedy
-* Interval scheduling
-* Resource allocation
-* Choosing best available candidate
-* Replace/rollback style greedy
-
-Important reasoning:
-
-> A greedy algorithm must have a justification for why a local decision can safely lead toward an optimal global answer.
-
-### Coding Target
-
-4–5 problems:
-
-* 1 stack
-* 1 monotonic stack
-* 1 heap
-* 1 basic greedy
-* 1 medium greedy/heap problem
-
-At least one problem should require combining:
-
-```text
-Sorting + Heap + Greedy
-```
+1. Valid Parentheses
+2. Min Stack
+3. Evaluate Reverse Polish Notation
+4. Daily Temperatures
+5. Next Greater Element I
+6. Largest Rectangle in Histogram
 
 ---
 
-## Interview — DBMS Fundamentals + SQL
+## Concept 3 — Heap
 
-### DBMS
+Learn:
+
+* Min heap
+* Max heap
+* Top K
+* Heap + sorting
+* Heap + greedy
+
+### Practice
+
+1. Kth Largest Element in an Array
+2. Top K Frequent Elements
+3. K Closest Points to Origin
+4. Merge K Sorted Lists
+5. Find Median from Data Stream
+
+---
+
+## Interview — DBMS Fundamentals
 
 Study:
 
-* Database basics
-* Primary Key
-* Foreign Key
-* Candidate Key
-* Unique Key
+* Database vs DBMS
+* Relational database
+* Primary key
+* Candidate key
+* Super key
+* Foreign key
+* Composite key
 * Normalization
 * 1NF
 * 2NF
 * 3NF
 * Denormalization
-* Relationships
-* Indexes
 * Transactions
-* ACID properties
+* ACID
+* Constraints
+* Indexes
+* Joins
 
-### SQL
+### SQL Practice
 
-Master:
-
-```sql
-SELECT
-WHERE
-ORDER BY
-GROUP BY
-HAVING
-DISTINCT
-COUNT
-SUM
-AVG
-MIN
-MAX
-```
-
-Then:
-
-```sql
-INNER JOIN
-LEFT JOIN
-RIGHT JOIN concept
-SELF JOIN concept
-SUBQUERY
-```
-
-Practice 5–6 real queries.
+1. Second Highest Salary
+2. Employees Earning More Than Their Managers
+3. Duplicate Emails
+4. Department Highest Salary
+5. Customers Who Never Order
+6. Customers With More Than One Order
 
 ---
 
-# 9. 28 August — Dynamic Programming Fundamentals
+# 9. DAY 3 — 27 AUGUST
 
-This is the major transition toward SP-level coding.
+# Greedy + Heap + Intervals
 
-## DSA Concepts
+## Concept 1 — Greedy Thinking
 
-### 1. Recursion to DP
+Understand:
+
+* Local optimum
+* Global optimum
+* Exchange argument intuition
+* Sorting-based greedy
+* Feasibility
+* Greedy + heap
+
+### Practice
+
+1. Assign Cookies
+2. Jump Game
+3. Jump Game II
+4. Gas Station
+5. Activity Selection
+6. Non-overlapping Intervals
+7. Minimum Number of Arrows to Burst Balloons
+
+---
+
+## Concept 2 — Interval Problems
+
+Learn:
+
+* Sort by start
+* Sort by end
+* Merge
+* Select
+* Remove
+* Allocate
+
+### Practice
+
+1. Merge Intervals
+2. Insert Interval
+3. Non-overlapping Intervals
+4. Meeting Rooms
+5. Meeting Rooms II
+
+---
+
+## Concept 3 — Advanced Greedy + Heap
+
+### Practice
+
+1. Course Schedule III
+2. Minimum Cost to Connect Sticks
+3. IPO
+4. Maximum Performance of a Team
+
+Focus on the reasoning, not memorizing code.
+
+---
+
+## Interview — Operating Systems
+
+Study:
+
+### Processes
+
+* Process
+* Thread
+* Process vs thread
+* Context switch
+
+### CPU Scheduling
+
+* FCFS
+* SJF
+* Priority
+* Round Robin
+
+### Synchronization
+
+* Race condition
+* Critical section
+* Mutex
+* Semaphore
+
+### Deadlocks
+
+* Mutual exclusion
+* Hold and wait
+* No preemption
+* Circular wait
+* Prevention
+* Avoidance
+* Detection
+
+### Memory
+
+* Stack
+* Heap
+* Paging
+* Virtual memory
+* Page fault
+* Fragmentation
+
+### Interview Questions
+
+1. Process vs thread?
+2. Why are threads cheaper?
+3. What is context switching?
+4. What is a race condition?
+5. Mutex vs semaphore?
+6. What is deadlock?
+7. Four conditions for deadlock?
+8. What is virtual memory?
+9. What is a page fault?
+10. Stack vs heap?
+
+---
+
+# 10. DAY 4 — 28 AUGUST
+
+# DP FUNDAMENTALS
+
+This is a major transition day.
+
+## Concept 1 — Recursion to DP
 
 Understand:
 
 ```text
-Recursive problem
-        ↓
-Repeated subproblems
-        ↓
-Memoization
-        ↓
-Tabulation
-        ↓
-Space optimization
+recursion
+→ overlapping subproblems
+→ memoization
+→ tabulation
+→ space optimization
 ```
 
-### 2. 1D DP
+---
 
-Study patterns such as:
+## Concept 2 — 1D DP
 
-* Fibonacci
-* Climbing Stairs
-* House Robber
-* Minimum Cost
-* Maximum Sum
+### Practice
 
-### 3. 2D DP
+1. Climbing Stairs
+2. Min Cost Climbing Stairs
+3. House Robber
+4. House Robber II
+5. Maximum Subarray
+6. Decode Ways
 
-Study:
+---
 
-* Grid paths
-* Minimum path
-* Grid state transitions
+## Concept 3 — 2D DP
 
-### 4. 0/1 Knapsack
+### Practice
 
-Master:
+1. Unique Paths
+2. Minimum Path Sum
+3. Triangle
+4. Unique Paths II
+
+---
+
+## Concept 4 — 0/1 Knapsack
+
+Understand:
 
 ```text
 dp[i][capacity]
 ```
 
-Understand:
+and:
 
-* Take
-* Don't take
-* Capacity constraint
-* Why each item can be used only once
+```text
+skip item
+take item
+```
 
-### 5. Unbounded Knapsack
+### Practice
 
-Understand the difference from 0/1 Knapsack.
+1. 0/1 Knapsack
+2. Subset Sum
+3. Partition Equal Subset Sum
+4. Target Sum
 
-### 6. Subset Sum
+---
 
-Understand feasibility DP.
+## Concept 5 — Unbounded Knapsack
 
-### Coding Target
+### Practice
 
-4 problems:
-
-* 2 basic/medium DP
-* 1 knapsack
-* 1 medium-hard DP
+1. Coin Change
+2. Coin Change II
+3. Rod Cutting
 
 ---
 
@@ -619,122 +777,131 @@ Study:
 * TCP/IP model
 * TCP vs UDP
 * HTTP vs HTTPS
-* HTTP methods
-* HTTP status codes
 * DNS
-* IP
-* MAC address concept
+* IP address
+* MAC address
+* ARP concept
 * TCP three-way handshake
 * Connection termination
 * Cookies
 * Sessions
 * REST API
+* HTTP methods
+* HTTP status codes
 
-Be able to explain:
+### Important Interview Question
 
-> What happens when you enter a website URL into a browser?
+Explain:
 
-At a high level:
+```text
+What happens when you type a URL in the browser?
+```
+
+You should be able to explain:
 
 ```text
 DNS
-↓
-Connection
-↓
-TLS (HTTPS)
-↓
-HTTP Request
-↓
-Server
-↓
-Database / Application
-↓
-HTTP Response
-↓
-Browser Rendering
+→ network connection
+→ TCP
+→ TLS if HTTPS
+→ HTTP request
+→ server
+→ response
+→ browser processing
 ```
 
 ---
 
-# 10. 29 August — State DP, Counting DP, Subsequence DP
+# 11. DAY 5 — 29 AUGUST
 
-## DSA Concepts
+# STATE DP + COUNTING DP + SUBSEQUENCE DP
 
-### 1. State DP
+This is where you move toward the level represented by the first assessment.
 
-Learn how to represent extra information in the DP state.
+## Concept 1 — Multi-State DP
 
-Examples:
+Learn how to recognize:
 
 ```text
-dp[i][used]
-dp[i][last]
-dp[i][capacity][state]
+dp[i][state]
 dp[i][j][state]
 ```
 
-Typical state dimensions:
+Common state dimensions:
 
+* Used / not used
 * Previous choice
-* Used/not used
-* Remaining capacity
-* Current parity
-* Number of operations remaining
-* Special resource used
+* Capacity
+* Number of operations
+* Parity
+* Remaining resource
+* Current mode
 
-### 2. Counting DP
+### Practice
 
-Instead of computing minimum/maximum:
+1. Best Time to Buy and Sell Stock
+2. Best Time to Buy and Sell Stock II
+3. Best Time to Buy and Sell Stock with Cooldown
+4. House Robber variants
 
-```text
-dp[state] = number of valid ways
-```
+---
 
-Study:
+## Concept 2 — "Last Choice" DP
 
-* Counting paths
-* Counting sequences
-* Modulo arithmetic
-* Avoiding double counting
-
-### 3. DP with Previous Choice
-
-Understand patterns where:
+Core idea:
 
 ```text
-current choice != previous choice
+dp[i][last]
 ```
 
-This is important for combinatorial sequence problems.
+Use cases:
 
-### 4. Subsequence DP
+* No equal adjacent choices
+* Previous color
+* Previous number
+* Previous state
 
-Study:
+### Practice
 
-* LIS
-* LCS
-* Increasing subsequence patterns
+1. Paint House
+2. Paint House II
+3. Number of Ways to Stay in the Same Place
+4. Decode Ways
+
+---
+
+## Concept 3 — Counting DP
 
 Understand:
 
 ```text
-current state
-+
-previous state
-+
-transition
+dp = number of valid ways
 ```
 
-### Coding Target
+and:
 
-3–4 problems:
+```text
+MOD = 10**9 + 7
+```
 
-* 1 state DP
-* 1 counting DP
-* 1 LIS/LCS-style problem
-* 1 new medium-hard DP problem
+### Practice
 
-At least one problem must be unfamiliar.
+1. Climbing Stairs counting variants
+2. Coin Change II
+3. Combination Sum IV
+4. Number of Dice Rolls With Target Sum
+5. Distinct Subsequences
+
+---
+
+## Concept 4 — LIS / LCS
+
+### Practice
+
+1. Longest Increasing Subsequence
+2. Longest Common Subsequence
+3. Longest Palindromic Subsequence
+4. Edit Distance
 
 ---
 
@@ -744,805 +911,695 @@ At least one problem must be unfamiliar.
 
 Study:
 
-* SOLID
-* Interface design
+* SOLID principles
 * Composition
-* Dependency inversion concept
-* Coupling vs cohesion
-* Basic design principles
+* Dependency inversion
+* Interface-based design
+* Loose coupling
+* High cohesion
+
+Know them conceptually rather than memorizing definitions.
 
 ### DBMS
 
 Study:
 
+* Transactions
+* Isolation
+* Dirty read
+* Non-repeatable read
+* Phantom read
+* Serializability
 * Indexing
-* Transaction states
-* Isolation levels
-* Dirty Read
-* Non-repeatable Read
-* Phantom Read
-* Concurrency
-* Locks
+* B-tree concept
+* Query optimization concept
 * Normalization vs denormalization
 
 ---
 
-# 11. 30 August — Trees, BST, Tree DP
+# 12. DAY 6 — 30 AUGUST
 
-## DSA Concepts
+# TREES + BST + TREE DP
 
-### 1. Binary Tree
+## Concept 1 — Tree Traversal
 
 Master:
 
 * Preorder
 * Inorder
 * Postorder
-* Recursive traversal
-* Iterative traversal concept
+* Level order
 
-### 2. BFS / Level Order
+### Practice
 
-Master:
-
-* Queue
-* Level processing
-* Depth tracking
-
-### 3. Binary Search Tree
-
-Understand:
-
-* Search
-* Insert
-* Delete concept
-* Inorder property
-* Ordered structure
-
-### 4. Tree Properties
-
-Study:
-
-* Height
-* Depth
-* Diameter
-* Balanced tree concept
-* Lowest Common Ancestor concept
-
-### 5. Tree DP
-
-Understand:
-
-```text
-Solve children
-↓
-Combine child answers
-↓
-Return information to parent
-```
-
-Do not try to master every advanced tree technique.
-
-### Coding Target
-
-4 problems:
-
-* 1 DFS tree
-* 1 BFS tree
-* 1 BST
-* 1 tree-DP-style medium problem
+1. Binary Tree Preorder Traversal
+2. Binary Tree Inorder Traversal
+3. Binary Tree Postorder Traversal
+4. Binary Tree Level Order Traversal
 
 ---
 
-## Interview — Project and Resume Deep Dive
+## Concept 2 — Tree Properties
 
-Choose the two strongest projects from your resume.
+### Practice
 
-For each project, prepare:
+1. Maximum Depth of Binary Tree
+2. Diameter of Binary Tree
+3. Balanced Binary Tree
+4. Same Tree
+5. Symmetric Tree
+6. Path Sum
+7. Binary Tree Right Side View
 
-### Project Basics
+---
 
-* Problem statement
-* Why the project exists
-* Target users
-* Main features
-* Architecture
-* Technology stack
-* Responsibilities
+## Concept 3 — BST
 
-### Technical Decisions
+### Practice
 
-For every major technology:
+1. Search in BST
+2. Insert into BST
+3. Validate BST
+4. Lowest Common Ancestor of BST
+5. Kth Smallest Element in a BST
+
+---
+
+## Concept 4 — Tree DP
+
+Understand:
 
 ```text
-Why this?
-Why not another technology?
+answer from children
+        ↓
+combine
+        ↓
+return to parent
 ```
 
-Examples:
+### Practice
 
-* Why FastAPI?
-* Why Django?
-* Why PostgreSQL?
-* Why React?
-* Why Flutter?
-* Why REST?
-* Why this database structure?
+1. House Robber III
+2. Binary Tree Maximum Path Sum
+3. Diameter of Binary Tree
+
+---
+
+## Interview — PROJECT DEEP DIVE
+
+Choose two strongest projects.
+
+For each project prepare:
+
+### Architecture
+
+```text
+Client
+↓
+Frontend
+↓
+API
+↓
+Business Logic
+↓
+Database
+```
+
+### Database
+
+Explain:
+
+* Tables
+* Relationships
+* Keys
+* Indexes
+* Important queries
+* Transactions
 
 ### Backend
 
-Understand:
+Explain:
 
-* Request lifecycle
-* Routing
-* Validation
+* API routing
 * Authentication
-* Authorization
-* Database interaction
+* Validation
 * Error handling
-* API design
-* Deployment concept
+* Middleware
+* Database interaction
+* Concurrency
+* Scaling
 
-### Scaling
+### Production questions
 
-Be prepared for:
-
-> What happens if 1,000 users use your application?
-
-Discuss at a reasonable level:
-
-* Load balancing
-* Stateless services
-* Database indexing
-* Connection pooling
-* Caching
-* Background tasks
-* Horizontal scaling
-
-### Personal contribution
-
-Be able to clearly distinguish:
-
-```text
-What the project does
-vs
-What YOU personally implemented
-```
-
-Never claim technical knowledge you cannot defend.
+1. How would you handle 10x traffic?
+2. Where would caching help?
+3. What if the database becomes slow?
+4. What if one service fails?
+5. How do you secure the API?
+6. How would you monitor the application?
+7. How would you test it?
+8. How would you deploy it?
+9. What is the biggest weakness of your current architecture?
+10. What would you redesign?
 
 ---
 
-# 12. 31 August — Graphs
+# 13. DAY 7 — 31 AUGUST
 
-## DSA Concepts
+# GRAPHS
 
-### 1. Graph Representation
+## Concept 1 — Graph Representation
 
-Master:
+Know:
 
 ```text
-Adjacency List
-Adjacency Matrix concept
+adjacency matrix
+adjacency list
+edge list
 ```
 
-### 2. DFS
+Focus mainly on adjacency lists.
 
-Understand:
+---
 
-* Recursive DFS
-* Iterative DFS
-* Visited array
-* Connected components
+## Concept 2 — DFS
 
-### 3. BFS
+### Practice
 
-Understand:
+1. Number of Islands
+2. Flood Fill
+3. Clone Graph
+4. Surrounded Regions
 
-* Queue
-* Level traversal
-* Shortest path in unweighted graph
+---
 
-### 4. Cycle Detection
+## Concept 3 — BFS
 
-Know basic approaches for:
+### Practice
 
-* Undirected graph
-* Directed graph
+1. Binary Tree Level Order Traversal
+2. Rotting Oranges
+3. Shortest Path in Binary Matrix
+4. Word Ladder
 
-### 5. Topological Sort
+---
 
-Learn:
+## Concept 4 — Connected Components / Cycle Detection
 
-* DFS-based concept
-* Kahn's Algorithm
+### Practice
 
-### 6. DSU / Union-Find
+1. Number of Connected Components
+2. Course Schedule
+3. Detect Cycle in Undirected Graph
+4. Detect Cycle in Directed Graph
+
+---
+
+## Concept 5 — Topological Sort
+
+### Practice
+
+1. Course Schedule
+2. Course Schedule II
+3. Alien Dictionary concept
+
+---
+
+## Concept 6 — DSU
 
 Understand:
 
 * Parent
-* Find
-* Union
+* Rank / size
 * Path compression
-* Union by rank/size
+* Union
 
-### Coding Target
+### Practice
 
-4 problems:
-
-* 1 DFS
-* 1 BFS
-* 1 connected-component/cycle problem
-* 1 topological/DSU problem
+1. Number of Connected Components
+2. Redundant Connection
+3. Accounts Merge
 
 ---
 
-## Interview — SQL + DBMS Practice
+## Interview — SQL DEEP PRACTICE
 
-Move from theory to implementation.
+Write:
 
-Write queries involving:
+1. Second highest salary
+2. Nth highest salary
+3. Employees with managers
+4. Departments with highest average salary
+5. Duplicate rows
+6. Employees earning above department average
+7. Customers with no orders
+8. Top 3 salaries in each department
+9. Count employees per department
+10. Multiple-table JOIN + GROUP BY + HAVING
 
-* JOIN
-* GROUP BY
-* HAVING
-* Aggregation
-* Multiple tables
-* Subqueries
-* Nested aggregation
-* Duplicate detection
-* Ranking concepts
-* Second highest value
-* Conditional filtering
+Focus on:
 
-Then verbally explain:
+```text
+JOIN
+GROUP BY
+HAVING
+SUBQUERY
+CTE concept
+WINDOW FUNCTION concept
+```
 
-* Why an index helps
-* When an index hurts
-* What a transaction is
-* Why normalization exists
-* Why ACID matters
+Also know:
+
+```text
+ROW_NUMBER
+RANK
+DENSE_RANK
+```
+
+at least conceptually.
 
 ---
 
-# 13. 1 September — Advanced DP, Interval DP, Mathematical Optimization
+# 14. DAY 8 — 1 SEPTEMBER
 
-This is the highest-level DSA day.
+# INTERVAL DP + PARTITION DP + NUMBER THEORY
 
-## DSA Concepts
+This is the advanced assessment day.
 
-### 1. Interval DP
+## Concept 1 — Interval DP
 
-Learn:
+Core state:
 
 ```text
 dp[l][r]
 ```
 
-Typical method:
+Try every possible split/root.
 
-```text
-Choose k between l and r
-Solve left interval
-Solve right interval
-Combine
-```
+### Practice
 
-Use this to understand:
+1. Matrix Chain Multiplication
+2. Burst Balloons
+3. Palindrome Partitioning
+4. Minimum Cost to Cut a Stick
+5. Optimal BST concept
 
-* Matrix Chain Multiplication
-* Palindrome Interval DP
-* Partitioning problems
-* Optimal BST-style reasoning
+---
 
-### 2. Partition DP
+## Concept 2 — Partition DP
 
 Understand:
 
 ```text
-dp[l][r]
-=
-best over split k
+choose split k
+solve left
+solve right
+combine
 ```
 
-### 3. Advanced State Optimization
+### Practice
 
-Understand that some problems require tracking:
+1. Matrix Chain Multiplication
+2. Minimum Cost to Cut a Stick
+3. Palindrome Partitioning II
 
-* Last choice
-* Used resource
-* Position
-* Number of operations
-* Capacity
-* Previous state
+---
 
-### 4. Number Theory
+## Concept 3 — Number Theory
 
-Learn:
+Study:
 
 * GCD
 * LCM
 * Euclidean Algorithm
 * Extended Euclidean Algorithm
-* Bézout Identity
-* Modular arithmetic
-* Fast exponentiation
-* Basic Diophantine equations
-
-### 5. Large-Constraint Reasoning
-
-Train yourself to look at:
-
-```text
-N <= 10^5
-N <= 10^6
-N <= 10^9
-N <= 10^12
-```
-
-and immediately consider whether:
-
-```text
-O(N²)
-O(N)
-O(log N)
-mathematical solution
-```
-
-is feasible.
-
-### Coding Target
-
-3 hard/advanced problems:
-
-* 1 interval/partition DP
-* 1 mathematical optimization
-* 1 hard mixed problem
-
-The goal is **derivation**, not completion speed.
-
----
-
-## Interview — OS + CN Revision
-
-Review:
-
-### OS
-
-* Process vs Thread
-* Context switching
-* Scheduling
-* Deadlock
-* Mutex
-* Semaphore
-* Critical section
-* Race condition
-* Stack vs Heap
-* Virtual Memory
-* Paging
-* Page Fault
-* Fragmentation
-
-### CN
-
-* TCP vs UDP
-* HTTP vs HTTPS
-* DNS
-* TCP handshake
-* REST
-* Cookies/Sessions
-* Status codes
-* Basic web request lifecycle
-
----
-
-# 14. 2 September — Mixed Infosys-Level Coding
-
-No topic labels.
-
-Do not know whether the problem is:
-
-* DP
-* Greedy
-* Heap
-* Graph
-* Binary Search
-* Prefix Sum
-* Tree
-* Number Theory
-
-The purpose is pattern recognition.
-
-## Three-hour mixed practice
-
-Before solving:
-
-### First 10 minutes
-
-Read all problems.
-
-For each:
-
-```text
-Constraints
-Brute Force
-Likely bottleneck
-Likely pattern
-Expected complexity
-```
-
-Rank:
-
-```text
-Easiest
-↓
-Second easiest
-↓
-Hard
-↓
-Complex
-```
-
-Then solve accordingly.
-
-## Important Exam Habit
-
-Do not spend 60–90 minutes blindly attacking one difficult problem.
-
-Secure easier points first.
-
----
-
-## Interview — Project Grilling + Technical Integration
-
-Combine everything.
-
-Practice questions like:
-
-### Backend
-
-* How does your API work?
-* How does authentication work?
-* How do you handle errors?
-* How do you validate input?
-* How does the database interact with the backend?
-* How would you scale it?
-* Where could performance bottlenecks occur?
-
-### Database
-
-* Why PostgreSQL?
-* Why indexes?
-* What happens during a transaction?
-* How would you optimize a slow query?
-
-### OOP
-
-* Where did you use abstraction?
-* Where is inheritance useful?
-* What is polymorphism?
-* How would you redesign this component?
-
-### Networking
-
-* What happens when the API is called?
-* HTTP vs HTTPS?
-* What is a status code?
-* TCP vs UDP?
-
-### DSA
-
-For each project-related algorithm, explain:
-
-* Approach
-* Complexity
-* Why it works
-* Alternative
-
----
-
-# 15. 3 September — Full Mock Assessment + Mock Interview
-
-## Coding
-
-Conduct a complete:
-
-**3-hour offline-style mock**
-
-Rules:
-
-* No AI
-* No internet
-* No autocomplete
-* No solution lookup
-* No notes
-* Normal text editor / terminal
-* Standard input/output
-* Four mixed problems
-
-Recommended structure:
-
-```text
-0–10 min
-Read every problem
-
-10–50 min
-Secure easiest problem
-
-50–100 min
-Solve second
-
-100–150 min
-Attack third
-
-150–180 min
-Fourth problem / debugging / optimization
-```
-
-The exact timing can change based on the paper.
-
-The principle is:
-
-> Maximize correct output, not emotional satisfaction from fighting the hardest question.
-
----
-
-## After the Mock
-
-Analyze errors.
-
-Classify each failure:
-
-```text
-Concept gap
-Pattern recognition failure
-Algorithm derivation failure
-Implementation bug
-Edge case failure
-TLE
-Wrong complexity
-Time management
-```
-
-Then repair the actual weakness.
-
----
-
-## Interview Mock
-
-Perform a 60–90 minute mock interview covering:
-
-### Introduction
-
-* Tell me about yourself.
-* Explain your background.
-* Why Infosys?
-* Why SP/DSE?
-
-### DSA
-
-* Explain one algorithm.
-* Write/derive a solution.
-* Complexity?
-* Alternative approach?
-
-### OOP
-
-* Four pillars
-* Polymorphism
-* Abstraction
-* Interface vs abstract class
-
-### DBMS/SQL
-
-* Keys
-* Normalization
-* ACID
-* Indexing
-* Joins
-* SQL query
-
-### OS
-
-* Process vs thread
-* Deadlock
-* Synchronization
-* Memory
-
-### CN
-
-* TCP vs UDP
-* DNS
-* HTTPS
-* REST
-
-### Projects
-
-* Architecture
-* Contribution
-* Challenges
-* Scaling
-* Trade-offs
-
-### HR
-
-* Strength
-* Weakness
-* Failure
-* Leadership
-* Relocation
-* Career goals
-
----
-
-# 16. 4 September — Final Preparation Day
-
-## DSA
-
-Do not learn major new concepts.
-
-Review only:
-
-* Hashing
-* Prefix Sum
-* Two Pointers
-* Sliding Window
-* Binary Search
-* Stack
-* Heap
-* Greedy
-* Knapsack
-* State DP
-* Counting DP
-* Trees
-* Graphs
-* Interval DP
-* Number Theory
-
-Do 2–3 moderate problems only.
-
-No hard-problem marathon.
-
----
-
-## Interview
-
-Final revision:
-
-### OOP
-
-Core concepts + practical examples.
-
-### DBMS
-
-Keys, normalization, ACID, indexes, transactions, isolation.
-
-### SQL
-
-Joins, GROUP BY, HAVING, subqueries, aggregation.
-
-### OS
-
-Process/thread, scheduling, deadlock, synchronization, memory.
-
-### CN
-
-TCP/UDP, HTTP/HTTPS, DNS, REST.
-
-### Projects
-
-Be able to explain every technology and technical decision on the resume.
-
-### HR
-
-Prepare concise, natural answers.
-
----
-
-# 17. Coding Pattern Syllabus
-
-The complete DSA syllabus for this preparation should be:
-
-## Arrays / Strings
-
-* Frequency map
-* Prefix sum
-* Difference array concept
-* Two pointers
-* Sliding window
-* Sorting-based patterns
-
-## Hashing
-
-* Frequency
-* Lookup
-* Set-based detection
-* Prefix + HashMap
-
-## Binary Search
-
-* Standard
-* Lower/upper bound
-* Rotated array concept
-* Binary search on answer
-* Feasibility function
-
-## Stack / Queue
-
-* Basic stack
-* Monotonic stack
-* BFS queue
-* Deque concept
-
-## Heap
-
-* Min heap
-* Max heap
-* Top K
-* Two heaps
-* Heap + greedy
-
-## Greedy
-
-* Sorting + greedy
-* Interval scheduling
-* Resource allocation
-* Replacement/rollback greedy
-
-## Dynamic Programming
-
-* Recursion → memoization
-* Tabulation
-* 1D DP
-* 2D DP
-* 0/1 Knapsack
-* Unbounded Knapsack
-* Subset Sum
-* State DP
-* Counting DP
-* Previous-state DP
-* LIS
-* LCS
-* Partition DP
-* Interval DP
-
-## Trees
-
-* DFS
-* BFS
-* BST
-* Height
-* Diameter
-* LCA concept
-* Tree DP
-
-## Graphs
-
-* Representation
-* DFS
-* BFS
-* Components
-* Cycles
-* Shortest path basics
-* Topological sort
-* DSU
-
-## Number Theory
-
-* GCD
-* LCM
-* Extended Euclid
 * Bézout identity
 * Modular arithmetic
 * Fast exponentiation
-* Diophantine equations
+* Linear Diophantine equation
+
+Understand:
+
+```text
+ax + by = c
+```
+
+and when a solution can exist.
 
 ---
 
-# 18. Interview Syllabus
+## Concept 4 — Binary Search on Answer
 
-## OOP
+### Practice
+
+1. Koko Eating Bananas
+2. Capacity to Ship Packages Within D Days
+3. Aggressive Cows
+4. Allocate Minimum Pages
+5. Split Array Largest Sum
+
+---
+
+## Interview — OS + CN Final Technical Pass
+
+### OS
+
+Be ready for:
+
+* Process vs thread
+* Deadlock
+* Scheduling
+* Mutex/semaphore
+* Virtual memory
+* Paging
+* Page fault
+* Context switching
+* Race condition
+
+### CN
+
+Be ready for:
+
+* TCP/UDP
+* HTTP/HTTPS
+* DNS
+* TCP handshake
+* REST
+* Cookies/session
+* HTTP methods/status
+* Browser request flow
+
+---
+
+# 15. DAY 9 — 2 SEPTEMBER
+
+# MIXED INFOSYS-STYLE DSA
+
+This day removes topic labels.
+
+Do not practice:
+
+```text
+"Here is a DP question."
+```
+
+Instead:
+
+```text
+Here is a problem.
+```
+
+You decide the pattern.
+
+---
+
+## Problem Set A
+
+1. Trapping Rain Water
+2. Course Schedule
+3. Coin Change
+4. Koko Eating Bananas
+
+---
+
+## Problem Set B
+
+1. Maximum Product Subarray
+2. Longest Increasing Subsequence
+3. Non-overlapping Intervals
+4. Number of Islands
+
+---
+
+## Problem Set C — Harder
+
+1. Burst Balloons
+2. Word Ladder
+3. Minimum Cost to Cut a Stick
+4. Split Array Largest Sum
+
+---
+
+## Required Thought Process
+
+For every problem:
+
+```text
+Constraints
+↓
+Brute force
+↓
+Why brute force fails
+↓
+Candidate pattern
+↓
+State / data structure
+↓
+Transition / recurrence
+↓
+Complexity
+↓
+Implementation
+```
+
+Do not jump into code immediately.
+
+---
+
+## Interview — Project + Resume Grilling
+
+Prepare for interviewer behavior like:
+
+```text
+Why this technology?
+Why not another technology?
+What happens internally?
+What was your exact contribution?
+How did you test it?
+What happens if input is invalid?
+How does authentication work?
+How does database indexing help?
+How would you scale it?
+What security issue exists?
+What would you change?
+```
+
+Also prepare:
+
+* Self introduction
+* Why Infosys?
+* Why SP?
+* Why DSE?
+* Why software engineering?
+* Career goals
+* Strength
+* Weakness
+* Failure
+* Team conflict
+* Leadership
+* Deadline pressure
+
+---
+
+# 16. DAY 10 — 3 SEPTEMBER
+
+# FULL 3-HOUR SIMULATION
+
+Simulate the actual Round 2 environment.
+
+Infosys officially lists Round 2 as a **three-hour coding assessment**. Recent 2026 experiences show that the exact number and arrangement of questions can vary by drive, so the mock should contain approximately four problems with increasing difficulty rather than relying on one fixed paper pattern.
+
+## Simulation
+
+### 3 Hours
+
+Use:
+
+* Plain editor
+* No AI
+* No internet
+* No autocomplete
+* No solution search
+
+### Mock composition
+
+#### Problem 1
+
+Easy/Medium
+
+Example style:
+
+* Hashing
+* Prefix Sum
+* Sliding Window
+* Simple Greedy
+
+#### Problem 2
+
+Medium
+
+Example style:
+
+* Binary Search
+* Heap
+* BFS/DFS
+* Standard DP
+
+#### Problem 3
+
+Medium-Hard
+
+Example style:
+
+* State DP
+* Graph
+* Greedy + Heap
+* Tree DP
+
+#### Problem 4
+
+Hard
+
+Example style:
+
+* Interval DP
+* Advanced Graph
+* Mathematical Optimization
+* Complex State DP
+
+---
+
+## Exam Strategy
+
+### First 10 minutes
+
+Read every problem.
+
+Do NOT immediately code Problem 1.
+
+Classify:
+
+```text
+Easy
+Medium
+Hard
+Very Hard
+```
+
+Then choose the best starting point.
+
+### Next phase
+
+Secure the easiest complete solution.
+
+Then move to the medium.
+
+Then attack the harder problem.
+
+Do not sacrifice two solvable problems because one hard problem looks interesting.
+
+### Final phase
+
+Use remaining time for:
+
+* Edge cases
+* Complexity
+* TLE fixes
+* Input parsing
+* Output format
+* Rechecking state transitions
+
+---
+
+# 17. DAY 10 INTERVIEW PREPARATION
+
+## Coding explanation practice
+
+Take these problems:
+
+1. Trapping Rain Water
+2. Longest Increasing Subsequence
+3. Number of Islands
+4. Coin Change
+5. Binary Search on Answer
+
+For each explain verbally:
+
+```text
+Problem
+Observation
+Approach
+Data structure
+Algorithm
+Why it works
+Time complexity
+Space complexity
+Edge cases
+```
+
+---
+
+## SQL Mock
+
+Solve five queries in approximately 30–40 minutes.
+
+---
+
+## Technical Mock
+
+Answer approximately 20 questions covering:
+
+* OOP
+* DBMS
+* SQL
+* OS
+* CN
+* Projects
+
+---
+
+# 18. DAY 11 — 4 SEPTEMBER
+
+# FINAL PREPARATION DAY
+
+No large new topic.
+
+No giant problem marathon.
+
+## DSA
+
+Review only the high-value patterns:
+
+```text
+Hashing
+Prefix Sum
+Sliding Window
+Two Pointers
+Binary Search
+Heap
+Greedy
+1D DP
+2D DP
+Knapsack
+State DP
+LIS/LCS
+Tree DFS/BFS
+Graph DFS/BFS
+Topological Sort
+Interval DP
+Binary Search on Answer
+GCD / Extended Euclid
+```
+
+Solve only a small number of easy/medium problems to maintain coding fluency.
+
+---
+
+# 19. FINAL INTERVIEW SYLLABUS
+
+## A. OOP
+
+Know thoroughly:
 
 * Class/Object
 * Encapsulation
@@ -1554,425 +1611,750 @@ The complete DSA syllabus for this preparation should be:
 * Interface
 * Abstract class
 * Composition
-* SOLID basics
-* Coupling
-* Cohesion
+* Association
+* SOLID
+* Dynamic dispatch
+* Static vs dynamic binding
 
-## DBMS
+---
+
+# B. DBMS
+
+Know thoroughly:
 
 * Keys
 * Relationships
+* ER concept
 * Normalization
-* Denormalization
-* Indexing
+* 1NF
+* 2NF
+* 3NF
 * Transactions
 * ACID
-* Concurrency
-* Locks
-* Isolation levels
-* Dirty Read
-* Non-repeatable Read
-* Phantom Read
+* Isolation
+* Dirty read
+* Non-repeatable read
+* Phantom read
+* Indexing
+* B-tree/B+ tree concept
+* Joins
+* Views
+* Constraints
+* Query optimization basics
 
-## SQL
+---
+
+# C. SQL
+
+Be able to write:
 
 * SELECT
 * WHERE
 * ORDER BY
 * GROUP BY
 * HAVING
-* DISTINCT
+* JOIN
+* LEFT JOIN
+* INNER JOIN
+* Subquery
+* CTE concept
 * Aggregate functions
-* JOINs
-* Subqueries
-* Nested queries
-* Practical query writing
+* Window functions
 
-## Operating Systems
+Practice:
+
+* Second highest salary
+* Nth highest salary
+* Duplicate rows
+* Department salary
+* Employee-manager query
+* Top K per group
+* Aggregation
+* Join + filter
+* Join + aggregation
+* Correlated/nested query concept
+
+Recent interview reports specifically mention SQL query solving, so SQL should not be treated as a theory-only subject.
+
+---
+
+# D. Operating Systems
+
+Know:
 
 * Process
 * Thread
+* Context switch
 * Scheduling
-* Context switching
 * Deadlock
+* Synchronization
 * Mutex
 * Semaphore
-* Critical section
 * Race condition
-* Memory
 * Virtual memory
 * Paging
 * Page faults
 * Fragmentation
+* Stack
+* Heap
 
-## Computer Networks
+---
+
+# E. Computer Networks
+
+Know:
 
 * OSI
 * TCP/IP
-* TCP vs UDP
-* DNS
+* TCP
+* UDP
 * HTTP
 * HTTPS
+* DNS
+* IP
+* TCP handshake
 * HTTP methods
 * Status codes
-* TCP handshake
 * Cookies
 * Sessions
 * REST
 
-## Backend / Development
+---
 
-Depending on the resume:
+# F. DSA Interview
 
-* REST APIs
-* Authentication
-* Authorization
-* JWT
-* Validation
-* Error handling
-* Database interaction
-* API lifecycle
-* Async vs synchronous processing
-* Scalability basics
-* Caching
-* Load balancing
-* Connection pooling
+Expect to explain or code:
 
-## Projects
+* Arrays
+* Strings
+* Hashing
+* Stack
+* Queue
+* Heap
+* Binary Search
+* Linked List basics
+* Trees
+* BST
+* BFS
+* DFS
+* Graphs
+* Greedy
+* DP
+* Complexity
 
-For every project:
-
-* Problem
-* Users
-* Architecture
-* Technology choice
-* Database
-* API design
-* Authentication
-* Challenges
-* Debugging
-* Performance
-* Scaling
-* Security
-* Future improvements
-* Personal contribution
+Recent 2026 interview reports show both actual coding and verbal algorithm explanation, including questions around standard array/tree problems and optimal solutions.
 
 ---
 
-# 19. Interview Answer Framework
+# G. Project Defense
 
-For technical questions:
+For every project know:
+
+## Problem
+
+What problem were you solving?
+
+## Architecture
+
+How do components communicate?
+
+## Technology choice
+
+Why this stack?
+
+## Data layer
+
+How is data stored?
+
+## API
+
+What endpoints exist?
+
+## Authentication
+
+How does authorization work?
+
+## Error handling
+
+What can fail?
+
+## Performance
+
+What is the bottleneck?
+
+## Security
+
+What vulnerabilities exist?
+
+## Scalability
+
+What changes at 10x traffic?
+
+## Testing
+
+How did you test it?
+
+## Deployment
+
+How would you deploy it?
+
+## Improvements
+
+What would you redesign?
+
+---
+
+# 20. SYSTEM / SOFTWARE ENGINEERING QUESTIONS
+
+Especially for SP-oriented discussion, understand:
+
+* Monolith vs microservices
+* REST
+* Stateless backend
+* Authentication
+* Authorization
+* Caching
+* Database indexing
+* Connection pooling
+* Load balancing
+* Horizontal scaling
+* Vertical scaling
+* Background jobs
+* Message queues concept
+* Logging
+* Monitoring
+* Rate limiting
+* API validation
+* Error handling
+* Basic security practices
+
+Do not try to become a system-design expert in ten days.
+
+The goal is to communicate good engineering decisions.
+
+Recent 2026 candidate reports indicate deeper project/development/system-design questioning can occur for SP-oriented interviews.
+
+---
+
+# 21. IMPORTANT DSA PROBLEM LIBRARY
+
+## Arrays / Hashing
+
+* Two Sum
+* Contains Duplicate
+* Majority Element
+* Longest Consecutive Sequence
+* Subarray Sum Equals K
+* Maximum Subarray
+* Product of Array Except Self
+
+## Sliding Window
+
+* Longest Substring Without Repeating Characters
+* Minimum Size Subarray Sum
+* Longest Repeating Character Replacement
+* Permutation in String
+* Minimum Window Substring
+
+## Two Pointers
+
+* Two Sum II
+* 3Sum
+* Container With Most Water
+* Trapping Rain Water
+
+## Binary Search
+
+* Binary Search
+* Search Insert Position
+* Search Rotated Array
+* First/Last Position
+* Koko Eating Bananas
+* Capacity to Ship Packages
+* Split Array Largest Sum
+
+## Stack
+
+* Valid Parentheses
+* Min Stack
+* Next Greater Element
+* Daily Temperatures
+* Largest Rectangle in Histogram
+
+## Heap
+
+* Kth Largest
+* Top K Frequent
+* K Closest Points
+* Merge K Sorted Lists
+* Find Median from Data Stream
+
+## Greedy
+
+* Jump Game
+* Jump Game II
+* Gas Station
+* Activity Selection
+* Non-overlapping Intervals
+* Meeting Rooms II
+* Course Schedule III
+
+## Basic DP
+
+* Climbing Stairs
+* House Robber
+* House Robber II
+* Decode Ways
+* Unique Paths
+* Minimum Path Sum
+
+## Knapsack
+
+* 0/1 Knapsack
+* Subset Sum
+* Partition Equal Subset Sum
+* Target Sum
+* Coin Change
+* Coin Change II
+* Rod Cutting
+
+## Advanced DP
+
+* LIS
+* LCS
+* Edit Distance
+* Distinct Subsequences
+* Stock with Cooldown
+* Stock with Transactions
+* Paint House
+* Combination Sum IV
+* Number of Dice Rolls
+
+## Trees
+
+* Maximum Depth
+* Diameter
+* Balanced Tree
+* Symmetric Tree
+* Path Sum
+* Right Side View
+* Validate BST
+* Kth Smallest BST
+* LCA
+* House Robber III
+* Binary Tree Maximum Path Sum
+
+## Graphs
+
+* Number of Islands
+* Flood Fill
+* Clone Graph
+* Rotting Oranges
+* Shortest Path in Binary Matrix
+* Word Ladder
+* Course Schedule
+* Course Schedule II
+* Connected Components
+* Redundant Connection
+* Accounts Merge
+
+## Interval / Partition DP
+
+* Matrix Chain Multiplication
+* Burst Balloons
+* Palindrome Partitioning
+* Palindrome Partitioning II
+* Minimum Cost to Cut a Stick
+* Optimal BST concept
+
+## Mathematical Optimization
+
+* GCD
+* Extended Euclid
+* Linear Diophantine Equation
+* Modular Exponentiation
+* Binary Search on Answer
+* Frobenius/coin-problem style reasoning
+
+---
+
+# 22. HOW TO APPROACH A COMPLETELY NEW HARD PROBLEM
+
+When a problem looks impossible:
+
+## Step 1
+
+Read the constraints.
+
+Examples:
+
+```text
+N <= 20
+```
+
+Think:
+
+```text
+bitmask / backtracking / exponential DP
+```
+
+```text
+N <= 10^3
+```
+
+Think:
+
+```text
+O(N^2)
+```
+
+```text
+N <= 10^5
+```
+
+Think:
+
+```text
+O(N log N)
+O(N)
+```
+
+```text
+N <= 10^9
+```
+
+Think:
+
+```text
+mathematical optimization
+binary search
+greedy
+number theory
+```
+
+---
+
+## Step 2
+
+Find the brute-force solution.
+
+Even if it is impossible.
+
+This tells you what must be optimized.
+
+---
+
+## Step 3
+
+Find the repeated work.
+
+Ask:
+
+```text
+What information is being recomputed?
+```
+
+That leads toward DP or caching.
+
+---
+
+## Step 4
+
+Find the bottleneck.
+
+Ask:
+
+```text
+Why is this O(N^2)?
+Why is this O(2^N)?
+Why is this O(N^3)?
+```
+
+Then find what data structure removes that cost.
+
+---
+
+## Step 5
+
+Check whether the problem is:
+
+```text
+Greedy
+DP
+Graph
+Binary Search
+Heap
+Hashing
+Math
+```
+
+---
+
+# 23. COMPLEXITY TARGETS
+
+Be able to recognize:
+
+```text
+O(1)
+O(log N)
+O(N)
+O(N log N)
+O(N^2)
+O(N^3)
+O(2^N)
+O(N!)
+```
+
+Know when each is acceptable.
+
+For example:
+
+```text
+N = 10^5
+```
+
+Usually:
+
+```text
+O(N)
+O(N log N)
+```
+
+are appropriate.
+
+```text
+N = 500
+```
+
+may allow:
+
+```text
+O(N^2)
+```
+
+and sometimes:
+
+```text
+O(N^3)
+```
+
+depending on the constant.
+
+This is especially important for the style of problems demonstrated in the first assessment.
+
+---
+
+# 24. INTERVIEW ANSWER STRUCTURE
+
+Never answer technical questions with a one-line definition if the interviewer is clearly probing deeper.
+
+Use:
 
 ```text
 Definition
 ↓
-How it works
+Why it exists
 ↓
 Example
 ↓
-Why it matters
-↓
-Trade-off / limitation
+Trade-off
 ```
 
-For project questions:
+Example:
+
+> What is an index?
+
+Answer structure:
 
 ```text
+An index is an auxiliary data structure used to speed up data retrieval.
+
+It avoids scanning the entire table for many queries.
+
+The trade-off is additional storage and slower writes because the index must also be maintained.
+```
+
+Then wait.
+
+If they ask deeper, continue.
+
+---
+
+# 25. CODING INTERVIEW EXPLANATION STRUCTURE
+
+When given a coding problem:
+
+```text
+1. Restate the problem
+2. State assumptions
+3. Give brute force
+4. Explain why brute force is too slow
+5. Explain optimized idea
+6. State data structure
+7. State complexity
+8. Code
+9. Test with example
+10. Discuss edge cases
+```
+
+This is particularly important because recent Infosys interviews have included not only coding but asking candidates to explain algorithms and approaches.
+
+---
+
+# 26. FINAL EXAM-DAY MENTAL MODEL
+
+Do not enter the assessment thinking:
+
+> "I have to solve every question."
+
+Think:
+
+```text
+Question 1
+↓
+Can I solve this confidently?
+
+Question 2
+↓
+Can I derive it?
+
+Question 3
+↓
+What pattern is hidden here?
+
+Question 4
+↓
+Can I get a correct optimized solution or partial progress?
+```
+
+The priorities are:
+
+```text
+Correctness
+>
+Complexity
+>
+Coverage
+>
+Optimization
+```
+
+A correct simpler solution is better than a beautiful unfinished hard solution.
+
+---
+
+# 27. FINAL INTERVIEW MENTAL MODEL
+
+The interviewer is trying to answer:
+
+```text
+Can this candidate actually code?
+        +
+Does this candidate understand CS fundamentals?
+        +
+Does the candidate understand their own projects?
+        +
+Can the candidate reason about engineering decisions?
+        +
+Can the candidate communicate clearly?
+```
+
+Prepare for all five.
+
+---
+
+# 28. WHAT NOT TO DO DURING THESE 11 DAYS
+
+Do not:
+
+* Randomly solve 100 LeetCode problems.
+* Watch complete DSA courses from beginning to end.
+* Memorize solutions.
+* Spend half a day on one obscure algorithm.
+* Study every advanced graph algorithm.
+* Ignore SQL.
+* Ignore projects.
+* Ignore OS/CN/OOP.
+* Depend on AI for the first attempt.
+* Practice only familiar questions.
+* Stay awake all night every day.
+* Cram new topics on September 4.
+
+---
+
+# 29. FINAL PRIORITY ORDER
+
+If time becomes limited, use this priority order.
+
+## Coding
+
+```text
+1. DP
+2. Greedy
+3. Arrays / Hashing
+4. Binary Search
+5. Heap
+6. Trees
+7. Graphs
+8. Sliding Window / Two Pointers
+9. Interval DP
+10. Number Theory
+```
+
+## Interview
+
+```text
+1. SQL + DBMS
+2. Projects
+3. OOP
+4. DSA explanation
+5. OS
+6. CN
+7. Backend / engineering fundamentals
+8. System design basics
+9. HR
+```
+
+---
+
+# 30. THE FINAL GOAL
+
+By the time the preparation reaches the assessment, the desired transformation is:
+
+```text
+Before preparation:
+
 Problem
 ↓
-Architecture
+Need AI help
 ↓
-Implementation
+Find solution
 ↓
-Technical decision
+Debug with AI
 ↓
-Challenge
-↓
-Solution
-↓
-Trade-off
-↓
-Improvement
-```
+Submit
 
-For DSA questions:
+After preparation:
 
-```text
-Observation
-↓
-Pattern
-↓
-Algorithm
-↓
-State / Invariant
-↓
-Complexity
-↓
-Correctness intuition
-↓
-Edge cases
-```
-
----
-
-# 20. Coding Under Exam Conditions
-
-The assessment should be approached as a competition for correct submissions.
-
-## First reading
-
-Read all questions.
-
-Do not immediately start coding the first one.
-
-## Classify
-
-Estimate:
-
-* Difficulty
-* Familiarity
-* Expected complexity
-* Implementation effort
-
-## Start with the best ROI problem
-
-Not necessarily Question 1.
-
-## During coding
-
-Always test:
-
-* Minimum input
-* Maximum relevant condition
-* Single element
-* Duplicate values
-* Negative values if allowed
-* Empty state if possible
-* Exact-boundary cases
-* Already-sorted cases
-* Worst-case complexity
-
----
-
-# 21. Complexity Discipline
-
-For every solution, explicitly ask:
-
-```text
-What is N?
-What is the maximum N?
-What is the maximum value?
-Can I iterate over the value?
-Can I use O(N²)?
-Can I use O(N log N)?
-Do I need O(N)?
-```
-
-Typical interpretation:
-
-```text
-N ~ 10
-        O(N!)
-may be possible
-
-N ~ 100
-        O(N³) may be possible depending on constants
-
-N ~ 500
-        O(N³) may sometimes be acceptable
-
-N ~ 10^5
-        O(N log N) / O(N) usually preferred
-
-N ~ 10^9
-        mathematical / logarithmic / greedy reasoning usually required
-```
-
-The exact feasibility depends on the operation and environment, but constraint awareness must become automatic.
-
----
-
-# 22. Important Problem-Solving Patterns to Recognize
-
-When you see:
-
-```text
-Repeated lookup
-        → HashMap / Set
-```
-
-```text
-Contiguous range
-        → Sliding Window / Prefix Sum
-```
-
-```text
-Sorted + pair/triple relationship
-        → Two Pointers
-```
-
-```text
-Monotonic condition
-        → Binary Search
-```
-
-```text
-Nearest greater/smaller
-        → Monotonic Stack
-```
-
-```text
-Repeated best candidate
-        → Heap
-```
-
-```text
-Local optimal choices
-        → Greedy
-```
-
-```text
-Overlapping subproblems
-        → DP
-```
-
-```text
-Previous choice changes current possibilities
-        → State DP
-```
-
-```text
-Count valid ways
-        → Counting DP
-```
-
-```text
-Subarray/range optimization
-        → Prefix / DP / Sliding Window
-```
-
-```text
-Tree structure
-        → DFS/BFS / Tree DP
-```
-
-```text
-Reachability
-        → DFS/BFS
-```
-
-```text
-Ordering dependencies
-        → Topological Sort
-```
-
-```text
-Repeated connectivity merging
-        → DSU
-```
-
-```text
-Huge numeric constraints
-        → Mathematical reduction
-```
-
-```text
-Choose a root/split inside [L, R]
-        → Interval / Partition DP
-```
-
----
-
-# 23. What Not to Spend Time On
-
-Do not dedicate significant preparation time to:
-
-* Very advanced segment trees
-* Heavy-Light Decomposition
-* Suffix Arrays
-* Advanced computational geometry
-* Extremely advanced graph algorithms
-* Rare competitive programming tricks
-* Huge collections of LeetCode questions
-
-The preparation should prioritize:
-
-```text
-DP
-Greedy
-Graphs
-Trees
-Heap
-Binary Search
-Arrays
-Strings
-Hashing
-SQL
-DBMS
-OOP
-OS
-CN
-Projects
-```
-
----
-
-# 24. Final Target
-
-By the assessment, the target ability is:
-
-## Easy
-
-Solve independently and confidently.
-
-## Medium
-
-Derive and implement independently.
-
-## Medium-Hard
-
-Recognize the likely pattern, derive the state/approach, and implement with limited hesitation.
-
-## Hard
-
-Break down the problem, reject inefficient approaches, derive a mathematical or DP structure, and make meaningful progress.
-
-## Complex
-
-Do not panic.
-
-Understand the problem, extract constraints, derive partial structure, and maximize achievable points.
-
----
-
-# 25. Final Mental Model
-
-The preparation is successful when the thought process becomes:
-
-```text
-Read
+Problem
 ↓
 Constraints
 ↓
-Observation
-↓
-Brute Force
-↓
-Why brute force fails?
-↓
 Pattern
 ↓
-State / Data Structure
+Brute force
 ↓
-Transition / Invariant
+Optimization
+↓
+State / data structure
 ↓
 Complexity
 ↓
-Code
+Independent implementation
 ↓
-Test
+Manual testing
 ↓
-Optimize
+Submission
 ```
 
 And for the interview:
@@ -1980,57 +2362,21 @@ And for the interview:
 ```text
 Question
 ↓
-Definition
+Concept
 ↓
-Mechanism
+Explanation
 ↓
 Example
 ↓
 Trade-off
 ↓
-Application
+Engineering reasoning
 ```
 
-For projects:
+The first-round questions are therefore **not the syllabus**.
 
-```text
-Problem
-↓
-Architecture
-↓
-Implementation
-↓
-Decision
-↓
-Challenge
-↓
-Solution
-↓
-Trade-off
-↓
-Scaling
-```
+They are the **destination-level signal**.
 
----
+This roadmap builds the concepts underneath them and then progresses upward toward the same style of reasoning.
 
-# 26. Final Preparation Principle
-
-The objective is not:
-
-> "Complete as many DSA questions as possible."
-
-The objective is:
-
-> **Become capable of independently solving unfamiliar problems at the level expected from an Infosys SP/DSE coding assessment and defending your technical decisions in the subsequent interview.**
-
-The first assessment showed the ceiling of the questions.
-
-This preparation builds the ability required to reach that ceiling independently.
-
-Start at:
-
-**11:00 PM — 25 August 2026**
-
-with:
-
-**Hashing → Prefix Sum → Two Pointers → Sliding Window → OOP fundamentals.**
+The preparation starts at **11:00 PM on August 25, 2026** and finishes with light revision on **September 4**, keeping September 5/6 for the actual assessment according to the date assigned by Infosys.
