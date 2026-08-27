@@ -218,15 +218,17 @@ Become comfortable with:
 
 ```python
 import sys
+input = sys.stdin.buffer.readline
 
 def solve():
-    data = sys.stdin.buffer.read().split()
-    # parse input
     # solve
-    # print answer
+    # return answer
 
 if __name__ == "__main__":
-    solve()
+    # take and parse input
+
+    ans = solve()
+    print(ans)
 ```
 
 Know how to write:
