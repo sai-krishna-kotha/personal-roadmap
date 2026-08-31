@@ -1,5 +1,50 @@
 # Infosys SP/DSE — Round 2 Coding Assessment + Technical Interview Preparation Roadmap
 
+## 📑 Table of Contents
+
+### 🚀 Start Here
+- [Preparation Start & Target](#preparation-start)
+- [1. What This Preparation Is Optimized For](#1-what-this-preparation-is-optimized-for)
+- [2. Preparation Philosophy](#2-preparation-philosophy)
+- [3. Daily Time Structure](#3-daily-time-structure)
+- [4. Strict AI Rule](#4-strict-ai-rule)
+- [5. Coding Environment Rule](#5-coding-environment-rule)
+
+### 🧠 DSA Roadmap
+- [6. DSA Master Topic Order](#6-dsa-master-topic-order)
+- [7. Day 1 — 25 August](#7-day-1--25-august)
+- [8. Day 2 — 26 August](#8-day-2--26-august)
+- [9. Day 3 — 27 August](#9-day-3--27-august)
+- [10. Day 4 — 28 August](#10-day-4--28-august)
+- [11. Day 5 — 29 August](#11-day-5--29-august)
+- [12. Day 6 — 30 August](#12-day-6--30-august)
+- [13. Day 7 — 31 August](#13-day-7--31-august)
+- [14. Day 8 — 1 September](#14-day-8--1-september)
+- [15. Day 9 — 2 September](#15-day-9--2-september)
+- [16. Day 10 — 3 September](#16-day-10--3-september)
+- [17. Day 10 Interview Preparation](#17-day-10-interview-preparation)
+- [18. Day 11 — 4 September](#18-day-11--4-september)
+
+### 💻 Interview Preparation
+- [19. Final Interview Syllabus](#19-final-interview-syllabus)
+- [20. System / Software Engineering Questions](#20-system--software-engineering-questions)
+- [21. Important DSA Problem Library](#21-important-dsa-problem-library)
+- [22. How to Approach a Completely New Hard Problem](#22-how-to-approach-a-completely-new-hard-problem)
+- [23. Complexity Targets](#23-complexity-targets)
+- [24. Interview Answer Structure](#24-interview-answer-structure)
+- [25. Coding Interview Explanation Structure](#25-coding-interview-explanation-structure)
+
+### 🎯 Final Strategy
+- [26. Final Exam-Day Mental Model](#26-final-exam-day-mental-model)
+- [27. Final Interview Mental Model](#27-final-interview-mental-model)
+- [28. What NOT to Do During These 11 Days](#28-what-not-to-do-during-these-11-days)
+- [29. Final Priority Order](#29-final-priority-order)
+- [30. The Final Goal](#30-the-final-goal)
+
+---
+
+
+
 ## Preparation Start
 
 **25 August 2026 — 11:00 PM**
