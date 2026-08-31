@@ -34,17 +34,17 @@
 # 📑 Table of Contents
 
 ## 🚀 How to Use This Bridge
-- [1. Purpose](#1-purpose)
-- [2. How Infosys Variations Work](#2-how-infosys-variations-work)
-- [3. The Variation Ladder](#3-the-variation-ladder)
-- [4. The Golden Question to Ask](#4-the-golden-question-to-ask)
+- [01. Purpose](#01-purpose)
+- [02. How Infosys Variations Work](#02-how-infosys-variations-work)
+- [03. The Variation Ladder](#03-the-variation-ladder)
+- [04. The Golden Question to Ask](#04-the-golden-question-to-ask)
 
 ## 🧠 Roadmap → Infosys Variation Map
-- [5. Arrays](#5-arrays)
-- [6. Hashing / Frequency](#6-hashing--frequency)
-- [7. Prefix Sum](#7-prefix-sum)
-- [8. Two Pointers](#8-two-pointers)
-- [9. Sliding Window](#9-sliding-window)
+- [05. Arrays](#05-arrays)
+- [06. Hashing / Frequency](#06-hashing--frequency)
+- [07. Prefix Sum](#07-prefix-sum)
+- [08. Two Pointers](#08-two-pointers)
+- [09. Sliding Window](#09-sliding-window)
 - [10. Binary Search](#10-binary-search)
 - [11. Stack / Monotonic Stack](#11-stack--monotonic-stack)
 - [12. Heap / Priority Queue](#12-heap--priority-queue)
@@ -83,7 +83,7 @@
 
 ---
 
-# 1. Purpose
+# 01. Purpose
 
 The roadmap is intentionally broad. It teaches:
 
@@ -150,7 +150,8 @@ The roadmap's own preparation philosophy is to understand the idea, know when it
 
 ---
 
-# 2. How Infosys Variations Work
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 02. How Infosys Variations Work
 
 The candidate-reported 2025–2026 PYQs in the companion file show a repeated theme:
 
@@ -200,7 +201,8 @@ You need to learn:
 
 ---
 
-# 3. The Variation Ladder
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 03. The Variation Ladder
 
 Use this ladder for almost every roadmap problem.
 
@@ -365,7 +367,8 @@ This is the territory represented by the more complex reported Q4-style problems
 
 ---
 
-# 4. The Golden Question to Ask
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 04. The Golden Question to Ask
 
 Whenever a roadmap problem changes, ask these questions in this order:
 
@@ -395,7 +398,8 @@ This checklist is the core purpose of this file.
 
 ---
 
-# 5. Arrays
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 05. Arrays
 
 ## Roadmap base problems
 
@@ -553,7 +557,8 @@ Then:
 
 ---
 
-# 6. Hashing / Frequency
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 06. Hashing / Frequency
 
 ## Roadmap base
 
@@ -630,7 +635,8 @@ and more advanced constrained counting questions.
 
 ---
 
-# 7. Prefix Sum
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 07. Prefix Sum
 
 ## Base
 
@@ -718,7 +724,8 @@ prefix + monotonic structure?
 
 ---
 
-# 8. Two Pointers
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 08. Two Pointers
 
 ## Base problems
 
@@ -774,7 +781,8 @@ If you cannot justify the pointer movement, you do not yet understand the variat
 
 ---
 
-# 9. Sliding Window
+[⬆️ Back to Table of Contents](#-table-of-contents)
+# 09. Sliding Window
 
 ## Base
 
@@ -858,6 +866,7 @@ Then ask:
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 10. Binary Search
 
 ## Roadmap base
@@ -941,6 +950,7 @@ Memorize:
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 11. Stack / Monotonic Stack
 
 ## Base
@@ -1000,6 +1010,7 @@ previous smaller
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 12. Heap / Priority Queue
 
 ## Base
@@ -1050,6 +1061,7 @@ That often becomes the heap key.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 13. Greedy
 
 ## Base
@@ -1120,6 +1132,7 @@ This is an important muscle-memory transition.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 14. Intervals
 
 ## Base
@@ -1175,6 +1188,7 @@ partition DP
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 15. Recursion / Backtracking
 
 ## Base
@@ -1240,6 +1254,7 @@ This is exactly the bridge from recursion to the reported state-DP style questio
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 16. 1D DP
 
 ## Roadmap base
@@ -1340,6 +1355,7 @@ That missing information is usually the new DP state.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 17. 2D DP
 
 ## Base
@@ -1393,6 +1409,7 @@ can replace plain 2D path DP.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 18. Knapsack / Subset DP
 
 ## Base
@@ -1481,6 +1498,7 @@ What resource / property must the DP remember?
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 19. State DP
 
 This is one of the highest-value sections for the bridge.
@@ -1564,6 +1582,7 @@ If not, retain them separately.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 20. Counting DP
 
 ## Base
@@ -1626,6 +1645,7 @@ Think:
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 21. LIS / LCS / Sequence DP
 
 ## Base
@@ -1702,6 +1722,7 @@ original 2D DP
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 22. Trees
 
 ## Roadmap base
@@ -1789,6 +1810,7 @@ and information returns from children to parent.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 23. BST
 
 ## Base
@@ -1831,6 +1853,7 @@ May require skipping nodes or maintaining additional state.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 24. Tree DP
 
 ## Base
@@ -1892,6 +1915,7 @@ immediately test for tree DP.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 25. Graph BFS / DFS
 
 ## Base
@@ -1962,6 +1986,7 @@ That distinction can completely change the solution.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 26. Topological Sort
 
 ## Base
@@ -2016,6 +2041,7 @@ DP on resulting order
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 27. DSU
 
 ## Base
@@ -2072,6 +2098,7 @@ This is the major escalation represented by the complex reported graph problem.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 28. Interval DP / Partition DP
 
 ## Base
@@ -2152,6 +2179,7 @@ Can the state be compressed?
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 29. Number Theory
 
 ## Roadmap base
@@ -2227,6 +2255,7 @@ binary search
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 30. Binary Search on Answer
 
 ## Base
@@ -2285,6 +2314,7 @@ This directly bridges to the complex graph-query family.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 31. Common Variation Types
 
 Memorize these as **variation categories**, not specific problems.
@@ -2429,6 +2459,7 @@ DSU
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 32. Q1 → Q4 Escalation Model
 
 Use this mental model when practicing the bridge.
@@ -2524,6 +2555,7 @@ Goal:
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 33. PYQ Reverse Mapping
 
 This section tells you exactly which roadmap muscle should fire when you encounter the reported PYQs.
@@ -2851,6 +2883,7 @@ The more important skill is recognizing when a new problem is **knapsack in disg
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 34. High-Value Combination Patterns
 
 These combinations are particularly worth drilling because they represent the bridge from ordinary DSA to difficult assessment questions.
@@ -3003,6 +3036,7 @@ Used when a mathematical invariant becomes the DP state.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 35. Base → Variation Drill
 
 This is how to actually use the file.
@@ -3073,6 +3107,7 @@ This forces pattern flexibility.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 36. Variation Recognition Checklist
 
 When reading an Infosys-style problem, quickly mark these:
@@ -3148,6 +3183,7 @@ This checklist should become automatic.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 37. Timed Bridge Sessions
 
 Do these after completing the roadmap and before attacking the PYQ file.
@@ -3241,6 +3277,7 @@ basic
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 38. PYQ Transition Protocol
 
 Do **not** open the PYQ README immediately after finishing the roadmap and start solving randomly.
@@ -3302,6 +3339,7 @@ This is where the muscle memory is built.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 39. Readiness Checklist
 
 Do not consider the bridge complete just because you read it.
@@ -3353,6 +3391,7 @@ I can ask whether binary search, heap, DSU, or a range structure removes it.
 
 ---
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 # 40. Final Mental Model
 
 The final goal is not:
@@ -3469,3 +3508,5 @@ You need the ability to say:
 > "This looks new, but the core is actually a pattern I already know. Infosys has changed the constraint. I need to change the state/transition/data structure."
 
 That is the bridge this file is designed to build.
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
