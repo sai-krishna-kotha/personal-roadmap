@@ -60,7 +60,7 @@ Split interval into parts          → Partition DP
 - [16. Partition DP — Recognition](#dp-16)
 - [17. DP Optimization Ladder](#dp-17)
 - [18. DP Pattern Recognition Cheat Sheet](#dp-18)
-- [19. Exam Terminal Mode](#dp-19)
+- [19. Terminal Mode — Tips + End-to-End I/O Example](#dp-19)
 - [20. Quick Exam Rules](#dp-20)
 
 ---
@@ -2077,71 +2077,214 @@ What keywords or structure identify this pattern?
 ---
 
 <a id="dp-19"></a>
-## 19. Exam Terminal Mode ⭐⭐⭐
+## 19. Terminal Mode — Tips + End-to-End I/O Example ⭐⭐⭐
 
-Before coding a DP problem, write this mentally:
+This section is for **exam implementation muscle memory**, not for learning a new DP concept.
+
+### 19.1 Terminal tips
 
 ```text
-1. What is my state?
-
-2. What are my choices?
-
-3. What is the transition?
-
-4. What is the base case?
-
-5. Am I solving:
-   max / min / possible / count?
-
-6. Is this:
-   1D / pick-skip / grid / sequence / unbounded / partition?
-
-7. Can I write recursion first?
-
-8. What states repeat?
-
-9. Can I tabulate?
-
-10. If memory is large:
-    which previous states are actually needed?
+1. Read the exact input shape first.
+2. Identify T test cases if present.
+3. Decide whether the data is an array, matrix, strings, or multiple parameters.
+4. Separate input parsing from the DP algorithm.
+5. Write the state before filling the table.
+6. Check DP dimensions against constraints before allocating.
+7. For 0/1 DP, remember backward target/capacity iteration.
+8. For unbounded DP, remember that reuse changes the loop direction/structure.
+9. If a matrix is large, look for row/column space compression.
+10. Print only the required answer.
 ```
 
-### Terminal implementation ladder
+### 19.2 Common DP I/O shapes
+
+#### A. `n` + array
 
 ```text
-Recursion
-   ↓
-Memoization
-   ↓
-Tabulation
-   ↓
-Space optimization
+n
+array...
 ```
 
-### Terminal signals
-
-```text
-maximum/minimum → optimization DP
-possible/impossible → boolean DP
-number of ways → counting DP
-choose/skip → pick-not-pick
-many targets → target dimension
-multiple sequences → LCS/LIS family
-grid movement → grid DP
-split interval → partition DP
+```python
+n = int(input())
+arr = list(map(int, input().split()))
 ```
 
-### What not to do
+#### B. `n target` + array
 
 ```text
-Do NOT memorize code first.
+n target
+array...
+```
 
-Do NOT jump directly to tabulation
-without understanding the state.
+```python
+n, target = map(int, input().split())
+arr = list(map(int, input().split()))
+```
 
-Do NOT use forward loops for 0/1 selection.
+#### C. `m n` + matrix
 
-Do NOT space-optimize before understanding dependencies.
+```text
+m n
+row 1
+row 2
+...
+```
+
+```python
+m, n = map(int, input().split())
+grid = [list(map(int, input().split())) for _ in range(m)]
+```
+
+#### D. Two strings
+
+```python
+a = input().strip()
+b = input().strip()
+```
+
+#### E. Multiple test cases
+
+```python
+T = int(input())
+
+for _ in range(T):
+    ...
+```
+
+### 19.3 End-to-end example — 0/1 Knapsack ⭐⭐⭐
+
+This is the representative full DP submission because it rehearses the important **multiple lines + arrays + capacity + item processing + one output** shape.
+
+### Problem statement
+
+You are given `n` items. Item `i` has `weight[i]` and `value[i]`. A bag can carry at most `capacity` weight. Each item can be selected at most once. Find the maximum total value.
+
+### Input format
+
+```text
+n capacity
+weights[0] weights[1] ... weights[n-1]
+values[0] values[1] ... values[n-1]
+```
+
+### Sample input
+
+```text
+4 7
+1 3 4 5
+1 4 5 7
+```
+
+### Sample output
+
+```text
+9
+```
+
+One optimal choice is weights `3 + 4`, values `4 + 5`.
+
+### Submission-style program
+
+```python
+import sys
+
+
+def solve(weights, values, capacity):
+    dp = [0] * (capacity + 1)
+
+    for weight, value in zip(weights, values):
+        # 0/1 knapsack: iterate capacity backward
+        # so the current item is not reused.
+        for w in range(capacity, weight - 1, -1):
+            dp[w] = max(
+                dp[w],
+                value + dp[w - weight]
+            )
+
+    return dp[capacity]
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # First line: n and capacity
+    n, capacity = map(int, input().split())
+
+    # Second line: n weights
+    weights = list(map(int, input().split()))
+
+    # Third line: n values
+    values = list(map(int, input().split()))
+
+    answer = solve(weights[:n], values[:n], capacity)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### I/O flow
+
+```text
+INPUT
+-----
+4 7
+1 3 4 5
+1 4 5 7
+
+        ↓
+
+PARSE
+n = 4
+capacity = 7
+weights = [1, 3, 4, 5]
+values  = [1, 4, 5, 7]
+
+        ↓
+
+SOLVE
+1D 0/1 knapsack
+
+        ↓
+
+ANSWER
+9
+
+        ↓
+
+OUTPUT
+-----
+9
+```
+
+### What to memorize
+
+```text
+import sys
+
+input = sys.stdin.buffer.readline
+
+n, ... = map(int, input().split())
+arr = list(map(int, input().split()))
+
+answer = solve(...)
+print(answer)
+```
+
+The exact number of lines changes by problem. The important skill is to map the statement's input format to variables correctly.
+
+### DP terminal checklist
+
+```text
+□ Did I identify the state?
+□ Did I identify the input dimensions?
+□ Is there a T test-case loop?
+□ Is my DP memory safe for the constraints?
+□ Did I choose correct loop direction?
+□ Did I avoid accidental item reuse?
+□ Does my output exactly match the statement?
 ```
 
 [↑ Back to Contents](#contents)
@@ -2229,8 +2372,12 @@ High constraints
 7. Can I tell whether space can be optimized?
 
 8. Can I recognize the pattern from a new question?
+
+9. Can I parse the input without hesitation?
+
+10. Can I print exactly what the judge expects?
 ```
 
-> **Final rule: Understand the state first. The code should follow the state.**
+> **Final rule: Understand the state first. The code should follow the state. Input/output control is part of solving the problem.**
 
 [↑ Back to Contents](#contents)
