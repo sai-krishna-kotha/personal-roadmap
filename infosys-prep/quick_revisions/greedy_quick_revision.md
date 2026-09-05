@@ -3,6 +3,8 @@
 > **Goal:** Fast last-minute revision of the Greedy patterns we learned. Focus on **greedy idea → why it works → recognition → algorithm → code**.
 >
 > **Core rule:** Make the best safe choice now, and understand why that choice does not hurt the optimal answer.
+>
+> **Terminal Mode purpose:** The final section is not only a checklist. It also contains a complete submission-style program with imports, stdin parsing, algorithm, and stdout so you can rehearse coding-platform I/O.
 
 ---
 
@@ -26,7 +28,7 @@
 - [14. Huffman Coding](#greedy-14)
 - [15. Greedy vs DP — Recognition](#greedy-15)
 - [16. Greedy Pattern Recognition Cheat Sheet](#greedy-16)
-- [17. Exam Terminal Mode](#greedy-17)
+- [17. Terminal Mode — Tips + End-to-End I/O Example](#greedy-17)
 - [18. Quick Exam Rules](#greedy-18)
 - [19. Unseen Practice Problems](#greedy-19)
 - [20. Unseen Practice Answers](#greedy-20)
@@ -686,7 +688,7 @@ choose farthest reach
 greedy
 ```
 
-**Connection:** very similar to Jump Game II — maximize future reach from the current reachable region.
+**Connection:** very similar to Jump Game II — maximize immediate future reach.
 
 [↑ Back to Contents](#contents)
 
@@ -697,22 +699,35 @@ greedy
 
 ### Problem idea
 
-Each event has a start day and end day. You can attend at most one event per day. Maximize the number of events attended.
+Attend the maximum number of events. Each event has a start day and end day, and at most one event can be attended each day.
 
-### Greedy choice
+### Greedy idea
 
-On each day, attend the available event that **ends earliest**.
+On each day:
 
-### Algorithm
+```text
+add events that have started
+        ↓
+remove expired events
+        ↓
+attend the event ending earliest
+```
 
-1. Sort events by start day.
-2. Add all events whose start day is `<= day` to a min-heap by end day.
-3. Remove events whose end day is already before `day`.
-4. Attend the event with the earliest end day.
-5. Move to the next day.
-6. When no event is currently available, jump to the next event's start day.
+The min-heap stores end days of currently available events.
 
-### Canonical code
+### Recognition
+
+```text
+events over time
++
+only one choice per day
++
+maximize number attended
+        ↓
+sort by start + min-heap by end
+```
+
+### Code
 
 ```python
 import heapq
@@ -722,8 +737,8 @@ def max_events(events):
     events.sort()
 
     heap = []
-    i = 0
     day = 0
+    i = 0
     attended = 0
     n = len(events)
 
@@ -746,20 +761,14 @@ def max_events(events):
     return attended
 ```
 
-**Complexity:** `O(n log n)`.
-
-### Recognition
+### Memory rule
 
 ```text
-events have start/end
-+ at most one choice per day
-+ maximize events
-          ↓
-sort by start
+available choices change over time
 +
-min-heap of end times
-+
-earliest-ending available event
+choose the earliest-ending available choice
+        ↓
+min-heap
 ```
 
 [↑ Back to Contents](#contents)
@@ -769,38 +778,15 @@ earliest-ending available event
 <a id="greedy-13"></a>
 ## 13. Fractional Knapsack ⭐⭐
 
-### Problem idea
+### Greedy idea
 
-Items have weight and value, and fractions of items may be taken. Maximize value under a capacity.
-
-### Greedy choice
-
-Take the available item with the **highest value/weight ratio** first.
+Take items by highest:
 
 ```text
-ratio = value / weight
+value / weight
 ```
 
-### Algorithm
-
-1. Compute value/weight ratio.
-2. Sort by descending ratio.
-3. Take the whole item when it fits.
-4. Otherwise take the fraction that fills the remaining capacity.
-
-### Recognition
-
-```text
-knapsack
-+
-items can be split
-+
-maximize value
-          ↓
-Fractional Knapsack
-          ↓
-sort by value/weight
-```
+because fractions are allowed.
 
 [↑ Back to Contents](#contents)
 
@@ -814,16 +800,6 @@ sort by value/weight
 Repeatedly combine the **two least frequent** symbols.
 
 This is the same min-heap principle as Connect Ropes.
-
-### Recognition
-
-```text
-repeatedly combine two smallest frequencies
-          ↓
-min-heap
-          ↓
-Huffman-style greedy
-```
 
 [↑ Back to Contents](#contents)
 
@@ -899,37 +875,273 @@ If not, do not force a greedy solution.
 ---
 
 <a id="greedy-17"></a>
-## 17. Exam Terminal Mode ⭐⭐⭐
+## 17. Terminal Mode — Tips + End-to-End I/O Example ⭐⭐⭐
 
-When you see a new Greedy problem:
+This is the **exam implementation practice section**.
+
+The goal is to make these steps automatic:
 
 ```text
-1. What is the objective?
-2. What is the local choice?
-3. Why is that choice safe?
-4. Do I need sorting?
-5. Do I need two pointers?
-6. Do I need a heap?
-7. Is this an interval/event problem?
-8. Is there a current range/farthest reach?
-9. Can I prove greedy correctness?
-10. If not → test DP or another pattern.
+read input
+↓
+parse data structure
+↓
+call solve()
+↓
+print exact output
 ```
 
-### Build pattern
+### 17.1 Terminal tips
 
 ```text
-Read problem
-    ↓
-Identify objective
-    ↓
-Identify greedy choice
-    ↓
-Find the supporting tool
-    ↓
-Prove choice is safe
-    ↓
-Code
+1. Read the input format before writing algorithm code.
+2. Check whether there is T at the top.
+3. Check whether arrays are on one line or whether token-based parsing is safer.
+4. Keep parsing inside main(); keep algorithm logic inside solve().
+5. For sorting + greedy, remember that sorting mutates the list.
+6. For heap problems, import heapq.
+7. For multiple test cases, reset every data structure inside the test-case loop.
+8. For interval problems, check whether touching endpoints count as overlap.
+9. For output, print only what the statement asks.
+10. Remove debug prints before submission.
+11. Estimate time complexity from n before choosing the implementation.
+12. If a structure can be handled with O(k) memory instead of O(n), use the smaller structure when safe.
+```
+
+### 17.2 Common Greedy I/O shapes
+
+#### A. `n` + array
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+```
+
+#### B. `n limit` + array
+
+```python
+n, limit = map(int, input().split())
+arr = list(map(int, input().split()))
+```
+
+#### C. `n` + pairs/intervals
+
+```python
+n = int(input())
+intervals = [tuple(map(int, input().split())) for _ in range(n)]
+```
+
+#### D. `T` test cases
+
+```python
+T = int(input())
+
+for _ in range(T):
+    ...
+```
+
+#### E. Large token-based input
+
+```python
+import sys
+
+data = list(map(int, sys.stdin.buffer.read().split()))
+```
+
+Use this when the input format is large or line boundaries are not important.
+
+---
+
+## 17.3 End-to-end example — Activity Selection ⭐⭐⭐
+
+This is the representative full Greedy submission because it exercises a very common interval input shape:
+
+```text
+n
+start_1 end_1
+start_2 end_2
+...
+start_n end_n
+```
+
+### Problem statement
+
+Given `n` activities, where each activity has a start time and end time, select the maximum number of mutually non-overlapping activities. An activity can be selected when its start time is at least the end time of the previously selected activity.
+
+### Sample input
+
+```text
+6
+1 2
+3 4
+0 6
+5 7
+8 9
+5 9
+```
+
+### Sample output
+
+```text
+4
+```
+
+One optimal selection is:
+
+```text
+[1,2] → [3,4] → [5,7] → [8,9]
+```
+
+### Complete submission-style program
+
+```python
+import sys
+
+
+def solve(activities):
+    # The safe greedy choice is the activity
+    # with the earliest finishing time.
+    activities.sort(key=lambda x: x[1])
+
+    count = 0
+    last_end = float("-inf")
+
+    for start, end in activities:
+        if start >= last_end:
+            count += 1
+            last_end = end
+
+    return count
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # First line: number of activities.
+    n = int(input())
+
+    # Next n lines: start and end time.
+    activities = []
+
+    for _ in range(n):
+        start, end = map(int, input().split())
+        activities.append((start, end))
+
+    answer = solve(activities)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### I/O flow
+
+```text
+INPUT
+-----
+6
+1 2
+3 4
+0 6
+5 7
+8 9
+5 9
+
+        ↓
+
+PARSE
+n = 6
+activities = [
+    (1, 2),
+    (3, 4),
+    (0, 6),
+    (5, 7),
+    (8, 9),
+    (5, 9),
+]
+
+        ↓
+
+SORT BY END
+(1,2)
+(3,4)
+(0,6)
+(5,7)
+(5,9)
+(8,9)
+
+        ↓
+
+GREEDY SELECT
+(1,2) → keep
+(3,4) → keep
+(0,6) → skip
+(5,7) → keep
+(5,9) → skip
+(8,9) → keep
+
+        ↓
+
+ANSWER = 4
+
+        ↓
+
+OUTPUT
+------
+4
+```
+
+### 17.4 The reusable submission skeleton
+
+```python
+import sys
+
+
+def solve(...):
+    # algorithm
+    return answer
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # parse input
+    ...
+
+    answer = solve(...)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Memorize the **structure**, not one exact parser.
+
+The statement decides whether you need:
+
+```text
+one integer
+array
+pairs
+intervals
+T test cases
+```
+
+### 17.5 Greedy terminal checklist
+
+```text
+□ Did I read constraints?
+□ Did I identify the greedy choice?
+□ Can I justify why it is safe?
+□ Did I choose the correct sort key?
+□ Did I parse exactly n items/edges/intervals?
+□ Did I initialize every test case independently?
+□ Did I import heapq when a heap is required?
+□ Did I handle endpoint conventions?
+□ Is the complexity safe for n?
+□ Am I printing exactly the required output?
 ```
 
 [↑ Back to Contents](#contents)
@@ -1045,311 +1257,25 @@ Expected output:
 [[1,5]]
 ```
 
-### Problem 4 — Candy Distribution
-
-There are children in a line, each with a rating. Give every child at least one candy. A child with a higher rating than an adjacent child must receive more candies. Return the minimum total number of candies.
-
-**Test case 1**
-
-```text
-ratings = [1, 0, 2]
-```
-
-Expected output:
-
-```text
-5
-```
-
-**Test case 2**
-
-```text
-ratings = [1, 2, 2]
-```
-
-Expected output:
-
-```text
-4
-```
-
-### Problem 5 — Gas Station Variation
-
-Given `gas` and `cost`, return the starting station index from which a vehicle can complete the circle. If impossible, return `-1`.
-
-**Test case 1**
-
-```text
-gas  = [2, 3, 4]
-cost = [3, 4, 3]
-```
-
-Expected output:
-
-```text
-2
-```
-
-**Test case 2**
-
-```text
-gas  = [1, 2]
-cost = [2, 2]
-```
-
-Expected output:
-
-```text
--1
-```
-
-### Problem 6 — Non-Overlapping Meeting Selection
-
-Given meeting intervals, select the maximum number of meetings that do not overlap. Meetings that end at time `t` may be followed by meetings that start at time `t`.
-
-**Test case 1**
-
-```text
-meetings = [[1,2], [2,3], [1,3], [3,4]]
-```
-
-Expected output:
-
-```text
-3
-```
-
-**Test case 2**
-
-```text
-meetings = [[0,10], [1,2], [2,3], [3,4], [4,5]]
-```
-
-Expected output:
-
-```text
-4
-```
-
-### Problem 7 — Maximum Units on a Truck
-
-You are given box types. Each box type contains a number of boxes and a number of units per box. The truck can carry at most `truckSize` boxes. Maximize the total units loaded.
-
-**Test case 1**
-
-```text
-box_types = [[1,3], [2,2], [3,1]]
-truckSize = 4
-```
-
-Expected output:
-
-```text
-8
-```
-
-**Test case 2**
-
-```text
-box_types = [[5,10], [2,5]]
-truckSize = 3
-```
-
-Expected output:
-
-```text
-25
-```
-
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="greedy-20"></a>
-## 20. Unseen Practice Answers ⭐⭐⭐
+## 20. Unseen Practice Answers
 
-### Answer 1 — Minimum Platforms
+Keep these for checking after an independent attempt.
 
-**Pattern:** Line Sweep / event ordering.
+### Problem 1 — Minimum Platforms
 
-```python
-def min_platforms(arrivals, departures):
-    arrivals.sort()
-    departures.sort()
+Use sorted arrivals/departures with two pointers or an event sweep. Track the maximum number of active trains.
 
-    i = 0
-    j = 0
-    active = 0
-    answer = 0
+### Problem 2 — Lemonade Change
 
-    while i < len(arrivals):
-        if arrivals[i] <= departures[j]:
-            active += 1
-            answer = max(answer, active)
-            i += 1
-        else:
-            active -= 1
-            j += 1
+Keep counts of `$5` and `$10`. For a `$10`, give one `$5`. For a `$20`, prefer `$10 + $5`; otherwise use three `$5` bills. Fail if the required change is unavailable.
 
-    return answer
-```
+### Problem 3 — Merge Intervals
 
-**Recognition:** simultaneous trains/meetings/resources → sweep active count.
-
-[↑ Back to Contents](#contents)
-
-### Answer 2 — Lemonade Change
-
-**Pattern:** Small-state Greedy.
-
-```python
-def lemonade_change(bills):
-    five = 0
-    ten = 0
-
-    for bill in bills:
-        if bill == 5:
-            five += 1
-        elif bill == 10:
-            if five == 0:
-                return False
-            five -= 1
-            ten += 1
-        else:
-            if ten > 0 and five > 0:
-                ten -= 1
-                five -= 1
-            elif five >= 3:
-                five -= 3
-            else:
-                return False
-
-    return True
-```
-
-**Greedy choice:** preserve larger bills when possible and use `10 + 5` for a `20` before three `5`s.
-
-[↑ Back to Contents](#contents)
-
-### Answer 3 — Merge Intervals
-
-**Pattern:** Sort + interval merging.
-
-```python
-def merge_intervals(intervals):
-    if not intervals:
-        return []
-
-    intervals.sort()
-    merged = [intervals[0]]
-
-    for start, end in intervals[1:]:
-        if start <= merged[-1][1]:
-            merged[-1][1] = max(merged[-1][1], end)
-        else:
-            merged.append([start, end])
-
-    return merged
-```
-
-**Recognition:** combine overlapping intervals → sort by start and extend the current interval.
-
-[↑ Back to Contents](#contents)
-
-### Answer 4 — Candy Distribution
-
-**Pattern:** Two directional Greedy passes.
-
-```python
-def candy(ratings):
-    n = len(ratings)
-    candies = [1] * n
-
-    for i in range(1, n):
-        if ratings[i] > ratings[i - 1]:
-            candies[i] = candies[i - 1] + 1
-
-    for i in range(n - 2, -1, -1):
-        if ratings[i] > ratings[i + 1]:
-            candies[i] = max(candies[i], candies[i + 1] + 1)
-
-    return sum(candies)
-```
-
-**Recognition:** each position must satisfy constraints from both left and right neighbors → two passes.
-
-[↑ Back to Contents](#contents)
-
-### Answer 5 — Gas Station Variation
-
-**Pattern:** Circular Greedy.
-
-```python
-def can_complete_circuit(gas, cost):
-    if sum(gas) < sum(cost):
-        return -1
-
-    start = 0
-    tank = 0
-
-    for i in range(len(gas)):
-        tank += gas[i] - cost[i]
-
-        if tank < 0:
-            start = i + 1
-            tank = 0
-
-    return start
-```
-
-**Recognition:** circular fuel balance + choose a valid start.
-
-[↑ Back to Contents](#contents)
-
-### Answer 6 — Non-Overlapping Meeting Selection
-
-**Pattern:** Activity Selection.
-
-```python
-def max_non_overlapping_meetings(meetings):
-    meetings.sort(key=lambda x: x[1])
-
-    count = 0
-    last_end = float("-inf")
-
-    for start, end in meetings:
-        if start >= last_end:
-            count += 1
-            last_end = end
-
-    return count
-```
-
-**Recognition:** maximize number of non-overlapping intervals → sort by end time.
-
-[↑ Back to Contents](#contents)
-
-### Answer 7 — Maximum Units on a Truck
-
-**Pattern:** Sorting + Greedy / Fractional-style selection at whole-box level.
-
-```python
-def maximum_units(box_types, truck_size):
-    box_types.sort(key=lambda x: x[1], reverse=True)
-
-    total_units = 0
-
-    for boxes, units_per_box in box_types:
-        take = min(boxes, truck_size)
-        total_units += take * units_per_box
-        truck_size -= take
-
-        if truck_size == 0:
-            break
-
-    return total_units
-```
-
-**Recognition:** limited capacity + maximize total value per unit → take highest-value units first.
+Sort by start. Keep the current merged interval and extend its end whenever the next interval overlaps.
 
 [↑ Back to Contents](#contents)
