@@ -48,35 +48,36 @@ BST LCA                       → BST ordering
 
 ## Contents
 
-- [0. Core Tree Mental Model](#0-core-tree-mental-model)
-- [1. Binary Tree Foundation](#1-binary-tree-foundation)
-- [2. DFS Traversals](#2-dfs-traversals)
-- [3. Maximum Depth](#3-maximum-depth)
-- [4. Count Nodes](#4-count-nodes)
-- [5. Sum of All Nodes](#5-sum-of-all-nodes)
-- [6. Maximum Value](#6-maximum-value)
-- [7. Diameter](#7-diameter)
-- [8. Path Sum](#8-path-sum)
-- [9. Level Order BFS](#9-level-order-bfs)
-- [10. Minimum Depth](#10-minimum-depth)
-- [11. Parent + Depth](#11-parent--depth)
-- [12. LCA Using Parent + Depth](#12-lca-using-parent--depth)
-- [13. Direct Recursive LCA](#13-direct-recursive-lca)
-- [14. Distance Between Nodes](#14-distance-between-nodes)
-- [15. House Robber III](#15-house-robber-iii)
-- [16. Maximum Path Sum](#16-maximum-path-sum)
-- [17. Subtree Size / Sum](#17-subtree-size--sum)
-- [18. BST Search](#18-bst-search)
-- [19. BST Insert](#19-bst-insert)
-- [20. BST Min / Max](#20-bst-min--max)
-- [21. Validate BST](#21-validate-bst)
-- [22. Kth Smallest in BST](#22-kth-smallest-in-bst)
-- [23. BST LCA](#23-bst-lca)
-- [24. Exam Recognition + Terminal Mode](#24-exam-recognition--terminal-mode)
-- [25. Top Priority Terminal Example](#25-top-priority-terminal-example)
+- [0. Core Tree Mental Model](#tree-0)
+- [1. Binary Tree Foundation](#tree-1)
+- [2. DFS Traversals](#tree-2)
+- [3. Maximum Depth](#tree-3)
+- [4. Count Nodes](#tree-4)
+- [5. Sum of All Nodes](#tree-5)
+- [6. Maximum Value](#tree-6)
+- [7. Diameter](#tree-7)
+- [8. Path Sum](#tree-8)
+- [9. Level Order BFS](#tree-9)
+- [10. Minimum Depth](#tree-10)
+- [11. Parent + Depth](#tree-11)
+- [12. LCA Using Parent + Depth](#tree-12)
+- [13. Direct Recursive LCA](#tree-13)
+- [14. Distance Between Nodes](#tree-14)
+- [15. House Robber III](#tree-15)
+- [16. Maximum Path Sum](#tree-16)
+- [17. Subtree Size / Sum](#tree-17)
+- [18. BST Search](#tree-18)
+- [19. BST Insert](#tree-19)
+- [20. BST Min / Max](#tree-20)
+- [21. Validate BST](#tree-21)
+- [22. Kth Smallest in BST](#tree-22)
+- [23. BST LCA](#tree-23)
+- [24. Exam Recognition + Terminal Mode](#tree-24)
+- [25. Top Priority Terminal Example](#tree-25)
 
 ---
 
+<a id="tree-0"></a>
 ## 0. Core Tree Mental Model
 
 ```text
@@ -106,6 +107,7 @@ return to parent
 
 ---
 
+<a id="tree-1"></a>
 ## 1. Binary Tree Foundation
 
 ```python
@@ -127,6 +129,7 @@ Subtree = node + descendants
 
 ---
 
+<a id="tree-2"></a>
 ## 2. DFS Traversals
 
 ```text
@@ -166,6 +169,7 @@ def postorder(root):
 
 ---
 
+<a id="tree-3"></a>
 ## 3. Maximum Depth
 
 ### Algorithm
@@ -190,6 +194,7 @@ def maxDepth(root):
 
 ---
 
+<a id="tree-4"></a>
 ## 4. Count Nodes
 
 ```text
@@ -211,6 +216,7 @@ def countNodes(root):
 
 ---
 
+<a id="tree-5"></a>
 ## 5. Sum of All Nodes
 
 ```text
@@ -232,6 +238,7 @@ def sumNodes(root):
 
 ---
 
+<a id="tree-6"></a>
 ## 6. Maximum Value
 
 ```python
@@ -251,6 +258,7 @@ def maxValue(root):
 
 ---
 
+<a id="tree-7"></a>
 ## 7. Diameter
 
 ### Key idea
@@ -289,6 +297,7 @@ def diameterOfBinaryTree(root):
 
 ---
 
+<a id="tree-8"></a>
 ## 8. Path Sum
 
 ### Key idea
@@ -318,6 +327,7 @@ def hasPathSum(root, targetSum):
 
 ---
 
+<a id="tree-9"></a>
 ## 9. Level Order BFS
 
 ```python
@@ -355,6 +365,7 @@ def levelOrder(root):
 
 ---
 
+<a id="tree-10"></a>
 ## 10. Minimum Depth
 
 BFS finds the nearest leaf first.
@@ -385,6 +396,7 @@ def minDepth(root):
 
 ---
 
+<a id="tree-11"></a>
 ## 11. Parent + Depth
 
 ```python
@@ -412,6 +424,7 @@ def build_parent_depth(root):
 
 ---
 
+<a id="tree-12"></a>
 ## 12. LCA Using Parent + Depth
 
 ```text
@@ -442,6 +455,7 @@ def lowestCommonAncestor(root, p, q):
 
 ---
 
+<a id="tree-13"></a>
 ## 13. Direct Recursive LCA
 
 ```python
@@ -464,6 +478,7 @@ def lowestCommonAncestor(root, p, q):
 
 ---
 
+<a id="tree-14"></a>
 ## 14. Distance Between Nodes
 
 ```text
@@ -477,6 +492,7 @@ The LCA part is counted twice, so subtract it twice.
 
 ---
 
+<a id="tree-15"></a>
 ## 15. House Robber III
 
 ### States
@@ -519,6 +535,7 @@ def rob(root):
 
 ---
 
+<a id="tree-16"></a>
 ## 16. Maximum Path Sum
 
 ```text
@@ -556,6 +573,7 @@ def maxPathSum(root):
 
 ---
 
+<a id="tree-17"></a>
 ## 17. Subtree Size / Sum
 
 ### Size
@@ -582,6 +600,7 @@ def subtreeSum(root):
 
 ---
 
+<a id="tree-18"></a>
 ## 18. BST Search
 
 ```python
@@ -604,6 +623,7 @@ def searchBST(root, target):
 
 ---
 
+<a id="tree-19"></a>
 ## 19. BST Insert
 
 ```python
@@ -623,6 +643,7 @@ def insertIntoBST(root, val):
 
 ---
 
+<a id="tree-20"></a>
 ## 20. BST Min / Max
 
 ```python
@@ -642,6 +663,7 @@ def findMax(root):
 
 ---
 
+<a id="tree-21"></a>
 ## 21. Validate BST
 
 ### State
@@ -671,6 +693,7 @@ def isValidBST(root):
 
 ---
 
+<a id="tree-22"></a>
 ## 22. Kth Smallest in BST
 
 BST inorder is sorted.
@@ -698,213 +721,103 @@ def kthSmallest(root, k):
     return answer
 ```
 
-**Recognition:** kth smallest in BST → inorder + count.
+**Recognition:** kth smallest in BST → inorder traversal.
 
 [↑ Back to Contents](#contents)
 
 ---
 
+<a id="tree-23"></a>
 ## 23. BST LCA
 
+Use the BST ordering property.
+
 ```python
-def lowestCommonAncestor(root, p, q):
+def lowestCommonAncestorBST(root, p, q):
     if p.val < root.val and q.val < root.val:
-        return lowestCommonAncestor(root.left, p, q)
+        return lowestCommonAncestorBST(root.left, p, q)
 
     if p.val > root.val and q.val > root.val:
-        return lowestCommonAncestor(root.right, p, q)
+        return lowestCommonAncestorBST(root.right, p, q)
 
     return root
 ```
 
-**Recognition:** both smaller → left, both larger → right, otherwise current node is LCA.
+**Recognition:** both nodes on same side → move there; otherwise current node is the split/LCA.
 
 [↑ Back to Contents](#contents)
 
 ---
 
+<a id="tree-24"></a>
 ## 24. Exam Recognition + Terminal Mode
 
-### Function mode
+When you see a new Tree problem:
 
-If the platform gives a function signature, write only the required function/class. No custom `stdin` parser.
+```text
+1. Is it a normal binary tree or BST?
+2. Do I need DFS or BFS?
+3. What does dfs(node) return?
+4. Do children provide information to the parent?
+5. Is there a root-to-leaf condition?
+6. Is there a longest path/global answer?
+7. Is parent/depth information needed?
+8. Is this an LCA/distance problem?
+9. Is there choose/don't choose logic?
+10. Can BST ordering remove half the search?
+```
+
+### Core decision map
+
+```text
+Whole tree / subtree aggregate → DFS
+Level-by-level                 → BFS
+a root-to-leaf condition       → DFS + state
+Longest path                   → Diameter / Path DP
+Ancestor / distance            → Parent + Depth / LCA
+Choose / skip                  → Tree DP
+BST                            → Ordering property
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="tree-25"></a>
+## 25. Top Priority Terminal Example
+
+### Maximum Path Sum
 
 ```python
-def solve(...):
-    # tree logic
+def maxPathSum(root):
+    answer = float('-inf')
+
+    def dfs(node):
+        nonlocal answer
+
+        if node is None:
+            return 0
+
+        left = max(0, dfs(node.left))
+        right = max(0, dfs(node.right))
+
+        answer = max(answer, left + node.val + right)
+        return node.val + max(left, right)
+
+    dfs(root)
     return answer
 ```
 
-### Terminal mode
-
-When given an empty editor / standard input:
+### Terminal recognition
 
 ```text
-1. import needed modules
-2. read stdin
-3. parse input
-4. build TreeNode structure if needed
-5. call solution
-6. print exact output
-```
-
-### Generic tree build for level-order + -1
-
-Use this **only if the problem explicitly uses that format**.
-
-```python
-from collections import deque
-
-
-def build_tree(values):
-    if not values or values[0] == -1:
-        return None
-
-    root = TreeNode(values[0])
-    q = deque([root])
-    i = 1
-
-    while q and i < len(values):
-        node = q.popleft()
-
-        if values[i] != -1:
-            node.left = TreeNode(values[i])
-            q.append(node.left)
-        i += 1
-
-        if i < len(values) and values[i] != -1:
-            node.right = TreeNode(values[i])
-            q.append(node.right)
-        i += 1
-
-    return root
-```
-
-[↑ Back to Contents](#contents)
-
----
-
-## 25. Top Priority Terminal Example
-
-### Maximum Depth — complete terminal submission
-
-Assume input is a level-order list with `-1` for missing children. Adapt parsing to the actual question.
-
-```python
-import sys
-from collections import deque
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
-def build_tree(values):
-    if not values or values[0] == -1:
-        return None
-
-    root = TreeNode(values[0])
-    q = deque([root])
-    i = 1
-
-    while q and i < len(values):
-        node = q.popleft()
-
-        if values[i] != -1:
-            node.left = TreeNode(values[i])
-            q.append(node.left)
-        i += 1
-
-        if i < len(values) and values[i] != -1:
-            node.right = TreeNode(values[i])
-            q.append(node.right)
-        i += 1
-
-    return root
-
-
-def maxDepth(root):
-    if root is None:
-        return 0
-
-    left = maxDepth(root.left)
-    right = maxDepth(root.right)
-    return 1 + max(left, right)
-
-
-def main():
-    data = list(map(int, sys.stdin.read().split()))
-    root = build_tree(data)
-    print(maxDepth(root))
-
-
-if __name__ == "__main__":
-    main()
-```
-
-### Exam simulation
-
-```text
-Recognize pattern
-      ↓
-Choose dfs(node) meaning
-      ↓
-Write base case
-      ↓
-Solve left + right
-      ↓
-Combine
-      ↓
-Return / update global answer
-      ↓
-Parse input
-      ↓
-Build tree if required
-      ↓
-Call function
-      ↓
-Print exact output
-```
-
-**Terminal tip:** Do not memorize one input parser as universal. Memorize the pipeline: **read → parse → build → solve → print**.
-
-[↑ Back to Contents](#contents)
-
----
-
-## 60-SECOND TREE REVISION
-
-```text
-TREE = recursive structure
-
-DFS:
-    solve left
-    solve right
-    combine
-
-BFS:
-    queue + level size
-
-ROOT → LEAF condition:
-    carry state downward
-
-DIAMETER:
-    global = left + right
-    return = 1 + max(left, right)
-
-TREE DP:
-    return multiple states when choices depend on parent
-
-MAX PATH:
-    global = left + node + right
-    return = node + max(left, right)
-
-BST:
-    left < root < right
-    inorder = sorted
+longest / maximum path
++
+path can turn at a node
+        ↓
+child returns one-sided gain
++
+global answer may use both sides
 ```
 
 [↑ Back to Contents](#contents)
