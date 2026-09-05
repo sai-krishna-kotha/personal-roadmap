@@ -2,9 +2,11 @@
 
 > **Purpose:** One standalone revision file for the DSA covered on Day 1 and Day 2 of the structured Infosys SP/DSE roadmap.
 >
-> **Roadmap scope:** Day 1 = Hashing + Prefix Sum + Two Pointers + Sliding Window. Day 2 = Binary Search + Stack + Heap/Priority Queue. fileciteturn80file0
+> **Day 1:** Hashing + Prefix Sum + Two Pointers + Sliding Window.
 >
-> **Revision style:** Understand → recognize → derive → implement → optimize → test. This file combines the roadmap with the patterns and explanations we developed while studying in chat.
+> **Day 2:** Binary Search + Binary Search on Answer + Stack + Monotonic Stack + Heap / Priority Queue.
+>
+> **Terminal Mode purpose:** The final section contains both quick solving tips **and a complete end-to-end competitive-programming solution**. The full program deliberately includes imports, input parsing, algorithm, output, and the exact Python I/O structure so you can rehearse how input/output control looks for this family of problems.
 
 ---
 
@@ -28,7 +30,7 @@
 ### Integration
 - [10. Pattern Recognition Cheat Sheet](#d12-10)
 - [11. Complexity + Constraint Rules](#d12-11)
-- [12. Infosys Terminal Mode](#d12-12)
+- [12. Terminal Mode — Tips + End-to-End I/O Example](#d12-12)
 - [13. Practice Order](#d12-13)
 
 ---
@@ -46,21 +48,55 @@ For every problem, train your brain to answer these in order:
 5. What invariant makes the optimization correct?
 6. What are the edge cases?
 7. What is the time and space complexity?
+8. What will the input actually look like?
+9. What exactly must I print?
 ```
 
 ### Pattern signals
 
 ```text
-Fast lookup / counts / complements         → Hashing
-Range sum / subarray sum                    → Prefix Sum
+Fast lookup / counts / complements          → Hashing
+Range sum / subarray sum                     → Prefix Sum
 Sorted array + pair condition                → Two Pointers
 Contiguous subarray / substring              → Sliding Window
 Sorted search space                          → Binary Search
-Unknown numeric answer + yes/no feasibility  → Binary Search on Answer
+Unknown numeric answer + yes/no feasibility   → Binary Search on Answer
 LIFO / matching / unresolved items           → Stack
 Nearest greater/smaller                      → Monotonic Stack
 Top K / repeatedly smallest or largest       → Heap
 ```
+
+### I/O awareness
+
+Do not treat input/output as an afterthought. In the assessment, the algorithm can be correct and still fail because the parser or output format is wrong.
+
+```text
+Read the statement
+      ↓
+Identify how many test cases exist
+      ↓
+Identify array/string/grid/graph structure
+      ↓
+Parse exactly that structure
+      ↓
+Run solve(...)
+      ↓
+Print exactly the required output
+```
+
+Common families:
+
+```text
+single integer
+single string
+n + array
+n m + matrix/grid
+T test cases
+edges + graph
+queries + data
+```
+
+The end-to-end example at the end uses the **n + array** family because it is the most common shape for Day 1–2 questions.
 
 ---
 
@@ -730,31 +766,38 @@ The **invariant** is the heart of the algorithm.
 
 ---
 
-## 4.2 Fixed Window
+## 4.2 Fixed Window — Maximum Sum of Size K
 
-### Example
+### Problem statement
 
-Maximum sum of a subarray of exactly length `k`.
+Given an array and integer `k`, find the maximum sum among all contiguous subarrays of exactly length `k`.
 
 ### Brute force
 
-Recompute each window → `O(nk)`.
+Compute every length-`k` sum separately → `O(nk)`.
 
-### Sliding update
+### Optimization
+
+When the window moves one step:
 
 ```text
-new_sum = old_sum - outgoing + incoming
+new sum
+= old sum
+- outgoing element
++ incoming element
 ```
 
+So each element is added/removed only once.
+
 ```python
-def maxSumWindow(nums, k):
-    window = sum(nums[:k])
-    best = window
+def maxSumFixedWindow(nums, k):
+    window_sum = sum(nums[:k])
+    best = window_sum
 
     for right in range(k, len(nums)):
-        window += nums[right]
-        window -= nums[right - k]
-        best = max(best, window)
+        window_sum += nums[right]
+        window_sum -= nums[right - k]
+        best = max(best, window_sum)
 
     return best
 ```
@@ -765,7 +808,9 @@ def maxSumWindow(nums, k):
 ### Recognition
 
 ```text
-contiguous + exactly k
+contiguous
++
+exactly k
         ↓
 fixed sliding window
 ```
@@ -774,64 +819,108 @@ fixed sliding window
 
 ## 4.3 Variable Window — Longest Substring Without Repeating Characters
 
+### Problem statement
+
+Find the longest substring with no repeated characters.
+
 ### Invariant
 
 ```text
-window contains no duplicate character
+window always contains unique characters
 ```
 
-Expand right. If invalid, shrink left until valid again.
+When a duplicate enters the window, move `left` until the invariant is restored.
 
 ```python
 def lengthOfLongestSubstring(s):
-    seen = set()
+    last = {}
     left = 0
     best = 0
 
-    for right in range(len(s)):
-        while s[right] in seen:
-            seen.remove(s[left])
-            left += 1
+    for right, ch in enumerate(s):
+        if ch in last and last[ch] >= left:
+            left = last[ch] + 1
 
-        seen.add(s[right])
+        last[ch] = right
         best = max(best, right - left + 1)
 
     return best
 ```
 
-**Time:** `O(n)`  
-**Space:** `O(n)` worst case.
+**Time:** `O(n)` average  
+**Space:** `O(min(n, alphabet))`
 
-### Memory rule
+### Recognition
 
 ```text
-expand → violation → shrink until valid
+longest
++
+contiguous
++
+condition inside window
+        ↓
+variable sliding window
 ```
 
 ---
 
-## 4.4 Longest Repeating Character Replacement ⭐⭐⭐
+## 4.4 Minimum Size Subarray Sum
 
-### Core equation
+### Problem statement
 
-For a window to become one repeated character:
+Given positive integers and a target, find the minimum length of a contiguous subarray whose sum is at least `target`.
 
-```text
-changes needed = window_size - max_frequency
-```
-
-Valid when:
+Because all values are positive:
 
 ```text
-window_size - max_frequency <= k
+expand right → sum increases
+shrink left  → sum decreases
 ```
+
+That monotonic behavior makes shrinking safe.
+
+```python
+def minSubArrayLen(target, nums):
+    left = 0
+    window_sum = 0
+    best = float('inf')
+
+    for right, x in enumerate(nums):
+        window_sum += x
+
+        while window_sum >= target:
+            best = min(best, right - left + 1)
+            window_sum -= nums[left]
+            left += 1
+
+    return 0 if best == float('inf') else best
+```
+
+**Time:** `O(n)`  
+**Space:** `O(1)`
+
+### Important warning
+
+The simple sum-based sliding window is **not automatically valid with negative numbers** because adding/removing an element is no longer monotonic.
+
+---
+
+## 4.5 Longest Repeating Character Replacement
+
+Keep:
+
+```text
+window_length - max_frequency <= k
+```
+
+If more than `k` replacements are required, shrink from the left.
 
 ```python
 def characterReplacement(s, k):
     freq = {}
     left = 0
-    best = 0
     max_freq = 0
+    best = 0
 
     for right, ch in enumerate(s):
         freq[ch] = freq.get(ch, 0) + 1
@@ -846,106 +935,57 @@ def characterReplacement(s, k):
     return best
 ```
 
-### Subtle optimization
-
-`max_freq` is allowed to remain an upper bound after shrinking in the standard problem. Do not copy this optimization into a different window problem without re-checking the proof.
-
----
-
-## 4.5 Minimum Size Subarray Sum
-
-### Problem statement
-
-Given **positive** integers, find the minimum length of a contiguous subarray with sum at least `target`.
-
-### Why positivity matters
-
-With positive values:
+### Memory rule
 
 ```text
-add right → sum cannot decrease
-remove left → sum cannot increase
-```
-
-That monotonic behavior makes shrinking safe.
-
-```python
-def minSubArrayLen(target, nums):
-    left = 0
-    total = 0
-    best = float('inf')
-
-    for right, x in enumerate(nums):
-        total += x
-
-        while total >= target:
-            best = min(best, right - left + 1)
-            total -= nums[left]
-            left += 1
-
-    return 0 if best == float('inf') else best
-```
-
-**Time:** `O(n)`  
-**Space:** `O(1)`
-
-### Warning
-
-Allowing negative values destroys this simple monotonic argument. Consider a prefix-sum-based approach instead.
-
----
-
-## 4.6 Permutation in String — Fixed Frequency Window
-
-### Problem statement
-
-Determine whether `s2` contains a substring that is a permutation of `s1`.
-
-### Recognition
-
-```text
-fixed-length substring
-+
-frequency equality
+window invalid?
         ↓
-fixed sliding window + frequency counts
+move left
+        ↓
+restore invariant
 ```
 
-Mechanical steps:
+---
+
+## 4.6 Sliding Window — Recognition Drill
 
 ```text
-1. Count the pattern.
-2. Build first window of same size.
-3. Compare counts.
-4. Remove outgoing character.
-5. Add incoming character.
-6. Compare again.
-```
+fixed length k
+    → fixed window
 
-For lowercase English letters, a length-26 array is ideal.
+longest valid substring/subarray
+    → expand + shrink
+
+minimum valid substring/subarray
+    → expand + shrink aggressively
+
+frequency constraint
+    → window + freq map
+
+exactly k occurrences
+    → often atMost(k) - atMost(k-1)
+```
 
 ---
 
 <a id="d12-5"></a>
 # 5. Binary Search ⭐⭐⭐
 
-## 5.1 The deeper definition
+## 5.1 Core idea
 
-Binary search is not merely “search a sorted array.” The real requirement is an **ordered search space** where a comparison lets you discard one whole side.
+Binary search is not just “search a sorted array.” The deeper requirement is a **monotonic search space**.
+
+You repeatedly eliminate half the candidates.
 
 ```text
-candidate space
-      ↓
-inspect middle
-      ↓
-discard impossible half
-      ↓
-repeat
+[low ................. high]
+          ↓
+        mid
+          ↓
+keep one half
 ```
 
----
-
-## 5.2 Basic Binary Search
+### Standard template
 
 ```python
 def binarySearch(nums, target):
@@ -969,21 +1009,21 @@ def binarySearch(nums, target):
 **Time:** `O(log n)`  
 **Space:** `O(1)`
 
-### Memorize the invariant
+### Recognition
 
 ```text
-If target exists, it is still inside [left, right].
+sorted
+OR
+monotonic true/false condition
+        ↓
+binary search candidate
 ```
 
 ---
 
-## 5.3 Lower Bound
+## 5.2 First Occurrence / Lower Bound
 
-Find the first index where:
-
-```text
-nums[index] >= target
-```
+When a condition becomes true and you want the **first** true position, continue searching left after finding a valid answer.
 
 ```python
 def lowerBound(nums, target):
@@ -1001,18 +1041,16 @@ def lowerBound(nums, target):
     return left
 ```
 
-### Why `right = mid`?
-
-When `nums[mid] >= target`, `mid` itself may be the answer, so do not throw it away.
+This returns the first index `i` such that `nums[i] >= target`.
 
 ---
 
-## 5.4 Upper Bound
+## 5.3 Upper Bound
 
-Find the first index where:
+First index where:
 
 ```text
-nums[index] > target
+nums[i] > target
 ```
 
 ```python
@@ -1031,289 +1069,251 @@ def upperBound(nums, target):
     return left
 ```
 
-### First and last occurrence
-
-For an integer sorted array:
+### Memory rule
 
 ```text
-first = lowerBound(nums, target)
-last  = lowerBound(nums, target + 1) - 1
+lower_bound → first >= target
+upper_bound → first > target
 ```
 
 ---
 
-## 5.5 Search Insert Position
+## 5.4 Search in Rotated Sorted Array
 
-This is exactly lower bound.
+One half is always sorted.
+
+At each step:
 
 ```text
-sorted + where should target be inserted?
-        ↓
-lower bound
+left..mid is sorted
+OR
+mid..right is sorted
 ```
+
+Check whether target lies inside that sorted half. Otherwise discard it.
 
 ---
 
-## 5.6 Search in Rotated Sorted Array ⭐⭐⭐
+## 5.5 Binary Search Error Checklist
 
-Example:
-
-```text
-[4, 5, 6, 7, 0, 1, 2]
-```
-
-At every iteration, one half is sorted.
-
-### Mechanical logic
+Before coding, decide:
 
 ```text
-if left half sorted:
-    target inside left sorted range?
-        yes → right = mid - 1
-        no  → left = mid + 1
-else:
-    right half sorted
-    target inside right sorted range?
-        yes → left = mid + 1
-        no  → right = mid - 1
+What does left represent?
+What does right represent?
+Is right inclusive or exclusive?
+What does mid mean?
+When do I move left?
+When do I move right?
+What answer should remain when the loop ends?
 ```
 
-```python
-def searchRotated(nums, target):
-    left = 0
-    right = len(nums) - 1
-
-    while left <= right:
-        mid = left + (right - left) // 2
-
-        if nums[mid] == target:
-            return mid
-
-        if nums[left] <= nums[mid]:
-            if nums[left] <= target < nums[mid]:
-                right = mid - 1
-            else:
-                left = mid + 1
-        else:
-            if nums[mid] < target <= nums[right]:
-                left = mid + 1
-            else:
-                right = mid - 1
-
-    return -1
-```
-
-**Time:** `O(log n)` for the distinct-value version.
+Do not mix templates mentally.
 
 ---
 
 <a id="d12-6"></a>
 # 6. Binary Search on Answer ⭐⭐⭐
 
-This is the most important Day 2 extension.
+This is especially important for Infosys-style medium/hard questions.
 
-## 6.1 The shift in thinking
+## Recognition
 
-The thing being searched may not be an array value. It may be the **answer itself**.
+The answer is numeric, but checking one candidate answer is easier than directly constructing the optimum.
+
+The feasibility function is monotonic:
 
 ```text
-possible answer x
+candidate answer
        ↓
-can(x) = is x feasible?
-```
-
-Binary search is valid when `can(x)` is monotonic.
-
-Example:
-
-```text
+can it be done?
+       ↓
 False False False True True True
 ```
 
-or:
-
-```text
-True True True False False False
-```
+Then binary search the boundary.
 
 ---
 
-## 6.2 Koko Eating Bananas
+## 6.1 Koko Eating Bananas
 
 ### Problem statement
 
-Given piles and `h` hours, find the minimum integer eating speed that finishes all piles.
-
-### Search space
-
-```text
-1 ... max(piles)
-```
+Given banana piles and `h` hours, find the minimum integer eating speed `k` so all bananas can be eaten within `h` hours.
 
 ### Feasibility
 
-At speed `k`, one pile `p` takes:
+At speed `k`, hours needed for pile `p` are:
 
 ```text
 ceil(p / k)
 ```
 
-In integer arithmetic:
+Total hours:
 
-```python
-(p + k - 1) // k
+```text
+sum(ceil(p / k))
 ```
 
-### Monotonic property
+Higher `k` can only reduce or preserve required hours.
 
-Higher speed never increases the number of hours needed.
+Therefore:
+
+```text
+small speed → infeasible
+large speed → feasible
+```
+
+### Algorithm
+
+```text
+low = 1
+high = max(piles)
+
+while low <= high:
+    mid = candidate speed
+
+    if feasible(mid):
+        answer = mid
+        search left
+    else:
+        search right
+```
+
+### Python
 
 ```python
 def minEatingSpeed(piles, h):
     left = 1
     right = max(piles)
+    answer = right
 
-    while left < right:
-        mid = left + (right - left) // 2
-
+    while left <= right:
+        speed = left + (right - left) // 2
         hours = 0
-        for p in piles:
-            hours += (p + mid - 1) // mid
+
+        for pile in piles:
+            hours += (pile + speed - 1) // speed
 
         if hours <= h:
-            right = mid
+            answer = speed
+            right = speed - 1
         else:
-            left = mid + 1
+            left = speed + 1
 
-    return left
+    return answer
 ```
 
-**Time:** `O(n log M)`, `M = max(piles)`  
+**Time:** `O(n log(max(pile)))`  
 **Space:** `O(1)`
 
----
-
-## 6.3 Capacity to Ship Packages Within D Days
-
-### Search space
+### Recognition rule
 
 ```text
-LOW  = max(weights)
-HIGH = sum(weights)
-```
-
-Why?
-
-```text
-capacity < max(weights) → impossible
-capacity = sum(weights)  → all packages can fit in one day
-```
-
-### Feasibility function
-
-Simulate packages in order. When adding the next package exceeds the candidate capacity, start a new day.
-
-```text
-canShip(capacity) → days needed <= D
-```
-
-Then binary-search the minimum feasible capacity.
-
-### Template
-
-```python
-left = max(weights)
-right = sum(weights)
-
-while left < right:
-    mid = left + (right - left) // 2
-
-    if canShip(mid):
-        right = mid
-    else:
-        left = mid + 1
-
-answer = left
+minimum possible value
++
+can I finish / satisfy constraint for X?
++
+feasibility is monotonic
+        ↓
+Binary Search on Answer
 ```
 
 ---
 
-## 6.4 How to Detect Binary Search on Answer
+## 6.2 Capacity to Ship Packages Within D Days
 
-Ask:
+### Problem statement
+
+Find the minimum ship capacity that lets all packages be shipped within `D` days while preserving order.
+
+### Feasibility
+
+Given capacity `cap`, greedily pack packages until the next one would exceed `cap`, then start a new day.
+
+If required days `<= D`, the capacity works.
+
+The condition is monotonic:
 
 ```text
-1. Am I optimizing a numeric answer?
-2. Can I guess a candidate x?
-3. Can I check x efficiently?
-4. Is feasibility monotonic as x changes?
+small capacity → may need too many days
+large capacity  → fewer/equal days
 ```
 
-Four yes answers strongly suggest the pattern.
-
-### Infosys trigger words
+### Important bounds
 
 ```text
-minimum possible
-maximum possible
-at least
-at most
-capacity
-speed
-days
-hours
-limit
-threshold
-feasible
+low  = max(weights)
 ```
+
+A ship must carry the heaviest single package.
+
+```text
+high = sum(weights)
+```
+
+One ship/day large enough for everything is always feasible in the extreme.
 
 ---
 
 <a id="d12-7"></a>
 # 7. Stack ⭐⭐⭐
 
-## 7.1 Core model
+## Core idea
 
-Stack = **LIFO**.
+A stack is useful when the most recent unresolved item must be handled first.
 
-Use it when the newest unresolved item matters first.
+```text
+push → add top
+pop  → remove top
+peek → inspect top
+```
+
+In Python:
 
 ```python
 stack = []
 stack.append(x)
 x = stack.pop()
-```
-
-Typical signals:
-
-```text
-nested structure
-matching pairs
-postfix evaluation
-undo-like behavior
-unresolved previous items
-next/previous greater/smaller
+top = stack[-1]
 ```
 
 ---
 
-## 7.2 Valid Parentheses
+## 7.1 Valid Parentheses
 
-### Recognition
+### Problem statement
 
-An opening bracket must wait for its matching closing bracket. The latest unmatched opening bracket is the first one that should be matched.
+Determine whether brackets are correctly matched and nested.
+
+### Algorithm
+
+```text
+opening bracket
+    → push
+
+closing bracket
+    → stack must be non-empty
+    → top must match
+    → pop
+```
 
 ```python
 def isValid(s):
     stack = []
-    pair = {')': '(', ']': '[', '}': '{'}
+    pairs = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    }
 
     for ch in s:
-        if ch in pair:
-            if not stack or stack.pop() != pair[ch]:
-                return False
-        else:
+        if ch in '([{':
             stack.append(ch)
+        else:
+            if not stack or stack[-1] != pairs[ch]:
+                return False
+            stack.pop()
 
     return not stack
 ```
@@ -1321,333 +1321,238 @@ def isValid(s):
 **Time:** `O(n)`  
 **Space:** `O(n)`
 
+### Recognition
+
+```text
+matching pairs
+nested structure
+last unmatched item
+        ↓
+stack
+```
+
 ---
 
-## 7.3 Min Stack
+## 7.2 Min Stack
 
-### Requirement
+Need `push`, `pop`, `top`, and `getMin` in `O(1)`.
 
-Support `push`, `pop`, `top`, and `getMin` in `O(1)`.
-
-### Idea
-
-The current minimum must survive future pops, so keep synchronized minimum information.
+Store with each value the minimum seen up to that point.
 
 ```python
 class MinStack:
     def __init__(self):
         self.stack = []
-        self.min_stack = []
 
     def push(self, val):
-        self.stack.append(val)
+        current_min = val
 
-        if not self.min_stack:
-            self.min_stack.append(val)
-        else:
-            self.min_stack.append(
-                min(val, self.min_stack[-1])
-            )
+        if self.stack:
+            current_min = min(val, self.stack[-1][1])
+
+        self.stack.append((val, current_min))
 
     def pop(self):
         self.stack.pop()
-        self.min_stack.pop()
 
     def top(self):
-        return self.stack[-1]
+        return self.stack[-1][0]
 
     def getMin(self):
-        return self.min_stack[-1]
+        return self.stack[-1][1]
 ```
 
-### General lesson
-
-When a data structure needs an expensive aggregate to remain available after updates:
+### Memory rule
 
 ```text
-store auxiliary state alongside the main state
+Need old answer after pop?
+        ↓
+store extra state with each stack entry
 ```
 
 ---
 
-## 7.4 Evaluate Reverse Polish Notation
+## 7.3 Evaluate Reverse Polish Notation
 
-### Pattern
+Operands go onto the stack. When an operator appears, pop the right operand first, then the left operand.
 
-Operands are pushed. An operator consumes the latest two operands.
-
-```python
-def evalRPN(tokens):
-    stack = []
-
-    for token in tokens:
-        if token in {"+", "-", "*", "/"}:
-            b = stack.pop()
-            a = stack.pop()
-
-            if token == "+":
-                stack.append(a + b)
-            elif token == "-":
-                stack.append(a - b)
-            elif token == "*":
-                stack.append(a * b)
-            else:
-                stack.append(int(a / b))
-        else:
-            stack.append(int(token))
-
-    return stack[-1]
+```text
+b = pop()
+a = pop()
+a operator b
 ```
 
-### Important detail
-
-For the standard problem, division truncates toward zero. Python `//` floors negative values, so `int(a / b)` matches the required behavior more directly.
+This `b-before-a` order is a common exam bug.
 
 ---
 
 <a id="d12-8"></a>
 # 8. Monotonic Stack ⭐⭐⭐
 
-A monotonic stack maintains values/indices in increasing or decreasing order so that dominated candidates can be discarded.
+## Core idea
 
-## 8.1 Why it converts O(n²) to O(n)
-
-Naively, every element may scan many future elements.
-
-With a monotonic stack:
-
-```text
-push each index once
-pop each index at most once
-```
-
-So total stack operations are `O(n)`.
-
----
-
-## 8.2 Daily Temperatures — Next Greater Element
-
-### Problem statement
-
-For each day, find how many days until a warmer temperature.
+A monotonic stack stores unresolved elements while maintaining increasing or decreasing order.
 
 ### Recognition
 
-```text
-next greater element to the right
-        ↓
-monotonic decreasing stack of unresolved indices
-```
-
-### Code
-
-```python
-def dailyTemperatures(temperatures):
-    ans = [0] * len(temperatures)
-    stack = []
-
-    for i, temp in enumerate(temperatures):
-        while stack and temp > temperatures[stack[-1]]:
-            j = stack.pop()
-            ans[j] = i - j
-
-        stack.append(i)
-
-    return ans
-```
-
-**Time:** `O(n)`  
-**Space:** `O(n)`
-
-### Mental picture
-
-```text
-stack = days waiting for a warmer day
-current warmer day
-        ↓
-pop and resolve waiting days
-```
-
----
-
-## 8.3 Next Greater Element I
-
-Typical skeleton:
-
-```python
-stack = []
-next_greater = {}
-
-for x in nums:
-    while stack and x > stack[-1]:
-        next_greater[stack.pop()] = x
-
-    stack.append(x)
-```
-
-The popped elements have just found their next greater value.
-
-### Combination pattern
-
-```text
-monotonic stack
-+
-hash map
-```
-
-is extremely reusable.
-
----
-
-## 8.4 Largest Rectangle in Histogram ⭐⭐⭐
-
-### Core question
-
-For each bar of height `h`, how far can that height extend?
-
-You need the nearest smaller bar on each side.
-
-### Increasing stack
-
-Maintain increasing heights. When a shorter bar appears, the current index becomes the right boundary of the popped bar.
-
-```python
-def largestRectangleArea(heights):
-    stack = []
-    best = 0
-
-    heights = heights + [0]
-
-    for i, h in enumerate(heights):
-        while stack and heights[stack[-1]] > h:
-            height = heights[stack.pop()]
-
-            left = stack[-1] if stack else -1
-            width = i - left - 1
-
-            best = max(best, height * width)
-
-        stack.append(i)
-
-    return best
-```
-
-**Time:** `O(n)`  
-**Space:** `O(n)`
-
-### Why width is `i - left - 1`
-
-```text
-current i   = first smaller on the right
-stack top   = first smaller on the left
-```
-
-So valid width is everything strictly between them.
-
-### Memory rule
-
-```text
-nearest smaller boundaries
-        ↓
-increasing monotonic stack
-```
-
----
-
-## 8.5 Monotonic Stack Recognition
-
-Look for:
+Immediately test monotonic stack for:
 
 ```text
 next greater
 next smaller
 previous greater
 previous smaller
-nearest greater
-nearest smaller
-warmer day
-stock span
-histogram rectangle
+nearest greater/smaller
+wait until a larger value appears
+histogram boundaries
 ```
 
-Then ask:
+---
 
-> Can unresolved elements wait until a future element resolves them?
+## 8.1 Daily Temperatures
 
-If yes, test monotonic stack.
+### Problem statement
+
+For each day, find how many days must pass before a warmer temperature appears.
+
+### Insight
+
+We do not know the answer when reading a day. Keep earlier days unresolved.
+
+When current temperature is warmer than the temperature at the stack top:
+
+```text
+current resolves that earlier day
+```
+
+Store indices, not just temperatures, because we need the distance.
+
+```python
+def dailyTemperatures(temperatures):
+    answer = [0] * len(temperatures)
+    stack = []
+
+    for i, temp in enumerate(temperatures):
+        while stack and temp > temperatures[stack[-1]]:
+            j = stack.pop()
+            answer[j] = i - j
+
+        stack.append(i)
+
+    return answer
+```
+
+**Time:** `O(n)`  
+**Space:** `O(n)`
+
+### Why O(n), not O(n²)?
+
+Each index is:
+
+```text
+pushed once
+popped once
+```
+
+Therefore total stack operations are linear.
+
+### Memory rule
+
+```text
+unresolved indices
+        ↓
+monotonic stack
+        ↓
+current element resolves some old elements
+```
+
+---
+
+## 8.2 Next Greater Element
+
+```python
+def nextGreaterElements(nums):
+    n = len(nums)
+    answer = [-1] * n
+    stack = []
+
+    for i in range(n - 1, -1, -1):
+        while stack and stack[-1] <= nums[i]:
+            stack.pop()
+
+        if stack:
+            answer[i] = stack[-1]
+
+        stack.append(nums[i])
+
+    return answer
+```
+
+The exact direction can vary by formulation. The invariant matters more than memorizing one direction.
+
+---
+
+## 8.3 Largest Rectangle in Histogram
+
+This is a major monotonic-stack problem.
+
+For each bar, find how far it can extend while remaining the limiting height.
+
+The stack maintains increasing bar heights. When a smaller bar arrives, taller bars are resolved.
+
+The key derived quantity is:
+
+```text
+width = right_boundary - left_boundary - 1
+area  = height × width
+```
+
+For a harder Infosys-style question, understand the boundary logic rather than only memorizing code.
 
 ---
 
 <a id="d12-9"></a>
 # 9. Heap / Priority Queue ⭐⭐⭐
 
-## 9.1 What does a heap solve?
+## Core idea
 
-A heap keeps the smallest/largest relevant element readily available while supporting updates efficiently.
+A heap gives fast access to the current smallest or largest element while supporting insertion/removal.
 
-Use it when the question repeatedly asks for:
-
-```text
-minimum
-maximum
-Top K
-Kth largest/smallest
-next best candidate
-merge sorted sources
-```
-
-Python:
+Python provides a **min-heap** through `heapq`.
 
 ```python
 import heapq
 
 heap = []
 heapq.heappush(heap, x)
-x = heapq.heappop(heap)
+smallest = heapq.heappop(heap)
 ```
 
-`heapq` is a min-heap.
-
-For a numeric max-heap:
+For a max-heap, a common Python trick is to push negative values:
 
 ```python
 heapq.heappush(heap, -x)
 maximum = -heapq.heappop(heap)
 ```
 
----
-
-## 9.2 Heap complexity
-
-For heap size `k`:
+### Complexity
 
 ```text
-push → O(log k)
-pop  → O(log k)
+push → O(log n)
+pop  → O(log n)
 peek → O(1)
 ```
 
-Building a heap from an existing list:
-
-```python
-heapq.heapify(arr)
-```
-
-is `O(n)`.
-
 ---
 
-## 9.3 Kth Largest Element — Min-Heap of Size K ⭐⭐⭐
+## 9.1 Kth Largest Element
 
-### Problem statement
+Maintain a min-heap of size `k`.
 
-Find the kth largest value.
-
-### Key idea
-
-Keep only the current `k` largest values.
-
-Use a **min-heap** so the smallest among these `k` values is at the top.
+```text
+heap contains current top k values
+smallest of them = kth largest overall
+```
 
 ```python
 import heapq
@@ -1667,488 +1572,599 @@ def findKthLargest(nums, k):
 **Time:** `O(n log k)`  
 **Space:** `O(k)`
 
-### Why min-heap for kth largest?
+### Recognition
 
 ```text
-Need to keep the largest K
+top K
+kth largest
+kth smallest
         ↓
-when a new value arrives, remove the smallest of current K
-        ↓
-min-heap gives that smallest item immediately
+heap of size K
 ```
 
 ---
 
-## 9.4 Top K Frequent Elements
+## 9.2 Top K Frequent Elements
 
-### Steps
+Typical route:
 
 ```text
-1. Count frequencies.
-2. Store (frequency, value) in a heap.
-3. Keep heap size K.
-4. Remove the least frequent of the current K when needed.
+frequency map
+      ↓
+heap / bucket structure
+      ↓
+top K
 ```
 
-For special frequency ranges, bucket sort may improve complexity, but the heap pattern is more broadly reusable.
+The important pattern is often a **combination** rather than one isolated topic.
 
 ---
 
-## 9.5 K Closest Points to Origin
+## 9.3 K Closest Points
 
-Distance ordering uses:
+The heap stores the points that matter according to the distance score.
 
-```text
-x² + y²
-```
-
-rather than `sqrt(x² + y²)` because square root preserves ordering.
-
-### Optimization habit
+Define a comparable key first:
 
 ```text
-Do not compute an expensive transformation if it does not change ordering.
+distance = x² + y²
 ```
 
-Maintain only the best `k` points instead of sorting all points when appropriate.
+No square root is needed because square root preserves ordering.
 
 ---
 
-## 9.6 Merge K Sorted Lists / Arrays ⭐⭐⭐
+## 9.4 Merge K Sorted Lists
 
-### Problem shape
+Put the current smallest node from each list into a min-heap.
 
-You have `k` sorted sources and repeatedly need the smallest current head.
-
-### Algorithm
+Repeatedly:
 
 ```text
-put one head from each source in min-heap
-        ↓
 pop smallest
+add to answer
+push its next node
+```
+
+This is a classic “many sorted streams + current best candidate” heap problem.
+
+---
+
+## 9.5 Heap + Greedy
+
+The heap often stores the set of currently available choices.
+
+Think:
+
+```text
+filter feasible choices
         ↓
-push next element from the same source
+heap by best priority
+        ↓
+take the best available
+        ↓
+update available set
         ↓
 repeat
 ```
 
-### Complexity intuition
-
-With `N` total elements:
-
-```text
-O(N log k)
-```
-
-because the heap has size at most `k`.
-
-### Recognition
-
-```text
-k sorted streams
-+
-repeated smallest current item
-        ↓
-min-heap
-```
-
----
-
-## 9.7 Find Median from Data Stream — Two Heaps ⭐⭐⭐
-
-Maintain two halves:
-
-```text
-max-heap → lower half
-min-heap → upper half
-```
-
-Keep sizes balanced so they differ by at most one.
-
-Then:
-
-```text
-odd count  → top of larger heap
- even count → average of the two tops
-```
-
-### Recognition
-
-```text
-stream
-+
-median after each insertion / query
-        ↓
-two heaps
-```
-
----
-
-## 9.8 Heap + Greedy Bridge
-
-A heap is especially useful when the rule is:
-
-```text
-Repeatedly choose the currently cheapest/best available option.
-```
-
-Example: minimum cost to connect ropes.
-
-```text
-all rope lengths → min-heap
-while more than one:
-    take two smallest
-    combine them
-    add cost
-    push combined length
-```
-
-This is a reusable combination:
-
-```text
-Greedy chooses what should happen next
-Heap makes the best current choice efficient
-```
+This pattern appears in scheduling, event selection, resource allocation, and connection-cost problems.
 
 ---
 
 <a id="d12-10"></a>
 # 10. Pattern Recognition Cheat Sheet ⭐⭐⭐
 
-| Question signal | Pattern | Core move |
+| Signal | First pattern to test | Main question |
 |---|---|---|
-| Fast existence | Hash set | membership lookup |
-| Frequency | Hash map | count values |
-| Pair + target, unsorted | Hash map | complement |
-| Many range sums | Prefix Sum | prefix difference |
-| Subarray sum = K | Prefix + Hash | previous prefix = current - K |
-| Sum divisible by K | Prefix remainder + Hash | equal remainders |
-| Sorted + pair | Two Pointers | move safe pointer |
-| Sorted + triplets | Sort + Two Pointers | fix one + 2Sum |
-| In-place sorted cleanup | Slow/Fast | write valid values |
-| Exactly K contiguous | Fixed Window | add/remove one element |
-| Longest valid contiguous region | Variable Window | expand/shrink invariant |
-| Frequency substring | Window + counts | maintain frequencies |
-| Sorted search | Binary Search | discard half |
-| First `>= target` | Lower Bound | keep possible answer |
-| First `> target` | Upper Bound | keep possible answer |
-| Rotated sorted array | Binary Search | find sorted half |
-| Numeric min/max + feasibility | BS on Answer | monotonic `can(x)` |
-| Nested matching | Stack | latest unmatched item |
-| Next greater/smaller | Monotonic Stack | resolve while violating order |
-| Histogram rectangle | Monotonic Stack | nearest smaller boundaries |
-| Top K | Heap | keep K best |
-| Kth largest | Min-heap of K | top = kth largest |
-| Merge K sorted sources | Min-heap | current smallest heads |
-| Running median | Two heaps | lower/upper halves |
+| Need fast existence/count/position | Hashing | What should be stored? |
+| Many range sums | Prefix Sum | Can I reuse two prefixes? |
+| Sorted + pair/target | Two Pointers | Why can I discard one side? |
+| Contiguous + valid window | Sliding Window | What invariant must stay true? |
+| Sorted search | Binary Search | What half can I discard? |
+| Numeric answer + monotonic feasibility | BS on Answer | Is `feasible(x)` monotonic? |
+| Nested/matching structure | Stack | What is unresolved? |
+| Nearest greater/smaller | Monotonic Stack | Which old indices are resolved now? |
+| Top K / repeated best choice | Heap | Which candidate must stay available? |
+| Prefix relation + count | Prefix + Hashing | What previous state completes current state? |
+| Frequency constraint + substring | Sliding Window + Hashing | What makes the window invalid? |
+| Multiple sorted streams | Heap | What is the current smallest/largest head? |
 
 ---
 
 <a id="d12-11"></a>
 # 11. Complexity + Constraint Rules ⭐⭐⭐
 
-Before coding, inspect the constraints. Large `n` is the strongest signal that brute force will not survive.
-
-### Practical heuristic
+Use constraints as an early filter.
 
 ```text
-n <= 20
-    exponential/backtracking may be possible
+n ≈ 10^5
+→ usually O(n) or O(n log n)
 
-n <= 10^3
-    O(n²) may be possible depending on constants/time limit
+n ≈ 10^6
+→ strongly prefer O(n) or close to it
 
-n <= 10^5
-    target O(n) or O(n log n)
+n ≈ 10^2
+→ O(n²) may be fine
 
-n <= 10^6
-    usually near-linear is required
+n ≈ 10^3
+→ O(n²) depends on language and inner work
 ```
 
-These are heuristics, not guarantees.
-
-### Common upgrades
+For Day 1–2 questions:
 
 ```text
-O(n²) pair search
+O(n²) brute force
         ↓
-hashing / sorting + two pointers
-
-O(nk) repeated fixed windows
+ask what repeated work exists
         ↓
-sliding window
-
-O(nq) range-sum queries
-        ↓
-prefix sum
-
-O(n²) next-greater checks
-        ↓
-monotonic stack
-
-sort all n for Top K
-        ↓
-heap of size K
-
-linear scan over huge numeric answer space
-        ↓
-binary search on answer
+Hashing / Prefix / Two Pointers / Window / Stack / Heap / BS
 ```
 
-### Memory optimization questions
+### Space trade-off
+
+High constraints do not automatically mean “use more memory.” Choose according to the bottleneck.
 
 ```text
-Can I keep only K heap elements?
-Can a running prefix replace a prefix array?
-Can I use a set instead of a dict?
-Can I process the stream online?
-Can I avoid copying/slicing inside loops?
+Need constant-time lookup
+→ extra hash memory can be worth it
+
+Need only previous/next values
+→ O(1) variables may be enough
+
+Need Top K
+→ heap of size K, not full heap if avoidable
+
+Need repeated range sums
+→ prefix O(n) memory can remove O(n) per query
 ```
+
+### I/O complexity awareness
+
+Input parsing is normally linear in the amount of input read. Do not over-engineer parsing, but do know what your statement provides.
 
 ---
 
 <a id="d12-12"></a>
-# 12. Infosys Terminal Mode ⭐⭐⭐
+# 12. Terminal Mode — Tips + End-to-End I/O Example ⭐⭐⭐
 
-When the problem appears on screen:
+This section is deliberately practical.
 
-## 1. Read constraints first
+The purpose is **not** to teach a new algorithm. The purpose is to make the assessment environment feel familiar:
+
+```text
+imports
+↓
+read input
+↓
+parse values
+↓
+call solve
+↓
+print output
+```
+
+## 12.1 Terminal Tips
+
+### Tip 1 — Read the input shape before coding
+
+Look for:
+
+```text
+T
+n
+array of n values
+n m
+matrix
+u v edges
+q queries
+```
+
+### Tip 2 — Separate I/O from algorithm
+
+A good habit is:
+
+```python
+def solve(...):
+    # pure algorithm
+```
+
+and then:
+
+```python
+if __name__ == "__main__":
+    # input
+    # solve
+    # output
+```
+
+This reduces parsing mistakes and makes debugging easier.
+
+### Tip 3 — Use a fast input pattern when needed
+
+For large input:
+
+```python
+import sys
+input = sys.stdin.buffer.readline
+```
+
+For simple small input, ordinary `input()` is also fine.
+
+### Tip 4 — Multiple test cases
+
+If the first line is `T`, wrap the complete per-test-case logic inside a loop.
+
+```python
+for _ in range(T):
+    ...
+```
+
+Do not accidentally reuse state from the previous test case.
+
+### Tip 5 — Array input
+
+Typical:
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+```
+
+Do not assume the array always occupies exactly one physical line unless the statement guarantees it. For truly robust token parsing, read all tokens:
+
+```python
+data = list(map(int, sys.stdin.buffer.read().split()))
+```
+
+Then consume them according to the problem structure.
+
+### Tip 6 — Graph input is different
+
+Typical graph shape:
+
+```text
+n m
+u v
+u v
+...
+```
+
+You usually create:
+
+```python
+adj = [[] for _ in range(n)]
+```
+
+and add edges.
+
+That is why the graph revision file should contain a graph-specific full program rather than copying an array parser blindly.
+
+### Tip 7 — DP input depends on the problem
+
+Common examples:
 
 ```text
 n
-value range
-queries
-sorted?
-positive only?
-streaming?
+array
 ```
 
-## 2. Identify the structure
+or:
 
 ```text
-lookup/count                 → Hashing
-range sums                   → Prefix
-sorted pair/triplet          → Two Pointers
-contiguous region            → Sliding Window
-ordered search               → Binary Search
-numeric answer + feasibility → BS on Answer
-nested/unresolved            → Stack
-next greater/smaller         → Monotonic Stack
-repeated best/min/max        → Heap
+n target
+array
 ```
 
-## 3. State the invariant
-
-Say it in one sentence before coding.
-
-Examples:
+or:
 
 ```text
-Hashing:
-The map stores exactly the information future elements may need.
-
-Prefix:
-The prefix value represents accumulated information before the current position.
-
-Two pointers:
-Everything discarded by a pointer movement is proven impossible.
-
-Sliding window:
-The current window satisfies the invariant after each shrink.
-
-Binary search:
-The answer, if it exists, remains inside the search interval.
-
-Monotonic stack:
-The stack contains unresolved elements in monotonic order.
-
-Heap:
-The heap contains the currently relevant best candidates.
+m n
+matrix
 ```
 
-## 4. Test edge cases
+The parser must follow the exact state/data given by the statement.
+
+### Tip 8 — Output exactly what is requested
+
+These are different:
 
 ```text
-empty / one element
-all equal
-already sorted
-reverse sorted
-duplicates
-negative values
-zeroes
-impossible target
-boundary target
-K = 1
-K = n
-very large values
+5
 ```
-
-## 5. Complexity check before submit
 
 ```text
-Time?
-Space?
-Any hidden O(n²)?
-Any unnecessary sorting?
-Any heap larger than necessary?
-Any slicing/copying in a loop?
+5 7
 ```
+
+```text
+YES
+```
+
+```text
+Yes
+```
+
+```text
+[1, 2]
+```
+
+Never print debugging text in the final submission.
+
+---
+
+## 12.2 End-to-End Example — Subarray Sum Equals K ⭐⭐⭐
+
+This is intentionally a **Hashing + Prefix Sum** problem because it lets you rehearse the complete `n + array + target → one integer` input/output flow.
+
+### Problem statement
+
+Given an integer array `nums` and an integer `k`, count the number of contiguous subarrays whose sum is exactly `k`.
+
+### Example input
+
+```text
+5 2
+1 1 1 1 1
+```
+
+Interpretation:
+
+```text
+n = 5
+k = 2
+nums = [1, 1, 1, 1, 1]
+```
+
+### Expected output
+
+```text
+4
+```
+
+The four valid subarrays are the four length-2 windows.
+
+### Algorithm reminder
+
+```text
+current prefix = P
+need previous prefix = P - k
+```
+
+Store frequencies of previous prefix sums.
+
+### Complete submission-style program
+
+```python
+import sys
+
+
+def solve(nums, k):
+    freq = {0: 1}
+    prefix = 0
+    count = 0
+
+    for x in nums:
+        prefix += x
+
+        count += freq.get(prefix - k, 0)
+        freq[prefix] = freq.get(prefix, 0) + 1
+
+    return count
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # First line: n and k
+    n, k = map(int, input().split())
+
+    # Second line: n array values
+    nums = list(map(int, input().split()))
+
+    # Optional defensive check for malformed input
+    if len(nums) != n:
+        nums = nums[:n]
+
+    answer = solve(nums, k)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### End-to-end execution
+
+```text
+INPUT
+-----
+5 2
+1 1 1 1 1
+
+        ↓
+
+READ
+n = 5
+k = 2
+nums = [1, 1, 1, 1, 1]
+
+        ↓
+
+SOLVE
+prefix/hashmap logic
+
+        ↓
+
+ANSWER
+4
+
+        ↓
+
+OUTPUT
+-----
+4
+```
+
+### What to memorize from the I/O structure
+
+```python
+import sys
+
+def solve(...):
+    ...
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # parse input
+    ...
+
+    # call algorithm
+    answer = solve(...)
+
+    # print answer
+    print(answer)
+
+if __name__ == "__main__":
+    main()
+```
+
+Do not memorize only this exact parser. Memorize the **shape**:
+
+```text
+statement
+→ identify input structure
+→ parse it
+→ pass parsed values to algorithm
+→ print required output
+```
+
+### Quick I/O templates
+
+#### 1. Single integer
+
+```python
+n = int(input())
+```
+
+#### 2. Two integers
+
+```python
+n, k = map(int, input().split())
+```
+
+#### 3. Array
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+```
+
+#### 4. String
+
+```python
+s = input().strip()
+```
+
+#### 5. Matrix
+
+```python
+m, n = map(int, input().split())
+grid = [list(map(int, input().split())) for _ in range(m)]
+```
+
+#### 6. T test cases
+
+```python
+T = int(input())
+
+for _ in range(T):
+    ...
+```
+
+#### 7. Large token-based input
+
+```python
+import sys
+
+data = list(map(int, sys.stdin.buffer.read().split()))
+```
+
+Use this when the input is large or split across unpredictable lines.
 
 ---
 
 <a id="d12-13"></a>
 # 13. Practice Order ⭐⭐⭐
 
-Use the file actively. Do not just read it.
+Do these in order because the goal is not just topic coverage; it is pattern recognition and implementation speed.
 
-## Round A — Fast recall
-
-Without notes, implement:
+## First pass — must know
 
 ```text
-1. Two Sum
-2. Contains Duplicate
-3. Prefix Sum range query
-4. Two Sum II
-5. Longest Substring Without Repeating Characters
-6. Binary Search
-7. Search Insert Position
-8. Valid Parentheses
-9. Daily Temperatures
-10. Kth Largest Element
+Two Sum
+Contains Duplicate
+Subarray Sum Equals K
+Two Sum II
+Container With Most Water
+Longest Substring Without Repeating Characters
+Maximum Sum Subarray of Size K
+Binary Search
+First/Last Position
+Koko Eating Bananas
+Valid Parentheses
+Daily Temperatures
+Kth Largest Element
 ```
 
-## Round B — Medium switching
+## Second pass — important variations
 
 ```text
-1. Subarray Sum Equals K
-2. Longest Consecutive Sequence
-3. 3Sum
-4. Container With Most Water
-5. Minimum Size Subarray Sum
-6. Search in Rotated Sorted Array
-7. Koko Eating Bananas
-8. Largest Rectangle in Histogram
-9. Top K Frequent Elements
-10. Merge K Sorted Lists
+3Sum
+Minimum Size Subarray Sum
+Longest Repeating Character Replacement
+Search in Rotated Sorted Array
+Capacity to Ship Packages Within D Days
+Min Stack
+Next Greater Element
+Largest Rectangle in Histogram
+Top K Frequent Elements
+K Closest Points
+Merge K Sorted Lists
 ```
 
-## Round C — Variation drill
+## Final recognition drill
 
-After solving each problem, change one condition mentally.
-
-### Hashing
+For every new question, say this before coding:
 
 ```text
-What if I need count instead of existence?
-What if the key is remainder/parity/transformed value?
+Pattern?
+Brute force?
+Bottleneck?
+Optimization?
+Invariant?
+Edge cases?
+Complexity?
+Input shape?
+Output shape?
 ```
 
-### Prefix Sum
+### Final Day 1–2 terminal checklist
 
 ```text
-What if values can be negative?
-What if I need to count subarrays instead of answer one query?
+□ I can parse n + array quickly.
+□ I can parse T test cases.
+□ I can parse n, k + array.
+□ I can parse matrix input.
+□ I know when a graph parser is needed.
+□ I know that DP input shape depends on the problem.
+□ I separate main() / solve().
+□ I can write fast input without thinking.
+□ I print only the required answer.
+□ I can identify the pattern before coding.
 ```
 
-### Two Pointers
+> **Final rule:** Do not let I/O syntax become the bottleneck after you have already solved the algorithm mentally. In the exam, input parsing is part of implementation skill.
 
-```text
-Why is each pointer movement safe?
-What breaks when the array is not sorted?
-```
-
-### Sliding Window
-
-```text
-What is the exact invariant?
-What breaks if negative numbers appear?
-```
-
-### Binary Search
-
-```text
-What is the invariant?
-Can I search the answer instead of an array?
-What is can(x)?
-Is can(x) monotonic?
-```
-
-### Stack
-
-```text
-What unresolved item is waiting?
-Why is the latest unresolved item the next one to process?
-```
-
-### Monotonic Stack
-
-```text
-greater or smaller?
-next or previous?
-increasing or decreasing stack?
-```
-
-### Heap
-
-```text
-Do I need all n values or only K?
-Min-heap or max-heap?
-Do I need two heaps?
-```
-
----
-
-# 🔥 Final Mechanical Memory Sheet
-
-```text
-HASHING
-lookup → set/dict
-pair target → complement
-count/state → frequency map
-
-PREFIX SUM
-range sum → prefix[r+1] - prefix[l]
-subarray sum K → previous prefix = current - K
-property of sum → compress prefix to useful state
-
-TWO POINTERS
-sorted pair → left/right
-triplet → fix one + two pointers
-in-place compaction → slow/fast
-always justify pointer movement
-
-SLIDING WINDOW
-contiguous
-→ expand right
-→ violation
-→ shrink left
-→ update answer
-
-BINARY SEARCH
-ordered search space
-→ inspect mid
-→ discard half
-
-BINARY SEARCH ON ANSWER
-numeric answer
-+
-monotonic feasibility
-→ binary search candidate answer
-
-STACK
-nested/LIFO/unresolved latest item
-
-MONOTONIC STACK
-next/previous greater or smaller
-→ each item pushed/popped at most once
-
-HEAP
-repeated min/max
-→ priority queue
-Top K → heap size K
-merge K sorted → heap of heads
-two heaps → running median
-```
-
-> **Final rule:** Do not memorize only the code or pattern name. Memorize **the bottleneck, the invariant, and why the data structure removes that bottleneck.**
+[↑ Back to Contents](#contents)
