@@ -61,7 +61,7 @@ Overlapping subproblems + optimal/feasibility result
 "maximum/minimum number/value" → optimization DP
 "is it possible?"               → boolean DP
 "number of ways"                 → counting DP
-"choose / don't choose"         → pick-not-pick
+"choose / don't choose"          → pick-not-pick
 "two sequences"                 → LCS-style DP
 "grid movement"                 → grid DP
 "split into parts"              → partition DP
@@ -600,25 +600,15 @@ for k in range(l, r):
 | Take/skip element | Pick/Not Pick | `dp[i][target]` |
 | Target achievable | Subset Sum | boolean `dp[target]` |
 | Equal split | Subset Sum | `target = total/2` |
-| `+/-` assignments | Target Sum | subset-count |
-| Weight + value | 0/1 Knapsack | `dp[capacity]` |
-| Repeat item allowed | Unbounded DP | forward capacity / amount |
-| Grid ways | Grid DP | `dp[r][c]` |
-| Grid minimum cost | Grid DP | min previous |
-| Increasing subsequence | LIS | ending-at-index |
-| Two strings/sequences | LCS | prefix pair `(i,j)` |
-| String transformation | Edit Distance | prefix pair `(i,j)` |
+| `+/-` assignment | Target Sum | subset counting |
+| Capacity + value | 0/1 Knapsack | `dp[w]` |
+| Grid + ways | Grid DP | `dp[r][c]` |
+| Grid + minimum cost | Grid DP | min previous |
+| Increasing subsequence | LIS | `dp[i]` |
+| Two sequences | LCS | `dp[i][j]` |
+| Reusable coins/items | Unbounded DP | forward reuse |
+| String transformation | Edit Distance | `dp[i][j]` |
 | Split interval | Partition DP | `dp[l][r]` |
-
-### State shortcut
-
-```text
-1 variable → 1D DP
-2 indices   → 2D DP
-index+target/capacity → pick/not-pick / knapsack
-row+column  → grid DP
-left+right interval → partition DP
-```
 
 [↑ Back to Contents](#contents)
 
@@ -626,54 +616,41 @@ left+right interval → partition DP
 
 ## 18. Exam Terminal Mode ⭐⭐⭐
 
-### Function mode
-
-If the platform gives the function signature, **do not write input parsing**.
-
-```python
-def solve(...):
-    # DP logic
-    return answer
-```
-
-### Terminal mode
-
-If you get an empty editor / standard input:
+When you see a new DP problem:
 
 ```text
-1. import modules if needed
-2. read stdin
-3. convert input
-4. build required structure
-5. call solution function
-6. print exact output
+1. What is the state?
+2. What choices do I have?
+3. What is the transition?
+4. What is the base case?
+5. What order should I compute states?
+6. Can I reduce memory?
 ```
 
-### Generic terminal skeleton
+### Implementation order
 
-```python
-import sys
-
-
-def solve(data):
-    # 1. parse data
-    # 2. define DP state
-    # 3. fill DP
-    # 4. return answer
-    return answer
-
-
-def main():
-    data = list(map(int, sys.stdin.read().split()))
-    answer = solve(data)
-    print(answer)
-
-
-if __name__ == "__main__":
-    main()
+```text
+Recursion
+   ↓
+Memoization
+   ↓
+Tabulation
+   ↓
+Space optimization
 ```
 
-**Important:** replace parsing with the exact input format from the question. Never assume the input format.
+### Terminal signals
+
+```text
+maximum/minimum → optimization DP
+possible/impossible → boolean DP
+number of ways → counting DP
+choose/skip → pick/not-pick
+many targets → target dimension
+multiple sequences → LCS/LIS family
+grid movement → grid DP
+split interval → partition DP
+```
 
 [↑ Back to Contents](#contents)
 
@@ -681,20 +658,9 @@ if __name__ == "__main__":
 
 ## 19. Top Priority DP Problem — Terminal Template ⭐⭐⭐
 
-### 0/1 Knapsack — complete exam-style submission
-
-Assume the statement gives:
-
-```text
-n capacity
-weights
-values
-```
+### 0/1 Knapsack
 
 ```python
-import sys
-
-
 def knapsack(weights, values, capacity):
     dp = [0] * (capacity + 1)
 
@@ -703,50 +669,23 @@ def knapsack(weights, values, capacity):
             dp[w] = max(dp[w], value + dp[w - weight])
 
     return dp[capacity]
-
-
-def main():
-    data = list(map(int, sys.stdin.read().split()))
-    i = 0
-
-    n = data[i]
-    i += 1
-
-    capacity = data[i]
-    i += 1
-
-    weights = data[i:i + n]
-    i += n
-
-    values = data[i:i + n]
-
-    answer = knapsack(weights, values, capacity)
-    print(answer)
-
-
-if __name__ == "__main__":
-    main()
 ```
 
-### How to simulate writing it in the exam
+### Terminal recognition
 
 ```text
-Question
-  ↓
-Recognize: 0/1 Knapsack
-  ↓
-State: dp[w] = best value at capacity w
-  ↓
-Choice: skip / take
-  ↓
-Transition: max(dp[w], value + dp[w-weight])
-  ↓
-0/1 → capacity loop BACKWARD
-  ↓
-Read input → call function → print answer
+items
++
+weight/capacity
++
+value/profit
++
+use each item at most once
+        ↓
+0/1 Knapsack
+        ↓
+backward capacity loop
 ```
-
-If the problem is another DP pattern, keep the same terminal wrapper and replace only the **parser + DP function**.
 
 [↑ Back to Contents](#contents)
 
@@ -754,39 +693,15 @@ If the problem is another DP pattern, keep the same terminal wrapper and replace
 
 ## 20. Quick Exam Rules ⭐⭐⭐
 
-### Before coding
-
 ```text
-What is the state?
-What are the choices?
-What is the transition?
-What is the base case?
-What is the final state?
-```
-
-### Common traps
-
-```text
-0/1 Knapsack / Subset Sum → capacity/target backward
-Unbounded Coin Change     → reuse allowed
-LCS                       → use i-1 / j-1 carefully
-LIS                       → dp[i] means ending at i
-Grid                      → initialize first row/column correctly
-```
-
-### If stuck
-
-```text
-Write recursion first.
-Add memoization.
-Convert memo to table.
-Then optimize space only if needed.
-```
-
-### Final muscle-memory line
-
-```text
-DP = STATE + CHOICE + TRANSITION + BASE CASE
+First define dp state.
+Then derive transition.
+Never memorize recurrence without understanding state.
+Backward loop → 0/1 reuse restriction.
+Forward loop  → unbounded reuse.
+Grid          → previous cells.
+Two strings   → two-dimensional state.
+Split interval → partition DP.
 ```
 
 [↑ Back to Contents](#contents)
