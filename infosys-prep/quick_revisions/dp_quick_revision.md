@@ -8,30 +8,31 @@
 
 ## Contents
 
-- [0. DP Mental Model](#0-dp-mental-model)
-- [1. Fibonacci — 1D DP](#1-fibonacci--1d-dp)
-- [2. Climbing Stairs](#2-climbing-stairs)
-- [3. Frog Jump](#3-frog-jump)
-- [4. House Robber](#4-house-robber)
-- [5. Pick / Not Pick Pattern](#5-pick--not-pick-pattern)
-- [6. Subset Sum](#6-subset-sum)
-- [7. Equal Partition](#7-equal-partition)
-- [8. Target Sum](#8-target-sum)
-- [9. 0/1 Knapsack](#9-01-knapsack)
-- [10. Unique Paths](#10-unique-paths)
-- [11. Minimum Path Sum](#11-minimum-path-sum)
-- [12. LIS](#12-lis)
-- [13. LCS](#13-lcs)
-- [14. Coin Change — Unbounded DP](#14-coin-change--unbounded-dp)
-- [15. Edit Distance](#15-edit-distance)
-- [16. Partition DP — Recognition](#16-partition-dp--recognition)
-- [17. DP Pattern Recognition Cheat Sheet](#17-dp-pattern-recognition-cheat-sheet)
-- [18. Exam Terminal Mode](#18-exam-terminal-mode)
-- [19. Top Priority DP Problem — Terminal Template](#19-top-priority-dp-problem--terminal-template)
-- [20. Quick Exam Rules](#20-quick-exam-rules)
+- [0. DP Mental Model](#dp-0)
+- [1. Fibonacci — 1D DP](#dp-1)
+- [2. Climbing Stairs](#dp-2)
+- [3. Frog Jump](#dp-3)
+- [4. House Robber](#dp-4)
+- [5. Pick / Not Pick Pattern](#dp-5)
+- [6. Subset Sum](#dp-6)
+- [7. Equal Partition](#dp-7)
+- [8. Target Sum](#dp-8)
+- [9. 0/1 Knapsack](#dp-9)
+- [10. Unique Paths](#dp-10)
+- [11. Minimum Path Sum](#dp-11)
+- [12. LIS](#dp-12)
+- [13. LCS](#dp-13)
+- [14. Coin Change — Unbounded DP](#dp-14)
+- [15. Edit Distance](#dp-15)
+- [16. Partition DP — Recognition](#dp-16)
+- [17. DP Pattern Recognition Cheat Sheet](#dp-17)
+- [18. Exam Terminal Mode](#dp-18)
+- [19. Top Priority DP Problem — Terminal Template](#dp-19)
+- [20. Quick Exam Rules](#dp-20)
 
 ---
 
+<a id="dp-0"></a>
 ## 0. DP Mental Model ⭐⭐⭐
 
 DP = **solve smaller states once and reuse them**.
@@ -61,7 +62,7 @@ Overlapping subproblems + optimal/feasibility result
 "maximum/minimum number/value" → optimization DP
 "is it possible?"               → boolean DP
 "number of ways"                 → counting DP
-"choose / don't choose"          → pick-not-pick
+"choose / don't choose"         → pick-not-pick
 "two sequences"                 → LCS-style DP
 "grid movement"                 → grid DP
 "split into parts"              → partition DP
@@ -71,6 +72,7 @@ Overlapping subproblems + optimal/feasibility result
 
 ---
 
+<a id="dp-1"></a>
 ## 1. Fibonacci — 1D DP ⭐⭐⭐
 
 ### State
@@ -104,6 +106,7 @@ def fib(n):
 
 ---
 
+<a id="dp-2"></a>
 ## 2. Climbing Stairs ⭐⭐⭐
 
 ### State
@@ -136,6 +139,7 @@ def climbStairs(n):
 
 ---
 
+<a id="dp-3"></a>
 ## 3. Frog Jump ⭐⭐⭐
 
 Typical 1-step / 2-step version.
@@ -179,6 +183,7 @@ def frogJump(h):
 
 ---
 
+<a id="dp-4"></a>
 ## 4. House Robber ⭐⭐⭐
 
 ### State
@@ -214,6 +219,7 @@ def rob(nums):
 
 ---
 
+<a id="dp-5"></a>
 ## 5. Pick / Not Pick Pattern ⭐⭐⭐
 
 The core subsequence/knapsack pattern.
@@ -254,6 +260,7 @@ def solve(i, target):
 
 ---
 
+<a id="dp-6"></a>
 ## 6. Subset Sum ⭐⭐⭐
 
 ### State
@@ -289,6 +296,7 @@ def subsetSum(arr, target):
 
 ---
 
+<a id="dp-7"></a>
 ## 7. Equal Partition ⭐⭐⭐
 
 Can the array be split into two subsets with equal sum?
@@ -315,6 +323,7 @@ def canPartition(arr):
 
 ---
 
+<a id="dp-8"></a>
 ## 8. Target Sum ⭐⭐⭐
 
 Assign `+` or `-` to each number to reach target.
@@ -342,6 +351,7 @@ Then solve a subset-count DP for `P`.
 
 ---
 
+<a id="dp-9"></a>
 ## 9. 0/1 Knapsack ⭐⭐⭐
 
 ### State
@@ -378,6 +388,7 @@ Unbounded → loop capacity forward
 
 ---
 
+<a id="dp-10"></a>
 ## 10. Unique Paths ⭐⭐⭐
 
 ### State
@@ -405,6 +416,7 @@ def uniquePaths(m, n):
 
 ---
 
+<a id="dp-11"></a>
 ## 11. Minimum Path Sum ⭐⭐⭐
 
 ### State
@@ -434,6 +446,7 @@ def minPathSum(grid):
 
 ---
 
+<a id="dp-12"></a>
 ## 12. LIS ⭐⭐⭐
 
 Longest Increasing Subsequence.
@@ -468,6 +481,7 @@ def lengthOfLIS(nums):
 
 ---
 
+<a id="dp-13"></a>
 ## 13. LCS ⭐⭐⭐
 
 Longest Common Subsequence of two strings.
@@ -508,6 +522,7 @@ def lcs(a, b):
 
 ---
 
+<a id="dp-14"></a>
 ## 14. Coin Change — Unbounded DP ⭐⭐⭐
 
 Minimum coins to make an amount.
@@ -539,6 +554,7 @@ def coinChange(coins, amount):
 
 ---
 
+<a id="dp-15"></a>
 ## 15. Edit Distance ⭐⭐
 
 Operations: insert, delete, replace.
@@ -564,6 +580,7 @@ else:
 
 ---
 
+<a id="dp-16"></a>
 ## 16. Partition DP — Recognition ⭐⭐
 
 When a problem asks to split an interval/array into parts and optimize over the split:
@@ -592,6 +609,7 @@ for k in range(l, r):
 
 ---
 
+<a id="dp-17"></a>
 ## 17. DP Pattern Recognition Cheat Sheet ⭐⭐⭐
 
 | Problem wording | Pattern | State idea |
@@ -614,6 +632,7 @@ for k in range(l, r):
 
 ---
 
+<a id="dp-18"></a>
 ## 18. Exam Terminal Mode ⭐⭐⭐
 
 When you see a new DP problem:
@@ -656,6 +675,7 @@ split interval → partition DP
 
 ---
 
+<a id="dp-19"></a>
 ## 19. Top Priority DP Problem — Terminal Template ⭐⭐⭐
 
 ### 0/1 Knapsack
@@ -691,6 +711,7 @@ backward capacity loop
 
 ---
 
+<a id="dp-20"></a>
 ## 20. Quick Exam Rules ⭐⭐⭐
 
 ```text
