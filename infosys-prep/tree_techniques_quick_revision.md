@@ -1,16 +1,56 @@
 # 🌳 Tree Techniques — Infosys Quick Revision
 
-> **Purpose:** Last-minute revision of the Tree concepts, problems, algorithms, and Python code we learned together.
+> **Purpose:** Last-minute revision of the Tree concepts, problems, algorithms, recognition patterns, and Python code we learned.
 >
-> **Order:** Highest-value patterns first. Each problem follows the same structure: **idea → algorithm → code → recognition**.
+> **Revision order:** Highest-priority exam patterns first, then the supporting patterns. For every problem: **algorithm → code → recognition**.
 >
-> **Coding convention:** 0-indexing for arrays/graphs, actual `TreeNode` objects for binary trees, recursive DFS for tree recursion, `deque` for BFS.
+> **Coding convention:** Actual `TreeNode` objects for binary trees, recursive DFS for tree recursion, `deque` for BFS, consistent variable names, and 0-indexing where arrays/graphs are involved.
 
 ---
 
-## 0. Core Tree Mental Model ⭐⭐⭐
+# 🚨 LAST-MINUTE PRIORITY ORDER
 
-A tree is a recursive structure:
+When time is very limited, revise in this order:
+
+1. **Tree DFS + traversal**
+2. **Maximum Depth / Height**
+3. **Diameter of Binary Tree**
+4. **Path Sum / root-to-leaf DFS**
+5. **Level Order BFS**
+6. **Parent + Depth**
+7. **LCA** — direct recursive + parent/depth
+8. **Distance between nodes**
+9. **Tree DP with states** — House Robber III
+10. **Maximum Path Sum**
+11. **BST** — Search, Validate, Kth Smallest, LCA
+12. **Subtree Size / Sum**
+
+### Fast recognition map
+
+```text
+Visit every node                  → DFS / BFS
+Preorder / Inorder / Postorder    → DFS
+Level by level                    → BFS
+Height / depth of tree            → DFS + max(left, right)
+Count / sum of subtree            → DFS + combine children
+Root-to-leaf condition            → DFS + carry state downward
+Longest path                      → Diameter / path DP
+Need parent / depth               → DFS + parent/depth
+Lowest common ancestor            → LCA
+Distance between two nodes        → depth + LCA
+Choose / don't choose node        → Tree DP with states
+Best path may turn at a node     → global answer + one-sided return
+BST search                        → compare and go left/right
+BST validation                    → range constraints
+Kth smallest in BST               → inorder
+BST LCA                            → BST ordering
+```
+
+---
+
+# 0. CORE TREE MENTAL MODEL ⭐⭐⭐
+
+A binary tree is a recursive structure:
 
 ```text
 Tree
@@ -22,7 +62,7 @@ Left subtree + Right subtree
 Each subtree is itself a tree
 ```
 
-For binary-tree problems, think:
+The most useful Tree DP engine:
 
 ```text
 DFS(node)
@@ -38,18 +78,20 @@ return information to parent
 
 ### Tree DP checklist
 
-When you see a tree problem, ask:
+When you see a tree problem, think:
 
-1. **What should `dfs(node)` return?**
-2. **What information do I need from the left child?**
-3. **What information do I need from the right child?**
-4. **How do I combine them?**
-5. **What do I return to the parent?**
-6. **Is the final answer the returned value, or a separate/global value?**
+```text
+1. What should dfs(node) return?
+2. What do I need from the left child?
+3. What do I need from the right child?
+4. How do I combine them?
+5. What should be returned to the parent?
+6. Is the answer the returned value or a separate/global value?
+```
 
 ---
 
-# 1. Binary Tree Foundation ⭐⭐⭐
+# 1. BINARY TREE FOUNDATION ⭐⭐⭐
 
 ## TreeNode
 
@@ -68,12 +110,12 @@ class TreeNode:
 - **Child:** node directly below another node
 - **Leaf:** node with no children
 - **Depth:** number of edges from root to node
-- **Height of tree:** maximum depth (root depth = `0`)
+- **Height of a tree:** maximum depth when root depth is `0`
 - **Subtree:** a node together with all descendants below it
 
 ---
 
-# 2. DFS Traversals ⭐⭐⭐
+# 2. DFS TRAVERSALS ⭐⭐⭐
 
 ## Preorder
 
@@ -125,17 +167,19 @@ def postorder(root):
 
 ### Recognition
 
-- **Preorder:** process parent before children
-- **Inorder:** especially important for BSTs
-- **Postorder:** children first; very useful for Tree DP
+```text
+Preorder  → parent before children
+Inorder   → especially important for BST
+Postorder → children before parent; very useful for Tree DP
+```
 
 ---
 
-# 3. Maximum Depth of Binary Tree ⭐⭐⭐
+# 3. MAXIMUM DEPTH OF BINARY TREE ⭐⭐⭐
 
 ## Algorithm
 
-The depth of a node is based on the deeper child:
+For every node:
 
 ```text
 height(node) = 1 + max(height(left), height(right))
@@ -160,13 +204,13 @@ def maxDepth(root):
     return 1 + max(left, right)
 ```
 
-### Pattern
+### Recognition
 
-> **Need height/depth of a tree → recursive DFS + max(left, right).**
+> Need height/depth → recursive DFS + `1 + max(left, right)`.
 
 ---
 
-# 4. Count Nodes ⭐⭐⭐
+# 4. COUNT NODES ⭐⭐⭐
 
 ## Algorithm
 
@@ -191,7 +235,7 @@ def countNodes(root):
 
 ---
 
-# 5. Sum of All Nodes ⭐⭐
+# 5. SUM OF ALL NODES ⭐⭐
 
 ## Algorithm
 
@@ -214,11 +258,11 @@ def sumNodes(root):
 
 ---
 
-# 6. Maximum Value in Binary Tree ⭐⭐
+# 6. MAXIMUM VALUE IN BINARY TREE ⭐⭐
 
 ## Algorithm
 
-The answer at a node is the maximum of:
+The answer for a node is the maximum of:
 
 ```text
 node value
@@ -243,29 +287,29 @@ def maxValue(root):
 
 ---
 
-# 7. Diameter of Binary Tree ⭐⭐⭐
+# 7. DIAMETER OF BINARY TREE ⭐⭐⭐
 
 ## Algorithm
 
-At every node, the longest path passing **through that node** is:
+At every node, the longest path passing through that node is:
 
 ```text
 left height + right height
 ```
 
-But the parent only needs the height of this subtree:
+But the parent only needs this subtree's height:
 
 ```text
 1 + max(left height, right height)
 ```
 
-So there are **two different values**:
+So maintain two different meanings:
 
 ```text
 Global answer:
     left + right
 
-Value returned to parent:
+Returned to parent:
     1 + max(left, right)
 ```
 
@@ -294,23 +338,23 @@ def diameterOfBinaryTree(root):
 
 ### Recognition ⭐
 
-> **Longest path in a binary tree → calculate child heights and update answer with `left + right`.**
+> Longest path in a binary tree → compute child heights and update with `left + right`.
 
 ---
 
-# 8. Path Sum ⭐⭐⭐
+# 8. PATH SUM ⭐⭐⭐
 
 ## Algorithm
 
-Carry the remaining target from parent to child.
+Carry the remaining target from parent to child:
 
 ```text
 remaining = target - current node value
 ```
 
-At a leaf, check whether the remaining target equals the leaf value.
+At a leaf, check whether the leaf value equals the remaining target.
 
-This is a **downward state** pattern: information travels from parent to child.
+This is a **downward state** pattern.
 
 ## Code
 
@@ -333,11 +377,11 @@ def hasPathSum(root, targetSum):
 
 ### Recognition
 
-> **Root-to-leaf condition → DFS + carry the required/remaining value downward.**
+> Root-to-leaf requirement → DFS + carry remaining/required value downward.
 
 ---
 
-# 9. Binary Tree BFS — Level Order ⭐⭐⭐
+# 9. BINARY TREE BFS — LEVEL ORDER ⭐⭐⭐
 
 ## Algorithm
 
@@ -355,7 +399,7 @@ process node
 push left/right children
 ```
 
-For level-order traversal, freeze the current level size:
+For level-order traversal, capture the current queue size:
 
 ```text
 level_size = len(queue)
@@ -397,17 +441,17 @@ def levelOrder(root):
 
 ### Recognition
 
-> **Level by level / nearest level first → BFS with `deque`.**
+> Level by level / nearest level first → BFS with `deque`.
 
 ---
 
-# 10. Minimum Depth ⭐⭐⭐
+# 10. MINIMUM DEPTH ⭐⭐⭐
 
 ## Algorithm
 
-BFS is natural because BFS reaches the nearest leaf first.
+BFS reaches the nearest leaf first.
 
-Carry the depth along with each node.
+Carry depth with every queued node:
 
 ```text
 (root, 1)
@@ -445,11 +489,11 @@ def minDepth(root):
 
 ### Recognition
 
-> **Shortest/nearest level in an unweighted tree → BFS.**
+> Shortest/nearest level in an unweighted tree → BFS.
 
 ---
 
-# 11. Parent + Depth Arrays/Maps ⭐⭐⭐
+# 11. PARENT + DEPTH ⭐⭐⭐
 
 For actual `TreeNode` objects, use dictionaries keyed by node objects.
 
@@ -461,7 +505,7 @@ During DFS:
 parent[root] = None
 depth[root] = 0
 
-for child:
+for each child:
     parent[child] = current node
     depth[child] = depth[current] + 1
 ```
@@ -493,18 +537,20 @@ def build_parent_depth(root):
 
 ### Recognition
 
-> **Need parent, ancestor movement, node depths, distances, or repeated tree path queries → build parent + depth.**
+> Need parent, ancestor movement, depth, distance, or repeated path queries → build parent + depth.
 
 ---
 
-# 12. LCA Using Parent + Depth ⭐⭐⭐
+# 12. LCA USING PARENT + DEPTH ⭐⭐⭐
 
 ## Algorithm
 
-1. Build `parent` and `depth`.
-2. Move the deeper node upward until both nodes have equal depth.
+```text
+1. Build parent and depth.
+2. Move the deeper node upward until depths match.
 3. Move both upward together.
-4. The first equal node is the LCA.
+4. First equal node = LCA.
+```
 
 ## Code
 
@@ -527,13 +573,13 @@ def lowestCommonAncestor(root, p, q):
 
 ### Recognition
 
-> **Ancestor/path problem + parent/depth available → move nodes upward until they meet.**
+> Parent/depth available + ancestor/path query → move nodes upward until they meet.
 
 ---
 
-# 13. Direct Recursive LCA in a Binary Tree ⭐⭐⭐
+# 13. DIRECT RECURSIVE LCA IN A BINARY TREE ⭐⭐⭐
 
-Use this when we only need one LCA query and do not need parent/depth preprocessing.
+Use this when we need a direct LCA solution and do not need parent/depth preprocessing.
 
 ## Algorithm
 
@@ -541,11 +587,11 @@ Use this when we only need one LCA query and do not need parent/depth preprocess
 If node is None → None
 If node is p or q → node
 
-Search left
-Search right
+Search left.
+Search right.
 
-Both sides found → current node is LCA
-Only one side found → return that side
+Both sides found → current node is LCA.
+Only one side found → return that side.
 ```
 
 ## Code
@@ -564,20 +610,13 @@ def lowestCommonAncestor(root, p, q):
     return left if left else right
 ```
 
-### Difference to remember
+### Recognition
 
-```text
-Direct recursive LCA
-    → one-query style
-    → O(n) time
-
-Parent + depth LCA
-    → useful for distances / repeated ancestor queries
-```
+> Normal binary tree + LCA only → recursive left/right search.
 
 ---
 
-# 14. Distance Between Two Tree Nodes ⭐⭐⭐
+# 14. DISTANCE BETWEEN TWO TREE NODES ⭐⭐⭐
 
 ## Formula
 
@@ -586,23 +625,21 @@ distance(u, v)
     = depth[u] + depth[v] - 2 * depth[LCA]
 ```
 
-## Why
+## Reason
 
-The root-to-LCA path was counted twice, so subtract it twice.
+The root-to-LCA part is counted twice, so subtract it twice.
 
 ### Recognition
 
-> **Distance between two nodes + parent/depth/LCA → use the depth formula.**
+> Distance between two nodes + depth/LCA → use the depth formula.
 
 ---
 
-# 15. House Robber III — Tree DP with States ⭐⭐⭐
-
-This is the key **multi-state Tree DP** pattern we learned.
+# 15. HOUSE ROBBER III — TREE DP WITH STATES ⭐⭐⭐
 
 ## State
 
-For each node return:
+For every node return two values:
 
 ```text
 dont = best value if we do not rob this node
@@ -611,20 +648,20 @@ rob  = best value if we rob this node
 
 ## Transition
 
-If we **do not rob** current node:
+If we **do not rob** the current node:
 
 ```text
 dont = max(left_dont, left_rob)
       + max(right_dont, right_rob)
 ```
 
-If we **rob** current node:
+If we **rob** the current node:
 
 ```text
 rob = node.val + left_dont + right_dont
 ```
 
-Children cannot be robbed when current node is robbed.
+Children cannot be robbed if the current node is robbed.
 
 ## Code
 
@@ -652,22 +689,22 @@ def rob(root):
 
 ### Recognition ⭐
 
-> **Tree + choose/not choose + parent-child restriction → Tree DP with states.**
+> Tree + choose/not choose + parent-child restriction → Tree DP with multiple states.
 
 ---
 
-# 16. Maximum Path Sum ⭐⭐⭐
+# 16. MAXIMUM PATH SUM ⭐⭐⭐
 
 ## Algorithm
 
-A child can contribute a negative path, so ignore negative contributions:
+A negative branch should never help a maximum path, so ignore negative contributions:
 
 ```text
 left = max(0, dfs(left))
 right = max(0, dfs(right))
 ```
 
-The best path **through the current node** is:
+Best path passing through the current node:
 
 ```text
 left + node.val + right
@@ -675,7 +712,7 @@ left + node.val + right
 
 Update the global answer.
 
-But the parent can only continue through **one** side:
+But the parent can continue through only **one** branch:
 
 ```text
 node.val + max(left, right)
@@ -705,21 +742,19 @@ def maxPathSum(root):
     return answer
 ```
 
-### Important
+### Recognition ⭐
 
 ```text
-Value used for global answer:
+Global answer uses BOTH sides:
     left + node + right
 
-Value returned to parent:
+Parent receives ONLY ONE side:
     node + max(left, right)
 ```
 
-This distinction is the main trick.
-
 ---
 
-# 17. Subtree Size / Subtree Sum ⭐⭐
+# 17. SUBTREE SIZE / SUBTREE SUM ⭐⭐
 
 ## Subtree size
 
@@ -755,13 +790,13 @@ def subtreeSum(root):
     return root.val + left + right
 ```
 
-### Pattern
+### Recognition
 
-> **Need information for the whole subtree → postorder-style DFS and combine child results.**
+> Need information about an entire subtree → postorder-style DFS + combine child answers.
 
 ---
 
-# 18. BST — Binary Search Tree ⭐⭐⭐
+# 18. BST — BINARY SEARCH TREE ⭐⭐⭐
 
 ## BST property
 
@@ -771,13 +806,13 @@ For every node:
 left subtree < node < right subtree
 ```
 
-(For this revision, assume unique keys.)
+For this revision, assume unique keys.
 
-This ordering allows us to discard half of the search path at every step in a balanced BST.
+The ordering lets us discard an entire subtree during search.
 
 ---
 
-# 19. BST Search ⭐⭐⭐
+# 19. BST SEARCH ⭐⭐⭐
 
 ## Algorithm
 
@@ -811,13 +846,20 @@ def searchBST(root, target):
     return searchBST(root.right, target)
 ```
 
+### Complexity
+
+```text
+Balanced BST → O(log n)
+Worst-case skewed BST → O(n)
+```
+
 ---
 
-# 20. BST Insert ⭐⭐⭐
+# 20. BST INSERT ⭐⭐⭐
 
 ## Algorithm
 
-Compare and move left/right until an empty position is reached.
+Follow the same comparison rule until an empty position is found.
 
 ```text
 val < node.val → insert left
@@ -839,15 +881,23 @@ def insertIntoBST(root, val):
     return root
 ```
 
+### Important implementation idea
+
+```python
+root.left = insertIntoBST(root.left, val)
+```
+
+The returned subtree must be assigned back so the new node becomes connected to the tree.
+
 ---
 
-# 21. BST Minimum / Maximum ⭐⭐⭐
+# 21. BST MIN / MAX ⭐⭐
 
 ## Algorithm
 
 ```text
-minimum → keep going left
-maximum → keep going right
+Minimum → keep going left
+Maximum → keep going right
 ```
 
 ## Code
@@ -868,38 +918,33 @@ def findMax(root):
 
 ---
 
-# 22. Validate BST ⭐⭐⭐
+# 22. VALIDATE BST ⭐⭐⭐
 
-## Why local checks are not enough
+## Why local checking is not enough
 
-This is invalid:
+This can be invalid:
 
 ```text
         8
        / \
       3   10
-       \
-        9   ← 9 > 3, but 9 is still inside 8's left subtree
+         \
+          9
 ```
 
-Every node has to respect the complete range inherited from its ancestors.
+`9 > 3`, but `9` is still inside the left subtree of `8`, so `9` must be `< 8`.
 
-## Algorithm
+## Algorithm — range constraints
 
-Pass `(low, high)` to every node.
+Every node carries a valid range:
 
 ```text
-root:
-(-∞, +∞)
-
-left child:
-(low, node.val)
-
-right child:
-(node.val, high)
+root → (-∞, +∞)
+left child  → (low, node.val)
+right child → (node.val, high)
 ```
 
-Check:
+Every node must satisfy:
 
 ```text
 low < node.val < high
@@ -927,36 +972,38 @@ def isValidBST(root):
 
 ### Recognition ⭐
 
-> **Validate BST → range constraints.**
-
-### Extra connection
-
-Inorder traversal of a valid BST gives a **strictly increasing** sequence when keys are unique.
+> Validate BST → range `(low, high)`.
 
 ---
 
-# 23. Kth Smallest in BST ⭐⭐⭐
+# 23. KTH SMALLEST IN BST ⭐⭐⭐
 
 ## Key fact
 
-```text
-BST inorder traversal = sorted order
-```
+**Inorder traversal of a BST produces sorted order.**
 
-Therefore:
+Example:
 
 ```text
-1st visited  → 1st smallest
-2nd visited  → 2nd smallest
-...
-kth visited  → kth smallest
+1 3 4 6 7 8 10 14
 ```
+
+So the kth visited node in inorder is the kth smallest value.
 
 ## Algorithm
 
-Use inorder traversal and decrement `k` when visiting each node.
+```text
+inorder:
+    left
+    current
+    right
 
-Stop when `k == 0`.
+Every time current is visited:
+    k -= 1
+
+When k == 0:
+    answer = current.val
+```
 
 ## Code
 
@@ -973,7 +1020,6 @@ def kthSmallest(root, k):
         dfs(node.left)
 
         k -= 1
-
         if k == 0:
             answer = node.val
             return
@@ -986,28 +1032,25 @@ def kthSmallest(root, k):
 
 ### Recognition ⭐
 
-> **kth smallest + BST → inorder.**
+> kth smallest in BST → inorder = sorted order.
 
 ---
 
-# 24. LCA in a BST ⭐⭐⭐
-
-BST ordering makes LCA simpler.
+# 24. LCA IN A BST ⭐⭐⭐
 
 ## Algorithm
 
-At the current node:
+Because of BST ordering:
 
 ```text
-Both p and q smaller
+Both p and q smaller than current
     → go left
 
-Both p and q larger
+Both p and q larger than current
     → go right
 
 Otherwise
-    → they split here (or current node is one target)
-    → current node is LCA
+    → current is LCA
 ```
 
 ## Code
@@ -1025,135 +1068,129 @@ def lowestCommonAncestor(root, p, q):
 
 ### Recognition
 
-> **LCA + BST → use ordering, not a full tree search.**
+> BST + LCA → use value ordering; no full-tree search needed.
 
 ---
 
-# 25. Tree Pattern Recognition Sheet ⭐⭐⭐
+# 25. TREE TECHNIQUE CONNECTIONS ⭐⭐⭐
 
-Use these triggers in the exam.
-
-| Problem wording / requirement | Think |
-|---|---|
-| Visit every node | DFS / BFS |
-| Preorder / inorder / postorder | DFS |
-| Level by level | BFS |
-| Nearest / minimum level | BFS |
-| Height / maximum depth | DFS + `max(left, right)` |
-| Count nodes | DFS + `1 + left + right` |
-| Sum subtree | DFS + child sums |
-| Longest path / diameter | `left height + right height` |
-| Root-to-leaf target | DFS + carry target/remaining value |
-| Information from children | Tree DP |
-| Parent / ancestor / depth | Parent + depth |
-| LCA in binary tree | Recursive LCA or parent/depth |
-| Distance between nodes | LCA + depth formula |
-| Choose/not choose with parent restriction | Multi-state Tree DP |
-| Maximum path sum | Child contributions + global answer |
-| BST search | Compare → left/right |
-| Validate BST | Range constraints |
-| kth smallest in BST | Inorder |
-| LCA in BST | BST ordering |
-
----
-
-# 26. Last-Minute Code Muscle Memory ⭐⭐⭐
-
-## Basic recursive Tree DFS
-
-```python
-def dfs(node):
-    if node is None:
-        return
-
-    left = dfs(node.left)
-    right = dfs(node.right)
-
-    # combine left + right + node
-```
-
-## BFS
-
-```python
-from collections import deque
-
-q = deque([root])
-
-while q:
-    node = q.popleft()
-
-    if node.left:
-        q.append(node.left)
-
-    if node.right:
-        q.append(node.right)
-```
-
-## Tree DP with a returned value
-
-```python
-def dfs(node):
-    if node is None:
-        return BASE
-
-    left = dfs(node.left)
-    right = dfs(node.right)
-
-    return COMBINE(node, left, right)
-```
-
-## Tree DP with multiple states
-
-```python
-def dfs(node):
-    if node is None:
-        return STATE_BASE
-
-    left_state = dfs(node.left)
-    right_state = dfs(node.right)
-
-    return COMBINE_STATES(node, left_state, right_state)
-```
-
-## Global answer pattern
-
-```python
-answer = ...
-
-def dfs(node):
-    nonlocal answer
-
-    # compute child information
-    # update answer
-    # return information to parent
+```text
+Tree basics
+    ↓
+Binary Tree
+    ↓
+DFS
+    ├── Preorder
+    ├── Inorder
+    └── Postorder
+    ↓
+Basic Tree DP
+    ├── Height
+    ├── Count
+    ├── Sum
+    ├── Diameter
+    └── Path Sum
+    ↓
+BFS
+    ├── Level Order
+    └── Minimum Depth
+    ↓
+Parent + Depth
+    ↓
+LCA
+    ├── Parent + Depth
+    └── Recursive
+    ↓
+Distance / Path Queries
+    ↓
+Tree DP States
+    ├── House Robber III
+    └── Maximum Path Sum
+    ↓
+BST
+    ├── Search
+    ├── Insert
+    ├── Min / Max
+    ├── Validate
+    ├── Kth Smallest
+    └── LCA
 ```
 
 ---
 
-# 27. EXAM TERMINAL CODE — How to Turn Functions into a Full Submission ⭐⭐⭐
+# 26. COMMON TREE EXAM MISTAKES
 
-> **Important:** The exact Infosys input/output format depends on the question. The templates below show the complete structure you can adapt to the stated format. Do **not** blindly assume `-1`, level-order input, or a particular number of lines unless the question says so.
+## Mistake 1 — forgetting the `None` base case
 
-## A. When the platform gives the function signature
+```python
+if root is None:
+    return 0
+```
 
-If the editor already provides something like:
+Choose the correct base value for the problem.
+
+## Mistake 2 — confusing height and diameter
+
+```text
+height returned to parent = 1 + max(left, right)
+diameter candidate          = left + right
+```
+
+## Mistake 3 — treating a tree path like a root-to-leaf path
+
+A general tree path may start and end anywhere. Problems like **Diameter** and **Maximum Path Sum** need paths that can turn at a node.
+
+## Mistake 4 — forgetting that BFS is level-based
+
+Use:
+
+```python
+level_size = len(q)
+```
+
+when the problem asks for explicit levels.
+
+## Mistake 5 — local-only BST validation
+
+Do not check only direct children. Use the full `(low, high)` range.
+
+## Mistake 6 — forgetting the BST inorder property
+
+```text
+BST inorder → sorted order
+```
+
+## Mistake 7 — changing representation unnecessarily
+
+For these notes keep the stable model:
+
+```text
+Binary tree → TreeNode objects
+Tree recursion → recursive DFS
+Tree BFS      → deque
+Parent/depth  → dictionaries keyed by TreeNode
+```
+
+---
+
+# 27. EXAM IMPLEMENTATION — FUNCTION MODE VS TERMINAL MODE ⭐⭐⭐
+
+This is the important practical part for the actual coding test.
+
+## Mode A — Platform gives you a function signature
+
+Example:
 
 ```python
 def diameterOfBinaryTree(root):
+    pass
 ```
 
-then normally write only the required class/function logic. Do not invent an extra input parser unless the platform explicitly asks for standard input/output.
+In this situation, usually **do not write input/output code** unless the problem explicitly asks for it.
 
-Typical structure:
+Just implement the required function:
 
 ```python
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 def diameterOfBinaryTree(root):
     diameter = 0
 
@@ -1165,21 +1202,32 @@ def diameterOfBinaryTree(root):
 
         left = height(node.left)
         right = height(node.right)
-
         diameter = max(diameter, left + right)
+
         return 1 + max(left, right)
 
     height(root)
     return diameter
 ```
 
-The judge/driver code will usually construct the tree and call the function for you when that interface is specified.
-
 ---
 
-## B. When the exam explicitly asks for stdin + stdout
+## Mode B — Raw terminal / stdin + stdout
 
-Use this complete structure:
+When the exam gives raw input and expects you to read it and print the answer, the structure should be:
+
+```text
+1. imports
+2. TreeNode class
+3. helper to build tree
+4. solution function(s)
+5. read input
+6. build tree
+7. call solution
+8. print answer
+```
+
+### Standard skeleton
 
 ```python
 from collections import deque
@@ -1192,7 +1240,191 @@ class TreeNode:
         self.right = right
 
 
-# ---------------- TREE CREATION ----------------
+def solve(root):
+    # algorithm here
+    pass
+
+
+def build_tree(values):
+    # construct tree here
+    pass
+
+
+def main():
+    # read input
+    # build tree
+    # call solve
+    # print answer
+    pass
+
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+# 28. TERMINAL TREE CONSTRUCTION — LEVEL ORDER ⭐⭐⭐
+
+A common raw-input representation is level order with a marker such as `-1` for a missing child.
+
+**Important:** this is only a reusable template. The actual Infosys problem statement decides the real input format. Do not assume `-1` unless the statement uses it.
+
+Example values:
+
+```text
+[1, 2, 3, 4, 5, -1, 6, -1, -1, 7, 8]
+```
+
+Conceptually:
+
+```text
+         1
+       /   \
+      2     3
+     / \     \
+    4   5     6
+       / \
+      7   8
+```
+
+## Algorithm
+
+```text
+If values are empty or first value is -1:
+    return None
+
+Create root.
+Put root into queue.
+
+While queue is not empty:
+    pop current node
+    read next value → left child
+    read next value → right child
+    create children when value != -1
+    push created children into queue
+```
+
+## Code
+
+```python
+from collections import deque
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def build_tree(values):
+    if not values or values[0] == -1:
+        return None
+
+    root = TreeNode(values[0])
+    q = deque([root])
+    i = 1
+
+    while q and i < len(values):
+        node = q.popleft()
+
+        # left child
+        if i < len(values) and values[i] != -1:
+            node.left = TreeNode(values[i])
+            q.append(node.left)
+        i += 1
+
+        # right child
+        if i < len(values) and values[i] != -1:
+            node.right = TreeNode(values[i])
+            q.append(node.right)
+        i += 1
+
+    return root
+```
+
+---
+
+# 29. TERMINAL INPUT PATTERNS ⭐⭐⭐
+
+## One line of integers
+
+```python
+values = list(map(int, input().split()))
+```
+
+## First line gives `n`, second line gives array
+
+```python
+n = int(input())
+arr = list(map(int, input().split()))
+```
+
+## Read many integers safely from stdin
+
+Useful when line breaks are not guaranteed to be exactly where you expect:
+
+```python
+import sys
+
+
+data = list(map(int, sys.stdin.buffer.read().split()))
+```
+
+Then consume with an index:
+
+```python
+i = 0
+n = data[i]
+i += 1
+
+arr = data[i:i + n]
+i += n
+```
+
+Use this only when the input format is naturally token-based. Keep the parsing as simple as the statement allows.
+
+---
+
+# 30. END-TO-END TERMINAL EXAMPLE — DIAMETER ⭐⭐⭐
+
+This is the model to remember when a tree problem is given in raw terminal form.
+
+Assume this **example-only** input format:
+
+```text
+11
+1 2 3 4 5 -1 6 -1 -1 7 8
+```
+
+Meaning:
+
+```text
+n = 11 values
+-1 means missing child
+```
+
+Expected output:
+
+```text
+5
+```
+
+## Complete solution
+
+```python
+import sys
+from collections import deque
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 def build_tree(values):
     if not values or values[0] == -1:
         return None
@@ -1217,7 +1449,6 @@ def build_tree(values):
     return root
 
 
-# ---------------- ALGORITHM ----------------
 def diameterOfBinaryTree(root):
     diameter = 0
 
@@ -1231,48 +1462,70 @@ def diameterOfBinaryTree(root):
         right = height(node.right)
 
         diameter = max(diameter, left + right)
+
         return 1 + max(left, right)
 
     height(root)
     return diameter
 
 
-# ---------------- INPUT ----------------
-values = list(map(int, input().split()))
+def main():
+    data = list(map(int, sys.stdin.buffer.read().split()))
 
-root = build_tree(values)
+    if not data:
+        return
 
-# ---------------- OUTPUT ----------------
-print(diameterOfBinaryTree(root))
+    n = data[0]
+    values = data[1:1 + n]
+
+    root = build_tree(values)
+    answer = diameterOfBinaryTree(root)
+
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
 ```
 
-### Important exam rule
-
-First read the **Input Format** and **Output Format** in the question.
-
-Then map them to:
+### Exam mental order
 
 ```text
 INPUT
   ↓
 parse values
   ↓
-create required data structure
+build TreeNode tree
   ↓
-call algorithm function
+solution(root)
   ↓
-OUTPUT
+print(answer)
 ```
 
-Do not change the algorithm just because the input parser looks different.
+Do not mix the parser and algorithm unless the input is so simple that combining them clearly makes the solution shorter.
 
 ---
 
-# 28. EXAM TEMPLATE — Parent + Depth / LCA
+# 31. END-TO-END TERMINAL EXAMPLE — LEVEL ORDER ⭐⭐
 
-For a stdin problem that gives a binary tree and two target node values, one possible implementation pattern is:
+Example-only input:
+
+```text
+7
+1 2 3 4 5 -1 6
+```
+
+Expected output:
+
+```text
+1 2 3
+4 5 6
+```
+
+## Complete solution
 
 ```python
+import sys
 from collections import deque
 
 
@@ -1307,155 +1560,383 @@ def build_tree(values):
     return root
 
 
-def build_parent_depth(root):
-    parent = {}
-    depth = {}
-
-    def dfs(node, par):
-        if node is None:
-            return
-
-        parent[node] = par
-        depth[node] = 0 if par is None else depth[par] + 1
-
-        dfs(node.left, node)
-        dfs(node.right, node)
-
-    dfs(root, None)
-    return parent, depth
-
-
-def lca_with_parent_depth(root, p, q):
-    parent, depth = build_parent_depth(root)
-
-    while depth[p] > depth[q]:
-        p = parent[p]
-
-    while depth[q] > depth[p]:
-        q = parent[q]
-
-    while p != q:
-        p = parent[p]
-        q = parent[q]
-
-    return p
-
-
-def find_node(root, value):
+def levelOrder(root):
     if root is None:
-        return None
+        return []
 
-    if root.val == value:
-        return root
+    q = deque([root])
+    result = []
 
-    node = find_node(root.left, value)
-    if node:
-        return node
+    while q:
+        level_size = len(q)
+        current_level = []
 
-    return find_node(root.right, value)
+        for _ in range(level_size):
+            node = q.popleft()
+            current_level.append(node.val)
+
+            if node.left:
+                q.append(node.left)
+
+            if node.right:
+                q.append(node.right)
+
+        result.append(current_level)
+
+    return result
 
 
-# Adapt these lines to the question's exact Input Format.
-values = list(map(int, input().split()))
-p_value, q_value = map(int, input().split())
+def main():
+    data = list(map(int, sys.stdin.buffer.read().split()))
 
-root = build_tree(values)
-p = find_node(root, p_value)
-q = find_node(root, q_value)
+    if not data:
+        return
 
-answer = lca_with_parent_depth(root, p, q)
-print(answer.val)
+    n = data[0]
+    values = data[1:1 + n]
+
+    root = build_tree(values)
+    result = levelOrder(root)
+
+    for level in result:
+        print(*level)
+
+
+if __name__ == "__main__":
+    main()
 ```
-
-This is a **template**, not a claim that Infosys will use exactly this input format.
 
 ---
 
-# 29. EXAM SUBMISSION CHECKLIST ⭐⭐⭐
+# 32. HOW TO ADAPT TO THE ACTUAL EXAM INPUT ⭐⭐⭐
 
-Before submitting a Tree solution:
+Never memorize one exact parser as if every problem uses the same format.
+
+Instead memorize this structure:
 
 ```text
-[ ] Did I identify TreeNode input / stdin format correctly?
-[ ] Is the tree built exactly according to the given format?
-[ ] Is the base case correct?
-[ ] Am I processing left/right in the correct order?
-[ ] Did I return the information the parent needs?
-[ ] If there is a global answer, did I update it?
-[ ] Did I distinguish height from diameter/path answer where needed?
-[ ] Did I use BFS for level/nearest problems?
-[ ] Did I use BST ordering where available?
-[ ] Did I print exactly the requested output?
-[ ] Did I test empty tree / single node / skewed tree where relevant?
+1. Understand what represents the tree.
+2. Identify how null/missing children are represented.
+3. Build the TreeNode structure if required.
+4. Keep the algorithm in a separate function.
+5. Call the function with the required arguments.
+6. Print exactly what the statement requests.
 ```
+
+### Three common cases
+
+#### Case A — platform already provides `TreeNode`
+
+Write only the requested function.
+
+#### Case B — tree is given as level-order values
+
+Build with a queue.
+
+#### Case C — tree is given as edges
+
+The representation may be different. Build the adjacency/parent structure required by that specific question instead of forcing it into `TreeNode` form.
 
 ---
 
-# 30. Tree One-Page Memory Map ⭐⭐⭐
+# 33. HIGH-PRIORITY PROBLEM TEMPLATE PACK ⭐⭐⭐
+
+These are the patterns to reproduce from memory during the exam.
+
+## Template 1 — Basic recursive tree DP
+
+```python
+def solve(root):
+    if root is None:
+        return BASE
+
+    left = solve(root.left)
+    right = solve(root.right)
+
+    return COMBINE(root, left, right)
+```
+
+Use for:
 
 ```text
-                    BINARY TREE
-                         │
-            ┌────────────┴────────────┐
-            ↓                         ↓
-          DFS                       BFS
-            │                         │
-     ┌──────┼──────┐            level by level
-     ↓      ↓      ↓                  │
- preorder inorder postorder      minimum depth
-     │       │        │
-     │       │        └──────────────┐
-     │       ↓                       ↓
-     │      BST                  Tree DP
-     │       │                       │
-     │   kth smallest          child information
-     │                           │
-     ├── depth/height            ├── diameter
-     ├── count                   ├── max path sum
-     ├── sum                     ├── subtree info
-     └── path sum                └── multi-state DP
-                         │
-                         ↓
-                 Parent + Depth
-                         │
-                 ┌───────┴────────┐
-                 ↓                ↓
-                LCA            distance
-                         │
-                         ↓
-                        BST
-                         │
-              ┌──────────┼──────────┐
-              ↓          ↓          ↓
-            search      insert    validate
-              │                     │
-              ↓                     ↓
-            ordering             range
-              │
-              ├── kth smallest → inorder
-              └── LCA → ordering
+height
+count
+sum
+subtree calculations
+```
+
+## Template 2 — Global answer + returned height
+
+```python
+def solve(root):
+    answer = INITIAL
+
+    def dfs(node):
+        nonlocal answer
+
+        if node is None:
+            return BASE
+
+        left = dfs(node.left)
+        right = dfs(node.right)
+
+        answer = UPDATE(answer, left, right, node)
+        return RETURN_VALUE(left, right, node)
+
+    dfs(root)
+    return answer
+```
+
+Use for:
+
+```text
+diameter
+maximum path sum
+similar path-through-node problems
+```
+
+## Template 3 — Downward state
+
+```python
+def dfs(node, state):
+    if node is None:
+        return ...
+
+    next_state = UPDATE(state, node)
+
+    return dfs(node.left, next_state) or dfs(node.right, next_state)
+```
+
+Use for:
+
+```text
+path sum
+root-to-leaf constraints
+```
+
+## Template 4 — Tree DP with states
+
+```python
+def dfs(node):
+    if node is None:
+        return STATE_FOR_EMPTY
+
+    left_state = dfs(node.left)
+    right_state = dfs(node.right)
+
+    state1 = COMBINE_1(left_state, right_state, node)
+    state2 = COMBINE_2(left_state, right_state, node)
+
+    return state1, state2
+```
+
+Use for:
+
+```text
+choose / don't choose
+parent-child restrictions
+multiple conditions at a node
+```
+
+## Template 5 — BFS level order
+
+```python
+from collections import deque
+
+q = deque([root])
+
+while q:
+    level_size = len(q)
+
+    for _ in range(level_size):
+        node = q.popleft()
+
+        if node.left:
+            q.append(node.left)
+
+        if node.right:
+            q.append(node.right)
 ```
 
 ---
 
-# 🔥 Final Tree Priority Order for the Exam
+# 34. FINAL 60-SECOND REVISION SHEET ⭐⭐⭐
 
-When time is limited, revise in this order:
+```text
+TREE
+ ↓
+Recursive structure
+ ↓
+DFS
+```
 
-1. **DFS + preorder/inorder/postorder**
-2. **Maximum depth / height**
-3. **Diameter**
-4. **Path Sum**
-5. **BFS + level order**
-6. **Minimum Depth**
-7. **Parent + Depth**
-8. **LCA**
-9. **Distance using LCA + depth**
-10. **Maximum Path Sum**
-11. **Tree DP with states — House Robber III**
-12. **BST Search / Insert**
-13. **Validate BST**
-14. **Kth Smallest in BST**
-15. **BST LCA**
+```text
+Preorder = current, left, right
+Inorder  = left, current, right
+Postorder = left, right, current
+```
 
-> **Core rule:** Don't memorize isolated solutions. Memorize the engine: **DFS → solve children → combine → return information**, or **BFS → queue → process level/state**. Then recognize which information the problem needs.
+```text
+HEIGHT
+= 1 + max(left, right)
+```
+
+```text
+COUNT
+= 1 + left + right
+```
+
+```text
+SUM
+= node.val + left + right
+```
+
+```text
+DIAMETER
+= left height + right height
+return height to parent
+```
+
+```text
+PATH SUM
+carry remaining target downward
+```
+
+```text
+BFS
+queue + level_size
+```
+
+```text
+PARENT/DEPTH
+parent[child] = node
+depth[child] = depth[node] + 1
+```
+
+```text
+LCA
+align depth → move both upward
+```
+
+```text
+DIRECT LCA
+left result + right result
+both found → current node
+```
+
+```text
+DISTANCE
+= depth[u] + depth[v] - 2 * depth[lca]
+```
+
+```text
+HOUSE ROBBER III
+return (dont, rob)
+```
+
+```text
+MAX PATH SUM
+answer = left + node + right
+return = node + max(left, right)
+```
+
+```text
+BST
+left < node < right
+```
+
+```text
+BST SEARCH
+compare → go left/right
+```
+
+```text
+VALID BST
+range (low, high)
+```
+
+```text
+KTH SMALLEST BST
+inorder = sorted order
+```
+
+```text
+BST LCA
+both smaller → left
+both larger  → right
+otherwise    → current
+```
+
+---
+
+# 35. FINAL SOLUTION EXAMPLE — HOW TO THINK BEFORE CODING ⭐⭐⭐
+
+Suppose the question says:
+
+> Find the diameter of a binary tree.
+
+Before writing code, write this tiny mental plan:
+
+```text
+What is needed?
+→ longest path
+
+What does parent need?
+→ height of subtree
+
+What can answer through current node use?
+→ left height + right height
+
+Base?
+→ None = 0
+
+Return?
+→ 1 + max(left, right)
+
+Global?
+→ diameter
+```
+
+Then code directly:
+
+```python
+def diameterOfBinaryTree(root):
+    diameter = 0
+
+    def height(node):
+        nonlocal diameter
+
+        if node is None:
+            return 0
+
+        left = height(node.left)
+        right = height(node.right)
+
+        diameter = max(diameter, left + right)
+        return 1 + max(left, right)
+
+    height(root)
+    return diameter
+```
+
+### This is the exam habit to build
+
+```text
+QUESTION
+  ↓
+RECOGNIZE PATTERN
+  ↓
+DEFINE dfs(node) MEANING
+  ↓
+BASE CASE
+  ↓
+SOLVE LEFT / RIGHT
+  ↓
+COMBINE
+  ↓
+RETURN WHAT PARENT NEEDS
+  ↓
+WRITE CODE
+```
+
+That is the complete Tree revision path we learned. Keep this file for the final revision pass immediately before the exam.
