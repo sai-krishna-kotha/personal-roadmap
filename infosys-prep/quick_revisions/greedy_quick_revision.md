@@ -8,30 +8,31 @@
 
 ## Contents
 
-- [0. Greedy Mental Model](#0-greedy-mental-model)
-- [1. Activity Selection — Basic Greedy](#1-activity-selection--basic-greedy)
-- [2. Sorting + Greedy — Assign Cookies](#2-sorting--greedy--assign-cookies)
-- [3. Interval Greedy — Erase Overlap](#3-interval-greedy--erase-overlap)
-- [4. Job Sequencing with Deadlines](#4-job-sequencing-with-deadlines)
-- [5. Two Pointers + Greedy — Boats](#5-two-pointers--greedy--boats)
-- [6. Jump Game — Reachability Greedy](#6-jump-game--reachability-greedy)
-- [7. Jump Game II — Minimum Jumps](#7-jump-game-ii--minimum-jumps)
-- [8. Gas Station — Circular Greedy](#8-gas-station--circular-greedy)
-- [9. Heap + Greedy — Connect Ropes](#9-heap--greedy--connect-ropes)
-- [10. Line Sweep](#10-line-sweep)
-- [11. Coverage / Range Greedy](#11-coverage--range-greedy)
-- [12. Greedy + Priority Queue — Maximum Events](#12-greedy--priority-queue--maximum-events)
-- [13. Fractional Knapsack](#13-fractional-knapsack)
-- [14. Huffman Coding](#14-huffman-coding)
-- [15. Greedy vs DP — Recognition](#15-greedy-vs-dp--recognition)
-- [16. Greedy Pattern Recognition Cheat Sheet](#16-greedy-pattern-recognition-cheat-sheet)
-- [17. Exam Terminal Mode](#17-exam-terminal-mode)
-- [18. Quick Exam Rules](#18-quick-exam-rules)
-- [19. Unseen Practice Problems](#19-unseen-practice-problems)
-- [20. Unseen Practice Answers](#20-unseen-practice-answers)
+- [0. Greedy Mental Model](#greedy-0)
+- [1. Activity Selection — Basic Greedy](#greedy-1)
+- [2. Sorting + Greedy — Assign Cookies](#greedy-2)
+- [3. Interval Greedy — Erase Overlap](#greedy-3)
+- [4. Job Sequencing with Deadlines](#greedy-4)
+- [5. Two Pointers + Greedy — Boats](#greedy-5)
+- [6. Jump Game — Reachability Greedy](#greedy-6)
+- [7. Jump Game II — Minimum Jumps](#greedy-7)
+- [8. Gas Station — Circular Greedy](#greedy-8)
+- [9. Heap + Greedy — Connect Ropes](#greedy-9)
+- [10. Line Sweep](#greedy-10)
+- [11. Coverage / Range Greedy](#greedy-11)
+- [12. Greedy + Priority Queue — Maximum Events](#greedy-12)
+- [13. Fractional Knapsack](#greedy-13)
+- [14. Huffman Coding](#greedy-14)
+- [15. Greedy vs DP — Recognition](#greedy-15)
+- [16. Greedy Pattern Recognition Cheat Sheet](#greedy-16)
+- [17. Exam Terminal Mode](#greedy-17)
+- [18. Quick Exam Rules](#greedy-18)
+- [19. Unseen Practice Problems](#greedy-19)
+- [20. Unseen Practice Answers](#greedy-20)
 
 ---
 
+<a id="greedy-0"></a>
 ## 0. Greedy Mental Model ⭐⭐⭐
 
 Greedy = **make the best local choice that is safe to make now**.
@@ -87,6 +88,7 @@ Line sweep
 
 ---
 
+<a id="greedy-1"></a>
 ## 1. Activity Selection — Basic Greedy ⭐⭐⭐
 
 ### Problem idea
@@ -145,6 +147,7 @@ maximum number of non-overlapping intervals
 
 ---
 
+<a id="greedy-2"></a>
 ## 2. Sorting + Greedy — Assign Cookies ⭐⭐⭐
 
 ### Problem idea
@@ -201,6 +204,7 @@ sort both + two pointers + greedy
 
 ---
 
+<a id="greedy-3"></a>
 ## 3. Interval Greedy — Erase Overlap ⭐⭐⭐
 
 ### Problem idea
@@ -251,6 +255,7 @@ keep earliest finishing interval
 
 ---
 
+<a id="greedy-4"></a>
 ## 4. Job Sequencing with Deadlines ⭐⭐⭐
 
 ### Problem idea
@@ -308,6 +313,7 @@ Job Sequencing Greedy
 
 ---
 
+<a id="greedy-5"></a>
 ## 5. Two Pointers + Greedy — Boats ⭐⭐⭐
 
 ### Problem idea
@@ -358,6 +364,7 @@ sort + two pointers + greedy
 
 ---
 
+<a id="greedy-6"></a>
 ## 6. Jump Game — Reachability Greedy ⭐⭐⭐
 
 ### Problem idea
@@ -406,6 +413,7 @@ Greedy
 
 ---
 
+<a id="greedy-7"></a>
 ## 7. Jump Game II — Minimum Jumps ⭐⭐⭐
 
 ### Greedy idea
@@ -452,6 +460,7 @@ Greedy
 
 ---
 
+<a id="greedy-8"></a>
 ## 8. Gas Station — Circular Greedy ⭐⭐⭐
 
 ### Key observation
@@ -497,6 +506,7 @@ Gas Station Greedy
 
 ---
 
+<a id="greedy-9"></a>
 ## 9. Heap + Greedy — Connect Ropes ⭐⭐⭐
 
 ### Greedy choice
@@ -548,6 +558,7 @@ min-heap + greedy
 
 ---
 
+<a id="greedy-10"></a>
 ## 10. Line Sweep ⭐⭐⭐
 
 Line Sweep is an **event-processing technique** often used with interval problems. It is not purely Greedy.
@@ -616,6 +627,7 @@ Line Sweep
 
 ---
 
+<a id="greedy-11"></a>
 ## 11. Coverage / Range Greedy ⭐⭐⭐
 
 ### Problem idea
@@ -679,28 +691,27 @@ greedy
 
 ---
 
+<a id="greedy-12"></a>
 ## 12. Greedy + Priority Queue — Maximum Events ⭐⭐⭐
 
 ### Problem idea
 
-Each event has a start day and end day. Attend at most one event per day. Maximize the number of events attended.
+Each event has a start day and end day. You can attend at most one event per day. Maximize the number of events attended.
 
 ### Greedy choice
 
-On each day, among all events currently available, attend the event that **ends earliest**.
-
-A min-heap stores event end days.
+On each day, attend the available event that **ends earliest**.
 
 ### Algorithm
 
 1. Sort events by start day.
-2. Move through days.
-3. Add every event whose start day is now available.
-4. Remove expired events.
-5. Attend the event with the earliest end day.
-6. Repeat.
+2. Add all events whose start day is `<= day` to a min-heap by end day.
+3. Remove events whose end day is already before `day`.
+4. Attend the event with the earliest end day.
+5. Move to the next day.
+6. When no event is currently available, jump to the next event's start day.
 
-### Code
+### Canonical code
 
 ```python
 import heapq
@@ -708,6 +719,7 @@ import heapq
 
 def max_events(events):
     events.sort()
+
     heap = []
     i = 0
     day = 0
@@ -733,456 +745,576 @@ def max_events(events):
     return attended
 ```
 
+**Complexity:** `O(n log n)`.
+
 ### Recognition
 
 ```text
-events become available over time
-+ choose one at a time
-+ maximize number completed
+events have start/end
++ at most one choice per day
++ maximize events
           ↓
-sort by start + min-heap by end
+sort by start
++
+min-heap of end times
++
+earliest-ending available event
 ```
 
 [↑ Back to Contents](#contents)
 
 ---
 
+<a id="greedy-13"></a>
 ## 13. Fractional Knapsack ⭐⭐
 
 ### Problem idea
 
-Items have weight and value. Unlike 0/1 Knapsack, fractions of items can be taken. Maximize value within capacity.
+Items have weight and value, and fractions of items may be taken. Maximize value under a capacity.
 
 ### Greedy choice
 
-Take the item with the highest **value / weight ratio** first.
+Take the available item with the **highest value/weight ratio** first.
 
 ```text
 ratio = value / weight
 ```
 
-Because fractions are allowed, taking the best value per unit weight is always optimal.
+### Algorithm
 
-### Code
-
-```python
-def fractional_knapsack(items, capacity):
-    items.sort(key=lambda x: x[1] / x[0], reverse=True)
-
-    total_value = 0.0
-
-    for weight, value in items:
-        if capacity == 0:
-            break
-
-        take = min(weight, capacity)
-        total_value += take * (value / weight)
-        capacity -= take
-
-    return total_value
-```
+1. Compute value/weight ratio.
+2. Sort by descending ratio.
+3. Take the whole item when it fits.
+4. Otherwise take the fraction that fills the remaining capacity.
 
 ### Recognition
 
 ```text
-knapsack + fractions allowed
+knapsack
++
+items can be split
++
+maximize value
           ↓
-value / weight ratio
+Fractional Knapsack
+          ↓
+sort by value/weight
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="greedy-14"></a>
+## 14. Huffman Coding ⭐⭐
+
+### Greedy idea
+
+Repeatedly combine the **two least frequent** symbols.
+
+This is the same min-heap principle as Connect Ropes.
+
+### Recognition
+
+```text
+repeatedly combine two smallest frequencies
+          ↓
+min-heap
+          ↓
+Huffman-style greedy
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="greedy-15"></a>
+## 15. Greedy vs DP — Recognition ⭐⭐⭐
+
+The most important exam skill is knowing when greedy is **not** enough.
+
+### Greedy signal
+
+```text
+There is a locally best choice
++
+I can prove it never hurts the final optimum
           ↓
 Greedy
 ```
 
-**Important:** 0/1 Knapsack is generally **DP**, while Fractional Knapsack is **Greedy**.
-
-[↑ Back to Contents](#contents)
-
----
-
-## 14. Huffman Coding ⭐⭐
-
-### Idea
-
-Build an optimal prefix-code tree with minimum weighted path length.
-
-### Greedy choice
-
-Repeatedly combine the **two smallest frequencies**.
+### DP signal
 
 ```text
-frequencies
-    ↓
-min-heap
-    ↓
-take two smallest
-    ↓
-combine
-    ↓
-put result back
-```
-
-### Recognition
-
-```text
-repeatedly combine two smallest weights
-+ combined result becomes available again
+A locally best choice can block a better future choice
++
+Many choices must be compared
           ↓
-min-heap greedy
+DP
 ```
 
-This is the same core heap idea as Connect Ropes.
+### Examples
+
+```text
+Activity Selection       → Greedy
+0/1 Knapsack              → DP
+Fractional Knapsack       → Greedy
+Coin Change               → usually DP
+Jump Game                 → Greedy
+House Robber              → DP
+```
+
+### Golden question
+
+> **Can I prove that my local choice is always safe?**
+
+If not, do not force a greedy solution.
 
 [↑ Back to Contents](#contents)
 
 ---
 
-## 15. Greedy vs DP — Recognition ⭐⭐⭐
-
-The most important exam skill is knowing **when NOT to use Greedy**.
-
-### Prefer Greedy when
-
-```text
-There is a safe local choice
-        +
-The choice can be proved to preserve optimality
-        +
-The remaining problem has the same structure
-```
-
-### Prefer DP when
-
-```text
-Current choice changes future possibilities
-        +
-Different choices lead to different future states
-        +
-No single local choice is always safe
-```
-
-### Classic contrast
-
-```text
-0/1 Knapsack        → DP
-Fractional Knapsack → Greedy
-
-Subset Sum          → DP
-Activity Selection  → Greedy
-```
-
-### Exam warning
-
-Do not think:
-
-```text
-"It asks for maximum/minimum → Greedy"
-```
-
-That is not enough. The greedy choice must be safe.
-
-[↑ Back to Contents](#contents)
-
----
-
+<a id="greedy-16"></a>
 ## 16. Greedy Pattern Recognition Cheat Sheet ⭐⭐⭐
 
-| Problem signal | Pattern | Main idea |
+| Problem signal | Greedy pattern | Main tool |
 |---|---|---|
-| Max non-overlapping activities | Activity Selection | Sort by end |
-| Requirements + resources | Sorting + Greedy | Two pointers |
-| Remove minimum overlapping intervals | Interval Greedy | Keep earliest end |
-| Jobs + deadlines + profit | Job Sequencing | Profit desc + latest slot |
-| Pair under capacity | Two Pointers + Greedy | Lightest + heaviest |
-| Can reach end? | Jump Game | Farthest reach |
+| Max non-overlapping intervals | Activity Selection | Sort by end |
+| Min interval removals | Interval Greedy | Sort by end |
+| Jobs + deadline + profit | Job Sequencing | Sort by profit + slots |
+| Resource matching | Assign Cookies | Sort + two pointers |
+| Pair under capacity | Boats | Sort + two pointers |
+| Reach end | Jump Game | Farthest reach |
 | Minimum jumps | Jump Game II | Range expansion |
-| Circular gas/cost | Gas Station | Restart after failure |
-| Repeatedly combine smallest | Heap Greedy | Min-heap |
-| Maximum simultaneous intervals | Line Sweep | Events + active count |
-| Minimum intervals to cover range | Coverage Greedy | Farthest extension |
-| Events over time | PQ Greedy | Earliest ending available |
-| Knapsack with fractions | Fractional Knapsack | Value/weight |
-| Optimal prefix codes | Huffman | Combine two smallest |
+| Circular fuel/start | Gas Station | Running balance |
+| Repeatedly combine smallest | Ropes / Huffman | Min-heap |
+| Maximum simultaneous intervals | Line Sweep | Events |
+| Minimum range coverage | Coverage Greedy | Farthest reach |
+| Available events + maximize count | Maximum Events | Sort + min-heap |
+| Splittable items + max value | Fractional Knapsack | Value/weight |
 
 [↑ Back to Contents](#contents)
 
 ---
 
+<a id="greedy-17"></a>
 ## 17. Exam Terminal Mode ⭐⭐⭐
 
-When you see a new problem, quickly ask:
+When you see a new Greedy problem:
 
 ```text
 1. What is the objective?
-2. What must be maximized/minimized?
-3. Is there a safe local choice?
-4. What should I sort by?
+2. What is the local choice?
+3. Why is that choice safe?
+4. Do I need sorting?
 5. Do I need two pointers?
 6. Do I need a heap?
 7. Is this an interval/event problem?
-8. Is this really Greedy, or is it DP?
+8. Is there a current range/farthest reach?
+9. Can I prove greedy correctness?
+10. If not → test DP or another pattern.
 ```
 
-Then write:
+### Build pattern
 
 ```text
-GREEDY CHOICE:
-Why is it safe?
-
-STATE / VARIABLE:
-What must I maintain?
-
-IMPLEMENTATION:
-Sort / pointers / heap / sweep
+Read problem
+    ↓
+Identify objective
+    ↓
+Identify greedy choice
+    ↓
+Find the supporting tool
+    ↓
+Prove choice is safe
+    ↓
+Code
 ```
 
 [↑ Back to Contents](#contents)
 
 ---
 
+<a id="greedy-18"></a>
 ## 18. Quick Exam Rules ⭐⭐⭐
 
 ```text
-Earliest finish → Activity/Interval Greedy
-Highest profit   → Job Sequencing
-Smallest pair    → Heap Greedy
-Farthest reach   → Jump/Range Greedy
-Lightest + heavy → Two pointers
-Circular failure → Restart after failure
-Simultaneous     → Line Sweep
-Available options change → Priority Queue
-Fractions allowed → Fractional Knapsack
-Two smallest repeatedly → Min-heap
-No safe local choice → Consider DP
-```
-
-### Final rule
-
-**Do not memorize only the code. Memorize the recognition signal and the reason behind the greedy choice.**
-
-[↑ Back to Contents](#contents)
-
----
-
-# 19. Unseen Practice Problems ⭐⭐⭐
-
-> **Purpose:** Test whether you can recognize the Greedy pattern without being told the pattern.
->
-> **Important:** Questions come first. Do not look at the answers until you finish all of them.
-
-## Problem 1 — Maximum Compatible Meetings
-
-You are given `n` meetings as `[start, end]`. Select the maximum number of meetings such that no two selected meetings overlap.
-
-### Test Case 1
-
-```text
-Input:
-meetings = [[1,3], [2,4], [3,5], [5,7], [6,8]]
-
-Output:
-3
-```
-
-### Test Case 2
-
-```text
-Input:
-meetings = [[1,2], [2,3], [3,4], [1,4]]
-
-Output:
-3
+Earliest finish        → Activity / Interval Greedy
+Highest profit         → Job Sequencing (when unit-time jobs)
+Smallest useful        → Min-heap Greedy
+Largest future reach   → Jump / Coverage Greedy
+Pair under limit       → Sort + two pointers
+Circular fuel          → Gas Station
+Simultaneous intervals → Line Sweep
+Available choices over time → Heap + Greedy
+Splittable items       → Fractional Knapsack
+Cannot prove local choice → consider DP
 ```
 
 [↑ Back to Contents](#contents)
 
 ---
 
-## Problem 2 — Minimum Removals for Non-Overlapping Intervals
+<a id="greedy-19"></a>
+## 19. Unseen Practice Problems ⭐⭐⭐
 
-You are given intervals `[start, end]`. Remove the minimum number of intervals so that the remaining intervals do not overlap.
+### Problem 1 — Minimum Platforms
 
-### Test Case 1
+Given train arrival and departure times, find the minimum number of platforms required so that no train waits.
+
+**Test case 1**
 
 ```text
-Input:
-intervals = [[1,3], [2,4], [3,5], [6,8]]
+arrivals   = [900, 940, 950, 1100, 1500, 1800]
+departures = [910, 1200, 1120, 1130, 1900, 2000]
+```
 
-Output:
+Expected output:
+
+```text
+3
+```
+
+**Test case 2**
+
+```text
+arrivals   = [100, 200, 300]
+departures = [150, 250, 350]
+```
+
+Expected output:
+
+```text
 1
 ```
 
-### Test Case 2
+### Problem 2 — Lemonade Change
+
+A lemonade costs `5`. Customers pay using `5`, `10`, or `20` dollar bills. Starting with no change, determine whether you can give correct change to every customer in order.
+
+**Test case 1**
 
 ```text
-Input:
-intervals = [[1,5], [1,3], [2,4], [6,8]]
-
-Output:
-1
+bills = [5, 5, 5, 10, 20]
 ```
 
-[↑ Back to Contents](#contents)
-
----
-
-## Problem 3 — Minimum Boats
-
-Each boat can carry at most two people and has capacity `limit`. Find the minimum number of boats required to carry everyone.
-
-### Test Case 1
+Expected output:
 
 ```text
-Input:
-people = [3,2,2,1]
-limit = 3
-
-Output:
-3
-```
-
-### Test Case 2
-
-```text
-Input:
-people = [3,5,3,4]
-limit = 5
-
-Output:
-4
-```
-
-[↑ Back to Contents](#contents)
-
----
-
-## Problem 4 — Reach the Last Position
-
-`nums[i]` gives the maximum jump length from index `i`. Determine whether the last index can be reached.
-
-### Test Case 1
-
-```text
-Input:
-nums = [2,3,1,1,4]
-
-Output:
 True
 ```
 
-### Test Case 2
+**Test case 2**
 
 ```text
-Input:
-nums = [3,2,1,0,4]
+bills = [5, 5, 10, 10, 20]
+```
 
-Output:
+Expected output:
+
+```text
 False
 ```
 
-[↑ Back to Contents](#contents)
+### Problem 3 — Merge Intervals
 
----
+Given intervals, merge every pair of overlapping intervals and return the resulting non-overlapping intervals.
 
-## Problem 5 — Minimum Cost to Connect Ropes
-
-You are given rope lengths. Connecting two ropes costs the sum of their lengths. Find the minimum total cost to connect all ropes into one rope.
-
-### Test Case 1
+**Test case 1**
 
 ```text
-Input:
-ropes = [4,3,2,6]
-
-Output:
-29
+intervals = [[1,3], [2,6], [8,10], [9,12]]
 ```
 
-### Test Case 2
+Expected output:
 
 ```text
-Input:
-ropes = [1,2,3,4,5]
-
-Output:
-33
+[[1,6], [8,12]]
 ```
 
-[↑ Back to Contents](#contents)
-
----
-
-## Problem 6 — Minimum Meeting Rooms
-
-Given meeting intervals `[start, end]`, find the minimum number of rooms required so that all meetings can happen without conflict. If one meeting ends exactly when another starts, the room can be reused.
-
-### Test Case 1
+**Test case 2**
 
 ```text
-Input:
-meetings = [[0,30], [5,10], [15,20]]
+intervals = [[1,4], [4,5]]
+```
 
-Output:
+Expected output:
+
+```text
+[[1,5]]
+```
+
+### Problem 4 — Candy Distribution
+
+There are children in a line, each with a rating. Give every child at least one candy. A child with a higher rating than an adjacent child must receive more candies. Return the minimum total number of candies.
+
+**Test case 1**
+
+```text
+ratings = [1, 0, 2]
+```
+
+Expected output:
+
+```text
+5
+```
+
+**Test case 2**
+
+```text
+ratings = [1, 2, 2]
+```
+
+Expected output:
+
+```text
+4
+```
+
+### Problem 5 — Gas Station Variation
+
+Given `gas` and `cost`, return the starting station index from which a vehicle can complete the circle. If impossible, return `-1`.
+
+**Test case 1**
+
+```text
+gas  = [2, 3, 4]
+cost = [3, 4, 3]
+```
+
+Expected output:
+
+```text
 2
 ```
 
-### Test Case 2
+**Test case 2**
 
 ```text
-Input:
-meetings = [[1,3], [3,5], [5,7]]
-
-Output:
-1
+gas  = [1, 2]
+cost = [2, 2]
 ```
 
-[↑ Back to Contents](#contents)
-
----
-
-## Problem 7 — Cover a Target Range
-
-You are given intervals and a target range `[0, target]`. Select the minimum number of intervals needed to cover the entire range. Return `-1` if the range cannot be completely covered.
-
-### Test Case 1
+Expected output:
 
 ```text
-Input:
-intervals = [[0,2], [0,4], [1,5], [4,7], [5,9]]
-target = 9
-
-Output:
-3
-```
-
-### Test Case 2
-
-```text
-Input:
-intervals = [[0,2], [1,3], [4,6]]
-target = 6
-
-Output:
 -1
 ```
 
+### Problem 6 — Non-Overlapping Meeting Selection
+
+Given meeting intervals, select the maximum number of meetings that do not overlap. Meetings that end at time `t` may be followed by meetings that start at time `t`.
+
+**Test case 1**
+
+```text
+meetings = [[1,2], [2,3], [1,3], [3,4]]
+```
+
+Expected output:
+
+```text
+3
+```
+
+**Test case 2**
+
+```text
+meetings = [[0,10], [1,2], [2,3], [3,4], [4,5]]
+```
+
+Expected output:
+
+```text
+4
+```
+
+### Problem 7 — Maximum Units on a Truck
+
+You are given box types. Each box type contains a number of boxes and a number of units per box. The truck can carry at most `truckSize` boxes. Maximize the total units loaded.
+
+**Test case 1**
+
+```text
+box_types = [[1,3], [2,2], [3,1]]
+truckSize = 4
+```
+
+Expected output:
+
+```text
+8
+```
+
+**Test case 2**
+
+```text
+box_types = [[5,10], [2,5]]
+truckSize = 3
+```
+
+Expected output:
+
+```text
+25
+```
+
 [↑ Back to Contents](#contents)
 
 ---
 
-# 20. Unseen Practice Answers ⭐⭐⭐
+<a id="greedy-20"></a>
+## 20. Unseen Practice Answers ⭐⭐⭐
 
-> Answers are in the **same order** as the questions above. Try every problem before opening this section.
+### Answer 1 — Minimum Platforms
 
-## Answer 1 — Maximum Compatible Meetings
-
-**Pattern:** Activity Selection / Interval Greedy.
-
-**Greedy choice:** Sort by end time and keep the earliest-finishing compatible meeting.
+**Pattern:** Line Sweep / event ordering.
 
 ```python
-def max_meetings(meetings):
+def min_platforms(arrivals, departures):
+    arrivals.sort()
+    departures.sort()
+
+    i = 0
+    j = 0
+    active = 0
+    answer = 0
+
+    while i < len(arrivals):
+        if arrivals[i] <= departures[j]:
+            active += 1
+            answer = max(answer, active)
+            i += 1
+        else:
+            active -= 1
+            j += 1
+
+    return answer
+```
+
+**Recognition:** simultaneous trains/meetings/resources → sweep active count.
+
+[↑ Back to Contents](#contents)
+
+### Answer 2 — Lemonade Change
+
+**Pattern:** Small-state Greedy.
+
+```python
+def lemonade_change(bills):
+    five = 0
+    ten = 0
+
+    for bill in bills:
+        if bill == 5:
+            five += 1
+        elif bill == 10:
+            if five == 0:
+                return False
+            five -= 1
+            ten += 1
+        else:
+            if ten > 0 and five > 0:
+                ten -= 1
+                five -= 1
+            elif five >= 3:
+                five -= 3
+            else:
+                return False
+
+    return True
+```
+
+**Greedy choice:** preserve larger bills when possible and use `10 + 5` for a `20` before three `5`s.
+
+[↑ Back to Contents](#contents)
+
+### Answer 3 — Merge Intervals
+
+**Pattern:** Sort + interval merging.
+
+```python
+def merge_intervals(intervals):
+    if not intervals:
+        return []
+
+    intervals.sort()
+    merged = [intervals[0]]
+
+    for start, end in intervals[1:]:
+        if start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+
+    return merged
+```
+
+**Recognition:** combine overlapping intervals → sort by start and extend the current interval.
+
+[↑ Back to Contents](#contents)
+
+### Answer 4 — Candy Distribution
+
+**Pattern:** Two directional Greedy passes.
+
+```python
+def candy(ratings):
+    n = len(ratings)
+    candies = [1] * n
+
+    for i in range(1, n):
+        if ratings[i] > ratings[i - 1]:
+            candies[i] = candies[i - 1] + 1
+
+    for i in range(n - 2, -1, -1):
+        if ratings[i] > ratings[i + 1]:
+            candies[i] = max(candies[i], candies[i + 1] + 1)
+
+    return sum(candies)
+```
+
+**Recognition:** each position must satisfy constraints from both left and right neighbors → two passes.
+
+[↑ Back to Contents](#contents)
+
+### Answer 5 — Gas Station Variation
+
+**Pattern:** Circular Greedy.
+
+```python
+def can_complete_circuit(gas, cost):
+    if sum(gas) < sum(cost):
+        return -1
+
+    start = 0
+    tank = 0
+
+    for i in range(len(gas)):
+        tank += gas[i] - cost[i]
+
+        if tank < 0:
+            start = i + 1
+            tank = 0
+
+    return start
+```
+
+**Recognition:** circular fuel balance + choose a valid start.
+
+[↑ Back to Contents](#contents)
+
+### Answer 6 — Non-Overlapping Meeting Selection
+
+**Pattern:** Activity Selection.
+
+```python
+def max_non_overlapping_meetings(meetings):
     meetings.sort(key=lambda x: x[1])
-    last_end = float("-inf")
+
     count = 0
+    last_end = float("-inf")
 
     for start, end in meetings:
         if start >= last_end:
@@ -1192,186 +1324,31 @@ def max_meetings(meetings):
     return count
 ```
 
-Expected outputs: `3`, `3`.
+**Recognition:** maximize number of non-overlapping intervals → sort by end time.
 
 [↑ Back to Contents](#contents)
 
----
+### Answer 7 — Maximum Units on a Truck
 
-## Answer 2 — Minimum Removals for Non-Overlapping Intervals
-
-**Pattern:** Interval Greedy.
-
-**Greedy choice:** When intervals conflict, keep the one with the earlier end.
+**Pattern:** Sorting + Greedy / Fractional-style selection at whole-box level.
 
 ```python
-def min_removals(intervals):
-    intervals.sort(key=lambda x: x[1])
-    last_end = float("-inf")
-    removals = 0
+def maximum_units(box_types, truck_size):
+    box_types.sort(key=lambda x: x[1], reverse=True)
 
-    for start, end in intervals:
-        if start >= last_end:
-            last_end = end
-        else:
-            removals += 1
+    total_units = 0
 
-    return removals
+    for boxes, units_per_box in box_types:
+        take = min(boxes, truck_size)
+        total_units += take * units_per_box
+        truck_size -= take
+
+        if truck_size == 0:
+            break
+
+    return total_units
 ```
 
-Expected outputs: `1`, `1`.
-
-[↑ Back to Contents](#contents)
-
----
-
-## Answer 3 — Minimum Boats
-
-**Pattern:** Sorting + Two Pointers + Greedy.
-
-**Greedy choice:** The heaviest person must go in a boat. Pair them with the lightest if possible.
-
-```python
-def num_boats(people, limit):
-    people.sort()
-    left = 0
-    right = len(people) - 1
-    boats = 0
-
-    while left <= right:
-        if people[left] + people[right] <= limit:
-            left += 1
-
-        right -= 1
-        boats += 1
-
-    return boats
-```
-
-Expected outputs: `3`, `4`.
-
-[↑ Back to Contents](#contents)
-
----
-
-## Answer 4 — Reach the Last Position
-
-**Pattern:** Jump Game / Farthest Reach Greedy.
-
-```python
-def can_reach(nums):
-    farthest = 0
-
-    for i in range(len(nums)):
-        if i > farthest:
-            return False
-
-        farthest = max(farthest, i + nums[i])
-
-    return True
-```
-
-Expected outputs: `True`, `False`.
-
-[↑ Back to Contents](#contents)
-
----
-
-## Answer 5 — Minimum Cost to Connect Ropes
-
-**Pattern:** Min-Heap + Greedy.
-
-**Greedy choice:** Always combine the two smallest ropes.
-
-```python
-import heapq
-
-
-def min_cost(ropes):
-    heapq.heapify(ropes)
-    total = 0
-
-    while len(ropes) > 1:
-        a = heapq.heappop(ropes)
-        b = heapq.heappop(ropes)
-        cost = a + b
-        total += cost
-        heapq.heappush(ropes, cost)
-
-    return total
-```
-
-Expected outputs: `29`, `33`.
-
-[↑ Back to Contents](#contents)
-
----
-
-## Answer 6 — Minimum Meeting Rooms
-
-**Pattern:** Line Sweep.
-
-**Greedy/event idea:** Count active meetings. At the same time, process an ending meeting before a starting meeting when the room can be reused.
-
-```python
-def min_meeting_rooms(intervals):
-    events = []
-
-    for start, end in intervals:
-        events.append((start, 1))
-        events.append((end, 0))
-
-    events.sort()
-
-    active = 0
-    answer = 0
-
-    for time, event_type in events:
-        if event_type == 0:
-            active -= 1
-        else:
-            active += 1
-            answer = max(answer, active)
-
-    return answer
-```
-
-Expected outputs: `2`, `1`.
-
-[↑ Back to Contents](#contents)
-
----
-
-## Answer 7 — Cover a Target Range
-
-**Pattern:** Coverage / Range Greedy.
-
-**Greedy choice:** Among all intervals that can extend the current coverage, choose the one reaching farthest.
-
-```python
-def min_intervals_to_cover(intervals, target):
-    intervals.sort()
-
-    i = 0
-    covered = 0
-    count = 0
-
-    while covered < target:
-        farthest = covered
-
-        while i < len(intervals) and intervals[i][0] <= covered:
-            farthest = max(farthest, intervals[i][1])
-            i += 1
-
-        if farthest == covered:
-            return -1
-
-        covered = farthest
-        count += 1
-
-    return count
-```
-
-Expected outputs: `3`, `-1`.
+**Recognition:** limited capacity + maximize total value per unit → take highest-value units first.
 
 [↑ Back to Contents](#contents)
