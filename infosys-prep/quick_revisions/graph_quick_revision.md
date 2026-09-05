@@ -46,25 +46,26 @@ Negative edge weights            → not standard Dijkstra
 
 ## Contents
 
-- [0. Core Graph Mental Model](#0-core-graph-mental-model)
-- [1. Graph Representation](#1-graph-representation)
-- [2. DFS — Depth First Search](#2-dfs--depth-first-search)
-- [3. BFS — Breadth First Search](#3-bfs--breadth-first-search)
-- [4. Connected Components](#4-connected-components)
-- [5. Unweighted Shortest Path](#5-unweighted-shortest-path)
-- [6. Grid BFS / DFS](#6-grid-bfs--dfs)
-- [7. Multi-Source BFS — Rotting Oranges](#7-multi-source-bfs--rotting-oranges)
-- [8. Word Ladder / State-Space BFS](#8-word-ladder--state-space-bfs)
-- [9. Topological Sort](#9-topological-sort)
-- [10. DSU / Union-Find](#10-dsu--union-find)
-- [11. Kruskal — Minimum Spanning Tree](#11-kruskal--minimum-spanning-tree)
-- [12. Dijkstra — Next to Learn](#12-dijkstra--next-to-learn)
-- [13. Graph Pattern Recognition Cheat Sheet](#13-graph-pattern-recognition-cheat-sheet)
-- [14. Exam Terminal Mode](#14-exam-terminal-mode)
-- [15. Quick Exam Rules](#15-quick-exam-rules)
+- [0. Core Graph Mental Model](#graph-0)
+- [1. Graph Representation](#graph-1)
+- [2. DFS — Depth First Search](#graph-2)
+- [3. BFS — Breadth First Search](#graph-3)
+- [4. Connected Components](#graph-4)
+- [5. Unweighted Shortest Path](#graph-5)
+- [6. Grid BFS / DFS](#graph-6)
+- [7. Multi-Source BFS — Rotting Oranges](#graph-7)
+- [8. Word Ladder / State-Space BFS](#graph-8)
+- [9. Topological Sort](#graph-9)
+- [10. DSU / Union-Find](#graph-10)
+- [11. Kruskal — Minimum Spanning Tree](#graph-11)
+- [12. Dijkstra — Next to Learn](#graph-12)
+- [13. Graph Pattern Recognition Cheat Sheet](#graph-13)
+- [14. Exam Terminal Mode](#graph-14)
+- [15. Quick Exam Rules](#graph-15)
 
 ---
 
+<a id="graph-0"></a>
 ## 0. Core Graph Mental Model ⭐⭐⭐
 
 A graph is:
@@ -119,6 +120,7 @@ Dijkstra → next
 
 ---
 
+<a id="graph-1"></a>
 ## 1. Graph Representation ⭐⭐⭐
 
 For most coding-assessment graphs, use an **adjacency list**.
@@ -184,6 +186,7 @@ adjacency list
 
 ---
 
+<a id="graph-2"></a>
 ## 2. DFS — Depth First Search ⭐⭐⭐
 
 ### Idea
@@ -255,6 +258,7 @@ Subgraph exploration
 
 ---
 
+<a id="graph-3"></a>
 ## 3. BFS — Breadth First Search ⭐⭐⭐
 
 ### Idea
@@ -306,6 +310,7 @@ BFS
 
 ---
 
+<a id="graph-4"></a>
 ## 4. Connected Components ⭐⭐⭐
 
 ### Problem idea
@@ -355,6 +360,7 @@ For repeated connectivity under edge additions, think **DSU** instead.
 
 ---
 
+<a id="graph-5"></a>
 ## 5. Unweighted Shortest Path ⭐⭐⭐
 
 ### Key idea
@@ -409,6 +415,7 @@ Weighted shortest path   → Dijkstra (next)
 
 ---
 
+<a id="graph-6"></a>
 ## 6. Grid BFS / DFS ⭐⭐⭐
 
 A grid can be treated as an **implicit graph**.
@@ -466,6 +473,7 @@ Connected regions
 
 ---
 
+<a id="graph-7"></a>
 ## 7. Multi-Source BFS — Rotting Oranges ⭐⭐⭐
 
 ### Idea
@@ -527,6 +535,7 @@ Multi-Source BFS
 
 ---
 
+<a id="graph-8"></a>
 ## 8. Word Ladder / State-Space BFS ⭐⭐⭐
 
 Some graphs are **not explicitly given**.
@@ -569,6 +578,7 @@ The graph may not be stored as `adj` at all. You can generate neighbors on deman
 
 ---
 
+<a id="graph-9"></a>
 ## 9. Topological Sort ⭐⭐⭐
 
 ### Problem idea
@@ -659,6 +669,7 @@ Topological Sort
 
 ---
 
+<a id="graph-10"></a>
 ## 10. DSU / Union-Find ⭐⭐⭐
 
 ### Problem idea
@@ -727,6 +738,7 @@ component sizes
 
 ---
 
+<a id="graph-11"></a>
 ## 11. Kruskal — Minimum Spanning Tree ⭐⭐⭐
 
 ### Problem idea
@@ -774,8 +786,10 @@ def kruskal(n, edges):
 
 ```text
 connect all nodes
-+ minimum total edge weight
-+ no cycles needed
++
+minimum total edge weight
++
+no cycles needed
         ↓
 Minimum Spanning Tree
         ↓
@@ -788,6 +802,7 @@ Kruskal / DSU
 
 ---
 
+<a id="graph-12"></a>
 ## 12. Dijkstra — Next to Learn ⭐⭐⭐
 
 > **Status:** This is the next Graph topic in our study sequence. Do not treat this section as mastered yet.
@@ -819,7 +834,7 @@ finalizing the smallest known distance
 CSES — Shortest Routes I
 ```
 
-A recorded Graph reference explicitly lists **CSES 1671 — Shortest Routes I** as the basic Dijkstra implementation problem and **Flight Routes** as a Dijkstra variation that keeps multiple useful distance states. 
+The graph roadmap also includes **Flight Routes** as a Dijkstra variation where multiple useful distance states may need to be retained.
 
 ### Key distinction
 
@@ -834,6 +849,7 @@ The full intuition, relaxation process, dry run, and canonical implementation wi
 
 ---
 
+<a id="graph-13"></a>
 ## 13. Graph Pattern Recognition Cheat Sheet ⭐⭐⭐
 
 | Problem signal | Pattern | Main idea |
@@ -853,6 +869,7 @@ The full intuition, relaxation process, dry run, and canonical implementation wi
 
 ---
 
+<a id="graph-14"></a>
 ## 14. Exam Terminal Mode ⭐⭐⭐
 
 When you see a new Graph problem, ask this in order:
@@ -890,6 +907,7 @@ code
 
 ---
 
+<a id="graph-15"></a>
 ## 15. Quick Exam Rules ⭐⭐⭐
 
 ```text
