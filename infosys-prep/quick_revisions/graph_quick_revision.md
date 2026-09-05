@@ -60,7 +60,7 @@ Negative edge weights            → not standard Dijkstra
 - [11. Kruskal — Minimum Spanning Tree](#graph-11)
 - [12. Dijkstra — Next to Learn](#graph-12)
 - [13. Graph Pattern Recognition Cheat Sheet](#graph-13)
-- [14. Exam Terminal Mode](#graph-14)
+- [14. Terminal Mode — Tips + End-to-End I/O Example](#graph-14)
 - [15. Quick Exam Rules](#graph-15)
 
 ---
@@ -107,7 +107,7 @@ For a graph problem, first ask:
 
 ```text
 Adjacency list
-Visited array/set
+Visited array
 DFS
 BFS + deque
 Topological Sort
@@ -637,33 +637,16 @@ def topological_sort(n, adj):
             if indegree[neighbor] == 0:
                 q.append(neighbor)
 
-    if len(order) != n:
-        return []
-
-    return order
-```
-
-### Cycle detection connection
-
-```text
-Directed graph
-+
-cycle?
-        ↓
-Topological sort
-        ↓
-if processed nodes < n → cycle exists
+    return order if len(order) == n else []
 ```
 
 ### Recognition
 
 ```text
-dependencies / prerequisites / ordering
+directed dependencies / prerequisites
         ↓
 Topological Sort
 ```
-
-**Complexity:** `O(n + m)`.
 
 [↑ Back to Contents](#contents)
 
@@ -672,18 +655,25 @@ Topological Sort
 <a id="graph-10"></a>
 ## 10. DSU / Union-Find ⭐⭐⭐
 
-### Problem idea
+### Purpose
 
-Maintain connected components while edges are being added.
+DSU maintains connected components under **union** operations.
 
-DSU supports:
+### Core operations
 
 ```text
-find(x)       → component representative
-union(a, b)   → merge components
+find(x)  → representative/root
+union(a,b) → merge two components
 ```
 
-### Parent + size
+### Optimizations
+
+```text
+path compression
+union by size/rank
+```
+
+### Code
 
 ```python
 class DSU:
@@ -711,27 +701,12 @@ class DSU:
         return True
 ```
 
-### Why union by size?
-
-Attach the smaller tree under the larger tree.
-
-Together with path compression, operations become extremely fast and have near-constant amortized complexity.
-
 ### Recognition
 
 ```text
-components change as edges are added
+repeated connectivity / merging groups
         ↓
 DSU
-```
-
-Also useful for:
-
-```text
-cycle detection in undirected graphs
-Kruskal
-dynamic connectivity
-component sizes
 ```
 
 [↑ Back to Contents](#contents)
@@ -741,62 +716,52 @@ component sizes
 <a id="graph-11"></a>
 ## 11. Kruskal — Minimum Spanning Tree ⭐⭐⭐
 
-### Problem idea
+### Idea
 
-Find a minimum-weight set of edges that connects all vertices without cycles.
-
-### Greedy idea
-
-Process edges from **smallest weight to largest**.
-
-Take an edge if it connects two different DSU components.
+Choose edges in increasing weight order, skipping any edge that creates a cycle.
 
 ```text
 sort edges by weight
         ↓
-take smallest edge
+DSU
         ↓
-if it connects different components
+union different components
         ↓
-union + add weight
+add weight
 ```
 
 ### Code
 
 ```python
 def kruskal(n, edges):
+    dsu = DSU(n)
     edges.sort(key=lambda x: x[2])
 
-    dsu = DSU(n)
     total = 0
     used = 0
 
-    for u, v, weight in edges:
+    for u, v, w in edges:
         if dsu.union(u, v):
-            total += weight
+            total += w
             used += 1
 
             if used == n - 1:
                 break
 
-    return total
+    return total if used == n - 1 else -1
 ```
 
 ### Recognition
 
 ```text
-connect all nodes
+connect every node
 +
 minimum total edge weight
-+
-no cycles needed
         ↓
-Minimum Spanning Tree
+MST
         ↓
-Kruskal / DSU
+Kruskal + DSU
 ```
-
-**Complexity:** `O(m log m)` because of edge sorting.
 
 [↑ Back to Contents](#contents)
 
@@ -805,8 +770,6 @@ Kruskal / DSU
 <a id="graph-12"></a>
 ## 12. Dijkstra — Next to Learn ⭐⭐⭐
 
-> **Status:** This is the next Graph topic in our study sequence. Do not treat this section as mastered yet.
-
 ### Recognition
 
 ```text
@@ -814,12 +777,12 @@ weighted graph
 +
 shortest path
 +
-no negative edge weights
+non-negative edge weights
         ↓
 Dijkstra
 ```
 
-### Core tools we will learn next
+Core tools:
 
 ```text
 dist[]
@@ -843,7 +806,7 @@ Unweighted shortest path → BFS
 Weighted shortest path   → Dijkstra
 ```
 
-The full intuition, relaxation process, dry run, and canonical implementation will be added here after we learn Dijkstra properly.
+The full intuition, dry run, and canonical implementation will be added here after Dijkstra is learned properly.
 
 [↑ Back to Contents](#contents)
 
@@ -870,37 +833,305 @@ The full intuition, relaxation process, dry run, and canonical implementation wi
 ---
 
 <a id="graph-14"></a>
-## 14. Exam Terminal Mode ⭐⭐⭐
+## 14. Terminal Mode — Tips + End-to-End I/O Example ⭐⭐⭐
 
-When you see a new Graph problem, ask this in order:
+This section is for **exam implementation muscle memory**.
+
+The goal is to rehearse the complete pipeline:
 
 ```text
-1. Is the graph directed or undirected?
-2. Is it weighted or unweighted?
-3. Is this connectivity, traversal, ordering, MST, or shortest path?
-4. Is there one source or many sources?
-5. Is the graph static or changing?
-6. Does the problem ask for minimum number of edges/steps?
-7. Are there prerequisites/dependencies?
-8. Are edges being added over time?
-9. Is the goal to connect everything as cheaply as possible?
-10. If weighted shortest path → Dijkstra.
+read n, m
+↓
+read edges
+↓
+build adjacency list
+↓
+choose graph algorithm
+↓
+run solve(...)
+↓
+print answer
 ```
 
-### Build before solving
+### 14.1 Terminal tips
 
 ```text
-n, m
- ↓
-adjacency list
- ↓
-identify graph type
- ↓
-choose algorithm
- ↓
-write invariant/state
- ↓
-code
+1. Identify directed vs undirected before building adj.
+2. Identify weighted vs unweighted before choosing edge storage.
+3. Check whether nodes are 0-indexed or 1-indexed in the statement.
+4. Build adj = [[] for _ in range(n)] for normal sparse graphs.
+5. For undirected edges, add both directions.
+6. For BFS, use deque — not list.pop(0).
+7. Mark visited when adding to the queue, not repeatedly after removal.
+8. For shortest unweighted path, store distance/level.
+9. For topological sort, build indegree while reading/building edges.
+10. For DSU, initialize parent/size for every node.
+11. For weighted graphs, store tuples such as (neighbor, weight).
+12. Never assume the graph is connected unless the statement says so.
+13. Recursion depth can matter on very deep graphs; know the constraint before choosing recursive DFS.
+14. Print exactly the requested output and nothing else.
+```
+
+### 14.2 Common graph input shapes
+
+#### A. Undirected unweighted graph
+
+```text
+n m
+u1 v1
+u2 v2
+...
+```
+
+```python
+adj = [[] for _ in range(n)]
+
+for _ in range(m):
+    u, v = map(int, input().split())
+    adj[u].append(v)
+    adj[v].append(u)
+```
+
+#### B. Directed unweighted graph
+
+```python
+adj[u].append(v)
+```
+
+Only one direction is added.
+
+#### C. Weighted graph
+
+```text
+n m
+u v w
+...
+```
+
+```python
+adj[u].append((v, w))
+adj[v].append((u, w))
+```
+
+for an undirected weighted graph.
+
+#### D. Graph + source/target
+
+Often the statement is:
+
+```text
+n m
+edges...
+source target
+```
+
+Read the graph first, then read `source`, `target`.
+
+---
+
+## 14.3 End-to-end example — Unweighted Shortest Path ⭐⭐⭐
+
+This is the representative full graph submission because it exercises the most important graph I/O pattern:
+
+```text
+n m
+m edge lines
+source target
+```
+
+### Problem statement
+
+Given an undirected unweighted graph with `n` nodes and `m` edges, and two nodes `source` and `target`, find the minimum number of edges needed to travel from `source` to `target`. Print `-1` if the target is unreachable.
+
+### Sample input
+
+```text
+6 6
+0 1
+0 2
+1 3
+2 3
+3 4
+4 5
+0 5
+```
+
+### Sample output
+
+```text
+3
+```
+
+One shortest path is:
+
+```text
+0 → 1 → 3 → 4 → 5
+```
+
+### Complete submission-style program
+
+```python
+import sys
+from collections import deque
+
+
+def solve(n, adj, source, target):
+    distance = [-1] * n
+    queue = deque([source])
+    distance[source] = 0
+
+    while queue:
+        node = queue.popleft()
+
+        if node == target:
+            return distance[node]
+
+        for neighbor in adj[node]:
+            if distance[neighbor] != -1:
+                continue
+
+            distance[neighbor] = distance[node] + 1
+            queue.append(neighbor)
+
+    return -1
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    # First line: number of nodes and edges.
+    n, m = map(int, input().split())
+
+    # Build an undirected adjacency list.
+    adj = [[] for _ in range(n)]
+
+    for _ in range(m):
+        u, v = map(int, input().split())
+        adj[u].append(v)
+        adj[v].append(u)
+
+    # Final line: source and target nodes.
+    source, target = map(int, input().split())
+
+    answer = solve(n, adj, source, target)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### I/O flow
+
+```text
+INPUT
+-----
+6 6
+0 1
+0 2
+1 3
+2 3
+3 4
+4 5
+0 5
+
+        ↓
+
+PARSE
+n = 6
+m = 6
+
+edges =
+0-1
+0-2
+1-3
+2-3
+3-4
+4-5
+
+source = 0
+target = 5
+
+        ↓
+
+BUILD
+adj[0] = [1, 2]
+adj[1] = [0, 3]
+...
+
+        ↓
+
+SOLVE
+BFS from 0
+
+        ↓
+
+ANSWER
+3
+
+        ↓
+
+OUTPUT
+-----
+3
+```
+
+### 14.4 Graph I/O memory pattern
+
+```python
+import sys
+from collections import deque
+
+
+def solve(...):
+    ...
+
+
+def main():
+    input = sys.stdin.buffer.readline
+
+    n, m = map(int, input().split())
+    adj = [[] for _ in range(n)]
+
+    for _ in range(m):
+        u, v = map(int, input().split())
+        adj[u].append(v)
+        adj[v].append(u)
+
+    ...
+
+    answer = solve(...)
+    print(answer)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### 14.5 Common graph parser mistakes
+
+```text
+❌ Forgetting the reverse edge in an undirected graph
+❌ Mixing 1-indexed input with 0-indexed arrays
+❌ Using a normal list with pop(0) for BFS
+❌ Adding weights incorrectly
+❌ Forgetting disconnected nodes
+❌ Printing the whole distance array when only one answer is required
+```
+
+### Graph terminal checklist
+
+```text
+□ directed / undirected?
+□ weighted / unweighted?
+□ n and m parsed correctly?
+□ correct number of edge lines?
+□ correct indexing?
+□ adjacency list built correctly?
+□ BFS uses deque?
+□ visited/distance initialized?
+□ source/target read correctly?
+□ exact output printed?
 ```
 
 [↑ Back to Contents](#contents)
