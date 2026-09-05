@@ -6,6 +6,7 @@
 
 ---
 
+<a id="contents"></a>
 ## Contents
 
 - [0. Greedy Mental Model](#greedy-0)
