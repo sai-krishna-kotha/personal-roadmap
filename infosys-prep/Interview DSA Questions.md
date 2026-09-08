@@ -6,6 +6,34 @@
 
 ---
 
+## Contents
+
+- [0. Personal Target](#dp-0)
+- [1. What Recent Interviews Suggest](#dp-1)
+- [2. The Interview Coding Ladder](#dp-2)
+- [3. Personal Assessment-Derived Questions](#dp-3)
+  - [3.1 Prefix / preprocessing question](#dp-31)
+  - [3.2 Modified House Robber / state-machine DP](#dp-32)
+  - [3.3 The grid DP question you missed in Round 2](#dp-33)
+- [4. Arrays + Hashing — Must Do](#dp-4)
+- [5. Two Pointers + Sliding Window](#dp-5)
+- [6. Stack + Monotonic Stack](#dp-6)
+- [7. Binary Search](#dp-7)
+- [8. Linked Lists](#dp-8)
+- [9. Trees / BST](#dp-9)
+- [10. Graphs](#dp-10)
+- [11. Greedy](#dp-11)
+- [12. Dynamic Programming — Highest Priority for You](#dp-12)
+- [13. Complexity Questions They Can Ask](#dp-13)
+- [14. "Did You Actually Solve It?" Follow-Ups](#dp-14)
+- [15. Interview Coding Problems — Master Checklist](#dp-15)
+- [16. Recommended Practice Method](#dp-16)
+- [17. Recent Public Interview Signals](#dp-17)
+- [18. Final Rule for Your Preparation](#dp-18)
+
+---
+
+<a id="dp-0"></a>
 ## 0. Personal Target
 
 **Primary target:** Specialist Programmer L1.
@@ -16,8 +44,11 @@
 
 The existing roadmap already emphasizes explaining DSA, not merely coding it: identify the problem, explain the bottleneck, derive the state or data structure, give complexity, code, dry-run, and discuss edge cases. The quick-revision material also uses the DP ladder **recursion → memoization → tabulation → space optimization**. Keep that exact thinking style in interviews.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-1"></a>
 # 1. What Recent Interviews Suggest
 
 Recent 2026 public candidate reports show that Infosys DSE/SP interviews can include a live coding problem followed by DSA/fundamentals, SQL, projects, and resume-driven questions. Examples reported in August–September 2026 include:
@@ -34,8 +65,11 @@ Recent 2026 public candidate reports show that Infosys DSE/SP interviews can inc
 
 These reports are anecdotal and vary by interviewer, so use them as **signals**, not guaranteed questions.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-2"></a>
 # 2. The Interview Coding Ladder
 
 ## DSE baseline
@@ -107,12 +141,16 @@ Add:
 - Graph shortest path variations
 - Complexity-driven optimization from O(M^3) to O(M^2) / O(M log M) where appropriate
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-3"></a>
 # 3. Personal Assessment-Derived Questions
 
 These are **highest priority** because the interview can test whether you genuinely solved and understood the Round 2 problems.
 
+<a id="dp-31"></a>
 ## 3.1 Prefix / preprocessing question
 
 You solved a story-heavy array problem whose core was left-sum preprocessing plus a running right-sum check.
@@ -140,8 +178,9 @@ You solved a story-heavy array problem whose core was left-sum preprocessing plu
 - Prefix sum modulo state
 - Prefix/suffix product
 
----
+[↑ Back to Contents](#contents)
 
+<a id="dp-32"></a>
 ## 3.2 Modified House Robber / state-machine DP
 
 You solved a House Robber-style problem with an additional adjacency-use condition by introducing an extra state and deriving the recurrence before moving to memoization and tabulation.
@@ -175,8 +214,9 @@ You solved a House Robber-style problem with an additional adjacency-use conditi
 - State DP with cooldown
 - State DP with transaction/usage limits
 
----
+[↑ Back to Contents](#contents)
 
+<a id="dp-33"></a>
 ## 3.3 The grid DP question you missed in Round 2
 
 This is a **must-fix weakness** because it was not solved under time pressure even though the recurrence becomes simple after recognizing the transition.
@@ -247,8 +287,11 @@ is sufficient.
 - Grid DP with arbitrary row-to-row transitions
 - State-based grid DP
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-4"></a>
 # 4. Arrays + Hashing — Must Do
 
 | Priority | Problem | What interviewer may test |
@@ -276,8 +319,11 @@ For every one, answer:
 
 > Can you reduce space?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-5"></a>
 # 5. Two Pointers + Sliding Window
 
 ## Must solve
@@ -301,8 +347,11 @@ For every one, answer:
 - When should prefix sum + hashing replace sliding window?
 - Can you solve it in O(1) extra space?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-6"></a>
 # 6. Stack + Monotonic Stack
 
 ## Must solve
@@ -323,8 +372,11 @@ For every one, answer:
 - What information is removed permanently?
 - Why is the total complexity O(n), even though there is a nested `while` loop?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-7"></a>
 # 7. Binary Search
 
 ## Must solve
@@ -345,8 +397,11 @@ For every one, answer:
 - When can binary search be applied to the answer instead of an array?
 - What property must the feasibility function have?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-8"></a>
 # 8. Linked Lists
 
 ## Must solve
@@ -377,8 +432,11 @@ For every one, answer:
 
 Recent 2026 candidate reports explicitly mention reverse-linked-list coding in Infosys interviews, including iterative/recursive discussion.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-9"></a>
 # 9. Trees / BST
 
 ## Must solve
@@ -407,8 +465,11 @@ Recent 2026 candidate reports explicitly mention reverse-linked-list coding in I
 - How would you process repeated path queries?
 - What information can be precomputed for many queries?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-10"></a>
 # 10. Graphs
 
 The existing quick revision covers graph representation, DFS, BFS, connected components, unweighted shortest path, grid BFS/DFS, multi-source BFS, topological sort, DSU, Kruskal/MST, with Dijkstra identified as the next topic. Bring Dijkstra into the interview set before the interview.
@@ -445,8 +506,11 @@ The existing quick revision covers graph representation, DFS, BFS, connected com
 - Why does DSU work for dynamic connectivity?
 - What is path compression?
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-11"></a>
 # 11. Greedy
 
 The existing Greedy quick revision emphasizes **greedy idea → why it works → recognition → algorithm → code**. Preserve that explanation order in the interview.
@@ -470,8 +534,11 @@ The existing Greedy quick revision emphasizes **greedy idea → why it works →
 
 Never answer merely "because greedy works." State the invariant or exchange argument at an appropriate level.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-12"></a>
 # 12. Dynamic Programming — Highest Priority for You
 
 Your existing DP notes teach the mechanical pipeline:
@@ -540,8 +607,11 @@ What is the complexity?
 Can space be optimized?
 ```
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-13"></a>
 # 13. Complexity Questions They Can Ask
 
 Be ready for direct questions:
@@ -558,8 +628,11 @@ Be ready for direct questions:
 10. How do you detect that O(n³) is too slow?
 11. Can your solution be optimized from O(n²) to O(n log n)? Explain the bottleneck.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-14"></a>
 # 14. "Did You Actually Solve It?" Follow-Ups
 
 This section is specifically for defending your Round 2 solutions.
@@ -592,8 +665,11 @@ This section is specifically for defending your Round 2 solutions.
 - Give the naive complexity.
 - Optimize the minimum transition if M is large.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-15"></a>
 # 15. Interview Coding Problems — Master Checklist
 
 ## Must-do before DSE interview
@@ -657,8 +733,11 @@ This section is specifically for defending your Round 2 solutions.
 - [ ] Bitmask DP recognition
 - [ ] Digit DP recognition
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-16"></a>
 # 16. Recommended Practice Method
 
 For each problem:
@@ -704,8 +783,11 @@ Candidate choice
 → implementation
 ```
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-17"></a>
 # 17. Recent Public Interview Signals
 
 These are the public reports that informed this question bank:
@@ -717,8 +799,11 @@ These are the public reports that informed this question bank:
 
 **Interpretation:** The interview can move from an easy coding warm-up to progressively deeper reasoning. Do not prepare only for one difficulty label.
 
+[↑ Back to Contents](#contents)
+
 ---
 
+<a id="dp-18"></a>
 # 18. Final Rule for Your Preparation
 
 You are not preparing for:
@@ -744,3 +829,5 @@ The fix is to train **state + transition recognition** broadly.
 **Baseline: DSE-ready.**
 
 **Stretch: SP L2 reasoning.**
+
+[↑ Back to Contents](#contents)
