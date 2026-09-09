@@ -1,678 +1,550 @@
 # Infosys SP — Interview Preparation Roadmap
 
-> **Purpose:** A standalone interview-preparation roadmap separated from the main Infosys assessment roadmap. It is focused on the technical interview after Round 2, with extra emphasis on the **Specialist Programmer (SP)** role.
+> **Purpose:** A dedicated, execution-focused roadmap for the Infosys technical interview after Round 2, with **Specialist Programmer (SP)** as the primary target.
 >
-> The roadmap is extracted and reorganized from the interview/core-subject material already present in `infosys-prep/structure_roadmap.md`. The main roadmap remains the assessment + overall preparation plan; this file is the dedicated interview checklist.
+> This file is intentionally different from `structure_roadmap.md`. The main roadmap covers the broader assessment journey; this file is the **interview execution plan**.
 
 <a id="table-of-contents"></a>
 
 ## 📑 Table of Contents
 
-### 🎯 Interview Strategy
-- [1. Interview Target](#1-interview-target)
-- [2. What the Interview Is Testing](#2-what-the-interview-is-testing)
-- [3. Priority Order](#3-priority-order)
-- [4. Interview Answer Method](#4-interview-answer-method)
+### 🧭 Strategy
+- [1. Interview Mission](#1-interview-mission)
+- [2. Why the Plan Is Layered](#2-why-the-plan-is-layered)
+- [3. Priority Pyramid](#3-priority-pyramid)
+- [4. Preparation Rule](#4-preparation-rule)
+- [5. Interview Answer Framework](#5-interview-answer-framework)
 
-### 💻 DSA + Coding
-- [5. DSA Interview Syllabus](#5-dsa-interview-syllabus)
-- [6. Coding Problem Patterns](#6-coding-problem-patterns)
-- [7. Coding Interview Explanation Structure](#7-coding-interview-explanation-structure)
-- [8. New Problem Strategy](#8-new-problem-strategy)
-- [9. Complexity](#9-complexity)
+### 🔥 Layer 1 — Interview Safety Net
+- [6. Layer 1 Overview](#6-layer-1-overview)
+- [7. Self Introduction + HR](#7-self-introduction--hr)
+- [8. Resume Defense](#8-resume-defense)
+- [9. Project Ownership](#9-project-ownership)
+- [10. Core OOP](#10-core-oop)
 
-### 🧱 Core CS Subjects
-- [10. OOP](#10-oop)
-- [11. DBMS](#11-dbms)
-- [12. SQL](#12-sql)
-- [13. Operating Systems](#13-operating-systems)
-- [14. Computer Networks](#14-computer-networks)
+### 🎯 Layer 2 — Highest-Yield Technical Preparation
+- [11. SQL](#11-sql)
+- [12. DBMS](#12-dbms)
+- [13. DSA Coding](#13-dsa-coding)
+- [14. DSA Follow-Up Skills](#14-dsa-follow-up-skills)
 
-### 🛠️ SP Engineering + Projects
-- [15. Project Deep Dive](#15-project-deep-dive)
-- [16. Backend and Software Engineering](#16-backend-and-software-engineering)
-- [17. Basic System Design](#17-basic-system-design)
-- [18. Resume Defense](#18-resume-defense)
+### 🛠️ Layer 3 — SP Engineering Depth
+- [15. Backend + APIs](#15-backend--apis)
+- [16. Database Optimization + Scaling](#16-database-optimization--scaling)
+- [17. API Security + Reliability](#17-api-security--reliability)
+- [18. Basic System Design](#18-basic-system-design)
 
-### 🗣️ Behavioral + Final Preparation
-- [19. Self Introduction](#19-self-introduction)
-- [20. HR and Behavioral Questions](#20-hr-and-behavioral-questions)
-- [21. Technical Mock Interview](#21-technical-mock-interview)
-- [22. Final Revision Checklist](#22-final-revision-checklist)
-- [23. Final Interview Mental Model](#23-final-interview-mental-model)
+### 📚 Layer 4 — Core CS Coverage
+- [19. Operating Systems](#19-operating-systems)
+- [20. Computer Networks](#20-computer-networks)
+
+### 🧪 Layer 5 — Interview Execution
+- [21. Project Technical Drill](#21-project-technical-drill)
+- [22. SQL Drill](#22-sql-drill)
+- [23. DSA Drill](#23-dsa-drill)
+- [24. Core CS Rapid Revision](#24-core-cs-rapid-revision)
+- [25. Technical Mock Interview](#25-technical-mock-interview)
+- [26. Final 24-Hour Checklist](#26-final-24-hour-checklist)
+- [27. Final Interview Mental Model](#27-final-interview-mental-model)
 
 ---
 
-<a id="1-interview-target"></a>
-# 1. Interview Target
+<a id="1-interview-mission"></a>
+# 1. Interview Mission
 
-The main target is the **Infosys Specialist Programmer (SP)** technical interview.
+The target is not to know every computer-science topic deeply.
 
-Prepare to demonstrate four things:
+The target is to prove five things:
 
 ```text
-Can I code?
+I can code.
       +
-Do I understand core CS?
+I understand core CS.
       +
-Do I understand my own projects?
+I understand my own projects.
       +
-Can I reason about software-engineering decisions?
+I can reason about real software systems.
+      +
+I can communicate my thinking clearly.
 ```
 
-The existing preparation roadmap identifies the interview areas as:
+For this preparation stage, **depth should follow probability and usefulness**.
 
-- Coding questions
-- DSA explanation
-- SQL + DBMS
-- OOP
-- Operating Systems
-- Computer Networks
-- Projects and resume deep-dive
-- Backend / software-development fundamentals
-- Basic system-design and engineering reasoning
-- HR / behavioral questions
+The current priority signal from recent candidate feedback is especially strong around:
+
+```text
+SQL
+DBMS / indexing / optimization
+API security and scaling
+Project architecture + technology choices
+One Easy/Medium DSA problem
+```
+
+Treat this as a preparation signal, not a guaranteed Infosys interview question list.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="2-what-the-interview-is-testing"></a>
-# 2. What the Interview Is Testing
+<a id="2-why-the-plan-is-layered"></a>
+# 2. Why the Plan Is Layered
 
-Think of the interview as five simultaneous checks:
+The previous version had the right topics, but a flat syllabus can make preparation inefficient.
+
+Use five layers instead:
 
 ```text
-1. Coding ability
-2. Computer-science fundamentals
-3. Project ownership
-4. Engineering reasoning
-5. Communication
+Layer 1
+Interview Safety Net
+↓
+Layer 2
+High-Yield Technical
+↓
+Layer 3
+SP Engineering Depth
+↓
+Layer 4
+Core CS Coverage
+↓
+Layer 5
+Execution + Mocking
 ```
 
-For SP-oriented preparation, do not prepare only definitions. Be ready for follow-up questions such as:
+The rule is:
+
+> **Do not move deeper until the previous layer is interview-safe.**
+
+Example:
 
 ```text
-What happens internally?
-Why did you choose this approach?
-Why this technology?
+Do not spend 2 hours on obscure OS details
+while still being unable to explain your own project architecture.
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="3-priority-pyramid"></a>
+# 3. Priority Pyramid
+
+## 🔴 Priority A — Highest return
+
+These should receive the largest share of preparation time.
+
+1. **Projects + Resume Defense**
+2. **SQL + DBMS**
+3. **DSA Coding + Explanation**
+4. **OOP**
+
+## 🟠 Priority B — SP-oriented engineering
+
+5. **Backend / REST APIs**
+6. **API security**
+7. **Database optimization**
+8. **Database scaling**
+9. **API scaling**
+10. **Basic system design**
+
+## 🟡 Priority C — Core CS
+
+11. **Operating Systems**
+12. **Computer Networks**
+
+## 🟢 Priority D — Behavioral
+
+13. **Self introduction**
+14. **Why Infosys?**
+15. **Why SP?**
+16. **Strength / weakness / failure / teamwork / goals**
+
+### Time allocation guide
+
+For a short preparation window:
+
+```text
+Projects + Resume       25%
+SQL + DBMS              25%
+DSA + OOP               20%
+Backend / API / Scale   15%
+OS + CN                 10%
+HR / Behavioral          5%
+```
+
+This is a planning heuristic, not an official Infosys weighting.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="4-preparation-rule"></a>
+# 4. Preparation Rule
+
+For every topic, prepare at **three depths**.
+
+### Depth 1 — 30-second answer
+
+Can I define it clearly?
+
+### Depth 2 — 2-minute explanation
+
+Can I explain how it works with an example?
+
+### Depth 3 — Follow-up defense
+
+Can I answer:
+
+```text
+Why?
+Why this approach?
 What is the trade-off?
-What happens at larger scale?
 What can fail?
-How did you debug it?
+How would you optimize it?
+How would you scale it?
 ```
 
-A strong answer should normally move from:
+Do not memorize essays.
+
+Use:
 
 ```text
 Definition
-    ↓
-Why it exists
-    ↓
-Example
-    ↓
-Trade-off / limitation
-```
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="3-priority-order"></a>
-# 3. Priority Order
-
-Use this order when preparation time is limited.
-
-## Priority 1 — Must be strong
-
-1. **SQL + DBMS**
-2. **Projects / resume**
-3. **OOP**
-4. **DSA coding + explanation**
-
-## Priority 2 — Must know clearly
-
-5. **Operating Systems**
-6. **Computer Networks**
-7. **Backend / software-engineering fundamentals**
-
-## Priority 3 — SP-oriented depth
-
-8. **Basic system design**
-9. **Scalability and performance reasoning**
-10. **Security / API / database engineering basics**
-
-## Priority 4 — Behavioral
-
-11. **Self introduction**
-12. **Why Infosys?**
-13. **Why SP?**
-14. **Career goals and behavioral questions**
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="4-interview-answer-method"></a>
-# 4. Interview Answer Method
-
-Do not answer every technical question with a memorized one-line definition.
-
-Use this structure:
-
-```text
-Definition
-↓
-Purpose
-↓
-Example
-↓
-Trade-off / limitation
-```
-
-### Example: What is a database index?
-
-```text
-Definition:
-An index is an auxiliary data structure used to speed up data retrieval.
-
-Purpose:
-It can avoid scanning the entire table for many queries.
-
-Trade-off:
-It needs additional storage and can make writes slower because the index must be maintained.
-```
-
-Then stop and let the interviewer decide whether to go deeper.
-
-For comparison questions, use:
-
-```text
-A vs B
-→ definition of both
-→ key difference
-→ practical example
+→ purpose
+→ example
 → trade-off
 ```
 
-For “why” questions, use:
+For project questions use:
 
 ```text
 Problem
+→ architecture
+→ your contribution
 → decision
-→ reason
-→ alternative
 → trade-off
+→ result
+→ limitation
 ```
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="5-dsa-interview-syllabus"></a>
-# 5. DSA Interview Syllabus
+<a id="5-interview-answer-framework"></a>
+# 5. Interview Answer Framework
 
-The goal is not only to solve the problem. You must be able to **explain the reasoning**.
-
-## Arrays and Strings
-
-Know:
-
-- Traversal
-- Frequency counting
-- Hashing
-- Prefix Sum
-- Two Pointers
-- Sliding Window
-- Sorting
-- Maximum / minimum subarray ideas
-
-## Stack / Queue / Heap
-
-Know:
-
-- Stack operations
-- Queue / deque
-- Monotonic Stack
-- Next Greater / Smaller
-- Heap / Priority Queue
-- Top K patterns
-
-## Binary Search
-
-Know:
-
-- Basic binary search
-- First / last occurrence
-- Search in rotated array
-- Lower / upper bound concepts
-- Binary Search on Answer
-- Feasibility function
-
-## Linked List
-
-Know the basics:
-
-- Traversal
-- Reverse linked list
-- Fast / slow pointers
-- Cycle detection
-- Merge lists
-- Middle node
-
-## Trees / BST
-
-Know:
-
-- Preorder
-- Inorder
-- Postorder
-- Level order
-- Maximum depth
-- Diameter
-- Path Sum
-- Lowest Common Ancestor
-- BST search / insert
-- Validate BST
-- Kth smallest
-- Tree DP basics
-
-## Graphs
-
-Know:
-
-- Adjacency list
-- DFS
-- BFS
-- Connected components
-- Cycle detection
-- Topological sort
-- Shortest path
-- DSU / Union-Find
-- Grid DFS / BFS
-
-## Greedy
-
-Know:
-
-- Sorting-based greedy
-- Interval greedy
-- Greedy + heap
-- Activity selection
-- Jump Game
-- Gas Station
-- Non-overlapping intervals
-
-## Dynamic Programming
-
-This is especially important for an SP-oriented coding discussion.
-
-Know:
-
-- Recursion → memoization → tabulation → space optimization
-- 1D DP
-- 2D / grid DP
-- Pick / not-pick
-- 0/1 Knapsack
-- Unbounded Knapsack
-- Subset Sum
-- Target Sum
-- State DP
-- Counting DP
-- LIS
-- LCS
-- Edit Distance
-- Tree DP
-- Interval / Partition DP basics
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="6-coding-problem-patterns"></a>
-# 6. Coding Problem Patterns
-
-When you see a new problem, identify the underlying pattern instead of trying to remember an exact question.
-
-| Problem signal | First pattern to consider |
-|---|---|
-| Fast lookup / frequency | Hashing |
-| Range / subarray sum | Prefix Sum |
-| Sorted array + pair | Two Pointers |
-| Contiguous range + condition | Sliding Window |
-| Sorted search space | Binary Search |
-| Matching / nested structure | Stack |
-| Next greater / smaller | Monotonic Stack |
-| Top K / repeated minimum or maximum | Heap |
-| Intervals | Sorting + Greedy / Heap |
-| Equal-cost shortest path | BFS |
-| Weighted non-negative shortest path | Dijkstra |
-| Connected regions | DFS / BFS / DSU |
-| Choose / skip | Pick / Not Pick DP |
-| Count number of ways | Counting DP |
-| State changes over positions | State DP |
-| Subproblem over a range | Interval / Partition DP |
-
-For DP, always derive:
+## Technical definition
 
 ```text
-State
+Definition
 ↓
-Choices / transition
+Why it exists
 ↓
-Base case
+Example
 ↓
-Memoization / tabulation
+Trade-off
+```
+
+## Comparison
+
+```text
+A definition
+↓
+B definition
+↓
+Key difference
+↓
+Use case
+↓
+Trade-off
+```
+
+## Coding problem
+
+```text
+Understand
+↓
+Constraints
+↓
+Brute force
+↓
+Bottleneck
+↓
+Pattern
+↓
+Data structure / state
+↓
+Transition
 ↓
 Complexity
+↓
+Code
+↓
+Dry run
+↓
+Edge cases
+```
+
+## Project question
+
+```text
+Problem
+↓
+Architecture
+↓
+Request / data flow
+↓
+Your exact work
+↓
+Why each technology
+↓
+Alternative considered
+↓
+Trade-off
+↓
+Failure / debugging
+↓
+Scaling
 ```
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="7-coding-interview-explanation-structure"></a>
-# 7. Coding Interview Explanation Structure
+<a id="6-layer-1-overview"></a>
+# 6. Layer 1 — Interview Safety Net
 
-When the interviewer gives a coding problem, follow this sequence:
-
-```text
-1. Restate the problem
-2. State assumptions
-3. Clarify important constraints if necessary
-4. Give brute force
-5. Explain why brute force is too slow
-6. Derive the optimized idea
-7. State the data structure / state
-8. Explain the algorithm
-9. State time complexity
-10. State space complexity
-11. Code
-12. Dry-run with an example
-13. Discuss edge cases
-```
-
-### Example explanation skeleton
+Before advanced preparation, make these automatic:
 
 ```text
-The problem asks us to ...
-
-A brute-force approach would ...
-Its complexity is ..., which is too expensive for ...
-
-The key observation is ...
-So I will maintain ...
-
-For each ..., I will ...
-
-The time complexity is ...
-The space complexity is ...
+1. 60–90 second self introduction
+2. Resume line-by-line defense
+3. Two strongest projects
+4. Core OOP
+5. Why Infosys?
+6. Why SP?
+7. One failure + one debugging story
+8. One teamwork story
 ```
 
-Do not start typing code before you have communicated the core idea.
+Success condition:
+
+> **The interviewer should never find a basic question on your resume that you cannot answer.**
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="8-new-problem-strategy"></a>
-# 8. New Problem Strategy
+<a id="7-self-introduction--hr"></a>
+# 7. Self Introduction + HR
 
-When the problem is unfamiliar:
+Prepare a **60–90 second** technical introduction.
 
-### Step 1 — Constraints
-
-```text
-N ≤ 20
-→ backtracking / bitmask / exponential DP may be possible
-
-N ≤ 10^3
-→ O(N²) may be possible
-
-N ≤ 10^5
-→ usually target O(N) or O(N log N)
-
-N very large
-→ look for math / greedy / binary search / optimization
-```
-
-### Step 2 — Brute force
-
-Find the obvious solution first.
-
-### Step 3 — Bottleneck
-
-Ask:
+Structure:
 
 ```text
-What repeated work makes brute force slow?
+Name / B.Tech background
+↓
+Core technical strengths
+↓
+Strong project / internship
+↓
+What type of engineering work interests you
+↓
+Why this opportunity
 ```
 
-### Step 4 — Pattern
+Prepare concise answers for:
 
-Look for:
+1. Tell me about yourself.
+2. Why Infosys?
+3. Why Specialist Programmer?
+4. Why software engineering?
+5. What are your strengths?
+6. What is your weakness?
+7. Tell me about a failure.
+8. Tell me about a difficult technical problem.
+9. Tell me about teamwork / conflict.
+10. Where do you see yourself in a few years?
+11. Why should we hire you?
+12. Are you comfortable learning new technologies?
+
+For experience-based answers:
 
 ```text
-Hashing
-Prefix Sum
-Binary Search
-Heap
-Greedy
-Graph
-DP
-Math
+Situation
+→ Task
+→ Action
+→ Result
+→ Learning
 ```
-
-### Step 5 — State / data structure
-
-Ask:
-
-```text
-What information do I need to remember?
-```
-
-### Step 6 — Transition
-
-For DP or graph problems, explicitly derive how one state leads to another.
-
-### Step 7 — Complexity
-
-Check whether the solution fits the constraints.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="9-complexity"></a>
-# 9. Complexity
+<a id="8-resume-defense"></a>
+# 8. Resume Defense
 
-Be comfortable discussing:
+Treat every resume line as a potential question.
+
+For every skill / project / internship / certification:
 
 ```text
-O(1)
-O(log N)
-O(N)
-O(N log N)
-O(N²)
-O(N³)
-O(2^N)
-O(N!)
+What is it?
+↓
+Where did I use it?
+↓
+Why did I use it?
+↓
+What exactly did I implement?
+↓
+What problem did it solve?
+↓
+What went wrong?
+↓
+What would I improve?
 ```
 
-Know both:
+### Resume danger rule
 
-- **Time complexity**
-- **Space complexity**
+Do not merely recognize a technology.
 
-For every coding solution, be ready to explain why the complexity is acceptable for the input constraints.
+You should be able to explain **how you used it**.
 
-Common interview follow-up:
-
-> Can you optimize this further?
-
-Answer by identifying the current bottleneck first rather than blindly changing the algorithm.
+For a project bullet mentioning a framework, database, API, model, or deployment tool, prepare at least one concrete implementation detail.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="10-oop"></a>
-# 10. OOP
+<a id="9-project-ownership"></a>
+# 9. Project Ownership
 
-## Core concepts
+Choose **two strongest projects** as primary interview projects.
 
-Know thoroughly:
+For each, prepare a one-page mental model:
 
-- Class
-- Object
+## A. Problem
+
+```text
+What problem?
+Who faces it?
+Why is it useful?
+```
+
+## B. Architecture
+
+```text
+Client
+↓
+Frontend
+↓
+API
+↓
+Business logic
+↓
+Database / external service
+```
+
+Use the real architecture, not this generic diagram blindly.
+
+## C. Data flow
+
+Be able to trace one complete request:
+
+```text
+User action
+→ HTTP request
+→ backend route
+→ validation
+→ business logic
+→ database / model
+→ response
+→ frontend update
+```
+
+## D. Technology decisions
+
+For every important choice:
+
+```text
+Why this?
+Why not alternative X?
+What trade-off did I accept?
+```
+
+## E. Failure and debugging
+
+Prepare one real story:
+
+```text
+Bug
+→ reproduction
+→ investigation
+→ root cause
+→ fix
+→ verification
+```
+
+## F. Production thinking
+
+Be ready for:
+
+- What if traffic becomes 10x?
+- What if the DB becomes slow?
+- Where can caching help?
+- What happens if a service fails?
+- How would you secure the API?
+- How would you test it?
+- How would you monitor it?
+- What is the weakest part of the current design?
+- What would you redesign?
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="10-core-oop"></a>
+# 10. Core OOP
+
+Know these well enough to explain with a real example:
+
+- Class and object
 - Constructor
 - Encapsulation
+- Abstraction
 - Inheritance
 - Polymorphism
-- Abstraction
-- Method Overloading
-- Method Overriding
+- Method overloading
+- Method overriding
 - Composition
 - Association
 - `is-a` vs `has-a`
-
-## Deeper concepts
-
-Understand conceptually:
-
-- Static vs dynamic binding
-- Dynamic dispatch
 - Interface vs abstract class
 - Composition vs inheritance
-- Why abstraction is useful
-- Why encapsulation matters
-- Loose coupling
-- High cohesion
-- SOLID principles
-- Dependency inversion
+- Dynamic dispatch
+- Loose coupling / high cohesion
+- Basic SOLID principles
 
-## Questions to practice
+### High-value questions
 
-1. What is OOP?
-2. Explain the four pillars with examples.
-3. What is polymorphism?
-4. Overloading vs overriding?
-5. Abstraction vs encapsulation?
-6. Interface vs abstract class?
-7. Composition vs inheritance?
-8. What is dynamic dispatch?
-9. Why use private fields?
-10. Give a real-world example of polymorphism.
-11. Explain one SOLID principle with a practical example.
-12. Why is composition often preferred over inheritance?
+1. Explain the four pillars with examples.
+2. Overloading vs overriding?
+3. Abstraction vs encapsulation?
+4. Interface vs abstract class?
+5. Why prefer composition in some designs?
+6. What is dynamic dispatch?
+7. Explain one SOLID principle practically.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="11-dbms"></a>
-# 11. DBMS
+<a id="11-sql"></a>
+# 11. Layer 2 — SQL
 
-## Database fundamentals
-
-Know:
-
-- Database vs DBMS
-- Relational database
-- Tables and relationships
-- ER concept
-- Constraints
-
-## Keys
-
-Know:
-
-- Primary key
-- Candidate key
-- Super key
-- Foreign key
-- Composite key
-
-## Normalization
-
-Understand:
-
-- 1NF
-- 2NF
-- 3NF
-- Why normalization reduces redundancy
-- When denormalization can be useful
-
-## Transactions
-
-Know:
-
-- Transaction
-- ACID
-- Isolation
-- Atomicity
-- Consistency
-- Durability
-
-## Isolation problems
-
-Understand:
-
-- Dirty read
-- Non-repeatable read
-- Phantom read
-- Serializability concept
-
-## Indexing
-
-Know:
-
-- Why indexes speed up reads
-- Index storage cost
-- Write/update overhead
-- B-tree / B+ tree concept
-- Why indexes are not automatically beneficial for every column
-
-## Joins
-
-Understand:
-
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN concept
-- Self join
-- Join conditions
-
-## Query optimization basics
-
-Understand conceptually:
-
-- Why indexes matter
-- Why unnecessary scans are expensive
-- Why selecting only required columns can help
-- Why query structure affects execution cost
-
-### DBMS questions
-
-1. What is normalization?
-2. Explain 1NF, 2NF and 3NF.
-3. What is ACID?
-4. What is a transaction?
-5. What is an index?
-6. Why can an index slow down writes?
-7. What is a deadlock in database transactions?
-8. What is the difference between clustered/non-clustered indexing conceptually?
-9. What is a foreign key?
-10. Explain different types of joins.
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="12-sql"></a>
-# 12. SQL
-
-SQL should be treated as a **coding skill**, not only theory.
+**SQL is now a top-tier preparation area.** Treat it like coding.
 
 ## Must know
 
@@ -686,12 +558,14 @@ JOIN
 LEFT JOIN
 INNER JOIN
 SUBQUERY
-AGGREGATE FUNCTIONS
-CTE concept
+CTE
+AGGREGATES
 WINDOW FUNCTIONS
 ```
 
-Know conceptually:
+## Window functions
+
+Understand:
 
 ```text
 ROW_NUMBER()
@@ -699,27 +573,27 @@ RANK()
 DENSE_RANK()
 ```
 
-## Core practice set
+Know what `PARTITION BY` does and when a window function is preferable to a grouped query.
+
+## Practice set
 
 1. Second highest salary
 2. Nth highest salary
-3. Employees earning more than their managers
-4. Department with highest average salary
-5. Duplicate rows
-6. Customers with no orders
-7. Top 3 salaries in each department
-8. Count employees per department
-9. Join + filter
-10. Join + aggregation
-11. Employees earning above department average
-12. Multiple-table JOIN + GROUP BY + HAVING
+3. Top 3 salaries in each department
+4. Employees earning more than their managers
+5. Employees above department average
+6. Duplicate rows
+7. Customers with no orders
+8. Department with highest average salary
+9. JOIN + filter
+10. JOIN + GROUP BY + HAVING
+11. CTE-based query
+12. Window-function ranking query
 
 ## SQL explanation checklist
 
-For every query, know:
-
 ```text
-What tables are involved?
+Which tables?
 ↓
 How are they joined?
 ↓
@@ -727,289 +601,265 @@ Which rows are filtered?
 ↓
 How are rows grouped?
 ↓
-Where is HAVING needed?
+Do I need HAVING?
 ↓
-Would a subquery / CTE / window function simplify it?
+Would a subquery / CTE / window function be clearer?
 ```
+
+## Interview standard
+
+You should be able to write a query on a whiteboard/editor **without depending on memorized templates**.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="13-operating-systems"></a>
-# 13. Operating Systems
+<a id="12-dbms"></a>
+# 12. Layer 2 — DBMS
 
-## Processes and threads
+Focus on the parts that naturally connect to backend engineering.
 
-Know:
+## Fundamentals
 
-- Process
-- Thread
-- Process vs thread
-- Context switching
-- Why threads can be cheaper than processes
+- Database vs DBMS
+- Relational model
+- Tables and relationships
+- Constraints
+- Primary / candidate / foreign / composite keys
 
-## CPU scheduling
-
-Know conceptually:
-
-- FCFS
-- SJF
-- Priority Scheduling
-- Round Robin
-
-## Synchronization
+## Normalization
 
 Know:
 
-- Race condition
-- Critical section
-- Mutex
-- Semaphore
+- 1NF
+- 2NF
+- 3NF
+- Redundancy
+- When denormalization can make sense
 
-Be able to explain:
+## Transactions
+
+Know:
+
+- Transaction
+- ACID
+- Atomicity
+- Consistency
+- Isolation
+- Durability
+- Serializability concept
+
+## Isolation problems
+
+Understand:
+
+- Dirty read
+- Non-repeatable read
+- Phantom read
+
+## Indexing — very high priority
+
+Know:
+
+- What an index is
+- Why it can speed reads
+- Why it consumes storage
+- Why writes can become slower
+- B-tree / B+ tree concept
+- Why indexing every column is a bad idea
+- How selectivity affects usefulness
+- Why the query planner matters conceptually
+
+## Query optimization
+
+Be ready to discuss:
 
 ```text
-Why can two threads corrupt shared data?
-How does a mutex help?
-How is a semaphore different?
+Full table scan
+vs
+Index-assisted access
+
+Too many rows
+vs
+Early filtering
+
+SELECT *
+vs
+Required columns
+
+Poor join strategy
+vs
+Better join conditions / indexes
 ```
 
-## Deadlocks
+## Database scaling
 
-Know the four necessary conditions:
+Know the concepts:
 
-1. Mutual exclusion
-2. Hold and wait
-3. No preemption
-4. Circular wait
+```text
+Vertical scaling
+Horizontal scaling
+Read replicas
+Partitioning / sharding concept
+Caching
+Connection pooling
+```
 
-Also know:
+Do not memorize implementation details you cannot defend.
 
-- Prevention
-- Avoidance
-- Detection
+### High-value questions
 
-## Memory
+1. Why does an index speed up reads?
+2. Why can an index slow writes?
+3. When should you not create an index?
+4. How would you optimize a slow query?
+5. What happens when the database becomes the bottleneck?
+6. Vertical vs horizontal scaling?
+7. What is a read replica?
+8. Why is connection pooling useful?
+9. What is a deadlock?
+10. Normalization vs denormalization?
 
-Know:
+[⬆️ Back to Table of Contents](#table-of-contents)
 
+---
+
+<a id="13-dsa-coding"></a>
+# 13. Layer 2 — DSA Coding
+
+The interview target is **pattern recognition + explanation**, not another full competitive-programming syllabus.
+
+## Tier A — Must be automatic
+
+- Hashing
+- Prefix Sum
+- Two Pointers
+- Sliding Window
+- Binary Search
 - Stack
-- Heap
-- Paging
-- Virtual memory
-- Page fault
-- Fragmentation
+- Monotonic Stack
+- Heap / Priority Queue
+- BFS / DFS
+- Grid DFS / BFS
 
-### OS questions
+## Tier B — Strong interview coverage
 
-1. Process vs thread?
-2. Why are threads cheaper?
-3. What is context switching?
-4. What is a race condition?
-5. Mutex vs semaphore?
-6. What is deadlock?
-7. What are the four conditions for deadlock?
-8. What is virtual memory?
-9. What is a page fault?
-10. Stack vs heap?
+- Linked List basics
+- Trees / BST
+- Greedy
+- 1D DP
+- Pick / Not Pick DP
+- 2D / Grid DP
+- State DP
+- Counting DP
+- Shortest path basics
 
-[⬆️ Back to Table of Contents](#table-of-contents)
+## Tier C — Know the idea, not endless practice
 
----
+- Topological Sort
+- DSU
+- Dijkstra
+- LIS / LCS
+- Tree DP
+- Interval / Partition DP
 
-<a id="14-computer-networks"></a>
-# 14. Computer Networks
+## Problem recognition
 
-## Core concepts
-
-Know:
-
-- OSI model
-- TCP/IP model
-- TCP vs UDP
-- HTTP vs HTTPS
-- DNS
-- IP address
-- MAC address
-- ARP concept
-- TCP three-way handshake
-- Connection termination
-- Cookies
-- Sessions
-- REST API
-- HTTP methods
-- HTTP status codes
-
-## The most important flow
-
-Be able to explain:
-
-> **What happens when you type a URL in the browser?**
-
-Use this structure:
-
-```text
-URL
-↓
-DNS resolution
-↓
-Network connection
-↓
-TCP connection
-↓
-TLS handshake if HTTPS
-↓
-HTTP request
-↓
-Server processing
-↓
-HTTP response
-↓
-Browser processing / rendering
-```
-
-You should be able to explain each major step at a basic interview level.
-
-### CN questions
-
-1. TCP vs UDP?
-2. What is DNS?
-3. Explain the TCP three-way handshake.
-4. HTTP vs HTTPS?
-5. What are HTTP methods?
-6. What are common HTTP status codes?
-7. Cookies vs sessions?
-8. What is REST?
-9. What is an IP address?
-10. What happens when you type a URL in a browser?
+| Signal | First pattern |
+|---|---|
+| Frequency / fast lookup | Hashing |
+| Subarray / range sum | Prefix Sum |
+| Sorted pair relationship | Two Pointers |
+| Contiguous range + condition | Sliding Window |
+| Sorted search space | Binary Search |
+| Next greater / smaller | Monotonic Stack |
+| Repeated min/max / Top K | Heap |
+| Equal-cost shortest path | BFS |
+| Weighted non-negative path | Dijkstra |
+| Connected region | DFS / BFS / DSU |
+| Choose / skip | DP |
+| Count ways | Counting DP |
+| State changes | State DP |
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="15-project-deep-dive"></a>
-# 15. Project Deep Dive
+<a id="14-dsa-follow-up-skills"></a>
+# 14. DSA Follow-Up Skills
 
-For SP interviews, your projects must be defensible technically.
+Do not only practice solving.
 
-Choose your **two strongest projects** and prepare them deeply.
-
-For each project, be able to explain:
-
-## 1. Problem
+For every problem, be able to answer:
 
 ```text
-What problem does it solve?
-Who has the problem?
-Why is the problem worth solving?
+Why this pattern?
+Why this data structure?
+Why is this correct?
+What is the time complexity?
+What is the space complexity?
+What edge cases matter?
+Can it be optimized?
 ```
 
-## 2. Your exact contribution
+### For DP
 
-Be precise about:
-
-- What you personally implemented
-- Which modules you owned
-- What decisions you made
-- What you did not implement
-
-Never claim a component you cannot explain internally.
-
-## 3. Architecture
-
-Explain the request / data flow:
+Always derive:
 
 ```text
-Client
+State
 ↓
-Frontend
+Choices / transition
 ↓
-API
+Base case
 ↓
-Business Logic
+Memoization
 ↓
-Database
+Tabulation
+↓
+Space optimization if useful
 ```
 
-Adapt the diagram to the actual project.
+### Important lesson from Round 2
 
-## 4. Technology choice
+Your Round 2 experience showed why **state derivation matters more than memorizing movement patterns**.
 
-For every major technology:
+For a grid/state problem, think:
 
 ```text
-Why this technology?
-Why not an alternative?
-What trade-off did you accept?
+What does dp[r][c] mean?
+↓
+From this state, where can I go?
+↓
+What value determines the next state?
+↓
+What is the best answer for this state?
 ```
 
-## 5. Database
+Do not assume every grid DP moves only right/down.
 
-Know:
-
-- Tables
-- Relationships
-- Keys
-- Important indexes
-- Important queries
-- Transactions where relevant
-
-## 6. Backend
-
-Know:
-
-- API routing
-- Request validation
-- Authentication
-- Authorization
-- Middleware
-- Business logic
-- Database interaction
-- Error handling
-- Concurrency basics
-
-## 7. Debugging
-
-Prepare at least one real debugging story:
+### Coding interview sequence
 
 ```text
-Bug
-↓
-How you reproduced it
-↓
-How you investigated it
-↓
-Root cause
-↓
-Fix
-↓
-How you verified the fix
+Restate
+→ constraints
+→ brute force
+→ bottleneck
+→ optimized idea
+→ code
+→ dry run
+→ complexity
+→ edge cases
 ```
-
-## 8. Production questions
-
-Prepare answers for:
-
-1. How would you handle 10x traffic?
-2. Where would caching help?
-3. What if the database becomes slow?
-4. What if one component fails?
-5. How do you secure the API?
-6. How would you monitor the application?
-7. How would you test it?
-8. How would you deploy it?
-9. What is the biggest weakness of the current architecture?
-10. What would you redesign?
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="16-backend-and-software-engineering"></a>
-# 16. Backend and Software Engineering
+<a id="15-backend--apis"></a>
+# 15. Layer 3 — Backend + APIs
 
-For an SP-oriented interview, understand the fundamentals behind a backend application.
+This layer converts project knowledge into SP-level engineering reasoning.
 
 ## API fundamentals
 
@@ -1025,70 +875,167 @@ Know:
 - Authorization
 - Statelessness
 
-## Database interaction
+## Backend flow
 
-Know conceptually:
+Be able to explain:
 
-- Connection management
-- Connection pooling
-- Transactions
-- Indexing
-- Query performance
+```text
+Request
+↓
+Routing
+↓
+Validation
+↓
+Authentication / authorization
+↓
+Business logic
+↓
+Database interaction
+↓
+Response
+```
 
-## Reliability
+## Scaling an API
 
-Understand:
+Think in layers:
 
-- Logging
-- Monitoring
-- Error handling
-- Retries concept
-- Background jobs
-- Rate limiting
+```text
+Measure bottleneck
+↓
+Optimize application code
+↓
+Database indexes / query optimization
+↓
+Caching where appropriate
+↓
+Connection pooling
+↓
+Horizontal application scaling
+↓
+Load balancing
+↓
+Background jobs / queues when appropriate
+```
 
-## Security basics
-
-Know why applications need protection against:
-
-- Broken authentication / authorization
-- Injection attacks
-- Invalid input
-- Exposed secrets
-- Insecure endpoints
-
-Be able to explain security decisions made in your own project rather than memorizing a generic checklist.
+Never answer “scale it” with only “add more servers.” Explain the bottleneck first.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="17-basic-system-design"></a>
-# 17. Basic System Design
+<a id="16-database-optimization--scaling"></a>
+# 16. Database Optimization + Scaling
 
-Do not try to become a system-design specialist solely for the interview. The target is **engineering reasoning**.
+Use this interview framework when asked:
 
-Know these concepts:
+> “The database is slow. What will you do?”
 
-- Monolith vs microservices
-- REST API
-- Stateless backend
-- Authentication
-- Authorization
-- Caching
-- Database indexing
-- Connection pooling
-- Load balancing
-- Horizontal scaling
-- Vertical scaling
-- Background jobs
-- Message queues concept
+```text
+1. Identify the slow query / workload
+2. Inspect execution behavior conceptually
+3. Check filtering and joins
+4. Check useful indexes
+5. Reduce unnecessary data transfer
+6. Consider caching
+7. Consider connection pooling
+8. Measure again
+9. Only then discuss larger-scale architecture
+```
+
+For a database under high traffic, discuss:
+
+```text
+Read-heavy workload
+→ read replicas / caching
+
+Large dataset
+→ partitioning / sharding concept
+
+Too many connections
+→ connection pooling
+
+Repeated expensive reads
+→ caching
+
+Write-heavy contention
+→ workload / schema / transaction analysis
+```
+
+The important interview skill is **diagnosis before solution**.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="17-api-security--reliability"></a>
+# 17. API Security + Reliability
+
+Prepare the basic security model.
+
+## Authentication
+
+```text
+Who are you?
+```
+
+## Authorization
+
+```text
+What are you allowed to do?
+```
+
+## Input security
+
+Understand:
+
+- Validation
+- Injection prevention
+- Safe handling of user input
+- Output encoding concept where relevant
+
+## Secrets
+
+Know why:
+
+- Passwords / API keys / tokens should not be hard-coded
+- Secrets should be stored securely
+
+## Reliability
+
+Know conceptually:
+
 - Logging
 - Monitoring
+- Retries
+- Timeouts
 - Rate limiting
-- API validation
-- Error handling
+- Background jobs
+- Graceful error handling
 
-## Use this reasoning sequence
+## High-value questions
+
+1. How would you secure an API?
+2. Authentication vs authorization?
+3. What is rate limiting?
+4. Why are timeouts necessary?
+5. When are retries dangerous?
+6. How would you handle an API that becomes unavailable?
+7. How would you protect against SQL injection?
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="18-basic-system-design"></a>
+# 18. Layer 3 — Basic System Design
+
+The target is not advanced system-design theory.
+
+The target is to answer:
+
+> **How would you design and improve a practical backend system?**
+
+Use:
 
 ```text
 Requirements
@@ -1101,9 +1048,9 @@ Main components
 ↓
 Request flow
 ↓
-Bottlenecks
+Bottleneck
 ↓
-Caching / indexing / queues where useful
+Optimization
 ↓
 Failure handling
 ↓
@@ -1112,228 +1059,423 @@ Security
 Scaling
 ```
 
-### Common questions
+Know:
 
-- How would you scale your project?
-- What happens when traffic increases 10x?
-- Where would you add caching?
-- What happens if the database becomes the bottleneck?
-- How would you handle a failing service?
-- How would you rate-limit an API?
-- Why might a queue be useful?
-- When would you choose a monolith?
-- When would you consider splitting services?
+- Monolith vs microservices
+- Stateless services
+- Load balancing
+- Caching
+- Database indexing
+- Read replicas
+- Connection pooling
+- Background jobs
+- Message queues concept
+- Rate limiting
+- Logging / monitoring
+- Horizontal vs vertical scaling
+
+### Common design prompts
+
+- Scale one of your projects to 10x traffic.
+- Design a simple scoring API.
+- Design a URL-shortening backend at a basic level.
+- Handle a traffic spike.
+- Design an API that should remain available when one component fails.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="18-resume-defense"></a>
-# 18. Resume Defense
+<a id="19-operating-systems"></a>
+# 19. Layer 4 — Operating Systems
 
-Everything written on the resume is potentially an interview question.
+Prepare the **high-yield interview layer**, not the entire textbook.
 
-For every skill, project, internship, certification, achievement, or technology, be ready for:
+## Must know
+
+### Process / thread
+
+- Process
+- Thread
+- Process vs thread
+- Context switching
+
+### Synchronization
+
+- Race condition
+- Critical section
+- Mutex
+- Semaphore
+
+### Deadlock
+
+Know the four conditions:
+
+1. Mutual exclusion
+2. Hold and wait
+3. No preemption
+4. Circular wait
+
+Also know prevention / avoidance / detection conceptually.
+
+### Memory
+
+- Stack vs heap
+- Virtual memory
+- Paging
+- Page fault
+- Fragmentation concept
+
+### High-value questions
+
+1. Process vs thread?
+2. Why can threads be cheaper?
+3. What is context switching?
+4. What is a race condition?
+5. Mutex vs semaphore?
+6. What is deadlock?
+7. Four necessary deadlock conditions?
+8. What is virtual memory?
+9. What is a page fault?
+10. Stack vs heap?
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="20-computer-networks"></a>
+# 20. Layer 4 — Computer Networks
+
+Prepare the concepts that connect directly to web/backend development.
+
+## Must know
+
+- OSI model
+- TCP/IP model
+- TCP vs UDP
+- HTTP vs HTTPS
+- DNS
+- IP address
+- MAC address concept
+- TCP three-way handshake
+- HTTP methods
+- HTTP status codes
+- Cookies / sessions
+- REST
+
+## Most important flow
+
+Be able to explain:
 
 ```text
-What is it?
+URL
 ↓
-Where did you use it?
+DNS resolution
 ↓
-Why did you use it?
+Network connection
 ↓
-What did you implement?
+TCP connection
 ↓
-What problem did it solve?
+TLS handshake for HTTPS
 ↓
-What limitation did you face?
+HTTP request
+↓
+Server processing
+↓
+HTTP response
+↓
+Browser rendering / client processing
 ```
 
-Do not list technologies you cannot explain at an interview level.
+### High-value questions
 
-### Project / internship questions
-
-Prepare:
-
-- What exactly did you do?
-- What was your role?
-- What was the hardest problem?
-- What did you learn?
-- What would you improve?
-- How did you work with others?
-- How did you debug problems?
-- What result did your work produce?
+1. TCP vs UDP?
+2. What is DNS?
+3. Explain the TCP three-way handshake.
+4. HTTP vs HTTPS?
+5. What are HTTP methods?
+6. Common HTTP status codes?
+7. Cookies vs sessions?
+8. What is REST?
+9. What happens when you type a URL?
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="19-self-introduction"></a>
-# 19. Self Introduction
+<a id="21-project-technical-drill"></a>
+# 21. Layer 5 — Project Technical Drill
 
-Prepare a **60–90 second** introduction.
+For each of your two primary projects, do this drill **out loud**.
 
-Structure:
+### Round 1 — 60 seconds
+
+Explain the project to a non-expert.
+
+### Round 2 — 3 minutes
+
+Explain the architecture and request flow.
+
+### Round 3 — 5 minutes
+
+Defend technology choices.
+
+### Round 4 — 5 minutes
+
+Explain one difficult implementation problem.
+
+### Round 5 — 5 minutes
+
+Answer:
 
 ```text
-Name / current background
-↓
-Core technical strengths
-↓
-Strong project / experience
-↓
-What kind of software work interests you
-↓
-Why you are interested in this opportunity
+What if traffic becomes 10x?
+What if DB becomes slow?
+What if API fails?
+How do you secure it?
+How do you test it?
+What would you redesign?
 ```
 
-Do not turn the introduction into a chronological biography.
+### Project ownership rule
 
-The objective is to give the interviewer useful technical hooks for the rest of the interview.
+The safest project answer is always based on what **you actually implemented**.
+
+Never bluff an internal detail.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="20-hr-and-behavioral-questions"></a>
-# 20. HR and Behavioral Questions
+<a id="22-sql-drill"></a>
+# 22. Layer 5 — SQL Drill
 
-Prepare concise, genuine answers for:
+Do one timed SQL sitting.
 
-1. Tell me about yourself.
-2. Why Infosys?
-3. Why Specialist Programmer?
-4. Why software engineering?
-5. What are your career goals?
-6. What are your strengths?
-7. What is your weakness?
-8. Tell me about a failure.
-9. Tell me about a difficult technical problem you solved.
-10. Tell me about a team conflict.
-11. Tell me about a time you showed leadership.
-12. How do you handle deadline pressure?
-13. Why should we hire you?
-14. Are you comfortable learning a new technology?
-15. Where do you see yourself in the next few years?
-
-For experience-based answers, use:
+### Set
 
 ```text
-Situation
-→ Task
-→ Action
-→ Result
-→ Learning
+2 JOIN queries
+2 GROUP BY / HAVING queries
+2 subquery / CTE queries
+2 window-function queries
+2 mixed queries
 ```
 
-Keep the answer truthful and based on your actual experience.
+### Target
+
+```text
+Read schema
+↓
+Understand relationships
+↓
+Build query
+↓
+Run mentally
+↓
+Check edge cases
+↓
+Explain why it works
+```
+
+After every query ask:
+
+> Could I solve this with another valid SQL approach, and why would I choose one over the other?
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="21-technical-mock-interview"></a>
-# 21. Technical Mock Interview
+<a id="23-dsa-drill"></a>
+# 23. Layer 5 — DSA Drill
 
-Before the actual interview, run at least one complete mock.
+The interview drill is deliberately smaller than the Round 2 preparation.
 
-## Round A — Coding
+Do:
 
-Take 1–2 unfamiliar Medium-level DSA problems.
+```text
+1 Easy
++
+2 Medium
+```
+
+Across different patterns.
+
+At least one should be a problem you have **not memorized**.
 
 For each:
 
 ```text
-Understand
+Explain pattern
 → derive
-→ explain
 → code
 → dry run
 → complexity
 ```
 
-## Round B — SQL
-
-Solve approximately five queries in one sitting.
-
-Include:
-
-- JOIN
-- GROUP BY
-- HAVING
-- Subquery / CTE
-- Window function
-
-## Round C — Core CS
-
-Answer without notes:
-
-- 5 OOP questions
-- 5 DBMS questions
-- 5 OS questions
-- 5 CN questions
-
-## Round D — Project
-
-Pick one project and defend it for 15–20 minutes.
-
-Expect repeated:
+### Preferred pattern spread
 
 ```text
-Why?
-Why this?
-What happens internally?
-What if it fails?
-How would you scale it?
-How did you test it?
+1 array / hashing / sliding-window style
+1 binary search / stack / heap style
+1 tree / graph / DP style
 ```
 
-## Round E — Behavioral
-
-Practice:
-
-- Self introduction
-- Why Infosys?
-- Why SP?
-- Strength / weakness
-- Failure
-- Team conflict
-- Leadership
-- Career goals
+The goal is to demonstrate adaptability, not volume.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="22-final-revision-checklist"></a>
-# 22. Final Revision Checklist
+<a id="24-core-cs-rapid-revision"></a>
+# 24. Core CS Rapid Revision
+
+Use this order:
+
+```text
+OOP
+↓
+DBMS
+↓
+SQL
+↓
+OS
+↓
+CN
+```
+
+For each subject, prepare:
+
+```text
+10 high-value questions
++
+5 comparison questions
++
+2 practical examples
+```
+
+Do not spend final-day time on obscure theory.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="25-technical-mock-interview"></a>
+# 25. Technical Mock Interview
+
+Run one full mock before the real interview.
+
+## Part A — Introduction
+
+2 minutes.
+
+## Part B — Project
+
+15 minutes.
+
+Expect:
+
+```text
+Why?
+Why this technology?
+How does it work?
+What did you implement?
+What failed?
+How did you debug it?
+How would you scale it?
+```
+
+## Part C — SQL / DBMS
+
+15 minutes.
+
+Include:
+
+- JOIN
+- GROUP BY / HAVING
+- Window function
+- Indexing
+- Query optimization
+- Scaling
+
+## Part D — DSA
+
+1 Easy/Medium coding problem.
+
+Explain before coding.
+
+## Part E — Core CS
+
+Rapid questions from:
+
+```text
+OOP
+OS
+CN
+DBMS
+```
+
+## Part F — HR
+
+Why Infosys?
+Why SP?
+Strength / weakness?
+Failure?
+Career goal?
+
+### Mock scoring
+
+Score each from 1–5:
+
+```text
+Technical correctness
+Explanation clarity
+Coding ability
+Project ownership
+Engineering reasoning
+Confidence / composure
+```
+
+Any score below 4 becomes the next revision target.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="26-final-24-hour-checklist"></a>
+# 26. Final 24-Hour Checklist
+
+## Projects
+
+- [ ] Two projects fully explainable
+- [ ] Architecture memorized conceptually
+- [ ] Request/data flow clear
+- [ ] Every major technology choice defensible
+- [ ] One debugging story ready
+- [ ] Scaling answer ready
+- [ ] Security answer ready
+
+## SQL / DBMS
+
+- [ ] Joins
+- [ ] GROUP BY / HAVING
+- [ ] Subquery / CTE
+- [ ] Window functions
+- [ ] Indexing
+- [ ] Query optimization
+- [ ] ACID
+- [ ] Isolation problems
+- [ ] Database scaling
 
 ## DSA
 
-- [ ] Arrays / Strings
-- [ ] Hashing
-- [ ] Prefix Sum
-- [ ] Two Pointers
-- [ ] Sliding Window
-- [ ] Binary Search
-- [ ] Stack
-- [ ] Monotonic Stack
+- [ ] Explain a solution before coding
+- [ ] Hashing / prefix sum
+- [ ] Binary search
+- [ ] Stack / monotonic stack
 - [ ] Heap
-- [ ] Greedy
-- [ ] Linked List basics
-- [ ] Trees / BST
-- [ ] Graph DFS / BFS
-- [ ] Topological Sort
-- [ ] DSU
-- [ ] Dijkstra basics
-- [ ] 1D DP
-- [ ] 2D / Grid DP
-- [ ] Pick / Not Pick
-- [ ] State DP
-- [ ] Counting DP
-- [ ] LIS / LCS
-- [ ] Tree DP
-- [ ] Interval / Partition DP basics
+- [ ] BFS / DFS
+- [ ] DP state derivation
 
 ## OOP
 
@@ -1342,186 +1484,103 @@ Practice:
 - [ ] Interface / abstract class
 - [ ] Composition / inheritance
 - [ ] Dynamic dispatch
-- [ ] SOLID basics
 
-## DBMS + SQL
+## Backend / SP
 
-- [ ] Keys
-- [ ] Normalization
-- [ ] ACID
-- [ ] Isolation problems
-- [ ] Indexing
-- [ ] Joins
-- [ ] GROUP BY / HAVING
-- [ ] Subqueries
-- [ ] CTE concept
-- [ ] Window functions
-- [ ] Second / Nth highest salary
-- [ ] Top K per group
+- [ ] REST
+- [ ] Authentication / authorization
+- [ ] API security
+- [ ] Rate limiting
+- [ ] Caching
+- [ ] Connection pooling
+- [ ] API scaling
+- [ ] Database scaling
 
-## OS
+## OS / CN
 
 - [ ] Process / thread
-- [ ] Context switching
-- [ ] Scheduling
 - [ ] Race condition
 - [ ] Mutex / semaphore
 - [ ] Deadlock
 - [ ] Virtual memory
-- [ ] Paging / page fault
-- [ ] Stack / heap
-
-## CN
-
-- [ ] OSI / TCP-IP
 - [ ] TCP / UDP
 - [ ] DNS
-- [ ] TCP handshake
-- [ ] HTTP / HTTPS
-- [ ] Methods / status codes
-- [ ] Cookies / sessions
-- [ ] REST
-- [ ] Browser URL flow
+- [ ] HTTPS
+- [ ] URL flow
 
-## SP Engineering
-
-- [ ] REST APIs
-- [ ] Authentication / authorization
-- [ ] Validation / error handling
-- [ ] Indexing / connection pooling
-- [ ] Caching
-- [ ] Load balancing
-- [ ] Scaling
-- [ ] Background jobs / queues
-- [ ] Logging / monitoring
-- [ ] Rate limiting
-- [ ] Basic security
-
-## Projects / Resume
-
-- [ ] Two strongest projects deeply prepared
-- [ ] Exact contribution known
-- [ ] Architecture explained
-- [ ] Database explained
-- [ ] API flow explained
-- [ ] Technology choices justified
-- [ ] One real debugging story
-- [ ] Testing explained
-- [ ] Deployment explained
-- [ ] 10x scaling question prepared
-- [ ] Weakness / redesign prepared
-- [ ] Every resume skill defensible
-
-## Behavioral
+## HR
 
 - [ ] 60–90 second introduction
 - [ ] Why Infosys?
 - [ ] Why SP?
-- [ ] Career goals
 - [ ] Strength
 - [ ] Weakness
 - [ ] Failure
-- [ ] Team conflict
-- [ ] Leadership
-- [ ] Deadline pressure
+- [ ] Teamwork
+- [ ] Career goals
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="23-final-interview-mental-model"></a>
-# 23. Final Interview Mental Model
+<a id="27-final-interview-mental-model"></a>
+# 27. Final Interview Mental Model
 
-Do not try to sound like you memorized an interview guide.
+Do not try to sound like you memorized a guide.
 
-The target is:
+The interviewer should see:
+
+```text
+Knowledge
++
+Reasoning
++
+Ownership
++
+Adaptability
++
+Communication
+```
+
+### For technical theory
+
+```text
+Define
+→ explain
+→ example
+→ trade-off
+```
+
+### For coding
 
 ```text
 Understand
-↓
-Explain clearly
-↓
-Reason about trade-offs
-↓
-Implement when asked
-↓
-Defend your decisions
+→ derive
+→ explain
+→ code
+→ test
+→ analyze
 ```
 
-For coding:
+### For projects
 
 ```text
 Problem
-↓
-Constraints
-↓
-Brute force
-↓
-Bottleneck
-↓
-Pattern
-↓
-State / data structure
-↓
-Transition
-↓
-Complexity
-↓
-Code
-↓
-Test
+→ architecture
+→ your work
+→ why
+→ trade-off
+→ debugging
+→ security
+→ scaling
 ```
 
-For core CS:
+### The final target
 
-```text
-Definition
-↓
-Purpose
-↓
-Example
-↓
-Trade-off
-```
+> **Be strong enough in the highest-probability areas that an interviewer can keep going deeper without finding a weak foundation.**
 
-For projects:
+And remember the most important project rule:
 
-```text
-Problem
-↓
-Architecture
-↓
-Your contribution
-↓
-Technology choices
-↓
-Implementation details
-↓
-Failure / debugging
-↓
-Performance
-↓
-Security
-↓
-Scaling
-↓
-Redesign
-```
-
-For behavioral questions:
-
-```text
-Situation
-↓
-Action
-↓
-Result
-↓
-Learning
-```
-
-The final goal is simple:
-
-> **Be able to explain what you know, code what you understand, and defend the engineering decisions you actually made.**
+> **Anything on your resume can become a follow-up question. Prepare what you actually built, not what you merely recognize.**
 
 [⬆️ Back to Table of Contents](#table-of-contents)
