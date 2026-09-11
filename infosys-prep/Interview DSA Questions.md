@@ -1,35 +1,29 @@
 # Infosys DSE / SP L1-L2 — Interview DSA Question Bank
 
-> **Purpose:** Personal interview-focused DSA preparation after the Infosys Round 2 coding assessment. This file is deliberately separate from the Round 2 roadmap: it converts the patterns already learned into interview-style questions, adds targeted follow-ups based on the candidate's actual solved assessment problems, and extends preparation from DSE → SP L1 → SP L2.
+> **Purpose:** A priority-first, execution-focused DSA bank for the Infosys technical interview after Round 2. The goal is not to finish a huge LeetCode sheet. The goal is to be able to recognize one workable pattern quickly, solve one of two live coding questions under time pressure, and defend the solution with complexity, edge cases, and follow-ups.
 >
-> **Preparation philosophy:** Do not memorize question titles. For every problem, be able to derive **recognition → state/data structure → recurrence/transition → complexity → implementation → edge cases**.
+> **Core rule:** Prepare in this order: **personal Round-2 weaknesses → high-yield Easy/Medium patterns → SP L1 depth → SP L2 stretch**.
 
 ---
 
 ## Contents
 
 - [0. Personal Target](#dp-0)
-- [1. What Recent Interviews Suggest](#dp-1)
-- [2. The Interview Coding Ladder](#dp-2)
-- [3. Personal Assessment-Derived Questions](#dp-3)
-  - [3.1 Prefix / preprocessing question](#dp-31)
-  - [3.2 Modified House Robber / state-machine DP](#dp-32)
-  - [3.3 The grid DP question you missed in Round 2](#dp-33)
-- [4. Arrays + Hashing — Must Do](#dp-4)
-- [5. Two Pointers + Sliding Window](#dp-5)
-- [6. Stack + Monotonic Stack](#dp-6)
-- [7. Binary Search](#dp-7)
-- [8. Linked Lists](#dp-8)
-- [9. Trees / BST](#dp-9)
-- [10. Graphs](#dp-10)
-- [11. Greedy](#dp-11)
-- [12. Dynamic Programming — Highest Priority for You](#dp-12)
-- [13. Complexity Questions They Can Ask](#dp-13)
-- [14. "Did You Actually Solve It?" Follow-Ups](#dp-14)
-- [15. Interview Coding Problems — Master Checklist](#dp-15)
-- [16. Recommended Practice Method](#dp-16)
-- [17. Recent Public Interview Signals](#dp-17)
-- [18. Final Rule for Your Preparation](#dp-18)
+- [1. How to Use This File](#dp-1)
+- [2. Priority Pyramid](#dp-2)
+- [3. Live Coding Standard](#dp-3)
+- [4. Tier 0 — Personal Assessment-Derived Problems](#dp-4)
+- [5. Tier 1 — Must-Survive DSA](#dp-5)
+- [6. Tier 2 — SP L1 High-Yield](#dp-6)
+- [7. Tier 3 — SP L2 Stretch](#dp-7)
+- [8. Topic Playbooks](#dp-8)
+- [9. Complexity and Optimization Questions](#dp-9)
+- [10. Follow-Up Defense](#dp-10)
+- [11. Timed Practice Protocol](#dp-11)
+- [12. Mock Interview Protocol](#dp-12)
+- [13. Master Checklist](#dp-13)
+- [14. Recent Public Interview Signals](#dp-14)
+- [15. Final Rule](#dp-15)
 
 ---
 
@@ -42,232 +36,281 @@
 
 **Stretch target:** SP L2.
 
-The existing roadmap already emphasizes explaining DSA, not merely coding it: identify the problem, explain the bottleneck, derive the state or data structure, give complexity, code, dry-run, and discuss edge cases. The quick-revision material also uses the DP ladder **recursion → memoization → tabulation → space optimization**. Keep that exact thinking style in interviews.
+The interview is not only about coding. The broader preparation roadmap prioritizes **projects/resume defense, SQL/DBMS, DSA + explanation, and OOP**, followed by backend/API topics and core CS. This file is only the DSA execution layer.
+
+The expected interview skill is:
+
+```text
+recognition
+→ state / data structure
+→ transition / invariant
+→ complexity
+→ implementation
+→ dry run
+→ edge cases
+→ follow-up defense
+```
+
+For DP, preserve the existing ladder:
+
+```text
+recursion
+→ memoization
+→ tabulation
+→ space optimization
+```
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-1"></a>
-# 1. What Recent Interviews Suggest
+# 1. How to Use This File
 
-Recent 2026 public candidate reports show that Infosys DSE/SP interviews can include a live coding problem followed by DSA/fundamentals, SQL, projects, and resume-driven questions. Examples reported in August–September 2026 include:
+Do **not** solve problems in file order.
 
-- Reverse linked list, including iterative/recursive reasoning.
-- DFS vs BFS.
-- Array vs linked list and singly vs doubly linked list.
-- Two Sum / sorted Two Sum.
-- Partition DP.
-- A frequency-counting array problem.
-- Dijkstra / graph data-structure questions.
-- SQL queries such as department counts and second-highest salary.
-- Follow-up questions that probe whether the candidate actually understands the solution.
+Use the priority tiers below.
 
-These reports are anecdotal and vary by interviewer, so use them as **signals**, not guaranteed questions.
+For a problem to count as **mastered**, you should be able to:
 
-[↑ Back to Contents](#contents)
+1. Identify the likely pattern within a few minutes.
+2. Explain the brute force approach.
+3. Explain why the brute force is too slow.
+4. Derive the optimal state / invariant / data structure.
+5. Code the solution without copying.
+6. State time and space complexity.
+7. Dry-run at least one non-trivial example.
+8. Answer two follow-up questions.
+
+Do not memorize the title of the problem. Memorize the **signal that reveals the pattern**.
 
 ---
 
 <a id="dp-2"></a>
-# 2. The Interview Coding Ladder
+# 2. Priority Pyramid
 
-## DSE baseline
+## 🔴 P0 — Personal weakness / highest return
 
-You should be able to solve and explain:
+These should be practiced first because they are connected directly to your previous Round 2 experience:
 
-- Two Sum
-- Contains Duplicate
-- Valid Anagram
-- Maximum Subarray
-- Best Time to Buy and Sell Stock
-- Prefix Sum / Pivot Index
-- Binary Search
-- Merge Intervals
-- Valid Parentheses
-- Reverse Linked List
-- Linked List Cycle
-- Tree traversal
-- Maximum Depth of Binary Tree
-- Number of Islands
-- Climbing Stairs
-- House Robber
-- Unique Paths
-- Minimum Path Sum
+1. Prefix / equilibrium / preprocessing pattern.
+2. Modified House Robber / state-machine DP.
+3. Grid DP with arbitrary row-to-row transitions.
+4. 1D pick/not-pick DP.
+5. DP state derivation under time pressure.
 
-## SP L1 target
+## 🔴 P1 — Live-coding survival
+
+You should be able to solve most of these in **10–20 minutes**:
+
+- Arrays + hashing
+- Prefix sum
+- Two pointers
+- Sliding window
+- Stack / monotonic stack
+- Binary search
+- Linked lists
+- Basic trees
+- Basic BFS / DFS
+- Basic DP
+
+## 🟠 P2 — SP L1 depth
 
 Add:
 
 - Subarray Sum Equals K
 - 3Sum
-- Longest Consecutive Sequence
-- Search in Rotated Sorted Array
-- Next Greater Element
-- Daily Temperatures
-- Top K Frequent Elements
-- Kth Largest Element
-- Lowest Common Ancestor
-- Binary Tree Level Order Traversal
-- Validate BST
-- Number of Islands / grid DFS-BFS variants
+- Top K / Kth Largest
+- Rotated binary search
+- LCA / BST
 - Course Schedule / topological sort
-- Rotting Oranges / multi-source BFS
-- Unweighted shortest path
+- Multi-source BFS
 - Dijkstra basics
 - 0/1 Knapsack
-- Subset Sum / Equal Partition
+- Subset Sum / Partition
 - Target Sum
 - Coin Change
-- LIS
-- LCS
-- Edit Distance
-- State-based DP
-- Grid DP with non-standard transitions
+- LIS / LCS
+- State DP
 
-## SP L2 stretch
+## 🟡 P3 — SP L2 stretch
 
-Add:
+Only after P0–P2 are reliable:
 
-- Word Ladder / implicit-state BFS
-- DSU + Kruskal
-- More difficult tree path queries
-- Tree DP basics
+- Word Ladder
+- DSU / Kruskal
+- Tree DP
 - Binary Search on Answer
-- Advanced sliding-window problems
-- Monotonic-stack variations
-- Interval / Partition DP recognition
+- Advanced sliding window
+- Advanced monotonic stack
+- Partition / interval DP
 - Advanced state DP
-- Graph shortest path variations
-- Complexity-driven optimization from O(M^3) to O(M^2) / O(M log M) where appropriate
+- Graph shortest-path variations
+- Complexity-driven optimization
+
+### Important
+
+**Do not spend most of your preparation time on P3 while P0/P1 is weak.**
+
+The live interview reward comes from reliably solving one reasonable problem, not from knowing the largest possible DSA syllabus.
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-3"></a>
-# 3. Personal Assessment-Derived Questions
+# 3. Live Coding Standard
 
-These are **highest priority** because the interview can test whether you genuinely solved and understood the Round 2 problems.
+Recent public candidate reports show that Infosys DSE/SP interview coding formats vary by drive and panel. Reports include **two questions with one to solve**, with reported windows around **20, 30, or 45 minutes**. Treat these as anecdotal signals, not a guaranteed official rule.
 
-<a id="dp-31"></a>
-## 3.1 Prefix / preprocessing question
+### Your training rule
 
-You solved a story-heavy array problem whose core was left-sum preprocessing plus a running right-sum check.
+> **Assume the strict case: 2 questions, choose 1, 20 minutes.**
 
-### Interview question A
+Target performance:
 
-> Given an array, find all positions where a condition involving the sum on the left and the sum on the right is satisfied. Explain your O(n) solution.
+```text
+0–3 min    Understand + examples + constraints
+3–6 min    Brute force + bottleneck
+6–10 min   Pattern + optimal approach
+10–17 min  Implementation
+17–20 min  Dry run + edge cases
+```
 
-### Interview follow-ups
+If the panel gives more time, that is bonus time.
 
-1. Can you do it without storing a left-sum array?
-2. What invariant does `left_sum` maintain?
-3. Why is `right_sum = total - left_sum - current` correct?
-4. What changes if values can be negative?
-5. What if there are multiple queries over the same array?
-6. What if the condition is `left < right`, `left <= right`, or a difference threshold?
-7. Can the problem be solved with prefix sums in O(n) preprocessing and O(1) per query?
+### Survival threshold
 
-### Must know variants
+You do **not** need to solve every Hard problem.
+
+You need to make this automatic:
+
+```text
+Easy        → solve comfortably
+Medium      → solve in ~15–20 min
+Unfamiliar  → identify a valid direction and reason clearly
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="dp-4"></a>
+# 4. Tier 0 — Personal Assessment-Derived Problems
+
+These are **first priority** because the interviewer can probe whether you genuinely understand the problems you faced in Round 2.
+
+## 4.1 Prefix / preprocessing problem
+
+Core pattern:
+
+```text
+left_sum
+right_sum = total - left_sum - current
+```
+
+### Must solve / explain
 
 - Pivot Index
-- Equilibrium index
+- Equilibrium Index
+- Left/right sum conditions
 - Range-sum queries
 - Prefix sum + hashing
 - Prefix sum modulo state
-- Prefix/suffix product
-
-[↑ Back to Contents](#contents)
-
-<a id="dp-32"></a>
-## 3.2 Modified House Robber / state-machine DP
-
-You solved a House Robber-style problem with an additional adjacency-use condition by introducing an extra state and deriving the recurrence before moving to memoization and tabulation.
-
-### Interview question A
-
-> Explain your state definition and recurrence for the modified House Robber problem.
+- Prefix/suffix preprocessing
 
 ### Follow-ups
 
-1. Why was ordinary House Robber DP insufficient?
-2. What exactly does state `0` mean?
-3. What exactly does state `1` mean?
-4. Which transitions are legal from each state?
-5. Can the state be represented as a boolean?
-6. What is the base case for each state?
-7. What is the time and space complexity?
-8. Can the DP be reduced from O(n) space to O(1)?
-9. Can you draw the state-transition diagram?
-10. What happens if the extra condition can be used twice?
-11. What happens if the distance restriction becomes `k` instead of one adjacent pair?
-12. Can this be interpreted as a graph problem?
+- Can you do it without a left-sum array?
+- What invariant does `left_sum` maintain?
+- Why is the right-sum formula correct?
+- What changes with negative values?
+- What if there are many queries?
+- Can preprocessing make each query O(1)?
+
+---
+
+## 4.2 Modified House Robber / state-machine DP
+
+You previously worked through a House Robber-style recurrence with an extra state.
+
+### Must be able to explain
+
+```text
+state definition
+→ legal transitions
+→ base case
+→ recurrence
+→ memoization
+→ tabulation
+→ O(1) / reduced-space version
+```
 
 ### Required variants
 
-- House Robber I
-- House Robber II
-- Maximum sum subsequence with forbidden distances
-- Pick/not-pick with one special-use state
-- Pick/not-pick with `k` states
-- State DP with cooldown
-- State DP with transaction/usage limits
+1. House Robber I
+2. House Robber II
+3. Maximum sum subsequence with forbidden distances
+4. Pick / not-pick with one special-use state
+5. Pick / not-pick with `k` states
+6. DP with cooldown
+7. DP with limited usage / transactions
 
-[↑ Back to Contents](#contents)
+### Follow-ups
 
-<a id="dp-33"></a>
-## 3.3 The grid DP question you missed in Round 2
+- Why is ordinary House Robber insufficient?
+- What exactly does each state mean?
+- Which transitions are legal?
+- What are the base cases?
+- Can space be reduced to O(1)?
+- What happens if the distance restriction becomes `k`?
+- Can the state be viewed as a graph?
 
-This is a **must-fix weakness** because it was not solved under time pressure even though the recurrence becomes simple after recognizing the transition.
+---
 
-### Problem pattern
+## 4.3 Grid DP missed in Round 2
 
-For current cell `(r,c)`:
+Pattern:
 
 ```text
 forbidden = (c + grid[r][c]) % M
 ```
 
-The next row may use **any column except `forbidden`**. The path starts in any column of row 0 and ends in the last row. Minimize total cost.
+From `(r, c)`, the next row may use any column except the forbidden column.
 
-### Interview question A
-
-> Define the recursive state and derive the recurrence.
-
-Expected mental model:
+### Mental model
 
 ```text
 solve(r, c)
-= grid[r][c] + minimum solve(r+1, nc)
-  over every nc != forbidden
+= grid[r][c]
++ min(solve(r+1, nc)) for all nc != forbidden
 ```
 
-### Follow-ups
+### Required progression
 
-1. Why is this grid DP even though movement is not right/down?
-2. What are the possible next states?
-3. Why does `(r,c)` completely describe the subproblem?
-4. Write the recursion.
-5. Add memoization.
-6. Convert to tabulation.
-7. Space-optimize it.
-8. What is the naive complexity?
-9. Can you optimize the transition when only one next column is forbidden?
-10. What changes if two columns are forbidden?
-11. What changes if forbidden columns depend on another state?
-12. What if `grid[r][c]` can be negative?
-13. In languages where `%` can produce a negative remainder, how do you normalize it?
+1. Recursive state.
+2. Correct base case.
+3. Memoization.
+4. Tabulation.
+5. Space optimization.
+6. Complexity analysis.
+7. Transition optimization when only one next column is forbidden.
 
-### Important modulo detail
+### Required grid set
 
-For arbitrary integer `x`, a portable normalization is conceptually:
+- Unique Paths
+- Minimum Path Sum
+- Grid with obstacles
+- Number of Islands
+- Grid DFS / BFS
+- Multi-source BFS
+- Grid shortest path
+- Arbitrary row-to-row transitions
+- State-based grid DP
 
-```text
-((x % M) + M) % M
-```
+### Modulo note
 
-In Python, `% M` already produces a non-negative remainder for positive `M`, so:
+For Python with positive `M`:
 
 ```python
 forbidden = (c + grid[r][c]) % M
@@ -275,136 +318,129 @@ forbidden = (c + grid[r][c]) % M
 
 is sufficient.
 
-### Required grid set
-
-- Unique Paths
-- Minimum Path Sum
-- Number of Islands
-- Grid DFS/BFS
-- Multi-source BFS
-- Grid shortest path
-- Grid DP with obstacles
-- Grid DP with arbitrary row-to-row transitions
-- State-based grid DP
-
-[↑ Back to Contents](#contents)
-
----
-
-<a id="dp-4"></a>
-# 4. Arrays + Hashing — Must Do
-
-| Priority | Problem | What interviewer may test |
-|---|---|---|
-| 🔴 | Two Sum | complement lookup |
-| 🔴 | Contains Duplicate | set vs sorting |
-| 🔴 | Valid Anagram | frequency state |
-| 🔴 | Maximum Subarray | Kadane reasoning |
-| 🔴 | Best Time to Buy/Sell Stock | running minimum/state |
-| 🔴 | Pivot Index | prefix + total |
-| 🔴 | Subarray Sum Equals K | prefix + hash frequency |
-| 🟠 | Longest Consecutive Sequence | set + sequence starts |
-| 🟠 | 3Sum | sorting + two pointers |
-| 🟠 | Product of Array Except Self | prefix/suffix |
-| 🟠 | Merge Intervals | sorting + invariant |
-| 🟠 | Majority Element | counting / Boyer-Moore |
-
-### Interview drills
-
-For every one, answer:
-
-> Why does the naive solution become too slow?
-
-> What information are you storing to avoid repeated work?
-
-> Can you reduce space?
-
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-5"></a>
-# 5. Two Pointers + Sliding Window
+# 5. Tier 1 — Must-Survive DSA
 
-## Must solve
+## 5.1 Arrays + Hashing
 
-1. Two Sum II — Sorted Array
-2. 3Sum
-3. Remove Duplicates from Sorted Array
-4. Move Zeroes
-5. Container With Most Water
-6. Valid Palindrome
-7. Longest Substring Without Repeating Characters
-8. Minimum Size Subarray Sum
-9. Longest Repeating Character Replacement
-10. Permutation in String
+### 🔴 Master first
 
-## Interview follow-ups
+1. Two Sum
+2. Contains Duplicate
+3. Valid Anagram
+4. Maximum Subarray
+5. Best Time to Buy and Sell Stock
+6. Pivot Index
+7. Product of Array Except Self
+8. Majority Element
 
-- Why can the pointer move safely?
-- What invariant does the window maintain?
-- Why does sliding window fail with arbitrary negative numbers in some sum problems?
-- When should prefix sum + hashing replace sliding window?
-- Can you solve it in O(1) extra space?
+### 🟠 Then
 
-[↑ Back to Contents](#contents)
+9. Subarray Sum Equals K
+10. Longest Consecutive Sequence
+11. 3Sum
+12. Merge Intervals
+
+### Recognition signals
+
+```text
+frequency / membership     → hash map / set
+left/right totals          → prefix / suffix
+subarray + exact sum       → prefix sum + hash map
+contiguous range           → prefix / sliding window
+sorted structure           → two pointers / binary search
+```
 
 ---
 
-<a id="dp-6"></a>
-# 6. Stack + Monotonic Stack
+## 5.2 Two Pointers + Sliding Window
 
-## Must solve
+### 🔴 Master
+
+1. Two Sum II — Sorted Array
+2. Valid Palindrome
+3. Move Zeroes
+4. Remove Duplicates from Sorted Array
+5. Longest Substring Without Repeating Characters
+6. Minimum Size Subarray Sum
+
+### 🟠 Then
+
+7. Container With Most Water
+8. Longest Repeating Character Replacement
+9. Permutation in String
+10. 3Sum
+
+### Follow-ups
+
+- What invariant does the window maintain?
+- Why is it safe to move this pointer?
+- Why can sliding window fail with arbitrary negative values?
+- When should prefix sum + hashing be preferred?
+
+---
+
+## 5.3 Stack + Monotonic Stack
+
+### 🔴 Master
 
 1. Valid Parentheses
 2. Min Stack
-3. Evaluate Reverse Polish Notation
-4. Next Greater Element I
-5. Daily Temperatures
+3. Next Greater Element I
+4. Daily Temperatures
+
+### 🟠 Then
+
+5. Evaluate Reverse Polish Notation
 6. Next Greater Element II
-7. Largest Rectangle in Histogram
-8. Stock Span
+7. Stock Span
+8. Largest Rectangle in Histogram
 
-## Interview follow-ups
+### Recognition signal
 
-- Why is the stack monotonic?
-- Increasing vs decreasing stack?
-- What information is removed permanently?
-- Why is the total complexity O(n), even though there is a nested `while` loop?
+```text
+previous/next greater or smaller
+→ monotonic stack
+```
 
-[↑ Back to Contents](#contents)
+Be able to explain why the total complexity is O(n), even with an inner `while` loop.
 
 ---
 
-<a id="dp-7"></a>
-# 7. Binary Search
+## 5.4 Binary Search
 
-## Must solve
+### 🔴 Master
 
 1. Binary Search
-2. First and Last Position
-3. Search Insert Position
-4. Search in Rotated Sorted Array
-5. Find Minimum in Rotated Sorted Array
+2. Search Insert Position
+3. First and Last Position
+4. Find Minimum in Rotated Sorted Array
+5. Search in Rotated Sorted Array
+
+### 🟠 Then
+
 6. Koko Eating Bananas
 7. Capacity to Ship Packages Within D Days
-8. Aggressive Cows / maximum-minimum distance style problem
+8. Aggressive Cows / maximum-minimum distance
 
-## Interview follow-ups
+### Recognition signal
 
-- What is the search invariant?
-- Why `mid = left + (right-left)//2`?
-- When can binary search be applied to the answer instead of an array?
-- What property must the feasibility function have?
+```text
+monotonic / sorted / feasible-or-not
+→ binary search
+```
 
-[↑ Back to Contents](#contents)
+Know the search invariant and why the feasibility predicate is monotonic.
 
 ---
 
-<a id="dp-8"></a>
-# 8. Linked Lists
+## 5.5 Linked Lists
 
-## Must solve
+### 🔴 Master
 
 1. Reverse Linked List — iterative
 2. Reverse Linked List — recursive
@@ -412,422 +448,604 @@ For every one, answer:
 4. Linked List Cycle
 5. Merge Two Sorted Lists
 6. Remove Nth Node From End
+
+### 🟠 Then
+
 7. Intersection of Two Linked Lists
 8. Palindrome Linked List
-9. Reverse Nodes in K-Group — L2 stretch
 
-## Exact interview drills
+### Interview drill
 
 > Reverse a linked list in O(1) extra space.
 
-> Explain the pointer changes before writing code.
+Before coding, explain the role of:
 
-> Why do we need `prev`, `curr`, and `next`?
+```text
+prev
+curr
+next
+```
 
-> Can you write both iterative and recursive versions?
+Be ready for both iterative and recursive versions, plus cycle detection and cycle-entry reasoning.
 
-> Detect a cycle without modifying the list.
+---
 
-> Find the cycle entry point.
+## 5.6 Trees / BST
 
-Recent 2026 candidate reports explicitly mention reverse-linked-list coding in Infosys interviews, including iterative/recursive discussion.
+### 🔴 Master
+
+1. Preorder / Inorder / Postorder
+2. Maximum Depth
+3. Same Tree
+4. Level Order Traversal
+5. Lowest Common Ancestor
+6. Validate BST
+
+### 🟠 Then
+
+7. Path Sum
+8. Diameter of Binary Tree
+9. Kth Smallest in BST
+10. Balanced Binary Tree
+11. Right Side View
+
+### Recognition signals
+
+```text
+tree traversal          → DFS / BFS
+level / minimum edges   → BFS
+BST property            → ordered traversal / bounds
+path information        → recursive state
+```
+
+---
+
+## 5.7 Basic Graphs
+
+### 🔴 Master
+
+1. Number of Islands
+2. Flood Fill
+3. Rotten Oranges
+4. Shortest Path in Unweighted Graph
+5. Course Schedule
+
+### 🟠 Then
+
+6. Detect Cycle — Undirected
+7. Detect Cycle — Directed
+8. Number of Connected Components
+9. Course Schedule II
+
+### Recognition signals
+
+```text
+reachability       → DFS / BFS
+shortest unweighted → BFS
+multiple starts     → multi-source BFS
+prerequisites       → topological sort
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="dp-6"></a>
+# 6. Tier 2 — SP L1 High-Yield
+
+These are important after Tier 1 is reliable.
+
+## Arrays / hashing
+
+- Subarray Sum Equals K
+- Longest Consecutive Sequence
+- 3Sum
+- Top K Frequent Elements
+- Kth Largest Element
+- Longest Consecutive Sequence variants
+
+## Sliding window
+
+- Longest Repeating Character Replacement
+- Permutation in String
+- Minimum Window / frequency-window variants
+
+## Stack
+
+- Next Greater Element II
+- Largest Rectangle in Histogram
+- Stock Span variants
+
+## Binary search
+
+- Binary Search on Answer basics
+- Koko Eating Bananas
+- Capacity to Ship Packages Within D Days
+
+## Trees / BST
+
+- Lowest Common Ancestor
+- Validate BST
+- Kth Smallest in BST
+- Diameter
+- More path-state questions
+
+## Graphs
+
+- Multi-source BFS
+- Course Schedule
+- Course Schedule II
+- Dijkstra basics
+- Network Delay Time
+- Graph representation trade-offs
+
+## Dynamic Programming
+
+1. 0/1 Knapsack
+2. Subset Sum
+3. Equal Partition
+4. Target Sum
+5. Coin Change
+6. LIS
+7. LCS
+8. Edit Distance
+9. State-based DP
+10. Non-standard Grid DP
+
+### SP L1 DSA standard
+
+For each problem, answer:
+
+```text
+What is the state?
+What transitions are legal?
+Why is there no repeated work?
+Why is the complexity acceptable?
+Can the memory be reduced?
+```
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="dp-7"></a>
+# 7. Tier 3 — SP L2 Stretch
+
+Do these only after P0–P2 are dependable.
+
+1. Word Ladder / implicit-state BFS
+2. DSU + Kruskal
+3. More difficult tree path queries
+4. Tree DP basics
+5. Binary Search on Answer — harder variants
+6. Advanced sliding window
+7. Advanced monotonic stack
+8. Interval / Partition DP recognition
+9. Advanced state DP
+10. Graph shortest-path variations
+11. Complexity-driven optimization from O(M^3) to O(M^2) / O(M log M)
+
+### Stretch goal
+
+The objective is not memorization. It is to recognize when an apparently expensive transition can be reduced by storing the right aggregate/state.
+
+[↑ Back to Contents](#contents)
+
+---
+
+<a id="dp-8"></a>
+# 8. Topic Playbooks
+
+## Arrays / Hashing
+
+Ask:
+
+- Do I need membership?
+- Do I need frequency?
+- Do I need prefix/suffix information?
+- Is the array sorted?
+- Is the question about a contiguous subarray?
+
+## Two Pointers
+
+Ask:
+
+- Is the data sorted?
+- Can one pointer move safely based on comparison?
+- Is there a left/right boundary invariant?
+
+## Sliding Window
+
+Ask:
+
+- Is the answer about a contiguous range?
+- Can I maintain a validity condition while expanding/shrinking?
+- Does the presence of negative values break monotonicity?
+
+## Stack
+
+Ask:
+
+- Do I need previous/next greater/smaller?
+- Does a recently seen item remain unresolved until a future item appears?
+
+## Binary Search
+
+Ask:
+
+- Is the search space ordered?
+- Is there a monotonic yes/no feasibility function?
+
+## Linked List
+
+Ask:
+
+- Can two pointers solve it?
+- Is the problem about relative distance?
+- Can I reverse links in O(1) space?
+
+## Tree
+
+Ask:
+
+- DFS or BFS?
+- What must the recursive state return?
+- Does BST ordering give an extra property?
+
+## Graph
+
+Ask:
+
+- Reachability or shortest path?
+- Directed or undirected?
+- Weighted or unweighted?
+- One source or multiple sources?
+- Prerequisite ordering?
+
+## DP
+
+Ask in this exact order:
+
+```text
+What changes from one subproblem to another?
+→ define state
+→ base case
+→ legal choices
+→ recurrence
+→ repeated subproblems
+→ memoization
+→ tabulation
+→ space optimization
+```
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-9"></a>
-# 9. Trees / BST
+# 9. Complexity and Optimization Questions
 
-## Must solve
+For every interview problem, expect some version of:
 
-1. Maximum Depth
-2. Preorder / Inorder / Postorder
-3. Level Order Traversal
-4. Same Tree
-5. Symmetric Tree
-6. Path Sum
-7. Diameter of Binary Tree
-8. Lowest Common Ancestor
-9. Validate BST
-10. Kth Smallest in BST
-11. Balanced Binary Tree
-12. Binary Tree Right Side View
-13. Serialize / Deserialize — L2 stretch
+1. What is the brute-force complexity?
+2. Why is it too slow?
+3. What is the optimal complexity?
+4. Can you reduce auxiliary space?
+5. Why is the algorithm O(n) despite a nested loop?
+6. Can sorting help?
+7. Can hashing remove a nested loop?
+8. Can prefix/suffix preprocessing remove repeated work?
+9. Can a heap maintain the required best `k` elements?
+10. Can a monotonic structure avoid repeated comparisons?
+11. Can the DP transition be optimized?
+12. What happens when the input size grows by 10×?
 
-## Follow-ups
+### Complexity targets
 
-- DFS vs BFS?
-- Recursive vs iterative traversal?
-- Why is inorder traversal sorted for a BST?
-- How do you validate a BST correctly?
-- What is the complexity of LCA?
-- How would you process repeated path queries?
-- What information can be precomputed for many queries?
+Prefer these when justified:
+
+```text
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n²)
+```
+
+Be cautious about O(n³) unless constraints clearly permit it.
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-10"></a>
-# 10. Graphs
+# 10. Follow-Up Defense
 
-The existing quick revision covers graph representation, DFS, BFS, connected components, unweighted shortest path, grid BFS/DFS, multi-source BFS, topological sort, DSU, Kruskal/MST, with Dijkstra identified as the next topic. Bring Dijkstra into the interview set before the interview.
+After solving a problem, practice this exact sequence:
 
-## Must solve
+### 1. Explain
 
-1. Number of Islands
-2. Flood Fill
-3. Clone Graph
-4. Number of Connected Components
-5. Graph Valid Tree
-6. Rotten Oranges
-7. Shortest Path in Unweighted Graph
-8. Course Schedule
-9. Course Schedule II
-10. Word Ladder
-11. Detect Cycle in Directed Graph
-12. Detect Cycle in Undirected Graph
-13. Dijkstra
-14. Network Delay Time
-15. Redundant Connection — DSU
-16. Kruskal MST
+> Walk me through your solution.
 
-## Interview questions
+### 2. Why?
 
-- DFS vs BFS?
-- When is BFS guaranteed to give shortest path?
-- What is the difference between a graph and a tree?
-- Adjacency list vs adjacency matrix?
-- Why is Dijkstra not valid with negative edge weights?
-- Why do we use a min-heap in Dijkstra?
-- What is topological sort used for?
-- How does Kahn's algorithm detect a cycle?
-- Why does DSU work for dynamic connectivity?
-- What is path compression?
+> Why does this approach work?
+
+### 3. Complexity
+
+> What are the time and space complexities?
+
+### 4. Edge cases
+
+> What happens for empty input, one element, duplicates, negatives, or large values?
+
+### 5. Alternative
+
+> Can you solve it another way?
+
+### 6. Optimization
+
+> Can you reduce memory / improve runtime?
+
+### 7. Modification
+
+> What if the constraint changes?
+
+For your personal DP problems, also expect:
+
+- Why this state?
+- Why this recurrence?
+- Why is the base case correct?
+- Why is the transition complete?
+- Can you convert recursion to tabulation?
+- Can you space-optimize it?
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-11"></a>
-# 11. Greedy
+# 11. Timed Practice Protocol
 
-The existing Greedy quick revision emphasizes **greedy idea → why it works → recognition → algorithm → code**. Preserve that explanation order in the interview.
+## Daily pattern practice
 
-## Must solve
+For a new problem:
 
-1. Assign Cookies
-2. Jump Game
-3. Jump Game II
-4. Gas Station
-5. Non-overlapping Intervals
-6. Activity Selection
-7. Fractional Knapsack
-8. Minimum Number of Platforms
-9. Merge Intervals
-10. Partition Labels
+```text
+20 min maximum
+```
 
-## Follow-up question
+Do not look at the solution before the timer ends unless you have explicitly decided to abandon the attempt.
 
-> How do you prove that the locally best choice is safe?
+### Stuck protocol
 
-Never answer merely "because greedy works." State the invariant or exchange argument at an appropriate level.
+At approximately 7–8 minutes, ask:
+
+```text
+What is being recomputed?
+What information could I store?
+Is there a prefix/suffix idea?
+Is there ordering I can exploit?
+Can two pointers work?
+Can hashing help?
+Is this a state?
+Is this traversal?
+```
+
+At 15 minutes:
+
+- If coding is working → finish.
+- If the idea is correct but code is buggy → continue.
+- If there is still no viable approach → stop, study the solution, then immediately re-code from memory.
+
+### Reattempt rule
+
+A problem is not considered learned because you understood the editorial.
+
+You must re-solve it later **without looking**.
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-12"></a>
-# 12. Dynamic Programming — Highest Priority for You
+# 12. Mock Interview Protocol
 
-Your existing DP notes teach the mechanical pipeline:
-
-```text
-Problem
-→ Recognition
-→ State
-→ Recursion
-→ Memoization
-→ Tabulation
-→ Space optimization
-```
-
-That is exactly how you should train for interviews.
-
-## Tier DSE
-
-1. Fibonacci
-2. Climbing Stairs
-3. Frog Jump
-4. House Robber
-5. Unique Paths
-6. Minimum Path Sum
-7. 0/1 Knapsack
-8. Subset Sum
-9. Equal Partition
-10. Coin Change
-
-## Tier SP L1
-
-11. Target Sum
-12. LIS
-13. LCS
-14. Edit Distance
-15. Decode Ways
-16. Word Break
-17. Longest Palindromic Subsequence
-18. Grid DP with obstacles
-19. Grid DP with state
-20. Pick/not-pick with an extra condition
-21. DP with cooldown/state machine
-22. Counting DP over strings
-
-## Tier SP L2
-
-23. Matrix Chain / Partition DP recognition
-24. Burst Balloons
-25. Advanced state compression
-26. Tree DP
-27. Bitmask DP recognition
-28. Digit DP recognition
-
-### Your DP interview checklist
-
-For every DP problem, be able to answer:
+## Strict mock
 
 ```text
-What is the state?
-What does the state return?
-What are the choices?
-What are the transitions?
-What is the base case?
-Why is overlapping subproblem reuse valid?
-What is the complexity?
-Can space be optimized?
+2 unseen problems
+choose 1
+20 minutes
 ```
+
+## Standard mock
+
+```text
+2 unseen problems
+choose 1
+30 minutes
+```
+
+## Extended mock
+
+```text
+2 unseen problems
+choose 1
+40–45 minutes
++
+5–10 minutes interviewer follow-ups
+```
+
+### Mock scoring
+
+| Area | Score |
+|---|---:|
+| Correct pattern recognition | /5 |
+| Brute-force reasoning | /5 |
+| Optimal approach | /5 |
+| Correct implementation | /5 |
+| Complexity explanation | /5 |
+| Edge cases | /5 |
+| Communication | /5 |
+| Follow-up defense | /5 |
+
+### Pass target
+
+For a serious interview-ready mock:
+
+> **At least one problem completely solved + clean explanation + correct complexity + no dependency on hints.**
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-13"></a>
-# 13. Complexity Questions They Can Ask
+# 13. Master Checklist
 
-Be ready for direct questions:
+## P0 — Personal
 
-1. What is the complexity of binary search?
-2. Why is hash-map lookup considered O(1) average?
-3. Why is BFS O(V+E)?
-4. Why is DFS O(V+E)?
-5. Why is a heap operation O(log n)?
-6. Why is sorting usually O(n log n)?
-7. Why is the monotonic stack solution O(n)?
-8. Why does memoized recursion usually become O(number of states × transition cost)?
-9. When is O(n²) acceptable?
-10. How do you detect that O(n³) is too slow?
-11. Can your solution be optimized from O(n²) to O(n log n)? Explain the bottleneck.
+- [ ] Prefix / equilibrium problem
+- [ ] Modified House Robber
+- [ ] Grid DP missed in Round 2
+- [ ] Recursion → memoization → tabulation → space optimization
+
+## P1 — Core live coding
+
+- [ ] Two Sum
+- [ ] Contains Duplicate
+- [ ] Valid Anagram
+- [ ] Maximum Subarray
+- [ ] Stock Buy/Sell
+- [ ] Pivot Index
+- [ ] Product Except Self
+- [ ] Subarray Sum Equals K
+- [ ] Two Sum II
+- [ ] 3Sum
+- [ ] Longest Substring Without Repeating
+- [ ] Minimum Size Subarray Sum
+- [ ] Valid Parentheses
+- [ ] Next Greater Element
+- [ ] Daily Temperatures
+- [ ] Binary Search
+- [ ] Rotated Binary Search
+- [ ] Reverse Linked List
+- [ ] Linked List Cycle
+- [ ] Merge Two Sorted Lists
+- [ ] Maximum Depth
+- [ ] Level Order
+- [ ] LCA
+- [ ] Validate BST
+- [ ] Number of Islands
+- [ ] Rotten Oranges
+- [ ] Course Schedule
+- [ ] Climbing Stairs
+- [ ] House Robber
+- [ ] Unique Paths
+- [ ] Minimum Path Sum
+
+## P2 — SP L1
+
+- [ ] Longest Consecutive Sequence
+- [ ] Top K Frequent
+- [ ] Kth Largest
+- [ ] Longest Repeating Character Replacement
+- [ ] Permutation in String
+- [ ] Koko Eating Bananas
+- [ ] Ship Packages Within D Days
+- [ ] Diameter of Binary Tree
+- [ ] Kth Smallest in BST
+- [ ] Course Schedule II
+- [ ] Unweighted shortest path
+- [ ] Multi-source BFS
+- [ ] Dijkstra
+- [ ] 0/1 Knapsack
+- [ ] Subset Sum
+- [ ] Equal Partition
+- [ ] Target Sum
+- [ ] Coin Change
+- [ ] LIS
+- [ ] LCS
+- [ ] Edit Distance
+- [ ] State-based DP
+
+## P3 — SP L2 stretch
+
+- [ ] Word Ladder
+- [ ] DSU
+- [ ] Kruskal
+- [ ] Tree DP
+- [ ] Binary Search on Answer — harder variants
+- [ ] Advanced sliding window
+- [ ] Advanced monotonic stack
+- [ ] Partition / interval DP
+- [ ] Advanced state DP
+- [ ] Advanced shortest-path variants
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-14"></a>
-# 14. "Did You Actually Solve It?" Follow-Ups
+# 14. Recent Public Interview Signals
 
-This section is specifically for defending your Round 2 solutions.
+Recent public candidate reports from August–September 2026 suggest that Infosys DSE/SP interviews can include live coding followed by DSA/fundamentals, SQL, projects, and resume-driven questions.
 
-### Prefix problem
+Reported examples include:
 
-- Derive the right sum without a second array.
-- Prove the formula.
-- Give a negative-number example.
-- Change the condition and preserve O(n).
-- Explain why preprocessing is useful.
+- Reverse linked list, including iterative/recursive discussion.
+- DFS vs BFS.
+- Array vs linked list / singly vs doubly linked list.
+- Two Sum / sorted Two Sum.
+- Partition DP.
+- Frequency-counting array problems.
+- Dijkstra / graph data-structure questions.
+- SQL such as department counts and second-highest salary.
+- Follow-up questions checking whether the candidate truly understands the solution.
 
-### Modified House Robber
+Reported live-coding formats vary. Examples include two questions with one to solve and different time windows. Therefore:
 
-- Draw the recurrence tree.
-- Define every state in one sentence.
-- What happens if the state is initialized incorrectly?
-- Show why a greedy solution fails.
-- Convert memoization to tabulation.
-- Reduce tabulation to O(1) memory.
-- Add another state and explain how complexity changes.
+> **Use the 20-minute / solve-one assumption for preparation, but do not treat it as a universal official Infosys rule.**
 
-### Grid DP
-
-- Why is `(r,c)` the state?
-- Why are you allowed to transition to every next-row column except one?
-- Write the recursion without code.
-- Convert it to memoization.
-- Convert it to tabulation.
-- Give the naive complexity.
-- Optimize the minimum transition if M is large.
+These are public candidate experiences, not an official Infosys syllabus or guarantee.
 
 [↑ Back to Contents](#contents)
 
 ---
 
 <a id="dp-15"></a>
-# 15. Interview Coding Problems — Master Checklist
+# 15. Final Rule
 
-## Must-do before DSE interview
-
-- [ ] Two Sum
-- [ ] Contains Duplicate
-- [ ] Valid Anagram
-- [ ] Maximum Subarray
-- [ ] Best Time to Buy/Sell Stock
-- [ ] Pivot Index
-- [ ] Subarray Sum Equals K
-- [ ] Binary Search
-- [ ] Search in Rotated Sorted Array
-- [ ] Valid Parentheses
-- [ ] Next Greater Element
-- [ ] Reverse Linked List
-- [ ] Linked List Cycle
-- [ ] Merge Two Sorted Lists
-- [ ] Tree traversals
-- [ ] Maximum Depth
-- [ ] Number of Islands
-- [ ] BFS / DFS
-- [ ] Climbing Stairs
-- [ ] House Robber
-- [ ] Unique Paths
-- [ ] Minimum Path Sum
-- [ ] 0/1 Knapsack
-
-## Must-do before SP L1 interview
-
-- [ ] 3Sum
-- [ ] Longest Consecutive Sequence
-- [ ] Product Except Self
-- [ ] Daily Temperatures
-- [ ] Top K Frequent Elements
-- [ ] Kth Largest
-- [ ] LCA
-- [ ] Validate BST
-- [ ] Course Schedule
-- [ ] Rotting Oranges
-- [ ] Unweighted shortest path
-- [ ] Dijkstra
-- [ ] DSU basics
-- [ ] LIS
-- [ ] LCS
-- [ ] Edit Distance
-- [ ] Coin Change
-- [ ] Target Sum
-- [ ] State DP
-- [ ] Custom grid DP
-
-## SP L2 stretch
-
-- [ ] Word Ladder
-- [ ] Network Delay Time
-- [ ] Kruskal
-- [ ] Tree DP
-- [ ] Advanced binary search on answer
-- [ ] Partition DP recognition
-- [ ] Burst Balloons
-- [ ] Bitmask DP recognition
-- [ ] Digit DP recognition
-
-[↑ Back to Contents](#contents)
-
----
-
-<a id="dp-16"></a>
-# 16. Recommended Practice Method
-
-For each problem:
+Your DSA preparation is successful when this happens:
 
 ```text
-1. Read problem
-2. Identify pattern
-3. Solve without looking at code
-4. Explain brute force
-5. Derive optimized solution
-6. State complexity
-7. Code
-8. Dry-run
-9. Add one constraint variation
-10. Explain it aloud
+Question appears
+      ↓
+You identify the likely pattern quickly
+      ↓
+You explain brute force
+      ↓
+You identify the bottleneck
+      ↓
+You derive the optimal state / invariant
+      ↓
+You code without copying
+      ↓
+You state complexity
+      ↓
+You dry-run
+      ↓
+You defend follow-ups
 ```
 
-For **DP**, use:
+### The goal is NOT
 
-```text
-Recursion
-→ Memoization
-→ Tabulation
-→ Space optimization
-```
+> Solve the most difficult question in the room.
 
-For **graphs**, use:
+### The goal IS
 
-```text
-Representation
-→ traversal
-→ state/edge meaning
-→ shortest path/connectivity/dependency
-→ complexity
-```
+> **Solve one of the available problems cleanly, quickly, and convincingly.**
 
-For **greedy**, use:
-
-```text
-Candidate choice
-→ invariant
-→ why safe
-→ implementation
-```
-
-[↑ Back to Contents](#contents)
-
----
-
-<a id="dp-17"></a>
-# 17. Recent Public Interview Signals
-
-These are the public reports that informed this question bank:
-
-- A September 3, 2026 candidate reported live coding plus Group Anagrams, project discussion, Java fundamentals, AI/RAG questions, and a SQL query.
-- An August 27, 2026 candidate reported Partition DP in live coding, then DFS vs BFS, arrays vs linked lists, linked-list variants, SQL joins/aggregation, and several AI fundamentals.
-- An August 31, 2026 candidate reported two live DSA questions, followed by projects, SQL, core CS, and AI; they reported roughly 35–40 technical questions overall.
-- A February 2026 candidate reported binary search, reverse linked list, shortest-path pseudocode, OOP, SQL, and project discussion.
-
-**Interpretation:** The interview can move from an easy coding warm-up to progressively deeper reasoning. Do not prepare only for one difficulty label.
-
-[↑ Back to Contents](#contents)
-
----
-
-<a id="dp-18"></a>
-# 18. Final Rule for Your Preparation
-
-You are not preparing for:
-
-```text
-"What exact Infosys question will I get?"
-```
-
-You are preparing for:
-
-```text
-"Can I recognize and derive the solution when the story or constraints change?"
-```
-
-Your Round 2 experience already exposed the importance of this. You recognized prefix-sum preprocessing and designed a custom DP state for the second problem, but lost time because the grid transition was unfamiliar.
-
-The fix is not to memorize that one grid question.
-
-The fix is to train **state + transition recognition** broadly.
-
-**Primary interview target: SP L1.**
-
-**Baseline: DSE-ready.**
-
-**Stretch: SP L2 reasoning.**
+For your specific preparation, **P0 + P1 must become automatic before spending serious time on P3.**
 
 [↑ Back to Contents](#contents)
