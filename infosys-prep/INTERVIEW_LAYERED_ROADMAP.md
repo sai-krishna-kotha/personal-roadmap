@@ -45,7 +45,7 @@ Parallel preparation remains active for:
 - Operating Systems
 - Computer Networks
 - Backend/software engineering fundamentals
-- Basic system design
+- System design and engineering reasoning
 - HR / behavioral questions
 
 ---
@@ -80,6 +80,7 @@ Continue coding practice and, importantly, learn to explain the approach and com
 - Concurrency
 - Authentication / authorization concepts
 - Docker / deployment basics
+- System design fundamentals
 
 ## Tier 3 — Final polish
 
@@ -89,6 +90,8 @@ Continue coding practice and, importantly, learn to explain the approach and com
 - Strengths / weaknesses
 - Teamwork / conflict / failure examples
 - Questions to ask the interviewer
+
+> **SP/DSE calibration:** System design is important, but the immediate target is **project-driven engineering design and reasoning**, not senior-level distributed-systems depth. OOP, projects, coding, SQL/DBMS and core CS remain the higher-priority interview preparation areas.
 
 ---
 
@@ -105,16 +108,20 @@ LAYER 2 — Python OOP + Design Thinking
       ↓
 LAYER 3 — Project Mastery
       ↓
-LAYER 4 — CS-Core Integration
+LAYER 4 — System Design & Engineering Reasoning
       ↓
-LAYER 5 — DSA + SQL Interview Readiness
+LAYER 5 — CS-Core Integration
       ↓
-LAYER 6 — Mock Interview Readiness
+LAYER 6 — DSA + SQL Interview Readiness
       ↓
-LAYER 7 — Final Interview Mode
+LAYER 7 — Mock Interview Readiness
+      ↓
+LAYER 8 — Final Interview Mode
 ```
 
 You can spend several days or several weeks in a layer. The interview date does not change the structure.
+
+> **Important:** The layers are not strict silos. SQL, DSA and coding continue in parallel while you deepen OOP and projects. The layer number indicates the dominant interview objective, not a requirement to stop the other tracks.
 
 ---
 
@@ -286,6 +293,8 @@ Move from definitions to design reasoning.
 - Repository/service separation
 - Data models vs schemas
 - Business logic isolation
+- Error handling boundaries
+- Testability
 
 ## Question pattern
 
@@ -300,6 +309,18 @@ Where could it appear in my project?
 What happens if we ignore it?
 What is the trade-off?
 ```
+
+## Layer-2 mini design exercises
+
+Practice small designs before full system design:
+
+- Payment method interface
+- Notification service
+- File storage abstraction
+- Image provider interface
+- URL service / repository split
+
+The purpose is to make OOP concepts visible in code and architecture.
 
 ---
 
@@ -524,9 +545,303 @@ Atomic click increment
 
 ---
 
-# 8. Layer 4 — CS-Core Integration
+# 8. Layer 4 — System Design & Engineering Reasoning
 
-The goal here is not to study each subject independently. Tie each concept back to your projects.
+## Goal
+
+Learn to design a reasonable backend system from requirements and explain the trade-offs clearly.
+
+This is the **SP-level system-design target** for this roadmap: practical architecture, project-based reasoning, scalability basics, failure handling and trade-offs. It is **not** a senior distributed-systems curriculum.
+
+## A. Standard design sequence
+
+For every design problem, follow this order:
+
+```text
+1. Clarify requirements
+        ↓
+2. Identify users / actors
+        ↓
+3. Functional requirements
+        ↓
+4. Non-functional requirements
+        ↓
+5. Estimate scale (roughly)
+        ↓
+6. Define APIs / interfaces
+        ↓
+7. Choose data model + storage
+        ↓
+8. Draw major components + data flow
+        ↓
+9. Identify bottlenecks
+        ↓
+10. Add caching / queues / workers only when justified
+        ↓
+11. Discuss failure cases
+        ↓
+12. Explain trade-offs and alternatives
+```
+
+Do not jump directly to Redis, Kafka, sharding or microservices.
+
+## B. Core concepts to understand
+
+### Architecture
+
+- Client / API / service / repository responsibilities
+- Monolith vs modular monolith vs microservices
+- Stateless services
+- Horizontal vs vertical scaling
+- Load balancing
+- Reverse proxy
+
+### Storage
+
+- SQL vs NoSQL at a high level
+- Source of truth
+- Indexes
+- Read-heavy vs write-heavy workloads
+- Transactions
+- Basic replication concepts
+
+### Performance
+
+- Latency vs throughput
+- Caching
+- Cache-aside
+- Cache invalidation basics
+- Hot keys
+- Pagination
+- Connection pooling
+
+### Asynchronous systems
+
+- Why queues exist
+- Producer / consumer model
+- Background workers
+- Retries
+- Backoff
+- Idempotency
+- Duplicate delivery
+
+### Reliability
+
+- Timeouts
+- Retries
+- Graceful degradation
+- Circuit-breaker concept
+- Health checks
+- Failure isolation
+- Observability basics: logs, metrics, traces
+
+### API design
+
+- Resource-oriented REST basics
+- Status codes
+- Idempotent operations
+- Pagination
+- Validation
+- Authentication / authorization boundaries
+
+## C. Project-first design exercises
+
+Master these in this order:
+
+### 1. URL Shortener
+
+Already partially covered in Layer 3. Now redesign it from requirements upward.
+
+Be able to explain:
+
+```text
+requirements
+→ API
+→ Base62 generation
+→ DB schema
+→ cache
+→ redirect path
+→ rate limit
+→ click analytics
+→ hot key handling
+→ scaling
+→ failure recovery
+```
+
+### 2. SceneFlow processing system
+
+Design the system for:
+
+```text
+script upload
+→ scene extraction
+→ semantic processing
+→ external asset search
+→ ranking
+→ result persistence
+```
+
+Explain:
+
+- Why synchronous processing would be problematic.
+- Why workers / queues help.
+- How to retry external API failures.
+- How to avoid duplicate jobs.
+- How to handle partial failure.
+- How to scale workers independently from the API.
+
+### 3. Rate limiter
+
+Know at least:
+
+- Fixed window
+- Sliding window concept
+- Token bucket concept
+- Redis-based implementation at a high level
+- Trade-offs between algorithms
+
+### 4. Notification service
+
+Be able to design:
+
+```text
+API
+→ queue
+→ worker
+→ provider
+→ retry / failure handling
+```
+
+### 5. File / image processing system
+
+Understand when to use:
+
+- object storage
+- metadata DB
+- asynchronous workers
+- status tracking
+- retries
+
+### 6. Search / semantic retrieval system
+
+Tie the design back to Qdrant / embeddings / metadata storage in SceneFlow.
+
+## D. Scaling checklist
+
+When asked “How would you scale it?”, reason through:
+
+```text
+1. Is the API stateless?
+2. Can we add API replicas?
+3. Where is the hottest path?
+4. Can caching remove repeated reads?
+5. Can heavy work move to workers?
+6. What is the DB bottleneck?
+7. Which indexes help?
+8. Is one key / tenant / item unusually hot?
+9. What can fail independently?
+10. What trade-off are we making?
+```
+
+## E. Failure-mode checklist
+
+For any design, ask:
+
+- What if the DB is unavailable?
+- What if Redis is unavailable?
+- What if an external API times out?
+- What if the same request arrives twice?
+- What if a worker crashes halfway through a job?
+- What if traffic spikes suddenly?
+- What if one resource becomes a hot key?
+- What data can be stale?
+- What must never be lost?
+
+## F. Trade-off vocabulary
+
+Use explicit engineering language:
+
+- consistency vs availability
+- latency vs throughput
+- simplicity vs scalability
+- synchronous vs asynchronous
+- strong consistency vs eventual consistency
+- cost vs performance
+- reliability vs complexity
+
+Do not force a trade-off into an answer when it does not actually matter.
+
+## G. OOP ↔ system design connection
+
+This layer must reinforce Layer 2 rather than become a separate memorization subject.
+
+Examples:
+
+- Controller/router → service → repository separation
+- Provider abstraction
+- Dependency injection
+- Interfaces / protocols
+- Composition over inheritance
+- Encapsulation of infrastructure details
+- Testable business logic
+
+## H. System design interview exercises
+
+Practice verbally before writing code.
+
+Start with:
+
+1. URL Shortener
+2. Rate limiter
+3. Notification service
+4. Background job / task processing system
+5. File upload + processing system
+6. Image / semantic search service
+
+For each exercise, aim to produce:
+
+```text
+2-minute requirements discussion
++
+5–8 minute architecture discussion
++
+3–5 minute bottleneck / failure / trade-off discussion
+```
+
+## Layer-4 readiness gate
+
+You are ready when you can take an unfamiliar but reasonable backend design problem and, without memorized diagrams:
+
+- ask useful requirement questions,
+- identify the main components,
+- choose a reasonable data store,
+- define a basic API/data flow,
+- identify at least two bottlenecks,
+- explain caching / queue decisions,
+- discuss two failure cases,
+- state at least one trade-off,
+- connect the design to OOP / CS fundamentals.
+
+## What NOT to prioritize yet
+
+Do not spend major preparation time on:
+
+- deep consensus algorithms
+- Raft / Paxos internals
+- advanced distributed databases
+- multi-region active-active architecture
+- complex service-mesh internals
+- deep Kafka implementation internals
+- advanced sharding strategies
+- senior-level capacity planning
+
+These can be added later only if the interview evidence or interviewer feedback calls for them.
+
+---
+
+# 9. Layer 5 — CS-Core Integration
+
+The goal here is not to study each subject independently. Tie each concept back to your projects and system-design reasoning.
 
 ## DBMS / SQL
 
@@ -556,6 +871,7 @@ The goal here is not to study each subject independently. Tie each concept back 
 - What indexes are useful?
 - What happens under concurrent writes?
 - Why is PostgreSQL the source of truth?
+- How does a database bottleneck affect the system design?
 
 ### SQL practice
 
@@ -601,6 +917,7 @@ Project-linked questions:
 - What does concurrency mean for your API?
 - What happens when many requests arrive together?
 - Why are worker processes useful?
+- What happens when a worker crashes?
 
 ## Computer Networks
 
@@ -625,10 +942,11 @@ Project-linked questions:
 - Frontend → FastAPI communication
 - CORS in SceneFlow
 - API deployment
+- Why latency matters in a redirect service
 
 ---
 
-# 9. Layer 5 — DSA + SQL Interview Readiness
+# 10. Layer 6 — DSA + SQL Interview Readiness
 
 ## DSA objective
 
@@ -685,11 +1003,11 @@ Explain complexity / indexing intuition when relevant
 
 ---
 
-# 10. Layer 6 — Mock Interview Readiness
+# 11. Layer 7 — Mock Interview Readiness
 
 Do not start full mocks too early.
 
-Start when Layers 1–5 are reasonably stable.
+Start when Layers 1–6 are reasonably stable.
 
 ## Mock structure
 
@@ -705,21 +1023,42 @@ One deep SceneFlow discussion.
 
 One deep URL Shortener discussion.
 
-### Round C — CS Core
+### Round C — System Design
+
+One project redesign or standard backend design.
+
+Must include requirements, architecture, bottlenecks and trade-offs.
+
+### Round D — CS Core
 
 Mix DBMS, SQL, OS and CN.
 
-### Round D — Coding
+### Round E — Coding
 
 One problem solved while explaining the reasoning aloud.
 
-### Round E — Behavioral
+### Round F — Behavioral
 
 Self-introduction + project ownership + failure + teamwork + learning.
 
+## Mock scoring
+
+Score each area from 1–5:
+
+- Concept accuracy
+- Communication clarity
+- Project depth
+- Design reasoning
+- Coding ability
+- SQL accuracy
+- CS-core recall
+- Handling follow-ups
+
+Any repeated score of **2 or below** becomes the next study target.
+
 ---
 
-# 11. Layer 7 — Final Interview Mode
+# 12. Layer 8 — Final Interview Mode
 
 Activate this layer once the interview is scheduled or appears likely within a short window.
 
@@ -730,6 +1069,7 @@ Increase:
 - Active recall
 - Mock interviews
 - Project explanation
+- System-design verbal practice
 - SQL query writing
 - DSA explanation
 - Rapid OOP revision
@@ -759,6 +1099,7 @@ You should be able to explain without notes:
 - Vector search
 - Failure cases
 - Limitations
+- How you would scale it
 
 ### URL Shortener
 
@@ -771,6 +1112,7 @@ You should be able to explain without notes:
 - Atomic click count
 - Database design
 - Scaling
+- Failure handling
 
 ### SQL / DBMS
 
@@ -794,282 +1136,239 @@ You should be able to explain without notes:
 - TCP
 - REST / status codes
 
+### System Design
+
+- Requirements first
+- API + data model
+- Components and data flow
+- Cache / queue decisions
+- Bottlenecks
+- Failure cases
+- Trade-offs
+
 ---
 
-# 12. Daily Study Template — Date Independent
+# 13. Daily Study Template — Date Independent
 
-Use this template regardless of whether the interview is 7 days or 30 days away.
+Use this template regardless of the interview date.
 
-## Block 1 — OOP
+## Block A — Main depth topic
 
-**60–90 min**
+60–120 minutes
 
-Learn one concept deeply.
+Current primary focus:
 
-Structure:
+- OOP / Python OOP
+- System design
+- Project mastery
+
+## Block B — SQL / DBMS
+
+30–60 minutes
+
+- Write queries
+- Review one DBMS topic
+- Connect it to a project
+
+## Block C — DSA
+
+60–120 minutes
+
+- Problem solving
+- Timed practice
+- Explain solution aloud
+
+## Block D — CS Core / project follow-up
+
+30–60 minutes
+
+Rotate:
+
+- OS
+- CN
+- Backend
+- Project questions
+- System-design exercise
+
+## Block E — Active recall
+
+15–30 minutes
+
+Without notes:
+
+- Explain one OOP topic
+- Explain one project component
+- Explain one CS concept
+- Recall one SQL pattern
+- Explain one DSA solution
+
+---
+
+# 14. Rules for Efficient Preparation
+
+## Rule 1 — Do not memorize isolated answers
+
+Understand the concept and connect it to a project.
+
+## Rule 2 — Projects are the bridge
+
+A project question can become:
 
 ```text
-Definition
-Example
-Difference
-Python implementation
-Project application
-Follow-up
+Project
+→ OOP
+→ DBMS
+→ OS
+→ CN
+→ Backend
+→ System design
+→ DSA
 ```
 
-## Block 2 — Project
+## Rule 3 — Use layered revision
 
-**45–60 min**
+Review older layers through active recall while studying the current layer.
 
-Alternate SceneFlow and URL Shortener.
+## Rule 4 — Prefer depth over breadth
 
-One day = architecture.
+It is better to explain five technologies deeply than twenty technologies superficially.
 
-Next = code/design.
+## Rule 5 — Always discuss trade-offs
 
-Next = CS-core questions.
+Especially for architecture, databases, caches, queues and concurrency.
 
-Next = mock explanation.
+## Rule 6 — Never bluff
 
-## Block 3 — SQL / DBMS
+For unknown questions, explain what you know, state assumptions, and reason from fundamentals.
 
-**60–90 min**
+## Rule 7 — Coding communication matters
 
-Continue current SQL progression and DBMS recall.
+Do not silently solve DSA. Practice explaining your thinking.
 
-## Block 4 — DSA
+## Rule 8 — System design should stay proportional
 
-**2–4 hours**
-
-Continue your existing coding roadmap.
-
-At least some problems should be solved completely without AI.
-
-## Block 5 — OS / CN / Backend
-
-**30–60 min**
-
-One focused concept group.
-
-## Block 6 — Oral recall
-
-**15–30 min**
-
-Close all notes and explain what you studied aloud.
+System design supports the interview; it should not consume the time needed for OOP, projects, DSA and SQL/DBMS.
 
 ---
 
-# 13. Weekly Review Gate
+# 15. Master Readiness Checklist
 
-At the end of each study cycle, ask:
+Before considering yourself interview-ready, verify:
 
 ### OOP
 
-Can I explain the concept without memorization?
+- [ ] Four pillars explained clearly
+- [ ] Python OOP strong
+- [ ] Major comparisons strong
+- [ ] SOLID understood
+- [ ] Can connect OOP to projects
 
-### Project
+### Projects
 
-Can I defend why I chose the technology?
+- [ ] SceneFlow explained in 60 seconds
+- [ ] SceneFlow explained in 5–10 minutes
+- [ ] URL Shortener explained in 60 seconds
+- [ ] URL Shortener explained in 5–10 minutes
+- [ ] Can answer repeated follow-ups
+- [ ] Can explain limitations honestly
 
-### DBMS
+### System Design
 
-Can I solve a query from a blank editor?
+- [ ] Can clarify requirements
+- [ ] Can identify functional / non-functional requirements
+- [ ] Can draw component architecture
+- [ ] Can define basic APIs
+- [ ] Can choose storage and explain why
+- [ ] Understand caching
+- [ ] Understand queues / workers
+- [ ] Understand idempotency / retries
+- [ ] Can identify bottlenecks
+- [ ] Can discuss failure cases
+- [ ] Can explain trade-offs
+- [ ] Can redesign URL Shortener from scratch
+- [ ] Can design one unfamiliar backend system verbally
 
-### DSA
+### SQL / DBMS
 
-Can I explain the approach without code?
-
-### OS/CN
-
-Can I explain the mechanism rather than only the definition?
-
-### Communication
-
-Can I explain all of this in simple, structured English?
-
-If the answer is "no", stay in the layer.
-
----
-
-# 14. How We Should Use AI During This Preparation
-
-AI should be used primarily as an **interviewer, reviewer and explainer**, not as the first source of a coding solution.
-
-For DSA:
-
-```text
-Attempt yourself
- ↓
-Only then ask for a hint if necessary
- ↓
-Re-derive
- ↓
-Implement independently
-```
-
-For interview topics:
-
-```text
-Try answer yourself
- ↓
-Receive feedback
- ↓
-Fix gaps
- ↓
-Answer again without notes
-```
-
-For projects:
-
-```text
-Explain from memory
- ↓
-Compare with repository
- ↓
-Find inaccuracies
- ↓
-Correct explanation
- ↓
-Practice follow-ups
-```
-
----
-
-# 15. Interview Answer Standard
-
-A strong answer usually follows:
-
-```text
-1. Direct definition / answer
-2. Why it matters
-3. Small example
-4. Project connection when relevant
-5. Trade-off / limitation if relevant
-```
-
-Avoid:
-
-- Long memorized paragraphs
-- Unnecessary jargon
-- Claiming implementation you did not do
-- Giving a tool name without explaining why it was chosen
-- Saying "because it is faster" without explaining what changed
-
----
-
-# 16. Progress Tracker
-
-Update this section manually.
-
-## OOP
-
-- [ ] OOP fundamentals
-- [ ] Four pillars
-- [ ] OOP comparisons
-- [ ] Python OOP
-- [ ] MRO / `super()`
-- [ ] Duck typing
-- [ ] Abstract classes
-- [ ] Composition / aggregation
-- [ ] SOLID basics
-- [ ] OOP mock
-
-## SceneFlow
-
-- [ ] 30-second explanation
-- [ ] 2-minute explanation
-- [ ] Full architecture
-- [ ] Request flow
-- [ ] Database design
-- [ ] Celery / Redis
-- [ ] Qdrant / embeddings
-- [ ] Gemini / segmentation
-- [ ] Failure handling
-- [ ] Idempotency
-- [ ] Production limitations
-- [ ] Deep mock
-
-## URL Shortener
-
-- [ ] 30-second explanation
-- [ ] 2-minute explanation
-- [ ] Architecture
-- [ ] Base62
-- [ ] PostgreSQL design
-- [ ] Redis cache-aside
-- [ ] Rate limiting
-- [ ] Atomic click updates
-- [ ] Concurrency
-- [ ] HTTP redirect flow
-- [ ] Scaling discussion
-- [ ] Deep mock
-
-## SQL / DBMS
-
-- [ ] Joins
+- [ ] JOINs
+- [ ] GROUP BY / HAVING
 - [ ] Aggregation
-- [ ] HAVING
 - [ ] Window functions
 - [ ] Subqueries
 - [ ] CTEs
-- [ ] Keys
-- [ ] Normalization
-- [ ] ACID
+- [ ] Keys / normalization
 - [ ] Indexes
-- [ ] Transactions
+- [ ] ACID / transactions
+- [ ] Concurrency basics
 
-## OS / CN
+### OS / CN
 
 - [ ] Process / thread
-- [ ] Scheduling
 - [ ] Synchronization
-- [ ] Deadlocks
-- [ ] Virtual memory
+- [ ] Deadlock
+- [ ] Memory basics
 - [ ] HTTP / HTTPS
 - [ ] DNS
 - [ ] TCP
 - [ ] REST
 - [ ] CORS
 
-## DSA
+### DSA
 
-- [ ] Arrays / hashing
-- [ ] Binary search
-- [ ] Sliding window
-- [ ] Stack / heap
-- [ ] Greedy
-- [ ] DP
-- [ ] Trees
-- [ ] Graphs
-- [ ] Hard / mixed problems
-- [ ] Interview explanation practice
+- [ ] Can identify common patterns
+- [ ] Can solve under time pressure
+- [ ] Can explain complexity
+- [ ] Can handle follow-up variations
+
+### Interview communication
+
+- [ ] Strong self-introduction
+- [ ] Resume walkthrough
+- [ ] Project ownership story
+- [ ] Failure story
+- [ ] Teamwork story
+- [ ] Can say “I don't know” professionally and reason forward
 
 ---
 
-# 17. Final Principle
+# 16. Final Mental Model
 
-Do not measure preparation by the number of questions read.
-
-Measure it by what you can **produce without notes**.
+The complete preparation loop is:
 
 ```text
-Read
+OOP
  ↓
-Understand
+Design thinking
  ↓
-Recall
+Projects
  ↓
-Explain
+System design
  ↓
-Apply to project
+CS-core connections
  ↓
-Defend with follow-ups
+DSA + SQL
  ↓
-Perform under pressure
+Mocks
+ ↓
+Active recall
+ ↓
+Interview
 ```
 
-The interview date may move.
+The goal is not to know everything.
 
-This roadmap does not need to move.
+The goal is to make the following chain natural:
 
-We simply move through the layers more deeply until the interview is scheduled, then switch from **learning mode → performance mode**.
+```text
+“What?”
+   ↓
+“Why?”
+   ↓
+“How?”
+   ↓
+“What can go wrong?”
+   ↓
+“How would you improve it?”
+```
+
+That is the reasoning pattern the roadmap is designed to build.
