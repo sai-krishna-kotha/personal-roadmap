@@ -2,7 +2,9 @@
 
 > **Purpose:** A dedicated, execution-focused roadmap for the Infosys technical interview after Round 2, with **Specialist Programmer (SP)** as the primary target.
 >
-> This file is intentionally different from `structure_roadmap.md`. The main roadmap covers the broader assessment journey; this file is the **interview execution plan**.
+> This file is intentionally separate from `structure_roadmap.md`. The main roadmap covers the broader assessment journey; this file is the **interview execution plan**.
+>
+> **Core strategy:** prepare for the upper end of the likely SP interview coding bar, while prioritizing the areas most likely to produce interview value. Do not treat any public candidate report as a guaranteed question list.
 
 <a id="table-of-contents"></a>
 
@@ -10,13 +12,13 @@
 
 ### 🧭 Strategy
 - [1. Interview Mission](#1-interview-mission)
-- [2. Why the Plan Is Layered](#2-why-the-plan-is-layered)
+- [2. What Changed After Round 2](#2-what-changed-after-round-2)
 - [3. Priority Pyramid](#3-priority-pyramid)
-- [4. Preparation Rule](#4-preparation-rule)
-- [5. Interview Answer Framework](#5-interview-answer-framework)
+- [4. Layered Preparation Strategy](#4-layered-preparation-strategy)
+- [5. Preparation Rule](#5-preparation-rule)
+- [6. Interview Answer Framework](#6-interview-answer-framework)
 
 ### 🔥 Layer 1 — Interview Safety Net
-- [6. Layer 1 Overview](#6-layer-1-overview)
 - [7. Self Introduction + HR](#7-self-introduction--hr)
 - [8. Resume Defense](#8-resume-defense)
 - [9. Project Ownership](#9-project-ownership)
@@ -25,36 +27,51 @@
 ### 🎯 Layer 2 — Highest-Yield Technical Preparation
 - [11. SQL](#11-sql)
 - [12. DBMS](#12-dbms)
-- [13. DSA Coding](#13-dsa-coding)
-- [14. DSA Follow-Up Skills](#14-dsa-follow-up-skills)
+- [13. DSA Interview Target](#13-dsa-interview-target)
+- [14. DSA Pattern Priority](#14-dsa-pattern-priority)
+- [15. Arrays / Hashing / Prefix Sum](#15-arrays--hashing--prefix-sum)
+- [16. Two Pointers / Sliding Window](#16-two-pointers--sliding-window)
+- [17. Binary Search](#17-binary-search)
+- [18. Stack / Monotonic Stack](#18-stack--monotonic-stack)
+- [19. Heap / Priority Queue](#19-heap--priority-queue)
+- [20. Linked List](#20-linked-list)
+- [21. Trees / BST](#21-trees--bst)
+- [22. Graphs / BFS / DFS](#22-graphs--bfs--dfs)
+- [23. Grid DFS / BFS](#23-grid-dfs--bfs)
+- [24. Greedy / Intervals](#24-greedy--intervals)
+- [25. Dynamic Programming — Core](#25-dynamic-programming--core)
+- [26. Dynamic Programming — Grid State Variants](#26-dynamic-programming--grid-state-variants)
+- [27. Dynamic Programming — State / Counting Variants](#27-dynamic-programming--state--counting-variants)
+- [28. DSA Follow-Up Skills](#28-dsa-follow-up-skills)
 
 ### 🛠️ Layer 3 — SP Engineering Depth
-- [15. Backend + APIs](#15-backend--apis)
-- [16. Database Optimization + Scaling](#16-database-optimization--scaling)
-- [17. API Security + Reliability](#17-api-security--reliability)
-- [18. Basic System Design](#18-basic-system-design)
+- [29. Backend + APIs](#29-backend--apis)
+- [30. API Security + Reliability](#30-api-security--reliability)
+- [31. Database Optimization + Scaling](#31-database-optimization--scaling)
+- [32. Basic System Design](#32-basic-system-design)
 
 ### 📚 Layer 4 — Core CS Coverage
-- [19. Operating Systems](#19-operating-systems)
-- [20. Computer Networks](#20-computer-networks)
+- [33. Operating Systems](#33-operating-systems)
+- [34. Computer Networks](#34-computer-networks)
 
 ### 🧪 Layer 5 — Interview Execution
-- [21. Project Technical Drill](#21-project-technical-drill)
-- [22. SQL Drill](#22-sql-drill)
-- [23. DSA Drill](#23-dsa-drill)
-- [24. Core CS Rapid Revision](#24-core-cs-rapid-revision)
-- [25. Technical Mock Interview](#25-technical-mock-interview)
-- [26. Final 24-Hour Checklist](#26-final-24-hour-checklist)
-- [27. Final Interview Mental Model](#27-final-interview-mental-model)
+- [35. Project Technical Drill](#35-project-technical-drill)
+- [36. SQL Drill](#36-sql-drill)
+- [37. Live DSA Coding Drill](#37-live-dsa-coding-drill)
+- [38. DSA Variation Drill](#38-dsa-variation-drill)
+- [39. Core CS Rapid Revision](#39-core-cs-rapid-revision)
+- [40. Full Technical Mock Interview](#40-full-technical-mock-interview)
+- [41. Final 24-Hour Checklist](#41-final-24-hour-checklist)
+- [42. Final Interview Mental Model](#42-final-interview-mental-model)
 
 ---
 
 <a id="1-interview-mission"></a>
 # 1. Interview Mission
 
-The target is not to know every computer-science topic deeply.
+The goal is not to know every computer-science topic deeply.
 
-The target is to prove five things:
+The goal is to demonstrate five things:
 
 ```text
 I can code.
@@ -68,58 +85,47 @@ I can reason about real software systems.
 I can communicate my thinking clearly.
 ```
 
-For this preparation stage, **depth should follow probability and usefulness**.
-
-The current priority signal from recent candidate feedback is especially strong around:
+For DSA specifically, the target is:
 
 ```text
-SQL
-DBMS / indexing / optimization
-API security and scaling
-Project architecture + technology choices
-One Easy/Medium DSA problem
+Easy
+  ↓
+Easy-Medium
+  ↓
+Medium
+  ↓
+Medium variation
 ```
 
-Treat this as a preparation signal, not a guaranteed Infosys interview question list.
+You should be able to solve a fresh problem while **speaking your reasoning aloud**.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="2-why-the-plan-is-layered"></a>
-# 2. Why the Plan Is Layered
+<a id="2-what-changed-after-round-2"></a>
+# 2. What Changed After Round 2
 
-The previous version had the right topics, but a flat syllabus can make preparation inefficient.
+Your Round 2 performance gives us an important preparation signal:
 
-Use five layers instead:
+- You solved **2/4** coding problems with all test cases on those solved problems.
+- One of the solved problems required adapting **pick / not-pick DP with an additional state**.
+- A grid-DP problem exposed a weakness in handling a **non-standard state transition**.
+- You have now been officially shortlisted for the interview.
 
-```text
-Layer 1
-Interview Safety Net
-↓
-Layer 2
-High-Yield Technical
-↓
-Layer 3
-SP Engineering Depth
-↓
-Layer 4
-Core CS Coverage
-↓
-Layer 5
-Execution + Mocking
-```
+Therefore, the interview plan must not simply repeat the old assessment syllabus.
 
-The rule is:
+The key DSA shift is:
 
-> **Do not move deeper until the previous layer is interview-safe.**
+> **Move from “Can I recognize the standard pattern?” to “Can I derive the state and adapt the pattern when the problem changes?”**
 
-Example:
+That means the interview plan explicitly includes:
 
-```text
-Do not spend 2 hours on obscure OS details
-while still being unable to explain your own project architecture.
-```
+- Grid DP where every column in the next row is a possible transition.
+- Grid/state DP with computed next states.
+- Counting DP with extra state variables.
+- Follow-up modifications after the first correct solution.
+- Live coding while explaining the reasoning.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
@@ -130,14 +136,12 @@ while still being unable to explain your own project architecture.
 
 ## 🔴 Priority A — Highest return
 
-These should receive the largest share of preparation time.
-
 1. **Projects + Resume Defense**
 2. **SQL + DBMS**
-3. **DSA Coding + Explanation**
+3. **DSA Live Coding + Variations**
 4. **OOP**
 
-## 🟠 Priority B — SP-oriented engineering
+## 🟠 Priority B — SP engineering
 
 5. **Backend / REST APIs**
 6. **API security**
@@ -151,7 +155,7 @@ These should receive the largest share of preparation time.
 11. **Operating Systems**
 12. **Computer Networks**
 
-## 🟢 Priority D — Behavioral
+## 🟢 Priority D — Behavioral polishing
 
 13. **Self introduction**
 14. **Why Infosys?**
@@ -171,16 +175,89 @@ OS + CN                 10%
 HR / Behavioral          5%
 ```
 
-This is a planning heuristic, not an official Infosys weighting.
+Within the **DSA 20%**, spend most time on:
+
+```text
+Live coding
++ Medium problems
++ Variations
++ DP / Grid DP
++ Trees / Graphs
+```
+
+These are planning heuristics, not official Infosys weightings.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="4-preparation-rule"></a>
-# 4. Preparation Rule
+<a id="4-layered-preparation-strategy"></a>
+# 4. Layered Preparation Strategy
 
-For every topic, prepare at **three depths**.
+Do not study every topic to the same depth.
+
+```text
+Layer 1 — Interview Safety
+    ↓
+Layer 2 — Highest-Yield Technical
+    ↓
+Layer 3 — SP Engineering Depth
+    ↓
+Layer 4 — Core CS Coverage
+    ↓
+Layer 5 — Live Execution + Mocking
+```
+
+### Layer 1 — Safety
+
+You should never be weak on your own resume, projects, introduction, or basic OOP.
+
+### Layer 2 — High-yield
+
+This is where most practice time goes:
+
+```text
+SQL / DBMS
+DSA live coding
+DSA variations
+OOP
+```
+
+### Layer 3 — SP engineering
+
+Prepare to reason about:
+
+```text
+APIs
+Authentication
+Authorization
+Database optimization
+Caching
+Scaling
+Rate limiting
+Reliability
+```
+
+### Layer 4 — Core CS
+
+Know high-yield OS and CN, not every textbook detail.
+
+### Layer 5 — Execution
+
+Convert knowledge into interview performance:
+
+```text
+Explain → Code → Dry run → Defend → Adapt
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="5-preparation-rule"></a>
+# 5. Preparation Rule
+
+For every important topic, prepare at three depths.
 
 ### Depth 1 — 30-second answer
 
@@ -203,35 +280,20 @@ How would you optimize it?
 How would you scale it?
 ```
 
-Do not memorize essays.
+For DSA, add a fourth ability:
 
-Use:
+### Depth 4 — Variation handling
 
-```text
-Definition
-→ purpose
-→ example
-→ trade-off
-```
+> Can I solve a modified version without seeing the solution first?
 
-For project questions use:
-
-```text
-Problem
-→ architecture
-→ your contribution
-→ decision
-→ trade-off
-→ result
-→ limitation
-```
+Do not memorize essays or code blocks.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="5-interview-answer-framework"></a>
-# 5. Interview Answer Framework
+<a id="6-interview-answer-framework"></a>
+# 6. Interview Answer Framework
 
 ## Technical definition
 
@@ -241,20 +303,6 @@ Definition
 Why it exists
 ↓
 Example
-↓
-Trade-off
-```
-
-## Comparison
-
-```text
-A definition
-↓
-B definition
-↓
-Key difference
-↓
-Use case
 ↓
 Trade-off
 ```
@@ -270,9 +318,7 @@ Brute force
 ↓
 Bottleneck
 ↓
-Pattern
-↓
-Data structure / state
+Pattern / state
 ↓
 Transition
 ↓
@@ -283,6 +329,8 @@ Code
 Dry run
 ↓
 Edge cases
+↓
+Follow-up variation
 ```
 
 ## Project question
@@ -304,32 +352,10 @@ Trade-off
 ↓
 Failure / debugging
 ↓
+Security
+↓
 Scaling
 ```
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="6-layer-1-overview"></a>
-# 6. Layer 1 — Interview Safety Net
-
-Before advanced preparation, make these automatic:
-
-```text
-1. 60–90 second self introduction
-2. Resume line-by-line defense
-3. Two strongest projects
-4. Core OOP
-5. Why Infosys?
-6. Why SP?
-7. One failure + one debugging story
-8. One teamwork story
-```
-
-Success condition:
-
-> **The interviewer should never find a basic question on your resume that you cannot answer.**
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
@@ -421,9 +447,12 @@ For a project bullet mentioning a framework, database, API, model, or deployment
 <a id="9-project-ownership"></a>
 # 9. Project Ownership
 
-Choose **two strongest projects** as primary interview projects.
+Choose **two strongest projects** as primary interview projects:
 
-For each, prepare a one-page mental model:
+1. **Semantic Visual Asset Generator / SceneFlow**
+2. **URL Shortener**
+
+For each, prepare a one-page mental model.
 
 ## A. Problem
 
@@ -435,31 +464,20 @@ Why is it useful?
 
 ## B. Architecture
 
-```text
-Client
-↓
-Frontend
-↓
-API
-↓
-Business logic
-↓
-Database / external service
-```
-
-Use the real architecture, not this generic diagram blindly.
+Explain the actual architecture, not a generic one.
 
 ## C. Data flow
 
-Be able to trace one complete request:
+Trace one complete request:
 
 ```text
 User action
 → HTTP request
 → backend route
 → validation
+→ authentication / authorization
 → business logic
-→ database / model
+→ database / external service
 → response
 → frontend update
 ```
@@ -544,7 +562,31 @@ Know these well enough to explain with a real example:
 <a id="11-sql"></a>
 # 11. Layer 2 — SQL
 
-**SQL is now a top-tier preparation area.** Treat it like coding.
+**SQL is a top-tier preparation area.** Treat it like coding.
+
+## Current learning sequence
+
+```text
+Basic SELECT / filtering
+↓
+GROUP BY / HAVING / CASE / aggregation
+↓
+Subqueries
+↓
+Joins
+↓
+IN / NOT IN / LIKE / BETWEEN / NULL checks
+↓
+EXISTS / NOT EXISTS
+↓
+CTEs
+↓
+Window functions
+↓
+SQL optimization concepts
+↓
+Timed interview drills
+```
 
 ## Must know
 
@@ -571,9 +613,30 @@ Understand:
 ROW_NUMBER()
 RANK()
 DENSE_RANK()
+LAG()
+LEAD()
+SUM() OVER (...)
+AVG() OVER (...)
+COUNT() OVER (...)
 ```
 
-Know what `PARTITION BY` does and when a window function is preferable to a grouped query.
+Know `PARTITION BY`, `ORDER BY` inside `OVER`, and when a window function is preferable to a grouped query or subquery.
+
+## High-value operators / clauses
+
+Know practical use of:
+
+- `IN`
+- `NOT IN`
+- `LIKE`
+- `NOT LIKE`
+- `BETWEEN`
+- `IS NULL`
+- `IS NOT NULL`
+- `EXISTS`
+- `NOT EXISTS`
+- `ANY`
+- `ALL`
 
 ## Practice set
 
@@ -587,8 +650,12 @@ Know what `PARTITION BY` does and when a window function is preferable to a grou
 8. Department with highest average salary
 9. JOIN + filter
 10. JOIN + GROUP BY + HAVING
-11. CTE-based query
-12. Window-function ranking query
+11. Correlated subquery
+12. `EXISTS` / `NOT EXISTS`
+13. CTE-based query
+14. Window-function ranking query
+15. Running total
+16. `LAG` / `LEAD` comparison
 
 ## SQL explanation checklist
 
@@ -604,11 +671,13 @@ How are rows grouped?
 Do I need HAVING?
 ↓
 Would a subquery / CTE / window function be clearer?
+↓
+What indexes would help?
 ```
 
 ## Interview standard
 
-You should be able to write a query on a whiteboard/editor **without depending on memorized templates**.
+You should be able to write a query in an editor **without depending on memorized templates** and explain why it works.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
@@ -617,7 +686,7 @@ You should be able to write a query on a whiteboard/editor **without depending o
 <a id="12-dbms"></a>
 # 12. Layer 2 — DBMS
 
-Focus on the parts that naturally connect to backend engineering.
+Focus on the parts that connect naturally to backend engineering.
 
 ## Fundamentals
 
@@ -629,8 +698,6 @@ Focus on the parts that naturally connect to backend engineering.
 
 ## Normalization
 
-Know:
-
 - 1NF
 - 2NF
 - 3NF
@@ -639,8 +706,6 @@ Know:
 
 ## Transactions
 
-Know:
-
 - Transaction
 - ACID
 - Atomicity
@@ -648,6 +713,7 @@ Know:
 - Isolation
 - Durability
 - Serializability concept
+- Deadlock concept
 
 ## Isolation problems
 
@@ -667,7 +733,8 @@ Know:
 - Why writes can become slower
 - B-tree / B+ tree concept
 - Why indexing every column is a bad idea
-- How selectivity affects usefulness
+- Selectivity concept
+- Composite index concept
 - Why the query planner matters conceptually
 
 ## Query optimization
@@ -694,7 +761,7 @@ Better join conditions / indexes
 
 ## Database scaling
 
-Know the concepts:
+Know:
 
 ```text
 Vertical scaling
@@ -705,31 +772,65 @@ Caching
 Connection pooling
 ```
 
-Do not memorize implementation details you cannot defend.
+[⬆️ Back to Table of Contents](#table-of-contents)
 
-### High-value questions
+---
 
-1. Why does an index speed up reads?
-2. Why can an index slow writes?
-3. When should you not create an index?
-4. How would you optimize a slow query?
-5. What happens when the database becomes the bottleneck?
-6. Vertical vs horizontal scaling?
-7. What is a read replica?
-8. Why is connection pooling useful?
-9. What is a deadlock?
-10. Normalization vs denormalization?
+<a id="13-dsa-interview-target"></a>
+# 13. Layer 2 — DSA Interview Target
+
+This is **not** a second Round 2 syllabus.
+
+The interview target is:
+
+> **Solve one or more fresh Easy/Medium problems under observation, explain the reasoning, and adapt when the interviewer changes a condition.**
+
+## Required performance standard
+
+You should be able to:
+
+```text
+Understand problem in 2–3 minutes
+↓
+State constraints / assumptions
+↓
+Give brute force
+↓
+Identify bottleneck
+↓
+Recognize or derive pattern
+↓
+Explain optimized approach
+↓
+State complexity
+↓
+Code without autocomplete
+↓
+Dry run
+↓
+Handle edge cases
+↓
+Adapt to one follow-up variation
+```
+
+## Difficulty target
+
+```text
+Easy        → near automatic
+Easy-Medium → strong
+Medium      → interview-ready
+Medium variation → primary training target
+Hard        → recognize / discuss idea, not primary practice
+```
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="13-dsa-coding"></a>
-# 13. Layer 2 — DSA Coding
+<a id="14-dsa-pattern-priority"></a>
+# 14. DSA Pattern Priority
 
-The interview target is **pattern recognition + explanation**, not another full competitive-programming syllabus.
-
-## Tier A — Must be automatic
+## 🔴 Tier A — Must be automatic
 
 - Hashing
 - Prefix Sum
@@ -742,51 +843,693 @@ The interview target is **pattern recognition + explanation**, not another full 
 - BFS / DFS
 - Grid DFS / BFS
 
-## Tier B — Strong interview coverage
+## 🔴 Tier B — Strong interview coverage
 
-- Linked List basics
+- Linked List
 - Trees / BST
 - Greedy
+- Intervals
 - 1D DP
 - Pick / Not Pick DP
 - 2D / Grid DP
 - State DP
 - Counting DP
-- Shortest path basics
 
-## Tier C — Know the idea, not endless practice
+## 🟠 Tier C — Know and practice selectively
 
 - Topological Sort
 - DSU
 - Dijkstra
 - LIS / LCS
 - Tree DP
+- Shortest-path basics
 - Interval / Partition DP
 
-## Problem recognition
+## 🟡 Tier D — Recognize the concept
 
-| Signal | First pattern |
-|---|---|
-| Frequency / fast lookup | Hashing |
-| Subarray / range sum | Prefix Sum |
-| Sorted pair relationship | Two Pointers |
-| Contiguous range + condition | Sliding Window |
-| Sorted search space | Binary Search |
-| Next greater / smaller | Monotonic Stack |
-| Repeated min/max / Top K | Heap |
-| Equal-cost shortest path | BFS |
-| Weighted non-negative path | Dijkstra |
-| Connected region | DFS / BFS / DSU |
-| Choose / skip | DP |
-| Count ways | Counting DP |
-| State changes | State DP |
+- Advanced graph algorithms
+- Advanced number theory
+- Hard string algorithms
+- Very advanced optimization DP
+
+Do not sacrifice Tier A/B mastery to chase Tier D topics.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="14-dsa-follow-up-skills"></a>
-# 14. DSA Follow-Up Skills
+<a id="15-arrays--hashing--prefix-sum"></a>
+# 15. Arrays / Hashing / Prefix Sum
+
+## Must master
+
+- Frequency counting
+- Complement lookup
+- Duplicate detection
+- Prefix sums
+- Prefix sum + hashmap
+- Subarray sum
+- Range queries
+
+## Core interview problems
+
+- Two Sum
+- Contains Duplicate
+- Longest Consecutive Sequence
+- Subarray Sum Equals K
+- Contiguous Array
+- Pivot Index
+
+## Variation requirement
+
+After solving a standard problem, modify one condition:
+
+```text
+Return count instead of existence.
+Return longest instead of count.
+Add a target constraint.
+Allow negative values.
+Ask for the actual indices.
+```
+
+The goal is to force reasoning rather than recall.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="16-two-pointers--sliding-window"></a>
+# 16. Two Pointers / Sliding Window
+
+## Must master
+
+- Opposite-direction pointers
+- Same-direction pointers
+- Fixed-size window
+- Variable-size window
+- Frequency map window
+- Expand / shrink logic
+
+## Core interview problems
+
+- Two Sum II
+- Container With Most Water
+- 3Sum
+- Longest Substring Without Repeating Characters
+- Minimum Size Subarray Sum
+- Longest Repeating Character Replacement
+- Permutation in String
+
+## Variation requirement
+
+Practice changing:
+
+```text
+At most K
+Exactly K
+Minimum length
+Maximum length
+Count windows
+Return the window itself
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="17-binary-search"></a>
+# 17. Binary Search
+
+## Must master
+
+- Basic binary search
+- First / last occurrence
+- Lower / upper bound
+- Rotated sorted array
+- Binary Search on Answer
+- Feasibility function
+
+## Core interview problems
+
+- Binary Search
+- Search Insert Position
+- First and Last Position
+- Search in Rotated Sorted Array
+- Koko Eating Bananas
+- Capacity to Ship Packages Within D Days
+
+## Variation requirement
+
+Be able to change:
+
+```text
+Find first valid answer
+Find last valid answer
+Minimize answer
+Maximize answer
+Change the feasibility condition
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="18-stack--monotonic-stack"></a>
+# 18. Stack / Monotonic Stack
+
+## Must master
+
+- Matching structures
+- Min Stack idea
+- Next greater
+- Next smaller
+- Previous greater / smaller
+- Circular next greater
+- Index-based monotonic stack
+- Rectangle / boundary problems
+
+## Core interview problems
+
+- Valid Parentheses
+- Min Stack
+- Daily Temperatures
+- Next Greater Element
+- Largest Rectangle in Histogram
+
+## Variation requirement
+
+Mechanical trigger:
+
+```text
+What relation am I waiting for?
+→ greater / smaller
+
+Next or previous?
+
+Need distance / width / contribution?
+→ store indices
+
+Circular?
+→ traverse 2n / modulo
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="19-heap--priority-queue"></a>
+# 19. Heap / Priority Queue
+
+## Must master
+
+- Min heap
+- Max heap pattern
+- Top K
+- Repeated min/max
+- Heap + greedy
+- Heap + intervals
+
+## Core interview problems
+
+- Kth Largest Element
+- Top K Frequent Elements
+- K Closest Points
+- Merge K Sorted Lists
+- Meeting Rooms II
+
+Understand when a heap reduces repeated sorting or selection work.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="20-linked-list"></a>
+# 20. Linked List
+
+## Must master
+
+- Traversal
+- Reverse
+- Fast / slow pointers
+- Middle node
+- Cycle detection
+- Merge sorted lists
+- Remove / insert reasoning
+
+## Core interview problems
+
+- Reverse Linked List
+- Middle of Linked List
+- Linked List Cycle
+- Merge Two Sorted Lists
+- Remove Nth Node From End
+
+## Follow-up
+
+Be able to explain why fast/slow pointers work, not merely reproduce them.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="21-trees--bst"></a>
+# 21. Trees / BST
+
+## Must master
+
+- Preorder / inorder / postorder
+- Level order
+- Maximum depth
+- Height
+- Diameter
+- Path Sum
+- Lowest Common Ancestor
+- BST search
+- Validate BST
+- Kth smallest
+- Basic tree DP
+
+## Core interview problems
+
+- Maximum Depth of Binary Tree
+- Binary Tree Level Order Traversal
+- Diameter of Binary Tree
+- Path Sum
+- Lowest Common Ancestor
+- Validate BST
+- Kth Smallest in BST
+
+## Follow-up
+
+Be ready to switch between:
+
+```text
+Recursive DFS
+↔
+Iterative stack
+
+DFS
+↔
+BFS
+```
+
+and explain when each is useful.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="22-graphs--bfs--dfs"></a>
+# 22. Graphs / BFS / DFS
+
+## Must master
+
+- Adjacency list
+- DFS
+- BFS
+- Connected components
+- Cycle detection basics
+- Topological sort concept
+- Shortest path basics
+
+## Core interview problems
+
+- Number of Islands
+- Clone Graph
+- Course Schedule
+- Rotting Oranges
+- Graph traversal / connected component variants
+
+## Higher-priority follow-up
+
+- Course Schedule → topological sort
+- Weighted non-negative shortest path → Dijkstra
+- Dynamic connectivity → DSU
+
+Do not spend large amounts of time on advanced graph theory unless the basics are automatic.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="23-grid-dfs--bfs"></a>
+# 23. Grid DFS / BFS
+
+## Mechanical direction loop
+
+Memorize the implementation pattern:
+
+```python
+directions = [
+    (-1, 0),
+    (1, 0),
+    (0, -1),
+    (0, 1)
+]
+
+for dr, dc in directions:
+    nr = r + dr
+    nc = c + dc
+
+    if 0 <= nr < rows and 0 <= nc < cols:
+        # process neighbor
+```
+
+## Must master
+
+- Number of Islands
+- Flood Fill
+- Connected regions
+- Grid shortest path
+- Multi-source BFS
+- Grid boundary handling
+
+## Recognition
+
+```text
+Equal-cost movement
+→ BFS
+
+Component / reachability
+→ DFS / BFS
+
+Multiple sources expanding simultaneously
+→ Multi-source BFS
+
+Weighted non-negative movement
+→ Dijkstra
+```
+
+## Variation requirement
+
+Practice changes such as:
+
+- Obstacles
+- Diagonal movement
+- Different start / target
+- Multiple starting cells
+- Count regions instead of shortest distance
+- Minimum cost instead of minimum number of steps
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="24-greedy--intervals"></a>
+# 24. Greedy / Intervals
+
+## Must master
+
+- Sort + greedy
+- Interval selection
+- Interval merging
+- Greedy + heap
+- Feasibility reasoning
+
+## Core interview problems
+
+- Activity Selection
+- Merge Intervals
+- Insert Interval
+- Non-overlapping Intervals
+- Meeting Rooms II
+- Jump Game
+- Gas Station
+
+## Follow-up
+
+Always be able to state why a local choice is safe.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="25-dynamic-programming--core"></a>
+# 25. Dynamic Programming — Core
+
+This is a **Priority A/B DSA area** for your preparation because Round 2 already exposed your ability to solve and adapt a DP problem.
+
+## The canonical progression
+
+```text
+Recursion
+↓
+Memoization
+↓
+Tabulation
+↓
+Space optimization when valid
+```
+
+## Core state patterns
+
+### 1. 1D DP
+
+- Fibonacci
+- Climbing Stairs
+- House Robber
+
+### 2. Pick / Not Pick
+
+- Subset Sum
+- Equal Partition
+- Target Sum
+- 0/1 Knapsack
+
+### 3. Unbounded choice
+
+- Coin Change
+- Unbounded Knapsack concept
+
+### 4. Sequence DP
+
+- LIS
+- LCS
+- Edit Distance basics
+
+### 5. Counting DP
+
+```text
+How many ways?
+→ state + choices + sum counts
+```
+
+## Interview standard
+
+For every DP problem, explain:
+
+```text
+What does dp[state] mean?
+↓
+What choices exist?
+↓
+How is the next state formed?
+↓
+Base case
+↓
+Why does the recurrence cover all cases?
+↓
+Complexity
+```
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="26-dynamic-programming--grid-state-variants"></a>
+# 26. Dynamic Programming — Grid State Variants
+
+> **Critical gap added:** standard grid DP alone is not enough. You must practice grid DP where the next row is not simply `(r+1, c)`.
+
+## Variant A — Standard right/down grid DP
+
+Know the classic form:
+
+```text
+dp[r][c]
+= best answer to reach / leave (r, c)
+```
+
+Typical transitions:
+
+```text
+from top
+from left
+```
+
+Examples:
+
+- Unique Paths
+- Minimum Path Sum
+
+## Variant B — All columns in the next row are possible
+
+This is the specific missing pattern from the previous roadmap.
+
+Suppose you are at `(r, c)` and **the next state may be any column `nc` in row `r+1`**.
+
+Conceptually:
+
+```text
+dp[r][c]
+↓
+try every valid nc in row r+1
+↓
+dp[r+1][nc]
+```
+
+A direct recurrence can look like:
+
+```text
+dp[r+1][nc]
+= min(
+    dp[r+1][nc],
+    dp[r][c] + transition_cost(r, c, nc)
+)
+```
+
+If every column is reachable, this becomes an `O(R * C²)` state transition before further optimization.
+
+The important skill is not memorizing the `C²` loop. It is recognizing:
+
+> **State = current row + current column; transition = all valid next columns.**
+
+## Variant C — Next column is determined by a formula
+
+Some problems compute a next column from the current state:
+
+```text
+next_column = f(r, c, value, parameter)
+```
+
+Then:
+
+```text
+dp[r][c]
+→ dp[r+1][next_column]
+```
+
+This is exactly where standard right/down grid intuition can fail.
+
+## Variant D — Forbidden cells / invalid transitions
+
+When cells or transitions are forbidden:
+
+```text
+if state is invalid:
+    skip
+```
+
+The state definition remains the same; only the transition set changes.
+
+## Variant E — Minimum cost across rows
+
+Common shape:
+
+```text
+Start in any column of row 0
+↓
+Move row by row
+↓
+Choose a valid column in each next row
+↓
+Minimize total cost
+```
+
+Your first question should be:
+
+> What information is necessary to determine the future?
+
+Usually that is **current row + current column**.
+
+## Practice requirements
+
+Do at least one problem of each type:
+
+1. Right/down minimum path
+2. All-columns-next-row minimum cost
+3. Formula-determined next column
+4. Grid with forbidden cells
+5. Grid counting variant
+6. Grid shortest path via BFS when movement is equal-cost
+7. Grid minimum-cost path where weighted movement changes the algorithm
+
+## Complexity awareness
+
+For an `R × C` grid:
+
+```text
+Standard local transitions       → O(RC)
+All-next-column transitions      → O(RC²)
+All-next-column + optimization   → derive based on transition structure
+```
+
+Never claim `O(RC)` merely because it is “grid DP.”
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="27-dynamic-programming--state--counting-variants"></a>
+# 27. Dynamic Programming — State / Counting Variants
+
+## State DP
+
+Practice problems where the state contains extra information:
+
+```text
+position + count
+position + previous choice
+position + remaining capacity
+position + mode / state
+```
+
+This is important because your Round 2 DP problem required an additional count-related state.
+
+## Counting DP
+
+Recognize:
+
+```text
+“How many ways?”
+“How many valid selections?”
+“How many paths?”
+```
+
+The recurrence usually combines counts from valid predecessor states.
+
+## Last-choice / previous-state DP
+
+Practice states such as:
+
+```text
+index + previous selected element
+index + previous color
+index + previous action
+```
+
+## DP optimization ladder
+
+For each suitable problem:
+
+```text
+2D / full state
+↓
+remove unnecessary history
+↓
+2 rows
+↓
+1 row
+```
+
+But do not optimize space before the state itself is correct.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="28-dsa-follow-up-skills"></a>
+# 28. DSA Follow-Up Skills
 
 Do not only practice solving.
 
@@ -800,6 +1543,7 @@ What is the time complexity?
 What is the space complexity?
 What edge cases matter?
 Can it be optimized?
+What changes if one condition changes?
 ```
 
 ### For DP
@@ -820,48 +1564,48 @@ Tabulation
 Space optimization if useful
 ```
 
-### Important lesson from Round 2
+### For unfamiliar problems
 
-Your Round 2 experience showed why **state derivation matters more than memorizing movement patterns**.
+Use:
 
-For a grid/state problem, think:
+```text
+Constraints
+↓
+Brute force
+↓
+Bottleneck
+↓
+Pattern / state
+↓
+Transition
+↓
+Complexity
+```
+
+### Critical Round 2 lesson
+
+Do not assume textbook movement rules.
+
+For a grid/state problem, ask:
 
 ```text
 What does dp[r][c] mean?
 ↓
 From this state, where can I go?
 ↓
-What value determines the next state?
+Is the next state local or can it be many states?
 ↓
-What is the best answer for this state?
-```
-
-Do not assume every grid DP moves only right/down.
-
-### Coding interview sequence
-
-```text
-Restate
-→ constraints
-→ brute force
-→ bottleneck
-→ optimized idea
-→ code
-→ dry run
-→ complexity
-→ edge cases
+What determines the next state?
+↓
+What is the best / count answer for this state?
 ```
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="15-backend--apis"></a>
-# 15. Layer 3 — Backend + APIs
-
-This layer converts project knowledge into SP-level engineering reasoning.
-
-## API fundamentals
+<a id="29-backend--apis"></a>
+# 29. Layer 3 — Backend + APIs
 
 Know:
 
@@ -874,10 +1618,10 @@ Know:
 - Authentication
 - Authorization
 - Statelessness
+- Middleware concept
+- Connection management
 
 ## Backend flow
-
-Be able to explain:
 
 ```text
 Request
@@ -895,9 +1639,7 @@ Database interaction
 Response
 ```
 
-## Scaling an API
-
-Think in layers:
+## API scaling
 
 ```text
 Measure bottleneck
@@ -914,17 +1656,69 @@ Horizontal application scaling
 ↓
 Load balancing
 ↓
-Background jobs / queues when appropriate
+Background jobs / queues where appropriate
 ```
-
-Never answer “scale it” with only “add more servers.” Explain the bottleneck first.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="16-database-optimization--scaling"></a>
-# 16. Database Optimization + Scaling
+<a id="30-api-security--reliability"></a>
+# 30. API Security + Reliability
+
+## Authentication
+
+```text
+Who are you?
+```
+
+## Authorization
+
+```text
+What are you allowed to do?
+```
+
+## Security basics
+
+Understand:
+
+- Password hashing
+- Token-based authentication concept
+- Input validation
+- SQL injection prevention
+- Secrets management
+- Rate limiting
+- Least privilege
+
+## Reliability
+
+Know conceptually:
+
+- Logging
+- Monitoring
+- Retries
+- Timeouts
+- Background jobs
+- Graceful error handling
+- Idempotency concept
+
+### High-value questions
+
+1. How would you secure an API?
+2. Authentication vs authorization?
+3. How would you protect passwords?
+4. What is rate limiting?
+5. Why are timeouts necessary?
+6. When are retries dangerous?
+7. How would you protect against SQL injection?
+8. How would you handle a failing dependency?
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="31-database-optimization--scaling"></a>
+# 31. Database Optimization + Scaling
 
 Use this interview framework when asked:
 
@@ -942,7 +1736,7 @@ Use this interview framework when asked:
 9. Only then discuss larger-scale architecture
 ```
 
-For a database under high traffic, discuss:
+For a database under high traffic:
 
 ```text
 Read-heavy workload
@@ -961,79 +1755,14 @@ Write-heavy contention
 → workload / schema / transaction analysis
 ```
 
-The important interview skill is **diagnosis before solution**.
-
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="17-api-security--reliability"></a>
-# 17. API Security + Reliability
+<a id="32-basic-system-design"></a>
+# 32. Basic System Design
 
-Prepare the basic security model.
-
-## Authentication
-
-```text
-Who are you?
-```
-
-## Authorization
-
-```text
-What are you allowed to do?
-```
-
-## Input security
-
-Understand:
-
-- Validation
-- Injection prevention
-- Safe handling of user input
-- Output encoding concept where relevant
-
-## Secrets
-
-Know why:
-
-- Passwords / API keys / tokens should not be hard-coded
-- Secrets should be stored securely
-
-## Reliability
-
-Know conceptually:
-
-- Logging
-- Monitoring
-- Retries
-- Timeouts
-- Rate limiting
-- Background jobs
-- Graceful error handling
-
-## High-value questions
-
-1. How would you secure an API?
-2. Authentication vs authorization?
-3. What is rate limiting?
-4. Why are timeouts necessary?
-5. When are retries dangerous?
-6. How would you handle an API that becomes unavailable?
-7. How would you protect against SQL injection?
-
-[⬆️ Back to Table of Contents](#table-of-contents)
-
----
-
-<a id="18-basic-system-design"></a>
-# 18. Layer 3 — Basic System Design
-
-The target is not advanced system-design theory.
-
-The target is to answer:
-
-> **How would you design and improve a practical backend system?**
+The target is practical engineering reasoning.
 
 Use:
 
@@ -1074,22 +1803,22 @@ Know:
 - Logging / monitoring
 - Horizontal vs vertical scaling
 
-### Common design prompts
+### Common prompts
 
-- Scale one of your projects to 10x traffic.
-- Design a simple scoring API.
-- Design a URL-shortening backend at a basic level.
+- Scale SceneFlow to 10x traffic.
+- Scale the URL Shortener.
 - Handle a traffic spike.
-- Design an API that should remain available when one component fails.
+- Handle a database bottleneck.
+- Keep an API available when a dependency fails.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="19-operating-systems"></a>
-# 19. Layer 4 — Operating Systems
+<a id="33-operating-systems"></a>
+# 33. Layer 4 — Operating Systems
 
-Prepare the **high-yield interview layer**, not the entire textbook.
+Prepare the high-yield interview layer.
 
 ## Must know
 
@@ -1109,8 +1838,6 @@ Prepare the **high-yield interview layer**, not the entire textbook.
 
 ### Deadlock
 
-Know the four conditions:
-
 1. Mutual exclusion
 2. Hold and wait
 3. No preemption
@@ -1126,27 +1853,14 @@ Also know prevention / avoidance / detection conceptually.
 - Page fault
 - Fragmentation concept
 
-### High-value questions
-
-1. Process vs thread?
-2. Why can threads be cheaper?
-3. What is context switching?
-4. What is a race condition?
-5. Mutex vs semaphore?
-6. What is deadlock?
-7. Four necessary deadlock conditions?
-8. What is virtual memory?
-9. What is a page fault?
-10. Stack vs heap?
-
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="20-computer-networks"></a>
-# 20. Layer 4 — Computer Networks
+<a id="34-computer-networks"></a>
+# 34. Layer 4 — Computer Networks
 
-Prepare the concepts that connect directly to web/backend development.
+Prepare the concepts that connect directly to backend development.
 
 ## Must know
 
@@ -1156,7 +1870,6 @@ Prepare the concepts that connect directly to web/backend development.
 - HTTP vs HTTPS
 - DNS
 - IP address
-- MAC address concept
 - TCP three-way handshake
 - HTTP methods
 - HTTP status codes
@@ -1164,8 +1877,6 @@ Prepare the concepts that connect directly to web/backend development.
 - REST
 
 ## Most important flow
-
-Be able to explain:
 
 ```text
 URL
@@ -1187,24 +1898,12 @@ HTTP response
 Browser rendering / client processing
 ```
 
-### High-value questions
-
-1. TCP vs UDP?
-2. What is DNS?
-3. Explain the TCP three-way handshake.
-4. HTTP vs HTTPS?
-5. What are HTTP methods?
-6. Common HTTP status codes?
-7. Cookies vs sessions?
-8. What is REST?
-9. What happens when you type a URL?
-
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="21-project-technical-drill"></a>
-# 21. Layer 5 — Project Technical Drill
+<a id="35-project-technical-drill"></a>
+# 35. Layer 5 — Project Technical Drill
 
 For each of your two primary projects, do this drill **out loud**.
 
@@ -1247,10 +1946,10 @@ Never bluff an internal detail.
 
 ---
 
-<a id="22-sql-drill"></a>
-# 22. Layer 5 — SQL Drill
+<a id="36-sql-drill"></a>
+# 36. Layer 5 — SQL Drill
 
-Do one timed SQL sitting.
+Do repeated timed SQL sittings instead of one giant revision session.
 
 ### Set
 
@@ -1258,6 +1957,7 @@ Do one timed SQL sitting.
 2 JOIN queries
 2 GROUP BY / HAVING queries
 2 subquery / CTE queries
+2 EXISTS / NOT EXISTS queries
 2 window-function queries
 2 mixed queries
 ```
@@ -1276,59 +1976,123 @@ Run mentally
 Check edge cases
 ↓
 Explain why it works
+↓
+Discuss indexing / performance when relevant
 ```
-
-After every query ask:
-
-> Could I solve this with another valid SQL approach, and why would I choose one over the other?
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="23-dsa-drill"></a>
-# 23. Layer 5 — DSA Drill
+<a id="37-live-dsa-coding-drill"></a>
+# 37. Layer 5 — Live DSA Coding Drill
 
-The interview drill is deliberately smaller than the Round 2 preparation.
+This is the **most important DSA practice format**.
 
-Do:
+Do not solve silently.
+
+## One interview session
 
 ```text
-1 Easy
-+
-2 Medium
+Problem 1 — Easy          10 minutes
+Problem 2 — Medium        25 minutes
+Problem 3 — Medium        25 minutes
 ```
-
-Across different patterns.
-
-At least one should be a problem you have **not memorized**.
 
 For each:
 
 ```text
-Explain pattern
-→ derive
-→ code
-→ dry run
-→ complexity
+Clarify
+↓
+Constraints
+↓
+Brute force
+↓
+Bottleneck
+↓
+Optimal approach
+↓
+Complexity
+↓
+Code live
+↓
+Dry run
+↓
+Edge cases
 ```
 
-### Preferred pattern spread
+### Rules
+
+- No AI during first attempt.
+- No autocomplete dependence.
+- Speak while reasoning.
+- Do not jump straight to code.
+- If stuck, explain exactly where you are stuck.
+- After solving, re-check complexity.
+
+### Weekly pattern spread
+
+Across sessions, cover:
 
 ```text
-1 array / hashing / sliding-window style
-1 binary search / stack / heap style
-1 tree / graph / DP style
+Arrays / Hashing
+Sliding Window
+Binary Search
+Stack
+Heap
+Linked List
+Tree
+Graph
+Grid
+DP
 ```
-
-The goal is to demonstrate adaptability, not volume.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
 ---
 
-<a id="24-core-cs-rapid-revision"></a>
-# 24. Core CS Rapid Revision
+<a id="38-dsa-variation-drill"></a>
+# 38. DSA Variation Drill
+
+After solving a problem correctly, **change the problem**.
+
+Examples:
+
+```text
+Normal → circular
+Count → minimum / maximum
+Existence → number of ways
+Fixed movement → computed movement
+Single source → multiple sources
+Unweighted → weighted
+One state → state + count
+```
+
+### Required high-value variations
+
+Practice at least:
+
+1. **Grid DP: all columns of next row**
+2. **Grid DP: formula-determined next column**
+3. **Grid DP: forbidden cells**
+4. **Pick / not-pick + extra count state**
+5. **BFS grid → multi-source BFS**
+6. **BFS → weighted shortest path reasoning**
+7. **Standard interval → insert / delete / overlap variant**
+8. **Standard sliding window → exact-K / at-most-K variant**
+9. **Binary search → first/last feasible answer**
+10. **Monotonic stack → next/previous + circular variant**
+
+### Variation test
+
+A problem is **interview-ready** only when you can solve the modified version without looking at the original solution.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="39-core-cs-rapid-revision"></a>
+# 39. Core CS Rapid Revision
 
 Use this order:
 
@@ -1344,7 +2108,7 @@ OS
 CN
 ```
 
-For each subject, prepare:
+For each subject:
 
 ```text
 10 high-value questions
@@ -1360,10 +2124,10 @@ Do not spend final-day time on obscure theory.
 
 ---
 
-<a id="25-technical-mock-interview"></a>
-# 25. Technical Mock Interview
+<a id="40-full-technical-mock-interview"></a>
+# 40. Full Technical Mock Interview
 
-Run one full mock before the real interview.
+Run at least **two complete mocks** before the actual interview.
 
 ## Part A — Introduction
 
@@ -1393,6 +2157,7 @@ Include:
 
 - JOIN
 - GROUP BY / HAVING
+- Subquery / CTE
 - Window function
 - Indexing
 - Query optimization
@@ -1400,9 +2165,9 @@ Include:
 
 ## Part D — DSA
 
-1 Easy/Medium coding problem.
+Run **one 30-minute live coding problem**.
 
-Explain before coding.
+Then receive **one follow-up modification** and adapt the solution.
 
 ## Part E — Core CS
 
@@ -1431,6 +2196,8 @@ Score each from 1–5:
 Technical correctness
 Explanation clarity
 Coding ability
+Problem derivation
+Variation handling
 Project ownership
 Engineering reasoning
 Confidence / composure
@@ -1442,24 +2209,27 @@ Any score below 4 becomes the next revision target.
 
 ---
 
-<a id="26-final-24-hour-checklist"></a>
-# 26. Final 24-Hour Checklist
+<a id="41-final-24-hour-checklist"></a>
+# 41. Final 24-Hour Checklist
 
 ## Projects
 
-- [ ] Two projects fully explainable
-- [ ] Architecture memorized conceptually
+- [ ] SceneFlow fully explainable
+- [ ] URL Shortener fully explainable
+- [ ] Architecture clear
 - [ ] Request/data flow clear
-- [ ] Every major technology choice defensible
+- [ ] Technology choices defensible
 - [ ] One debugging story ready
+- [ ] Authentication / authorization explanation ready
 - [ ] Scaling answer ready
-- [ ] Security answer ready
 
 ## SQL / DBMS
 
+- [ ] Subqueries
 - [ ] Joins
 - [ ] GROUP BY / HAVING
-- [ ] Subquery / CTE
+- [ ] `EXISTS` / `NOT EXISTS`
+- [ ] CTE
 - [ ] Window functions
 - [ ] Indexing
 - [ ] Query optimization
@@ -1469,13 +2239,23 @@ Any score below 4 becomes the next revision target.
 
 ## DSA
 
-- [ ] Explain a solution before coding
+- [ ] Explain before coding
 - [ ] Hashing / prefix sum
+- [ ] Sliding window
 - [ ] Binary search
 - [ ] Stack / monotonic stack
 - [ ] Heap
+- [ ] Linked list
+- [ ] Trees / BST
 - [ ] BFS / DFS
-- [ ] DP state derivation
+- [ ] Grid DFS / BFS
+- [ ] Standard grid DP
+- [ ] All-columns-next-row grid DP
+- [ ] Formula-determined grid transition
+- [ ] Pick / Not Pick DP
+- [ ] State + count DP
+- [ ] Counting DP
+- [ ] One live 30-minute mock problem
 
 ## OOP
 
@@ -1523,8 +2303,8 @@ Any score below 4 becomes the next revision target.
 
 ---
 
-<a id="27-final-interview-mental-model"></a>
-# 27. Final Interview Mental Model
+<a id="42-final-interview-mental-model"></a>
+# 42. Final Interview Mental Model
 
 Do not try to sound like you memorized a guide.
 
@@ -1560,6 +2340,7 @@ Understand
 → code
 → test
 → analyze
+→ adapt
 ```
 
 ### For projects
@@ -1577,10 +2358,24 @@ Problem
 
 ### The final target
 
-> **Be strong enough in the highest-probability areas that an interviewer can keep going deeper without finding a weak foundation.**
+> **Be strong enough in the highest-probability areas that an interviewer can keep going deeper without finding a weak foundation — and flexible enough to solve a modified problem instead of depending on memorized patterns.**
 
-And remember the most important project rule:
+The preparation is complete when you can confidently sit down and do all of this under observation:
 
-> **Anything on your resume can become a follow-up question. Prepare what you actually built, not what you merely recognize.**
+```text
+Explain your project
+        ↓
+Write SQL
+        ↓
+Answer DBMS questions
+        ↓
+Solve a fresh DSA problem
+        ↓
+Defend the solution
+        ↓
+Handle a variation
+        ↓
+Explain engineering trade-offs
+```
 
 [⬆️ Back to Table of Contents](#table-of-contents)
