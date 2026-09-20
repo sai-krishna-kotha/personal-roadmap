@@ -85,6 +85,320 @@ Your resume describes your main strength as Python backend development using Fas
 
 Your resume lists Python, SQL, JavaScript, React.js, FastAPI, Django, REST APIs, Pydantic, PostgreSQL, MySQL, SQLAlchemy, Alembic, Redis, Celery, Qdrant, Git, Docker, Linux and Postman.
 
+## Skills — Specific Interview Questions
+
+[Back to Table of Contents](#table-of-contents)
+
+This section is for the exact skill names on your resume. The interviewer can point at one skill and keep asking deeper follow-ups.
+
+### Python
+
+**Q: Why do you use Python?**
+
+**Answer:** "I like Python because the syntax is simple and it lets me build backend and AI applications quickly."
+
+**Q: What are mutable and immutable objects?**
+
+**Answer:** "Mutable objects can be changed after creation, like lists and dictionaries. Immutable objects cannot be changed after creation, like strings and tuples."
+
+**Q: List vs tuple?**
+
+**Answer:** "A list is mutable, while a tuple is immutable. I use a list when the data may change and a tuple when it should stay fixed."
+
+**Q: What is a dictionary and why is lookup fast?**
+
+**Answer:** "A dictionary stores key-value pairs. It normally gives very fast average lookup because it uses hashing."
+
+**Q: What is a decorator?**
+
+**Answer:** "A decorator wraps a function and adds or changes its behavior without changing the main function code."
+
+**Q: What is a generator?**
+
+**Answer:** "A generator produces values one at a time instead of keeping all values in memory at once. I would use it when working with large or streaming data."
+
+### SQL
+
+**Q: What is the difference between WHERE and HAVING?**
+
+**Answer:** "WHERE filters rows before grouping. HAVING filters groups after GROUP BY."
+
+**Q: INNER JOIN vs LEFT JOIN?**
+
+**Answer:** "INNER JOIN returns matching rows from both tables. LEFT JOIN keeps every row from the left table even when there is no match on the right."
+
+**Q: What is an index?**
+
+**Answer:** "An index helps the database find rows faster for suitable queries, but it also takes storage and can make writes more expensive."
+
+**Q: What is a transaction?**
+
+**Answer:** "A transaction groups database operations so they are handled as one unit. Either the required changes succeed together or they are rolled back."
+
+### JavaScript
+
+**Q: let vs const?**
+
+**Answer:** "Both are block-scoped. A let variable can be reassigned, while a const binding cannot be reassigned."
+
+**Q: What is a Promise?**
+
+**Answer:** "A Promise represents a value that may be available later, usually for asynchronous work."
+
+**Q: What is async/await?**
+
+**Answer:** "It is a cleaner way to write asynchronous code using Promises. await pauses that async function until the Promise settles."
+
+**Q: What is the event loop?**
+
+**Answer:** "The event loop helps JavaScript handle asynchronous work by coordinating the call stack with queues of callbacks and other tasks."
+
+### React.js
+
+**Q: What is a React component?**
+
+**Answer:** "A component is a reusable part of the UI. It receives data through props and can keep changing data in state."
+
+**Q: Props vs state?**
+
+**Answer:** "Props come from the parent and are read by the component. State is data managed by the component that can change over time."
+
+**Q: Why are keys used in React lists?**
+
+**Answer:** "Keys help React identify which list items changed, were added or removed."
+
+**Q: What is useEffect used for?**
+
+**Answer:** "It is used for side effects such as API calls, subscriptions or other work that should happen because of a render or state change."
+
+**Q: How does React call your backend?**
+
+**Answer:** "Usually through HTTP requests to REST API endpoints. The response data is then stored in React state and shown in the UI."
+
+### FastAPI
+
+**Q: What is FastAPI?**
+
+**Answer:** "FastAPI is a Python framework for building APIs. It gives routing, request validation and automatic API documentation."
+
+**Q: Why Pydantic in FastAPI?**
+
+**Answer:** "Pydantic validates and structures request and response data so the API works with predictable data."
+
+**Q: What is dependency injection in FastAPI?**
+
+**Answer:** "It lets a route receive things it depends on, such as a database session or current user, without creating them directly inside the route."
+
+**Q: What is async in FastAPI?**
+
+**Answer:** "Async helps when the application spends time waiting for things like database or network operations, so the server can handle other work while waiting."
+
+**Q: Async vs sync?**
+
+**Answer:** "Sync code waits for the operation to finish before continuing. Async code can give control back while waiting for an I/O operation."
+
+### Django
+
+**Q: What is Django?**
+
+**Answer:** "Django is a Python web framework that provides common features such as routing, models, authentication, forms and an ORM."
+
+**Q: What is Django ORM?**
+
+**Answer:** "The ORM lets the application work with database records using Python objects and query methods instead of writing every SQL statement manually."
+
+**Q: What is middleware?**
+
+**Answer:** "Middleware is code that runs around the request and response flow. It can be used for things like authentication, logging or other common request processing."
+
+**Q: What is a migration?**
+
+**Answer:** "A migration is a versioned change to the database schema, such as creating a table or adding a column."
+
+### REST APIs
+
+**Q: GET vs POST?**
+
+**Answer:** "GET is mainly used to retrieve data. POST is mainly used to send data to create or trigger something on the server."
+
+**Q: PUT vs PATCH?**
+
+**Answer:** "PUT is generally used for replacing a resource representation. PATCH is used for partial updates."
+
+**Q: What is a status code?**
+
+**Answer:** "It tells the client what happened to the request. For example, 200 means success, 201 means created, 400 means bad request and 404 means not found."
+
+**Q: What is idempotency?**
+
+**Answer:** "An operation is idempotent when repeating the same request has the same intended final effect as doing it once."
+
+### Pydantic
+
+**Q: Why not just use a normal Python dictionary?**
+
+**Answer:** "A dictionary does not automatically enforce the structure and types I expect. Pydantic gives validation and a clear data model."
+
+### PostgreSQL
+
+**Q: PostgreSQL vs MySQL?**
+
+**Answer:** "Both are relational databases and both support SQL. PostgreSQL is the database I have used more in my recent projects."
+
+**Q: What is normalization?**
+
+**Answer:** "Normalization is organizing relational data to reduce unnecessary duplication and update problems."
+
+**Q: What is a foreign key?**
+
+**Answer:** "A foreign key connects one table to another table and helps maintain valid relationships between records."
+
+**Q: What is a unique constraint?**
+
+**Answer:** "It prevents duplicate values in a column or combination of columns where uniqueness is required."
+
+### MySQL
+
+**Q: Have you used MySQL directly?**
+
+**Answer:** "Yes, I have worked with MySQL, mainly around relational data and SQL queries. PostgreSQL is the database I have used more heavily in my recent projects."
+
+**Q: What would you check when a query is slow?**
+
+**Answer:** "I would first look at the query itself, filters, joins, indexes and the amount of data being scanned. I would use the database query plan when needed."
+
+### SQLAlchemy
+
+**Q: What is SQLAlchemy?**
+
+**Answer:** "SQLAlchemy is a Python toolkit for working with SQL databases. It provides both SQL expression tools and an ORM."
+
+**Q: ORM vs raw SQL?**
+
+**Answer:** "ORM code is convenient for common application operations. Raw SQL can be useful when I need exact database-specific control or a complex query."
+
+### Alembic
+
+**Q: Why do you need Alembic if SQLAlchemy already defines models?**
+
+**Answer:** "Models describe the application side, but the actual database schema also needs controlled versioned changes. Alembic manages those migrations."
+
+### Redis
+
+**Q: What data can Redis store?**
+
+**Answer:** "Redis can store key-value data and also supports structures such as strings, lists, sets and hashes."
+
+**Q: Why is Redis fast?**
+
+**Answer:** "It keeps frequently accessed data in memory and is designed for very fast operations."
+
+**Q: What is TTL?**
+
+**Answer:** "TTL means time to live. It defines how long a key should remain before it expires."
+
+**Q: Redis cache vs PostgreSQL?**
+
+**Answer:** "Redis is mainly for fast temporary or cached data in my projects. PostgreSQL is the durable source of truth."
+
+**Q: What if Redis goes down?**
+
+**Answer:** "It depends on the use. In my URL shortener, the redirect path falls back to PostgreSQL. For SceneFlow, Redis is the Celery broker, so losing Redis affects background job processing."
+
+### Celery
+
+**Q: What is Celery?**
+
+**Answer:** "Celery is a task queue system. It lets the application send work to worker processes instead of doing everything inside the API request."
+
+**Q: Why Celery instead of a Python thread?**
+
+**Answer:** "A task queue gives a clearer way to manage background work with separate workers, queueing and retries. A thread inside the API process is much more tied to that process."
+
+**Q: What is a worker?**
+
+**Answer:** "A worker is a process that takes queued tasks and executes them."
+
+**Q: What is a broker?**
+
+**Answer:** "The broker carries tasks from the producer to the workers. In my SceneFlow project, Redis is used for that."
+
+### Qdrant
+
+**Q: What is a vector database?**
+
+**Answer:** "It stores vectors and lets us search for vectors that are close to a given query vector."
+
+**Q: Why not a normal SQL LIKE query?**
+
+**Answer:** "LIKE is based mainly on text matching. Vector search can compare semantic meaning."
+
+**Q: What is an embedding?**
+
+**Answer:** "It is a numeric vector created from data so that similar items can be compared in vector space."
+
+**Q: What is cosine similarity?**
+
+**Answer:** "It measures how similar two vectors are mainly by comparing their direction."
+
+### Git
+
+**Q: Git vs GitHub?**
+
+**Answer:** "Git is the version control system. GitHub is a platform for hosting Git repositories and collaborating on them."
+
+**Q: merge vs rebase?**
+
+**Answer:** "Merge combines histories and creates a merge point when needed. Rebase moves commits onto a new base and creates a more linear history."
+
+**Q: What is a pull request?**
+
+**Answer:** "It is a way to propose code changes and review them before merging into another branch."
+
+### Docker
+
+**Q: What is Docker?**
+
+**Answer:** "Docker packages an application and its dependencies into an image that can run as a container."
+
+**Q: Image vs container?**
+
+**Answer:** "An image is the packaged template. A container is a running instance of that image."
+
+**Q: Why Docker in your projects?**
+
+**Answer:** "It makes the environment more repeatable. I can run the backend and supporting services with the same setup instead of installing everything manually."
+
+### Linux
+
+**Q: What Linux commands do you use?**
+
+**Answer:** "I commonly use commands such as ls, cd, grep, ps, top, curl, chmod, systemctl and basic networking commands."
+
+**Q: Why Linux for backend work?**
+
+**Answer:** "Most server environments use Linux, and it gives me a good command-line environment for running services, checking processes and reading logs."
+
+### Postman
+
+**Q: How do you test an API in Postman?**
+
+**Answer:** "I choose the HTTP method, enter the URL, add the required headers or body, send the request and check the status code and response. I also test invalid input and error cases."
+
+### Cross-Skill Follow-Ups
+
+**Q: How do these technologies fit together in your project?**
+
+**Answer:** "React is the frontend. FastAPI or Django handles the backend. PostgreSQL stores the main data. Redis handles caching, rate limiting or background-job messaging depending on the project. Celery handles long-running work, and Qdrant handles vector search in SceneFlow."
+
+**Q: Which skill would you be most comfortable explaining in depth?**
+
+**Answer:** "Python backend development, FastAPI, PostgreSQL and the backend architecture of my projects."
+
+**Q: Which skill are you still learning more deeply?**
+
+**Answer:** "I am still going deeper into cloud, DevOps and advanced AI systems. I know the basics and have used some of them in projects, and I am building more depth now."
+
 ### Why FastAPI?
 
 **Answer:**
