@@ -53,13 +53,15 @@ Do not try to use big words just to sound professional.
 
 ### Tell me about yourself.
 
-"Sure. I'm Sai Krishna. I recently completed my B.Tech in Computer Science from RGUKT RK Valley. I mainly work with Python, Django, FastAPI, React and SQL, and I have also been working on AI and machine learning projects.
+**Answer:**
 
-One project I worked on is SceneFlow, where I built a system that takes a script, breaks it into scenes and helps find relevant visual assets using AI and embeddings. I have also worked on projects like a URL shortener and ScoreHub.
+"Sure. I'm Sai Krishna. I recently completed my B.Tech in Computer Science from RGUKT RK Valley. My main area is backend development, and I have mainly worked with Python, FastAPI, Django, PostgreSQL and REST APIs.
 
-Along with development, I have been focusing a lot on problem solving and core computer science subjects. Recently I have also been learning Docker, cloud, GenAI and system design because I want to become a stronger software engineer.
+One project I worked on is SceneFlow, a semantic visual asset retrieval system where I worked with FastAPI, PostgreSQL, Redis, Celery, Qdrant and embeddings. I also built a URL shortener using FastAPI, PostgreSQL, Redis, React and Docker.
 
-I would describe myself as someone who likes to understand how things work and then build them practically."
+I also had an internship at Wexdi Software Solutions, where I worked mainly on a Django-based client application, especially the employee timesheet management part. I worked on creating and editing timesheets, sending approval requests, manager review, approval or denial, and access levels. I also coordinated a four-member frontend team and worked with the client side on requirements.
+
+Apart from projects, I have solved 550+ LeetCode problems and qualified GATE CS. I like learning by building things, and right now I am focusing on becoming stronger in backend development, system design and AI-based applications."
 
 ### Tell me something that is not on your resume.
 
