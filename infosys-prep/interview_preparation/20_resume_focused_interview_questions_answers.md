@@ -5,6 +5,7 @@
 - [How to Use This File](#how-to-use-this-file)
 - [Important Accuracy Rule](#important-accuracy-rule)
 - [Resume Summary](#resume-summary)
+- [Basic Technology Questions](#basic-technology-questions)
 - [Skills](#skills)
 - [SceneFlow Project](#sceneflow-project)
 - [SceneFlow Architecture](#sceneflow-architecture)
