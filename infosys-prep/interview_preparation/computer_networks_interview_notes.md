@@ -12,108 +12,108 @@ Boundary: this remains Computer Networks. The future System Design course will g
 
 ## Table of Contents
 
-- How to Use These Notes
-- CN Interview Depth Model
-- The One Mental Model That Connects Everything
-- What a Network Actually Does
-- Network Components and Their Roles
-- OSI Model
-- TCP/IP Model
-- OSI vs TCP/IP
-- Encapsulation and Decapsulation
-- PDU Names
-- MAC Address
-- IP Address
-- IPv4 Addressing
-- Private and Public IP Addresses
-- Loopback and Special Addresses
-- Subnet Mask and CIDR
-- Subnetting Calculations
-- Default Gateway
-- ARP
-- IPv6 and NDP
-- Switching
-- Broadcast Domain and Collision Domain
-- Routing
-- Routing Table
-- Router vs Switch
-- Static vs Dynamic Routing
-- Distance Vector vs Link State
-- TTL and Hop Count
-- ICMP
-- Ping and Traceroute
-- UDP
-- TCP
-- TCP vs UDP
-- TCP Three-Way Handshake
-- TCP Connection Termination
-- TCP Sequence and Acknowledgement Numbers
-- TCP Retransmission and Timeout
-- TCP Flow Control
-- TCP Congestion Control
-- Slow Start
-- Congestion Avoidance
-- Fast Retransmit and Fast Recovery
-- Flow Control vs Congestion Control
-- Head-of-Line Blocking
-- MTU
-- MSS
-- IP Fragmentation
-- Ports and Sockets
-- Socket Lifecycle
-- Client-Server Connection Model
-- DNS
-- DNS Resolution
-- DNS Record Types
-- Recursive vs Authoritative DNS
-- DNS Caching and TTL
-- What Happens When You Enter a URL
-- DHCP
-- NAT
-- PAT
-- HTTP
-- HTTP Request Structure
-- HTTP Response Structure
-- HTTP Methods
-- Safe vs Idempotent Methods
-- HTTP Status Codes
-- HTTP Headers
-- Persistent Connections and Connection Pooling
-- HTTP/1.1 vs HTTP/2 vs HTTP/3
-- TLS and HTTPS
-- TLS Handshake Mental Model
-- Certificates and PKI
-- Symmetric vs Asymmetric Cryptography in HTTPS
-- Forward Proxy vs Reverse Proxy
-- Load Balancer
-- CORS
-- Cookies
-- Sessions vs Tokens
-- Authentication vs Authorization
-- WebSockets
-- Long Polling vs WebSockets
-- REST and Networking
-- Compression and Content Negotiation
-- HTTP Caching Headers
-- Rate Limiting at the Network Boundary
-- Latency, Bandwidth, Throughput and Jitter
-- Packet Loss and Goodput
-- Unicast, Multicast, Broadcast and Anycast
-- Proxy, Gateway, Router and Load Balancer Distinctions
-- Common Network Failure Scenarios
-- Network Debugging Workflow
-- General Implementation Drills
-- TCP Echo Server
-- UDP Echo Example
-- Simple HTTP Request
-- CIDR Utility
-- Connection Pool Reasoning
-- Project Connections
-- Likely Infosys SP/DSE Follow-Up Questions
-- Hidden Networking Keywords
-- Common CN Traps
-- 30-Second Revision Sheet
-- Final Computer Networks Interview Checklist
+- [How to Use These Notes](#how-to-use-these-notes)
+- [CN Interview Depth Model](#cn-interview-depth-model)
+- [The One Mental Model That Connects Everything](#the-one-mental-model-that-connects-everything)
+- [What a Network Actually Does](#what-a-network-actually-does)
+- [Network Components and Their Roles](#network-components-and-their-roles)
+- [OSI Model](#osi-model)
+- [TCP/IP Model](#tcpip-model)
+- [OSI vs TCP/IP](#osi-vs-tcpip)
+- [Encapsulation and Decapsulation](#encapsulation-and-decapsulation)
+- [PDU Names](#pdu-names)
+- [MAC Address](#mac-address)
+- [IP Address](#ip-address)
+- [IPv4 Addressing](#ipv4-addressing)
+- [Private and Public IP Addresses](#private-and-public-ip-addresses)
+- [Loopback and Special Addresses](#loopback-and-special-addresses)
+- [Subnet Mask and CIDR](#subnet-mask-and-cidr)
+- [Subnetting Calculations](#subnetting-calculations)
+- [Default Gateway](#default-gateway)
+- [ARP](#arp)
+- [IPv6 and NDP](#ipv6-and-ndp)
+- [Switching](#switching)
+- [Broadcast Domain and Collision Domain](#broadcast-domain-and-collision-domain)
+- [Routing](#routing)
+- [Routing Table](#routing-table)
+- [Router vs Switch](#router-vs-switch)
+- [Static vs Dynamic Routing](#static-vs-dynamic-routing)
+- [Distance Vector vs Link State](#distance-vector-vs-link-state)
+- [TTL and Hop Count](#ttl-and-hop-count)
+- [ICMP](#icmp)
+- [Ping and Traceroute](#ping-and-traceroute)
+- [UDP](#udp)
+- [TCP](#tcp)
+- [TCP vs UDP](#tcp-vs-udp)
+- [TCP Three-Way Handshake](#tcp-three-way-handshake)
+- [TCP Connection Termination](#tcp-connection-termination)
+- [TCP Sequence and Acknowledgement Numbers](#tcp-sequence-and-acknowledgement-numbers)
+- [TCP Retransmission and Timeout](#tcp-retransmission-and-timeout)
+- [TCP Flow Control](#tcp-flow-control)
+- [TCP Congestion Control](#tcp-congestion-control)
+- [Slow Start](#slow-start)
+- [Congestion Avoidance](#congestion-avoidance)
+- [Fast Retransmit and Fast Recovery](#fast-retransmit-and-fast-recovery)
+- [Flow Control vs Congestion Control](#flow-control-vs-congestion-control)
+- [Head-of-Line Blocking](#head-of-line-blocking)
+- [MTU](#mtu)
+- [MSS](#mss)
+- [IP Fragmentation](#ip-fragmentation)
+- [Ports and Sockets](#ports-and-sockets)
+- [Socket Lifecycle](#socket-lifecycle)
+- [Client-Server Connection Model](#client-server-connection-model)
+- [DNS](#dns)
+- [DNS Resolution](#dns-resolution)
+- [DNS Record Types](#dns-record-types)
+- [Recursive vs Authoritative DNS](#recursive-vs-authoritative-dns)
+- [DNS Caching and TTL](#dns-caching-and-ttl)
+- [What Happens When You Enter a URL](#what-happens-when-you-enter-a-url)
+- [DHCP](#dhcp)
+- [NAT](#nat)
+- [PAT](#pat)
+- [HTTP](#http)
+- [HTTP Request Structure](#http-request-structure)
+- [HTTP Response Structure](#http-response-structure)
+- [HTTP Methods](#http-methods)
+- [Safe vs Idempotent Methods](#safe-vs-idempotent-methods)
+- [HTTP Status Codes](#http-status-codes)
+- [HTTP Headers](#http-headers)
+- [Persistent Connections and Connection Pooling](#persistent-connections-and-connection-pooling)
+- [HTTP/1.1 vs HTTP/2 vs HTTP/3](#http11-vs-http2-vs-http3)
+- [TLS and HTTPS](#tls-and-https)
+- [TLS Handshake Mental Model](#tls-handshake-mental-model)
+- [Certificates and PKI](#certificates-and-pki)
+- [Symmetric vs Asymmetric Cryptography in HTTPS](#symmetric-vs-asymmetric-cryptography-in-https)
+- [Forward Proxy vs Reverse Proxy](#forward-proxy-vs-reverse-proxy)
+- [Load Balancer](#load-balancer)
+- [CORS](#cors)
+- [Cookies](#cookies)
+- [Sessions vs Tokens](#sessions-vs-tokens)
+- [Authentication vs Authorization](#authentication-vs-authorization)
+- [WebSockets](#websockets)
+- [Long Polling vs WebSockets](#long-polling-vs-websockets)
+- [REST and Networking](#rest-and-networking)
+- [Compression and Content Negotiation](#compression-and-content-negotiation)
+- [HTTP Caching Headers](#http-caching-headers)
+- [Rate Limiting at the Network Boundary](#rate-limiting-at-the-network-boundary)
+- [Latency, Bandwidth, Throughput and Jitter](#latency-bandwidth-throughput-and-jitter)
+- [Packet Loss and Goodput](#packet-loss-and-goodput)
+- [Unicast, Multicast, Broadcast and Anycast](#unicast-multicast-broadcast-and-anycast)
+- [Proxy, Gateway, Router and Load Balancer Distinctions](#proxy-gateway-router-and-load-balancer-distinctions)
+- [Common Network Failure Scenarios](#common-network-failure-scenarios)
+- [Network Debugging Workflow](#network-debugging-workflow)
+- [General Implementation Drills](#general-implementation-drills)
+- [TCP Echo Server](#tcp-echo-server)
+- [UDP Echo Example](#udp-echo-example)
+- [Simple HTTP Request](#simple-http-request)
+- [CIDR Utility](#cidr-utility)
+- [Connection Pool Reasoning](#connection-pool-reasoning)
+- [Project Connections](#project-connections)
+- [Likely Infosys SP/DSE Follow-Up Questions](#likely-infosys-spdse-follow-up-questions)
+- [Hidden Networking Keywords](#hidden-networking-keywords)
+- [Common CN Traps](#common-cn-traps)
+- [30-Second Revision Sheet](#30-second-revision-sheet)
+- [Final Computer Networks Interview Checklist](#final-computer-networks-interview-checklist)
 
 ---
 
