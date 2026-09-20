@@ -6,9 +6,9 @@
 
 <a id="table-of-contents"></a>
 
-##  Table of Contents
+## Table of Contents
 
-###  Part 1 — Software Engineering Foundations
+### Software Engineering Foundations
 - [Software Engineering](#software-engineering)
 - [SDLC](#sdlc)
 - [SDLC Models](#sdlc-models)
@@ -17,7 +17,7 @@
 - [Functional vs Non-Functional Requirements](#functional-vs-non-functional-requirements)
 - [User Stories and Acceptance Criteria](#user-stories-and-acceptance-criteria)
 
-###  Part 2 — APIs and API Engineering
+### APIs and API Engineering
 - [What Is an API?](#what-is-an-api)
 - [Different Types of APIs](#different-types-of-apis)
 - [REST API](#rest-api)
@@ -47,7 +47,7 @@
 - [API Documentation and OpenAPI](#api-documentation-and-openapi)
 - [API Testing](#api-testing)
 
-###  Part 3 — Testing and Quality
+### Testing and Quality
 - [STLC](#stlc)
 - [Testing Levels](#testing-levels)
 - [Testing Types](#testing-types)
@@ -55,7 +55,7 @@
 - [Contract Testing](#contract-testing)
 - [Test Case Thinking](#test-case-thinking)
 
-###  Part 4 — Git, Collaboration and CI/CD
+### Git, Collaboration and CI/CD
 - [Git and Version Control](#git-and-version-control)
 - [Merge vs Rebase](#merge-vs-rebase)
 - [Pull Requests and Code Review](#pull-requests-and-code-review)
@@ -65,7 +65,7 @@
 - [Environments and Configuration](#environments-and-configuration)
 - [Release Strategies](#release-strategies)
 
-###  Part 5 — Architecture and Design
+### Architecture and Design
 - [Monolith vs Modular Monolith vs Microservices](#monolith-vs-modular-monolith-vs-microservices)
 - [Layered Architecture](#layered-architecture)
 - [Event-Driven Architecture](#event-driven-architecture)
@@ -74,7 +74,7 @@
 - [Coupling and Cohesion](#coupling-and-cohesion)
 - [SOLID, DRY, KISS and YAGNI](#solid-dry-kiss-and-yagni)
 
-###  Part 6 — Production Engineering
+### Production Engineering
 - [Logging](#logging)
 - [Monitoring and Metrics](#monitoring-and-metrics)
 - [Observability and Tracing](#observability-and-tracing)
@@ -86,7 +86,7 @@
 - [Database Connection Pooling](#database-connection-pooling)
 - [Docker and Container Basics](#docker-and-container-basics)
 
-###  Part 7 — Security
+### Security
 - [Authentication vs Authorization](#authentication-vs-authorization)
 - [Sessions vs JWT](#sessions-vs-jwt)
 - [OAuth 2.0](#oauth-20)
@@ -94,14 +94,14 @@
 - [CORS, CSRF and XSS](#cors-csrf-and-xss)
 - [Secrets and Least Privilege](#secrets-and-least-privilege)
 
-###  Part 8 — Documentation and Engineering Practices
+### Documentation and Engineering Practices
 - [UML Diagrams You Should Recognize](#uml-diagrams-you-should-recognize)
 - [API Documentation](#api-documentation)
 - [Architecture Decision Records](#architecture-decision-records)
 - [Maintenance, Refactoring and Technical Debt](#maintenance-refactoring-and-technical-debt)
 - [Backward Compatibility and Deprecation](#backward-compatibility-and-deprecation)
 
-###  Part 9 — Infosys Interview Execution
+### Infosys Interview Execution
 - [Generic Software Engineering Q&A](#generic-software-engineering-qa)
 - [API Interview Q&A](#api-interview-qa)
 - [Infosys-Focused Questions](#infosys-focused-questions)
