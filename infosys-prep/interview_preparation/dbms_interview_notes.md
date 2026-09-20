@@ -1,8 +1,10 @@
 # DBMS Interview Notes — Infosys DSE / SP
 
-> A dedicated DBMS interview reference for Infosys DSE / Specialist Programmer preparation.
+> Dedicated DBMS interview reference for Infosys DSE / Specialist Programmer preparation.
 >
-> SQL query writing is intentionally kept in the separate SQL interview notes. This file focuses on how the database system stores, protects, indexes, executes, recovers, and scales data: relational design, keys, constraints, normalization, transactions, ACID, concurrency, isolation, locks, deadlocks, indexes, execution plans, recovery, scaling, and system-design trade-offs.
+> **Scope:** DBMS concepts, mechanisms, trade-offs, concurrency, transactions, indexing, optimization, storage, scaling, reliability, and security.
+>
+> **Separate scope:** SQL query writing is covered in `sql_interview_notes.md`. This file focuses on **how and why the database system works**, while the SQL file focuses on **how to write the query**.
 
 <a id="table-of-contents"></a>
 
@@ -68,14 +70,13 @@
 - [Final DBMS Interview Checklist](#final-dbms-interview-checklist)
 
 ---
-
 <a id="how-to-use-these-notes"></a>
 
 ## How to Use These Notes
 
 For every DBMS concept, train at four levels:
 
-\`\`\`text
+```text
 What is it?
 ↓
 Why do we need it?
@@ -87,11 +88,11 @@ What engineering problem does it solve?
 What trade-off does it introduce?
 ↓
 How would an interviewer change the scenario?
-\`\`\`
+```
 
 For interview answers, use:
 
-\`\`\`text
+```text
 Definition
 → intuition
 → simple example
@@ -99,7 +100,7 @@ Definition
 → mechanism
 → trade-off
 → follow-up
-\`\`\`
+```
 
 This keeps the preparation practical instead of turning it into textbook memorization.
 
@@ -143,7 +144,7 @@ This progression prepares you for an interviewer moving from theory to engineeri
 
 Think of a database system as several layers:
 
-\`\`\`text
+```text
 Application
 ↓
 SQL / API request
@@ -157,24 +158,24 @@ Indexes / data pages
 Buffer / memory
 ↓
 Storage
-\`\`\`
+```
 
 Around execution, the DBMS also provides:
 
-\`\`\`text
+```text
 Transactions
 Locks / MVCC
 Recovery
 Constraints
 Security
 Replication
-\`\`\`
+```
 
 The important interview idea is that a database is not just a collection of tables.
 
 It must provide:
 
-\`\`\`text
+```text
 Correctness
 +
 Concurrency
@@ -188,7 +189,7 @@ Recovery
 Scalability
 +
 Security
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -204,94 +205,94 @@ These are intentionally generic. An interviewer does not need to know your proje
 
 Relevant concepts:
 
-\`\`\`text
+```text
 transaction
 concurrency
 locking / MVCC
 isolation
 lost update
-\`\`\`
+```
 
 ### A query that took 20 ms now takes 4 seconds
 
 Relevant concepts:
 
-\`\`\`text
+```text
 indexes
 selectivity
 execution plan
 statistics
 data growth
 sort / join cost
-\`\`\`
+```
 
 ### The application crashes after writing half an order
 
 Relevant concepts:
 
-\`\`\`text
+```text
 transaction
 atomicity
 rollback
 recovery
-\`\`\`
+```
 
 ### The server loses power after COMMIT
 
 Relevant concepts:
 
-\`\`\`text
+```text
 durability
 logging
 recovery
-\`\`\`
+```
 
 ### Two transactions wait for each other
 
 Relevant concepts:
 
-\`\`\`text
+```text
 locks
 deadlock
 detection
 victim transaction
 retry
-\`\`\`
+```
 
 ### Read traffic becomes 20x higher
 
 Relevant concepts:
 
-\`\`\`text
+```text
 read replicas
 caching
 connection pooling
 query/index optimization
-\`\`\`
+```
 
 ### One table becomes enormous
 
 Relevant concepts:
 
-\`\`\`text
+```text
 indexes
 partitioning
 retention
 archival
 access pattern
-\`\`\`
+```
 
 ### One customer becomes a hotspot
 
 Relevant concepts:
 
-\`\`\`text
+```text
 hot rows
 contention
 partitioning
 sharding
 caching
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -307,7 +308,7 @@ A database is an organized collection of data.
 
 A DBMS is the software system that manages that data and provides capabilities such as:
 
-\`\`\`text
+```text
 data definition
 data access
 transactions
@@ -315,23 +316,23 @@ concurrency control
 integrity enforcement
 recovery
 security
-\`\`\`
+```
 
 ### Simple example
 
 Think of a library.
 
-\`\`\`text
+```text
 books = data
 catalog = organization
 library system = management layer
-\`\`\`
+```
 
 ### Technical example
 
 A relational DBMS such as PostgreSQL or MySQL manages:
 
-\`\`\`text
+```text
 tables
 indexes
 transactions
@@ -339,7 +340,7 @@ queries
 storage
 recovery
 constraints
-\`\`\`
+```
 
 ### Interview follow-up
 
@@ -361,7 +362,7 @@ The relational model represents data through relations, commonly exposed as tabl
 
 Think:
 
-\`\`\`text
+```text
 row
 → one record
 
@@ -370,18 +371,18 @@ column
 
 table
 → collection of related records
-\`\`\`
+```
 
 Relationships between entities are represented through keys.
 
 ### Technical example
 
-\`\`\`text
+```text
 departments(id, name)
 employees(id, name, department_id)
-\`\`\`
+```
 
-\`employees.department_id\` can reference \`departments.id\`.
+`employees.department_id` can reference `departments.id`.
 
 ### Interview follow-up
 
@@ -403,7 +404,7 @@ Keys identify rows or establish relationships.
 
 ### Main types
 
-\`\`\`text
+```text
 Super key
 → any attribute set that uniquely identifies a row
 
@@ -427,16 +428,16 @@ Natural key
 
 Surrogate key
 → generated identifier used as identity
-\`\`\`
+```
 
 ### Simple example
 
 A student might have:
 
-\`\`\`text
+```text
 roll_number
 email
-\`\`\`
+```
 
 Both may uniquely identify a student.
 
@@ -444,19 +445,19 @@ One can be chosen as the primary key while the other is enforced as another uniq
 
 ### Technical example
 
-\`\`\`text
+```text
 students(id, email, name)
-\`\`\`
+```
 
 Possible design:
 
-\`\`\`text
+```text
 id
 → primary key
 
 email
 → UNIQUE
-\`\`\`
+```
 
 ### Interview follow-ups
 
@@ -478,14 +479,14 @@ Natural keys carry business meaning; surrogate keys are generated identifiers. D
 
 ### Main constraints
 
-\`\`\`text
+```text
 PRIMARY KEY
 FOREIGN KEY
 UNIQUE
 NOT NULL
 CHECK
 DEFAULT
-\`\`\`
+```
 
 ### Understanding
 
@@ -493,25 +494,25 @@ Constraints move data correctness into the database boundary.
 
 ### Technical example
 
-\`\`\`sql
+```sql
 CREATE TABLE employees (
     id INTEGER PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
     salary DECIMAL(12,2) CHECK (salary >= 0),
     department_id INTEGER
 );
-\`\`\`
+```
 
 ### Foreign key
 
-\`\`\`sql
+```sql
 CREATE TABLE employees (
     id INTEGER PRIMARY KEY,
     department_id INTEGER,
     FOREIGN KEY (department_id)
         REFERENCES departments(id)
 );
-\`\`\`
+```
 
 ### Interview question
 
@@ -523,12 +524,12 @@ Because multiple writers, scripts, bugs, races, migrations, and concurrent reque
 
 Know the purpose of:
 
-\`\`\`text
+```text
 CASCADE
 RESTRICT / NO ACTION
 SET NULL
 SET DEFAULT
-\`\`\`
+```
 
 Exact behavior depends on the DBMS and constraint definition.
 
@@ -544,17 +545,17 @@ Exact behavior depends on the DBMS and constraint definition.
 
 A functional dependency:
 
-\`\`\`text
+```text
 A → B
-\`\`\`
+```
 
 means that knowing A determines B within the relation.
 
 ### Example
 
-\`\`\`text
+```text
 student_id → student_name
-\`\`\`
+```
 
 if one student ID identifies one student.
 
@@ -588,36 +589,36 @@ Normalization organizes relational data to reduce unnecessary redundancy and upd
 
 Think:
 
-\`\`\`text
+```text
 duplicate facts
 → repeated storage
 → inconsistent updates
 → anomalies
-\`\`\`
+```
 
 ### Poor design
 
-\`\`\`text
+```text
 student_course(student_id, student_name, course_id, course_name, grade)
-\`\`\`
+```
 
 If one student takes five courses, the student name is repeated five times.
 
 ### Better decomposition
 
-\`\`\`text
+```text
 students(student_id, student_name)
 courses(course_id, course_name)
 enrollments(student_id, course_id, grade)
-\`\`\`
+```
 
 ### Anomalies
 
-\`\`\`text
+```text
 Insert anomaly
 Update anomaly
 Delete anomaly
-\`\`\`
+```
 
 ### Interview line
 
@@ -637,22 +638,22 @@ Delete anomaly
 
 Bad design:
 
-\`\`\`text
+```text
 student(id, name, phone1, phone2, phone3)
-\`\`\`
+```
 
 or:
 
-\`\`\`text
+```text
 student(id, name, phones = "111,222,333")
-\`\`\`
+```
 
 Better:
 
-\`\`\`text
+```text
 students(id, name)
 student_phones(student_id, phone)
-\`\`\`
+```
 
 ### Interview line
 
@@ -672,32 +673,32 @@ student_phones(student_id, phone)
 
 ### Example
 
-\`\`\`text
+```text
 enrollment(student_id, course_id, student_name, course_name, grade)
-\`\`\`
+```
 
 Suppose the key is:
 
-\`\`\`text
+```text
 (student_id, course_id)
-\`\`\`
+```
 
 Then:
 
-\`\`\`text
+```text
 student_id → student_name
 course_id → course_name
-\`\`\`
+```
 
 Those attributes depend on only part of the composite key.
 
 ### Decompose
 
-\`\`\`text
+```text
 students(student_id, student_name)
 courses(course_id, course_name)
 enrollments(student_id, course_id, grade)
-\`\`\`
+```
 
 ### Interview trigger
 
@@ -723,31 +724,31 @@ immediately think:
 
 ### Example
 
-\`\`\`text
+```text
 employees(employee_id, department_id, department_name)
-\`\`\`
+```
 
 If:
 
-\`\`\`text
+```text
 employee_id → department_id
 department_id → department_name
-\`\`\`
+```
 
 then:
 
-\`\`\`text
+```text
 employee_id → department_name
-\`\`\`
+```
 
 The department name belongs with the department entity.
 
 ### Better design
 
-\`\`\`text
+```text
 employees(employee_id, department_id)
 departments(department_id, department_name)
-\`\`\`
+```
 
 ### Interview line
 
@@ -771,13 +772,13 @@ A relation is in BCNF when every determinant is a candidate key.
 
 Know the distinction:
 
-\`\`\`text
+```text
 3NF
 → removes transitive dependency problems
 
 BCNF
 → every determinant must be a candidate key
-\`\`\`
+```
 
 Do not spend disproportionate preparation time on rare decomposition proofs unless the interviewer goes there.
 
@@ -797,16 +798,16 @@ Denormalization intentionally introduces some redundancy to improve read perform
 
 Normalized:
 
-\`\`\`text
+```text
 orders
 customers
-\`\`\`
+```
 
 A reporting workload may repeatedly need customer information with order rows. A reporting table can store selected customer attributes alongside order facts.
 
 ### Trade-off
 
-\`\`\`text
+```text
 Normalization
 → less redundancy
 → cleaner update boundaries
@@ -816,7 +817,7 @@ Denormalization
 → fewer joins in some workloads
 → duplicated data
 → harder update consistency
-\`\`\`
+```
 
 ### Interview follow-up
 
@@ -840,17 +841,17 @@ A transaction is a logical unit of work whose operations are committed or rolled
 
 Money transfer:
 
-\`\`\`text
+```text
 debit A
 +
 credit B
-\`\`\`
+```
 
 Both operations belong to one logical unit.
 
 ### Technical example
 
-\`\`\`sql
+```sql
 BEGIN;
 
 UPDATE accounts
@@ -862,13 +863,13 @@ SET balance = balance + 100
 WHERE id = 2;
 
 COMMIT;
-\`\`\`
+```
 
 If the operation cannot complete correctly:
 
-\`\`\`sql
+```sql
 ROLLBACK;
-\`\`\`
+```
 
 ### Interview focus
 
@@ -906,12 +907,12 @@ Committed changes survive failures according to the DBMS's durability guarantees
 
 ### Mental model
 
-\`\`\`text
+```text
 A → all or nothing
 C → valid state
 I → controlled concurrency interaction
 D → survives failure after commit
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -929,10 +930,10 @@ Atomicity prevents a transaction from leaving only part of its intended work com
 
 Bank transfer:
 
-\`\`\`text
+```text
 subtract from A
 add to B
-\`\`\`
+```
 
 If the second operation fails, keeping only the subtraction would be wrong.
 
@@ -942,11 +943,11 @@ If the second operation fails, keeping only the subtraction would be wrong.
 
 Conceptually:
 
-\`\`\`text
+```text
 transaction boundaries
 rollback
 logging / recovery mechanisms
-\`\`\`
+```
 
 Exact implementation is DBMS-specific.
 
@@ -964,12 +965,12 @@ Consistency means that transactions preserve the database rules and invariants d
 
 Examples:
 
-\`\`\`text
+```text
 primary-key uniqueness
 foreign-key validity
 CHECK constraints
 business invariants enforced by the transaction
-\`\`\`
+```
 
 ### Important distinction
 
@@ -995,7 +996,7 @@ Imagine two users changing related data at the same time.
 
 Without controlled concurrency:
 
-\`\`\`text
+```text
 one transaction
 → reads state
 
@@ -1004,13 +1005,13 @@ another transaction
 
 first transaction
 → makes a decision based on a different state
-\`\`\`
+```
 
 Isolation defines which anomalies are allowed or prevented.
 
 ### Leads to
 
-\`\`\`text
+```text
 dirty read
 non-repeatable read
 phantom read
@@ -1018,7 +1019,7 @@ lost update
 isolation levels
 locks
 MVCC
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1056,12 +1057,12 @@ Durable writes can require logging and synchronization work, depending on the DB
 
 Know the problem before learning the solution.
 
-\`\`\`text
+```text
 Dirty read
 Non-repeatable read
 Phantom read
 Lost update
-\`\`\`
+```
 
 The interviewer may describe an anomaly without naming it.
 
@@ -1087,11 +1088,11 @@ T2 has read a value that never became committed state.
 
 ### Mental model
 
-\`\`\`text
+```text
 T1: write → not committed
 T2: read uncommitted value
 T1: rollback
-\`\`\`
+```
 
 ### Interview phrase
 
@@ -1113,19 +1114,19 @@ Between the reads, T2 updates and commits that row.
 
 T1 gets different values.
 
-\`\`\`text
+```text
 T1 read → 100
 T2 update → 150
 T1 read → 150
-\`\`\`
+```
 
 ### Mental trigger
 
-\`\`\`text
+```text
 same row
 +
 different committed value
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1143,19 +1144,19 @@ T2 inserts or deletes a matching row and commits.
 
 T1 repeats the predicate query and sees a different set.
 
-\`\`\`text
+```text
 first query → 5 matching rows
 T2 inserts matching row
 second query → 6 rows
-\`\`\`
+```
 
 ### Mental trigger
 
-\`\`\`text
+```text
 same predicate
 +
 different matching row set
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1169,7 +1170,7 @@ different matching row set
 
 Two transactions read the same value, compute different updates, and one overwrites the other's work.
 
-\`\`\`text
+```text
 balance = 100
 
 T1 reads 100
@@ -1179,19 +1180,19 @@ T1 writes 110
 T2 writes 90
 
 T1's change is lost
-\`\`\`
+```
 
 ### Interview direction
 
 Discuss:
 
-\`\`\`text
+```text
 locking
 optimistic concurrency
 atomic updates
 appropriate isolation
 version columns
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1203,18 +1204,18 @@ version columns
 
 The SQL-standard names commonly discussed are:
 
-\`\`\`text
+```text
 READ UNCOMMITTED
 READ COMMITTED
 REPEATABLE READ
 SERIALIZABLE
-\`\`\`
+```
 
 Some systems expose additional snapshot-related modes.
 
 ### Mental progression
 
-\`\`\`text
+```text
 weaker isolation
 ↔
 more concurrency / more possible anomalies
@@ -1222,7 +1223,7 @@ more concurrency / more possible anomalies
 stronger isolation
 ↔
 more coordination / potentially more overhead
-\`\`\`
+```
 
 ### Common interview mapping
 
@@ -1251,13 +1252,13 @@ Locks coordinate concurrent access to shared data.
 
 Common conceptual categories:
 
-\`\`\`text
+```text
 Shared lock
 → compatible read access in many lock models
 
 Exclusive lock
 → protects conflicting writes
-\`\`\`
+```
 
 Exact lock modes vary by DBMS.
 
@@ -1273,11 +1274,11 @@ No.
 
 Locks can introduce:
 
-\`\`\`text
+```text
 waiting
 contention
 deadlocks
-\`\`\`
+```
 
 Modern systems may combine locking with MVCC.
 
@@ -1295,13 +1296,13 @@ A deadlock occurs when transactions wait on each other in a cycle.
 
 ### Classic example
 
-\`\`\`text
+```text
 T1 locks row A
 T2 locks row B
 
 T1 waits for B
 T2 waits for A
-\`\`\`
+```
 
 Neither can proceed.
 
@@ -1311,10 +1312,10 @@ Acquire resources in a consistent order.
 
 For example:
 
-\`\`\`text
+```text
 always lock lower account ID first
 then higher account ID
-\`\`\`
+```
 
 ### Detection
 
@@ -1340,7 +1341,7 @@ Instead of forcing readers and writers to always block each other on one physica
 
 ### Mental model
 
-\`\`\`text
+```text
 row version A
 row version B
 row version C
@@ -1348,7 +1349,7 @@ row version C
 transaction visibility rules
 ↓
 what each transaction can see
-\`\`\`
+```
 
 ### Why it matters
 
@@ -1374,9 +1375,9 @@ Serializability asks whether the effect of concurrent transactions is equivalent
 
 Imagine:
 
-\`\`\`text
+```text
 T1 then T2
-\`\`\`
+```
 
 A serializable concurrent execution should behave as if some serial ordering had occurred.
 
@@ -1384,12 +1385,12 @@ A serializable concurrent execution should behave as if some serial ordering had
 
 This connects:
 
-\`\`\`text
+```text
 transactions
 → concurrency
 → isolation
 → correctness
-\`\`\`
+```
 
 ### Follow-up
 
@@ -1413,29 +1414,29 @@ An index is an auxiliary data structure that can provide a more efficient access
 
 Think of a book index:
 
-\`\`\`text
+```text
 without index
 → inspect many pages
 
 with useful index
 → jump toward relevant pages
-\`\`\`
+```
 
 ### Technical example
 
-\`\`\`text
+```text
 employees(id, name, department_id, salary)
-\`\`\`
+```
 
 Query:
 
-\`\`\`sql
+```sql
 SELECT *
 FROM employees
 WHERE department_id = 10;
-\`\`\`
+```
 
-An index on \`department_id\` may provide a better access path.
+An index on `department_id` may provide a better access path.
 
 ### Important
 
@@ -1443,14 +1444,14 @@ An index is not automatically used.
 
 The optimizer considers:
 
-\`\`\`text
+```text
 selectivity
 table size
 statistics
 predicate
 available indexes
 estimated cost
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1495,9 +1496,9 @@ A composite index contains multiple columns.
 
 Example:
 
-\`\`\`text
+```text
 (customer_id, order_date)
-\`\`\`
+```
 
 It can support workloads that filter or order by those columns in compatible ways.
 
@@ -1505,27 +1506,27 @@ It can support workloads that filter or order by those columns in compatible way
 
 Think of a dictionary sorted by:
 
-\`\`\`text
+```text
 last_name
 then first_name
-\`\`\`
+```
 
 Searching by last name is a natural access pattern; searching only by first name is not equivalent.
 
 ### Example workload
 
-\`\`\`sql
+```sql
 SELECT *
 FROM orders
 WHERE customer_id = 10
 ORDER BY order_date DESC;
-\`\`\`
+```
 
 An index on:
 
-\`\`\`text
+```text
 (customer_id, order_date)
-\`\`\`
+```
 
 may align with the workload, depending on DBMS behavior and the broader query pattern.
 
@@ -1551,15 +1552,15 @@ Informally:
 
 For example:
 
-\`\`\`text
+```text
 WHERE user_id = 918273
-\`\`\`
+```
 
 is often more selective than:
 
-\`\`\`text
+```text
 WHERE country = 'India'
-\`\`\`
+```
 
 on a large global user table.
 
@@ -1569,10 +1570,10 @@ Can refer to the number of rows in a result or relationship multiplicity.
 
 Example:
 
-\`\`\`text
+```text
 one department → many employees
 one employee → one department
-\`\`\`
+```
 
 ### Why it matters
 
@@ -1604,13 +1605,13 @@ Do not answer as if every database has one universal clustered-index implementat
 
 Know the conceptual trade-off:
 
-\`\`\`text
+```text
 data locality
 vs
 additional index structures
 vs
 write cost
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1626,11 +1627,11 @@ An index is covering for a query when the index contains the information needed 
 
 ### Example
 
-\`\`\`sql
+```sql
 SELECT name
 FROM employees
 WHERE department_id = 10;
-\`\`\`
+```
 
 An index containing the filtering column and the required output column may cover the query, depending on the DBMS.
 
@@ -1660,12 +1661,12 @@ Index entries must be removed.
 
 ### Mental model
 
-\`\`\`text
+```text
 More indexes
 → potentially better reads
 → more storage
 → more write maintenance
-\`\`\`
+```
 
 ### Interview line
 
@@ -1685,14 +1686,14 @@ An execution plan describes how the DBMS intends to execute a query.
 
 A plan can contain operations such as:
 
-\`\`\`text
+```text
 table scan
 index scan / seek
 join
 sort
 aggregate
 filter
-\`\`\`
+```
 
 ### Why it matters
 
@@ -1704,7 +1705,7 @@ Two SQL statements can return the same result but produce different plans and di
 
 Answer:
 
-\`\`\`text
+```text
 execution plan
 +
 estimated vs actual rows
@@ -1714,7 +1715,7 @@ chosen indexes
 join strategy
 +
 sort / aggregate cost
-\`\`\`
+```
 
 ### Important distinction
 
@@ -1732,7 +1733,7 @@ SQL is declarative; the optimizer chooses an execution strategy.
 
 Use this workflow:
 
-\`\`\`text
+```text
 1. Identify the exact query and workload
 ↓
 2. Measure current latency
@@ -1750,7 +1751,7 @@ Use this workflow:
 8. Change one thing
 ↓
 9. Measure again
-\`\`\`
+```
 
 ### Do not start with
 
@@ -1764,7 +1765,7 @@ Use this workflow:
 
 Possible reasons include:
 
-\`\`\`text
+```text
 wrong index
 low selectivity
 large result set
@@ -1774,7 +1775,7 @@ stale statistics
 predicate shape
 I/O bottleneck
 optimizer chooses another path
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1800,13 +1801,13 @@ The same query can have different observed latency depending on whether required
 
 Know:
 
-\`\`\`text
+```text
 page
 buffer/cache
 I/O
 locality
 sequential vs random access
-\`\`\`
+```
 
 Exact internals are DBMS-specific.
 
@@ -1824,10 +1825,10 @@ A view is a stored query definition exposed like a relation.
 
 Think:
 
-\`\`\`text
+```text
 complex query
 → reusable logical interface
-\`\`\`
+```
 
 ### Materialized view
 
@@ -1835,7 +1836,7 @@ A materialized view stores the query result physically and must be refreshed acc
 
 ### Trade-off
 
-\`\`\`text
+```text
 View
 → logical abstraction
 → underlying query runs when accessed
@@ -1843,7 +1844,7 @@ View
 Materialized view
 → faster reads for suitable workloads
 → refresh / staleness cost
-\`\`\`
+```
 
 ### Interview question
 
@@ -1891,22 +1892,22 @@ Partitioning splits one logical table into multiple physical partitions while ex
 
 ### Common forms
 
-\`\`\`text
+```text
 range
 list
 hash
-\`\`\`
+```
 
 ### Example
 
 A huge events table could be partitioned by event date:
 
-\`\`\`text
+```text
 events_2026_01
 events_2026_02
 events_2026_03
 ...
-\`\`\`
+```
 
 A query constrained by date may then access fewer partitions when partition pruning applies.
 
@@ -1930,11 +1931,11 @@ Sharding horizontally distributes data across multiple database nodes.
 
 Example:
 
-\`\`\`text
+```text
 Shard 1 → customer IDs 1–10M
 Shard 2 → customer IDs 10M–20M
 Shard 3 → customer IDs 20M–30M
-\`\`\`
+```
 
 ### Why shard?
 
@@ -1942,7 +1943,7 @@ When one database node cannot handle the workload or data footprint adequately.
 
 ### Trade-offs
 
-\`\`\`text
+```text
 more capacity
 +
 more operational complexity
@@ -1954,7 +1955,7 @@ rebalancing
 distributed transactions
 +
 hot-shard risk
-\`\`\`
+```
 
 ### Interview point
 
@@ -1962,14 +1963,14 @@ Do not jump to sharding for moderate workloads.
 
 Consider first:
 
-\`\`\`text
+```text
 query optimization
 indexes
 vertical scaling
 read replicas
 partitioning
 caching
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -1985,13 +1986,13 @@ Replication copies database state from one server to another according to the DB
 
 A common architecture is:
 
-\`\`\`text
+```text
 Primary
 → writes
 
 Read replicas
 → reads
-\`\`\`
+```
 
 ### Useful when
 
@@ -2023,23 +2024,23 @@ A cache stores frequently requested data closer to the application.
 
 Common cache-aside flow:
 
-\`\`\`text
+```text
 Application
 ↓
 Cache hit?
 → yes → return
 → no → DB → populate cache
-\`\`\`
+```
 
 ### Connection pooling
 
-\`\`\`text
+```text
 application
 ↓
 connection pool
 ↓
 reuse existing database connections
-\`\`\`
+```
 
 ### Why pooling matters
 
@@ -2067,7 +2068,7 @@ When asked:
 
 Use this order:
 
-\`\`\`text
+```text
 Measure bottleneck
 ↓
 Optimize queries
@@ -2083,25 +2084,25 @@ Add read replicas for read-heavy workloads
 Partition large tables when justified
 ↓
 Sharding when a single node is insufficient
-\`\`\`
+```
 
 ### Read-heavy workload
 
 Think:
 
-\`\`\`text
+```text
 query/index optimization
 +
 cache
 +
 read replicas
-\`\`\`
+```
 
 ### Write-heavy workload
 
 Think more carefully about:
 
-\`\`\`text
+```text
 transaction cost
 hot rows
 write amplification
@@ -2110,7 +2111,7 @@ partitioning
 data model
 asynchronous processing
 sharding
-\`\`\`
+```
 
 ### Interview phrase
 
@@ -2128,23 +2129,23 @@ sharding
 
 Distributed architectures involve trade-offs among:
 
-\`\`\`text
+```text
 latency
 consistency
 availability
 partition tolerance
-\`\`\`
+```
 
 ### Interview framing
 
 Ask:
 
-\`\`\`text
+```text
 What consistency does the application require?
 Can stale reads be tolerated?
 Can writes be retried?
 Can operations be asynchronous?
-\`\`\`
+```
 
 ### Example
 
@@ -2164,7 +2165,7 @@ The business invariant should drive the technical design.
 
 ### Core principles
 
-\`\`\`text
+```text
 least privilege
 authentication
 authorization
@@ -2173,7 +2174,7 @@ secret management
 encryption in transit
 encryption at rest where appropriate
 auditing
-\`\`\`
+```
 
 ### SQL injection connection
 
@@ -2199,25 +2200,25 @@ Backups provide a recovery path when data is lost, corrupted, or accidentally mo
 
 ### Important distinction
 
-\`\`\`text
+```text
 Backup
 → recovery source
 
 Replication
 → copy of current state for availability/scaling
-\`\`\`
+```
 
 Replication is not a substitute for backups. Corruption or deletion can also be replicated.
 
 ### Interview concepts
 
-\`\`\`text
+```text
 full backup
 incremental backup
 point-in-time recovery
 recovery testing
 retention policy
-\`\`\`
+```
 
 Exact mechanisms vary by DBMS.
 
@@ -2235,11 +2236,11 @@ These are more important than project-specific database questions because they t
 
 Schema:
 
-\`\`\`text
+```text
 students(id, name)
 courses(id, name, capacity)
 enrollments(student_id, course_id, created_at)
-\`\`\`
+```
 
 Question:
 
@@ -2247,27 +2248,27 @@ Question:
 
 Think:
 
-\`\`\`text
+```text
 concurrency
 race condition
 transaction
 locking / serialization
 capacity invariant
-\`\`\`
+```
 
 The important invariant is:
 
-\`\`\`text
+```text
 enrolled_count <= capacity
-\`\`\`
+```
 
 ### Bank transfer
 
 Schema:
 
-\`\`\`text
+```text
 accounts(id, balance)
-\`\`\`
+```
 
 Question:
 
@@ -2275,22 +2276,22 @@ Question:
 
 Direction:
 
-\`\`\`text
+```text
 single transaction
 +
 atomicity
 +
 rollback/recovery
-\`\`\`
+```
 
 ### Inventory
 
 Schema:
 
-\`\`\`text
+```text
 products(id, stock)
 orders(id, product_id, quantity)
-\`\`\`
+```
 
 Question:
 
@@ -2298,20 +2299,20 @@ Question:
 
 Discuss:
 
-\`\`\`text
+```text
 lost update
 atomic stock decrement
 locking / concurrency control
 transaction
-\`\`\`
+```
 
 ### Large activity table
 
 Schema:
 
-\`\`\`text
+```text
 events(id, user_id, event_time, event_type)
-\`\`\`
+```
 
 Question:
 
@@ -2319,14 +2320,14 @@ Question:
 
 Discuss:
 
-\`\`\`text
+```text
 query patterns
 indexes
 partitioning
 retention
 archival
 read replicas
-\`\`\`
+```
 
 ### Heavy reporting
 
@@ -2336,13 +2337,13 @@ Question:
 
 Discuss:
 
-\`\`\`text
+```text
 read replicas
 materialized views
 ETL / analytical store
 caching
 workload isolation
-\`\`\`
+```
 
 ### High-traffic login system
 
@@ -2352,14 +2353,14 @@ Question:
 
 Discuss:
 
-\`\`\`text
+```text
 indexes on lookup fields
 connection pooling
 caching where appropriate
 read replicas
 rate limiting
 hotspot identification
-\`\`\`
+```
 
 ### Duplicate payment request
 
@@ -2369,11 +2370,11 @@ Question:
 
 Relevant database/design concepts:
 
-\`\`\`text
+```text
 idempotency key
 unique constraint
 transaction
-\`\`\`
+```
 
 The database can help ensure the same logical request is not persisted twice.
 
@@ -2391,20 +2392,20 @@ These are secondary to the general DBMS preparation.
 
 Use the project to explain:
 
-\`\`\`text
+```text
 unique short_code
 indexes
 atomic click updates
 transactions
 Redis vs PostgreSQL responsibilities
 read-heavy scaling
-\`\`\`
+```
 
 ### SceneFlow
 
 Use it to explain:
 
-\`\`\`text
+```text
 relational foreign keys
 job state transitions
 transactions
@@ -2412,7 +2413,7 @@ worker concurrency
 indexes
 PostgreSQL vs Redis vs Qdrant responsibilities
 large-project pagination
-\`\`\`
+```
 
 ### Interview principle
 
@@ -2528,14 +2529,14 @@ These are high-value question shapes, not guaranteed questions.
 
 For every answer, be ready for:
 
-\`\`\`text
+```text
 Why?
 How?
 Trade-off?
 What if traffic grows?
 What if two requests arrive together?
 What if the database fails?
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -2578,7 +2579,7 @@ What if the database fails?
 
 ### SP-level trigger words
 
-\`\`\`text
+```text
 100x data
 → indexes / partitioning / query plan
 
@@ -2605,7 +2606,7 @@ duplicate data
 
 query suddenly slow
 → execution plan / statistics / indexes / workload
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -2671,7 +2672,7 @@ Correct design depends on read/write ratio, data size, latency, consistency requ
 
 ## 30-Second Revision Sheet
 
-\`\`\`text
+```text
 DBMS
 → manages persistent data + integrity + concurrency + recovery
 
@@ -2764,7 +2765,7 @@ Backup
 
 Idempotency
 → repeated logical request does not duplicate effects
-\`\`\`
+```
 
 [Back to Table of Contents](#table-of-contents)
 
