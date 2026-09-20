@@ -63,6 +63,8 @@
 <a id="javascript-fundamentals"></a>
 ## JavaScript Fundamentals
 
+[Back to Table of Contents](#table-of-contents)
+
 JavaScript is a dynamically typed, prototype-based language with first-class functions. ECMAScript specifies the language; browsers and Node.js provide host APIs.
 
 Interview answer:
@@ -77,6 +79,8 @@ Important distinction:
 
 <a id="runtime-and-engine"></a>
 ## Runtime and Engine
+
+[Back to Table of Contents](#table-of-contents)
 
 A simplified browser runtime model:
 
@@ -112,6 +116,8 @@ Do not answer only “JavaScript is interpreted.” Modern engines use both inte
 <a id="execution-context-and-call-stack"></a>
 ## Execution Context and Call Stack
 
+[Back to Table of Contents](#table-of-contents)
+
 An execution context is the runtime environment in which JavaScript code executes.
 
 Common contexts:
@@ -141,6 +147,8 @@ A stack overflow occurs when the call stack grows without returning, commonly th
 <a id="memory-and-garbage-collection"></a>
 ## Memory and Garbage Collection
 
+[Back to Table of Contents](#table-of-contents)
+
 JavaScript automatically manages memory.
 
 Simplified lifecycle:
@@ -164,6 +172,8 @@ Common memory-leak sources:
 
 <a id="variables-and-data-types"></a>
 ## Variables and Data Types
+
+[Back to Table of Contents](#table-of-contents)
 
 Declarations:
 
@@ -195,6 +205,8 @@ const prevents reassignment of a binding; it does not freeze an object.
 
 <a id="coercion-and-equality"></a>
 ## Coercion and Equality
+
+[Back to Table of Contents](#table-of-contents)
 
 JavaScript performs implicit type conversion.
 
@@ -228,6 +240,8 @@ Arrays and objects are truthy even when empty.
 <a id="scope-hoisting-and-tdz"></a>
 ## Scope, Hoisting and TDZ
 
+[Back to Table of Contents](#table-of-contents)
+
 Scope determines where a binding can be accessed.
 
 Main scopes:
@@ -260,6 +274,8 @@ Classes also cannot be accessed before their initialization.
 <a id="closures"></a>
 ## Closures
 
+[Back to Table of Contents](#table-of-contents)
+
 A closure is a function together with access to its surrounding lexical environment.
 
 ~~~js
@@ -289,6 +305,8 @@ Uses:
 
 <a id="this-call-apply-and-bind"></a>
 ## this, call, apply and bind
+
+[Back to Table of Contents](#table-of-contents)
 
 For ordinary functions, this is strongly affected by the call form.
 
@@ -324,6 +342,8 @@ bound();
 <a id="arrow-functions"></a>
 ## Arrow Functions
 
+[Back to Table of Contents](#table-of-contents)
+
 Arrow functions have lexical this. They do not create their own dynamic this.
 
 They also do not have their own arguments object and cannot be used as constructors with new.
@@ -342,6 +362,8 @@ This is a major interview distinction between arrow functions and ordinary funct
 
 <a id="functions-and-higher-order-functions"></a>
 ## Functions and Higher-Order Functions
+
+[Back to Table of Contents](#table-of-contents)
 
 Functions are first-class values: they can be assigned, passed, returned and stored.
 
@@ -362,6 +384,8 @@ IIFEs are immediately invoked function expressions and were historically used fo
 
 <a id="objects"></a>
 ## Objects
+
+[Back to Table of Contents](#table-of-contents)
 
 Objects contain properties and methods.
 
@@ -397,6 +421,8 @@ Property descriptors include value, writable, enumerable, configurable, get and 
 <a id="prototype-chain"></a>
 ## Prototype Chain
 
+[Back to Table of Contents](#table-of-contents)
+
 JavaScript uses prototype-based inheritance.
 
 ~~~js
@@ -425,6 +451,8 @@ Prefer standard prototype APIs rather than relying on the legacy __proto__ acces
 
 <a id="classes-and-inheritance"></a>
 ## Classes and Inheritance
+
+[Back to Table of Contents](#table-of-contents)
 
 Classes provide syntax for constructing objects and defining methods.
 
@@ -463,6 +491,8 @@ JavaScript classes do not replace the prototype system; they are built around it
 <a id="destructuring-spread-and-rest"></a>
 ## Destructuring, Spread and Rest
 
+[Back to Table of Contents](#table-of-contents)
+
 Destructuring extracts values:
 
 ~~~js
@@ -492,6 +522,8 @@ Spread copying is shallow.
 <a id="optional-chaining-and-nullish-coalescing"></a>
 ## Optional Chaining and Nullish Coalescing
 
+[Back to Table of Contents](#table-of-contents)
+
 Optional chaining safely stops when a value is nullish:
 
 ~~~js
@@ -508,6 +540,8 @@ This differs from ||, which also treats values such as 0 and "" as false.
 
 <a id="arrays-and-array-methods"></a>
 ## Arrays and Array Methods
+
+[Back to Table of Contents](#table-of-contents)
 
 Know mutation vs non-mutation.
 
@@ -548,6 +582,8 @@ Important:
 <a id="map-set-weakmap-and-weakset"></a>
 ## Map, Set, WeakMap and WeakSet
 
+[Back to Table of Contents](#table-of-contents)
+
 Map stores key-value pairs.
 
 Set stores unique values.
@@ -566,6 +602,8 @@ Use WeakMap when metadata should not by itself keep an object alive.
 
 <a id="iterators-and-generators"></a>
 ## Iterators and Generators
+
+[Back to Table of Contents](#table-of-contents)
 
 An iterator has next() returning an object containing value and done.
 
@@ -587,6 +625,8 @@ Generators are useful for lazy sequences and custom iteration.
 
 <a id="promises"></a>
 ## Promises
+
+[Back to Table of Contents](#table-of-contents)
 
 A Promise represents eventual completion or failure.
 
@@ -616,6 +656,8 @@ Important methods:
 
 <a id="async-and-await"></a>
 ## Async and Await
+
+[Back to Table of Contents](#table-of-contents)
 
 An async function always returns a Promise.
 
@@ -647,6 +689,8 @@ Do not write sequential awaits when operations are independent and should run co
 <a id="event-loop"></a>
 ## Event Loop
 
+[Back to Table of Contents](#table-of-contents)
+
 The event loop coordinates JavaScript execution with queued asynchronous work.
 
 ~~~text
@@ -672,6 +716,8 @@ The event loop does not make CPU-heavy JavaScript automatically parallel.
 
 <a id="microtasks-and-tasks"></a>
 ## Microtasks and Tasks
+
+[Back to Table of Contents](#table-of-contents)
 
 Promise reactions are microtasks.
 
@@ -705,6 +751,8 @@ Reason:
 <a id="timers"></a>
 ## Timers
 
+[Back to Table of Contents](#table-of-contents)
+
 setTimeout(fn, 0) does not mean immediate execution.
 
 It means the callback becomes eligible after the timer delay and after currently required work is processed.
@@ -726,6 +774,8 @@ Know setInterval, clearTimeout and clearInterval.
 <a id="browser-events"></a>
 ## Browser Events
 
+[Back to Table of Contents](#table-of-contents)
+
 Events can be registered with addEventListener.
 
 ~~~js
@@ -741,6 +791,8 @@ Removing an event listener generally requires the same function reference and co
 
 <a id="event-bubbling-capturing-and-delegation"></a>
 ## Event Bubbling, Capturing and Delegation
+
+[Back to Table of Contents](#table-of-contents)
 
 Event propagation is commonly explained as:
 
@@ -773,6 +825,8 @@ Delegation is useful for dynamic lists and reducing listener count.
 <a id="dom"></a>
 ## DOM
 
+[Back to Table of Contents](#table-of-contents)
+
 The DOM represents an HTML document as an object tree.
 
 Know:
@@ -788,6 +842,8 @@ React abstracts most direct DOM manipulation, but DOM knowledge remains importan
 
 <a id="fetch-and-abortcontroller"></a>
 ## Fetch and AbortController
+
+[Back to Table of Contents](#table-of-contents)
 
 fetch returns a Promise for a Response.
 
@@ -820,6 +876,8 @@ This is useful for search, component cleanup and obsolete requests.
 <a id="cors-and-cookies"></a>
 ## CORS and Cookies
 
+[Back to Table of Contents](#table-of-contents)
+
 An origin is:
 
 ~~~text
@@ -847,6 +905,8 @@ HttpOnly prevents normal JavaScript access to the cookie.
 <a id="browser-storage"></a>
 ## Browser Storage
 
+[Back to Table of Contents](#table-of-contents)
+
 Know:
 
 - localStorage
@@ -866,6 +926,8 @@ Understand the security implications before storing authentication data in brows
 <a id="modules"></a>
 ## Modules
 
+[Back to Table of Contents](#table-of-contents)
+
 Modules provide explicit imports/exports and scoped bindings.
 
 ~~~js
@@ -882,6 +944,8 @@ Modules improve dependency clarity and support bundler optimizations.
 
 <a id="es-modules-vs-commonjs"></a>
 ## ES Modules vs CommonJS
+
+[Back to Table of Contents](#table-of-contents)
 
 ES Modules:
 
@@ -901,6 +965,8 @@ Modern Node.js supports both, with package configuration and file extensions aff
 
 <a id="npm-bundlers-and-babel"></a>
 ## npm, Bundlers and Babel
+
+[Back to Table of Contents](#table-of-contents)
 
 npm manages JavaScript packages and project scripts.
 
@@ -923,6 +989,8 @@ Bundler and transpiler are not synonyms.
 <a id="tree-shaking"></a>
 ## Tree Shaking
 
+[Back to Table of Contents](#table-of-contents)
+
 Tree shaking removes statically unreachable exports when the module/bundler semantics allow it.
 
 ES module static structure makes this optimization practical.
@@ -931,6 +999,8 @@ Do not claim that every unused function is always removed. Dynamic behavior, sid
 
 <a id="immutability-and-copying"></a>
 ## Immutability and Copying
+
+[Back to Table of Contents](#table-of-contents)
 
 Spread creates a shallow copy.
 
@@ -955,6 +1025,8 @@ JSON stringify/parse is not a universal deep-cloning solution because it loses o
 
 <a id="debouncing-and-throttling"></a>
 ## Debouncing and Throttling
+
+[Back to Table of Contents](#table-of-contents)
 
 Debounce waits until calls stop for a period.
 
@@ -989,6 +1061,8 @@ Know leading/trailing behavior for production implementations.
 <a id="functional-programming"></a>
 ## Functional Programming
 
+[Back to Table of Contents](#table-of-contents)
+
 JavaScript supports:
 
 - first-class functions
@@ -1010,6 +1084,8 @@ A pure function gives the same result for the same inputs and has no observable 
 
 <a id="memoization"></a>
 ## Memoization
+
+[Back to Table of Contents](#table-of-contents)
 
 Memoization caches results.
 
@@ -1034,6 +1110,8 @@ Discuss cache invalidation, key equality, memory growth and whether the computat
 <a id="web-workers"></a>
 ## Web Workers
 
+[Back to Table of Contents](#table-of-contents)
+
 Web Workers run JavaScript in a separate worker context.
 
 Use them for CPU-heavy browser work that would otherwise block the main UI thread.
@@ -1052,6 +1130,8 @@ Workers communicate through messages and do not have normal DOM access.
 
 <a id="error-handling"></a>
 ## Error Handling
+
+[Back to Table of Contents](#table-of-contents)
 
 Synchronous:
 
@@ -1089,6 +1169,8 @@ class ValidationError extends Error {
 <a id="json"></a>
 ## JSON
 
+[Back to Table of Contents](#table-of-contents)
+
 JSON is a data-interchange format, not the same thing as a JavaScript object.
 
 ~~~js
@@ -1100,6 +1182,8 @@ JSON cannot directly represent every JavaScript value.
 
 <a id="security"></a>
 ## Security
+
+[Back to Table of Contents](#table-of-contents)
 
 Frontend interview topics:
 
@@ -1120,6 +1204,8 @@ Be careful with dangerous HTML APIs such as innerHTML and React's dangerouslySet
 <a id="performance"></a>
 ## Performance
 
+[Back to Table of Contents](#table-of-contents)
+
 Measure before optimizing.
 
 Common techniques:
@@ -1138,6 +1224,8 @@ For React, combine JavaScript profiling with React DevTools profiling.
 
 <a id="javascript-with-react"></a>
 ## JavaScript with React
+
+[Back to Table of Contents](#table-of-contents)
 
 React interviews often test JavaScript directly.
 
@@ -1158,6 +1246,8 @@ Strong React preparation requires strong JavaScript fundamentals.
 
 <a id="javascript-with-fastapi"></a>
 ## JavaScript with FastAPI
+
+[Back to Table of Contents](#table-of-contents)
 
 Typical flow:
 
@@ -1182,6 +1272,8 @@ Know CORS, JSON, HTTP status codes, async requests, error handling, cancellation
 <a id="javascript-in-sceneflow"></a>
 ## JavaScript in SceneFlow
 
+[Back to Table of Contents](#table-of-contents)
+
 Explain:
 
 “I use JavaScript/React for component logic, form state, API calls, scene/image transformations, asynchronous job polling, event handling and UI state.”
@@ -1203,6 +1295,8 @@ For background image search, the frontend should avoid waiting indefinitely for 
 <a id="javascript-in-scorehub"></a>
 ## JavaScript in ScoreHub
 
+[Back to Table of Contents](#table-of-contents)
+
 For live scores:
 
 ~~~text
@@ -1220,6 +1314,8 @@ Explain that independent asynchronous events can arrive rapidly, so state update
 <a id="javascript-in-the-url-shortener"></a>
 ## JavaScript in the URL Shortener
 
+[Back to Table of Contents](#table-of-contents)
+
 Frontend responsibilities:
 
 - capture URL input
@@ -1235,6 +1331,8 @@ Backend remains authoritative for persistence and redirect behavior.
 
 <a id="generic-interview-qa"></a>
 ## Generic Interview Q&A
+
+[Back to Table of Contents](#table-of-contents)
 
 ### What is JavaScript?
 
@@ -1303,6 +1401,8 @@ It mutates the array and compares values as strings by default without a compara
 <a id="runtime-and-internals-qa"></a>
 ## Runtime and Internals Q&A
 
+[Back to Table of Contents](#table-of-contents)
+
 ### What is an execution context?
 
 The runtime environment in which JavaScript code executes.
@@ -1338,6 +1438,8 @@ Use Web Workers or move the computation to a backend/service.
 <a id="async-javascript-qa"></a>
 ## Async JavaScript Q&A
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Promise vs callback?
 
 A Promise represents eventual completion/failure and supports composable async operations. A callback is a function supplied for later invocation.
@@ -1369,6 +1471,8 @@ Promise reactions are microtasks; the timer callback is a later task.
 <a id="objects-and-prototype-qa"></a>
 ## Objects and Prototype Q&A
 
+[Back to Table of Contents](#table-of-contents)
+
 ### What is Object.create?
 
 It creates an object with a specified prototype.
@@ -1391,6 +1495,8 @@ Metadata controlling how a property behaves, such as writable, enumerable and co
 
 <a id="browser-qa"></a>
 ## Browser Q&A
+
+[Back to Table of Contents](#table-of-contents)
 
 ### What is the DOM?
 
@@ -1426,6 +1532,8 @@ To cancel supported asynchronous operations such as Fetch.
 
 <a id="coding-interview-drills"></a>
 ## Coding Interview Drills
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Reverse a string
 
@@ -1511,6 +1619,8 @@ Know the invariants:
 <a id="project-based-qa"></a>
 ## Project-Based Q&A
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Why use async/await in React?
 
 “It makes asynchronous control flow readable while still using Promises underneath. I use try/catch and explicit loading/error states.”
@@ -1538,6 +1648,8 @@ Event handlers, callbacks, effects and custom Hooks all rely on lexical scoping 
 <a id="interview-traps"></a>
 ## Interview Traps
 
+[Back to Table of Contents](#table-of-contents)
+
 - “JavaScript is purely interpreted.”
 - “Everything is passed by reference.”
 - “const makes objects immutable.”
@@ -1563,6 +1675,8 @@ Event handlers, callbacks, effects and custom Hooks all rely on lexical scoping 
 
 <a id="final-checklist"></a>
 ## Final Checklist
+
+[Back to Table of Contents](#table-of-contents)
 
 Be able to explain from memory:
 
