@@ -6,116 +6,116 @@
 
 <a id="table-of-contents"></a>
 
-## 📑 Table of Contents
+##  Table of Contents
 
-### 🧭 Part 1 — Software Engineering Foundations
-- [1. Software Engineering](#1-software-engineering)
-- [2. SDLC](#2-sdlc)
-- [3. SDLC Models](#3-sdlc-models)
-- [4. Agile and Scrum](#4-agile-and-scrum)
-- [5. Requirements Engineering](#5-requirements-engineering)
-- [6. Functional vs Non-Functional Requirements](#6-functional-vs-non-functional-requirements)
-- [7. User Stories and Acceptance Criteria](#7-user-stories-and-acceptance-criteria)
+###  Part 1 — Software Engineering Foundations
+- [Software Engineering](#software-engineering)
+- [SDLC](#sdlc)
+- [SDLC Models](#sdlc-models)
+- [Agile and Scrum](#agile-and-scrum)
+- [Requirements Engineering](#requirements-engineering)
+- [Functional vs Non-Functional Requirements](#functional-vs-non-functional-requirements)
+- [User Stories and Acceptance Criteria](#user-stories-and-acceptance-criteria)
 
-### 🔌 Part 2 — APIs and API Engineering
-- [8. What Is an API?](#8-what-is-an-api)
-- [9. Different Types of APIs](#9-different-types-of-apis)
-- [10. REST API](#10-rest-api)
-- [11. SOAP API](#11-soap-api)
-- [12. GraphQL API](#12-graphql-api)
-- [13. gRPC / RPC APIs](#13-grpc--rpc-apis)
-- [14. WebSocket API](#14-websocket-api)
-- [15. Webhooks](#15-webhooks)
-- [16. Server-Sent Events](#16-server-sent-events)
-- [17. Library / SDK APIs](#17-library--sdk-apis)
-- [18. API Type Comparison](#18-api-type-comparison)
-- [19. REST Interview Essentials](#19-rest-interview-essentials)
-- [20. API Request and Response](#20-api-request-and-response)
-- [21. HTTP Methods](#21-http-methods)
-- [22. HTTP Status Codes](#22-http-status-codes)
-- [23. API Parameters](#23-api-parameters)
-- [24. API Design Principles](#24-api-design-principles)
-- [25. Pagination, Filtering and Sorting](#25-pagination-filtering-and-sorting)
-- [26. API Versioning](#26-api-versioning)
-- [27. API Error Handling](#27-api-error-handling)
-- [28. Idempotency](#28-idempotency)
-- [29. API Authentication and Authorization](#29-api-authentication-and-authorization)
-- [30. API Security](#30-api-security)
-- [31. API Gateway](#31-api-gateway)
-- [32. Reverse Proxy vs Load Balancer vs API Gateway](#32-reverse-proxy-vs-load-balancer-vs-api-gateway)
-- [33. API Reliability](#33-api-reliability)
-- [34. API Documentation and OpenAPI](#34-api-documentation-and-openapi)
-- [35. API Testing](#35-api-testing)
+###  Part 2 — APIs and API Engineering
+- [What Is an API?](#what-is-an-api)
+- [Different Types of APIs](#different-types-of-apis)
+- [REST API](#rest-api)
+- [SOAP API](#soap-api)
+- [GraphQL API](#graphql-api)
+- [gRPC / RPC APIs](#grpc--rpc-apis)
+- [WebSocket API](#websocket-api)
+- [Webhooks](#webhooks)
+- [Server-Sent Events](#server-sent-events)
+- [Library / SDK APIs](#library--sdk-apis)
+- [API Type Comparison](#api-type-comparison)
+- [REST Interview Essentials](#rest-interview-essentials)
+- [API Request and Response](#api-request-and-response)
+- [HTTP Methods](#http-methods)
+- [HTTP Status Codes](#http-status-codes)
+- [API Parameters](#api-parameters)
+- [API Design Principles](#api-design-principles)
+- [Pagination, Filtering and Sorting](#pagination-filtering-and-sorting)
+- [API Versioning](#api-versioning)
+- [API Error Handling](#api-error-handling)
+- [Idempotency](#idempotency)
+- [API Authentication and Authorization](#api-authentication-and-authorization)
+- [API Security](#api-security)
+- [API Gateway](#api-gateway)
+- [Reverse Proxy vs Load Balancer vs API Gateway](#reverse-proxy-vs-load-balancer-vs-api-gateway)
+- [API Reliability](#api-reliability)
+- [API Documentation and OpenAPI](#api-documentation-and-openapi)
+- [API Testing](#api-testing)
 
-### 🧪 Part 3 — Testing and Quality
-- [36. STLC](#36-stlc)
-- [37. Testing Levels](#37-testing-levels)
-- [38. Testing Types](#38-testing-types)
-- [39. Unit vs Integration vs E2E](#39-unit-vs-integration-vs-e2e)
-- [40. Contract Testing](#40-contract-testing)
-- [41. Test Case Thinking](#41-test-case-thinking)
+###  Part 3 — Testing and Quality
+- [STLC](#stlc)
+- [Testing Levels](#testing-levels)
+- [Testing Types](#testing-types)
+- [Unit vs Integration vs E2E](#unit-vs-integration-vs-e2e)
+- [Contract Testing](#contract-testing)
+- [Test Case Thinking](#test-case-thinking)
 
-### 🌿 Part 4 — Git, Collaboration and CI/CD
-- [42. Git and Version Control](#42-git-and-version-control)
-- [43. Merge vs Rebase](#43-merge-vs-rebase)
-- [44. Pull Requests and Code Review](#44-pull-requests-and-code-review)
-- [45. Branching Strategies](#45-branching-strategies)
-- [46. CI/CD](#46-cicd)
-- [47. Build → Test → Deploy Pipeline](#47-build--test--deploy-pipeline)
-- [48. Environments and Configuration](#48-environments-and-configuration)
-- [49. Release Strategies](#49-release-strategies)
+###  Part 4 — Git, Collaboration and CI/CD
+- [Git and Version Control](#git-and-version-control)
+- [Merge vs Rebase](#merge-vs-rebase)
+- [Pull Requests and Code Review](#pull-requests-and-code-review)
+- [Branching Strategies](#branching-strategies)
+- [CI/CD](#cicd)
+- [Build → Test → Deploy Pipeline](#build--test--deploy-pipeline)
+- [Environments and Configuration](#environments-and-configuration)
+- [Release Strategies](#release-strategies)
 
-### 🏗️ Part 5 — Architecture and Design
-- [50. Monolith vs Modular Monolith vs Microservices](#50-monolith-vs-modular-monolith-vs-microservices)
-- [51. Layered Architecture](#51-layered-architecture)
-- [52. Event-Driven Architecture](#52-event-driven-architecture)
-- [53. Message Queues and Pub/Sub](#53-message-queues-and-pubsub)
-- [54. Clean Architecture and Separation of Concerns](#54-clean-architecture-and-separation-of-concerns)
-- [55. Coupling and Cohesion](#55-coupling-and-cohesion)
-- [56. SOLID, DRY, KISS and YAGNI](#56-solid-dry-kiss-and-yagni)
+###  Part 5 — Architecture and Design
+- [Monolith vs Modular Monolith vs Microservices](#monolith-vs-modular-monolith-vs-microservices)
+- [Layered Architecture](#layered-architecture)
+- [Event-Driven Architecture](#event-driven-architecture)
+- [Message Queues and Pub/Sub](#message-queues-and-pubsub)
+- [Clean Architecture and Separation of Concerns](#clean-architecture-and-separation-of-concerns)
+- [Coupling and Cohesion](#coupling-and-cohesion)
+- [SOLID, DRY, KISS and YAGNI](#solid-dry-kiss-and-yagni)
 
-### 🚀 Part 6 — Production Engineering
-- [57. Logging](#57-logging)
-- [58. Monitoring and Metrics](#58-monitoring-and-metrics)
-- [59. Observability and Tracing](#59-observability-and-tracing)
-- [60. Health Checks](#60-health-checks)
-- [61. Timeouts, Retries and Circuit Breakers](#61-timeouts-retries-and-circuit-breakers)
-- [62. Graceful Shutdown](#62-graceful-shutdown)
-- [63. Performance and Profiling](#63-performance-and-profiling)
-- [64. Caching](#64-caching)
-- [65. Database Connection Pooling](#65-database-connection-pooling)
-- [66. Docker and Container Basics](#66-docker-and-container-basics)
+###  Part 6 — Production Engineering
+- [Logging](#logging)
+- [Monitoring and Metrics](#monitoring-and-metrics)
+- [Observability and Tracing](#observability-and-tracing)
+- [Health Checks](#health-checks)
+- [Timeouts, Retries and Circuit Breakers](#timeouts-retries-and-circuit-breakers)
+- [Graceful Shutdown](#graceful-shutdown)
+- [Performance and Profiling](#performance-and-profiling)
+- [Caching](#caching)
+- [Database Connection Pooling](#database-connection-pooling)
+- [Docker and Container Basics](#docker-and-container-basics)
 
-### 🔐 Part 7 — Security
-- [67. Authentication vs Authorization](#67-authentication-vs-authorization)
-- [68. Sessions vs JWT](#68-sessions-vs-jwt)
-- [69. OAuth 2.0](#69-oauth-20)
-- [70. RBAC and Access Control](#70-rbac-and-access-control)
-- [71. CORS, CSRF and XSS](#71-cors-csrf-and-xss)
-- [72. Secrets and Least Privilege](#72-secrets-and-least-privilege)
+###  Part 7 — Security
+- [Authentication vs Authorization](#authentication-vs-authorization)
+- [Sessions vs JWT](#sessions-vs-jwt)
+- [OAuth 2.0](#oauth-20)
+- [RBAC and Access Control](#rbac-and-access-control)
+- [CORS, CSRF and XSS](#cors-csrf-and-xss)
+- [Secrets and Least Privilege](#secrets-and-least-privilege)
 
-### 📐 Part 8 — Documentation and Engineering Practices
-- [73. UML Diagrams You Should Recognize](#73-uml-diagrams-you-should-recognize)
-- [74. API Documentation](#74-api-documentation)
-- [75. Architecture Decision Records](#75-architecture-decision-records)
-- [76. Maintenance, Refactoring and Technical Debt](#76-maintenance-refactoring-and-technical-debt)
-- [77. Backward Compatibility and Deprecation](#77-backward-compatibility-and-deprecation)
+###  Part 8 — Documentation and Engineering Practices
+- [UML Diagrams You Should Recognize](#uml-diagrams-you-should-recognize)
+- [API Documentation](#api-documentation)
+- [Architecture Decision Records](#architecture-decision-records)
+- [Maintenance, Refactoring and Technical Debt](#maintenance-refactoring-and-technical-debt)
+- [Backward Compatibility and Deprecation](#backward-compatibility-and-deprecation)
 
-### 🎯 Part 9 — Infosys Interview Execution
-- [78. Generic Software Engineering Q&A](#78-generic-software-engineering-qa)
-- [79. API Interview Q&A](#79-api-interview-qa)
-- [80. Infosys-Focused Questions](#80-infosys-focused-questions)
-- [81. Project-Based Questions](#81-project-based-questions)
-- [82. Scenario Questions](#82-scenario-questions)
-- [83. Interview Traps](#83-interview-traps)
-- [84. Final Interview Checklist](#84-final-interview-checklist)
+###  Part 9 — Infosys Interview Execution
+- [Generic Software Engineering Q&A](#generic-software-engineering-qa)
+- [API Interview Q&A](#api-interview-qa)
+- [Infosys-Focused Questions](#infosys-focused-questions)
+- [Project-Based Questions](#project-based-questions)
+- [Scenario Questions](#scenario-questions)
+- [Interview Traps](#interview-traps)
+- [Final Interview Checklist](#final-interview-checklist)
 
 ---
 
-# 🧭 Part 1 — Software Engineering Foundations
+# Software Engineering Foundations
 
-<a id="1-software-engineering"></a>
-## 1. Software Engineering
+<a id="software-engineering"></a>
+## Software Engineering
 
 Software engineering is the disciplined process of understanding a problem, designing software, implementing it, testing it, deploying it, operating it and maintaining it.
 
@@ -153,8 +153,8 @@ A student portal needs requirements, database/API design, implementation, testin
 
 ---
 
-<a id="2-sdlc"></a>
-## 2. SDLC
+<a id="sdlc"></a>
+## SDLC
 
 **SDLC = Software Development Life Cycle.**
 
@@ -212,8 +212,8 @@ Monitoring + maintenance
 
 ---
 
-<a id="3-sdlc-models"></a>
-## 3. SDLC Models
+<a id="sdlc-models"></a>
+## SDLC Models
 
 Know the purpose and trade-offs of these models.
 
@@ -266,8 +266,8 @@ Iterate while explicitly analyzing risk.
 
 ---
 
-<a id="4-agile-and-scrum"></a>
-## 4. Agile and Scrum
+<a id="agile-and-scrum"></a>
+## Agile and Scrum
 
 **Agile** is a broad approach emphasizing feedback, collaboration, incremental delivery and adaptation.
 
@@ -310,8 +310,8 @@ Agile is broader than Scrum. Scrum is not synonymous with Agile.
 
 ---
 
-<a id="5-requirements-engineering"></a>
-## 5. Requirements Engineering
+<a id="requirements-engineering"></a>
+## Requirements Engineering
 
 Requirements engineering is the process of discovering, analyzing, documenting, validating and managing what a system must do.
 
@@ -346,8 +346,8 @@ A technically correct implementation can still fail if the requirement is misund
 
 ---
 
-<a id="6-functional-vs-non-functional-requirements"></a>
-## 6. Functional vs Non-Functional Requirements
+<a id="functional-vs-non-functional-requirements"></a>
+## Functional vs Non-Functional Requirements
 
 ### Functional requirement
 
@@ -383,8 +383,8 @@ Examples:
 
 ---
 
-<a id="7-user-stories-and-acceptance-criteria"></a>
-## 7. User Stories and Acceptance Criteria
+<a id="user-stories-and-acceptance-criteria"></a>
+## User Stories and Acceptance Criteria
 
 ### User story
 
@@ -410,10 +410,10 @@ Good acceptance criteria should be observable and testable.
 
 ---
 
-# 🔌 Part 2 — APIs and API Engineering
+# APIs and API Engineering
 
-<a id="8-what-is-an-api"></a>
-## 8. What Is an API?
+<a id="what-is-an-api"></a>
+## What Is an API?
 
 **API = Application Programming Interface.**
 
@@ -461,8 +461,8 @@ Python code → library function
 
 ---
 
-<a id="9-different-types-of-apis"></a>
-## 9. Different Types of APIs
+<a id="different-types-of-apis"></a>
+## Different Types of APIs
 
 This is one of the most important additions because **API does not mean REST only**.
 
@@ -505,8 +505,8 @@ The taxonomy can vary by context. In an interview, explain the communication mod
 
 ---
 
-<a id="10-rest-api"></a>
-## 10. REST API
+<a id="rest-api"></a>
+## REST API
 
 **REST = Representational State Transfer.**
 
@@ -546,8 +546,8 @@ async def get_user(user_id: int):
 
 ---
 
-<a id="11-soap-api"></a>
-## 11. SOAP API
+<a id="soap-api"></a>
+## SOAP API
 
 **SOAP** is a protocol for structured messages, commonly represented using XML.
 
@@ -585,8 +585,8 @@ A legacy enterprise/banking integration can expose a SOAP operation described by
 
 ---
 
-<a id="12-graphql-api"></a>
-## 12. GraphQL API
+<a id="graphql-api"></a>
+## GraphQL API
 
 GraphQL provides a schema through which clients request the fields they need.
 
@@ -627,8 +627,8 @@ query {
 
 ---
 
-<a id="13-grpc--rpc-apis"></a>
-## 13. gRPC / RPC APIs
+<a id="grpc--rpc-apis"></a>
+## gRPC / RPC APIs
 
 **RPC = Remote Procedure Call.**
 
@@ -666,8 +666,8 @@ Internal service-to-service communication.
 
 ---
 
-<a id="14-websocket-api"></a>
-## 14. WebSocket API
+<a id="websocket-api"></a>
+## WebSocket API
 
 WebSocket provides a persistent bidirectional connection.
 
@@ -703,8 +703,8 @@ WebSocket is not simply “faster REST”. It solves a different communication p
 
 ---
 
-<a id="15-webhooks"></a>
-## 15. Webhooks
+<a id="webhooks"></a>
+## Webhooks
 
 A webhook is an HTTP callback sent when an event occurs.
 
@@ -738,8 +738,8 @@ Your backend
 
 ---
 
-<a id="16-server-sent-events"></a>
-## 16. Server-Sent Events
+<a id="server-sent-events"></a>
+## Server-Sent Events
 
 SSE provides a server-to-client event stream over HTTP.
 
@@ -772,8 +772,8 @@ event
 
 ---
 
-<a id="17-library--sdk-apis"></a>
-## 17. Library / SDK APIs
+<a id="library--sdk-apis"></a>
+## Library / SDK APIs
 
 An API does not need to be a network endpoint.
 
@@ -799,8 +799,8 @@ client.create_payment(...)
 
 ---
 
-<a id="18-api-type-comparison"></a>
-## 18. API Type Comparison
+<a id="api-type-comparison"></a>
+## API Type Comparison
 
 | Technology | Communication model | Typical use | Main consideration |
 |---|---|---|---|
@@ -825,8 +825,8 @@ Say:
 
 ---
 
-<a id="19-rest-interview-essentials"></a>
-## 19. REST Interview Essentials
+<a id="rest-interview-essentials"></a>
+## REST Interview Essentials
 
 ### HTTP method semantics
 
@@ -870,8 +870,8 @@ Say:
 
 ---
 
-<a id="20-api-request-and-response"></a>
-## 20. API Request and Response
+<a id="api-request-and-response"></a>
+## API Request and Response
 
 ### Request
 
@@ -913,8 +913,8 @@ Response:
 
 ---
 
-<a id="21-http-methods"></a>
-## 21. HTTP Methods
+<a id="http-methods"></a>
+## HTTP Methods
 
 ### GET
 Retrieve a representation.
@@ -950,8 +950,8 @@ PUT /users/42
 
 ---
 
-<a id="22-http-status-codes"></a>
-## 22. HTTP Status Codes
+<a id="http-status-codes"></a>
+## HTTP Status Codes
 
 Know the meaning, not just the number.
 
@@ -975,8 +975,8 @@ Know the meaning, not just the number.
 
 ---
 
-<a id="23-api-parameters"></a>
-## 23. API Parameters
+<a id="api-parameters"></a>
+## API Parameters
 
 ### Path parameter
 
@@ -1018,8 +1018,8 @@ Structured input:
 
 ---
 
-<a id="24-api-design-principles"></a>
-## 24. API Design Principles
+<a id="api-design-principles"></a>
+## API Design Principles
 
 A production API should have:
 
@@ -1061,8 +1061,8 @@ GET /getUserById?id=42
 
 ---
 
-<a id="25-pagination-filtering-and-sorting"></a>
-## 25. Pagination, Filtering and Sorting
+<a id="pagination-filtering-and-sorting"></a>
+## Pagination, Filtering and Sorting
 
 Do not assume collections are small.
 
@@ -1097,8 +1097,8 @@ Pagination is both an API-design concern and a database-performance concern.
 
 ---
 
-<a id="26-api-versioning"></a>
-## 26. API Versioning
+<a id="api-versioning"></a>
+## API Versioning
 
 Versioning protects consumers from breaking changes.
 
@@ -1125,8 +1125,8 @@ Prefer additive/backward-compatible changes when practical.
 
 ---
 
-<a id="27-api-error-handling"></a>
-## 27. API Error Handling
+<a id="api-error-handling"></a>
+## API Error Handling
 
 Use predictable, machine-readable errors.
 
@@ -1158,8 +1158,8 @@ Pydantic validation errors and `HTTPException` are part of the API error contrac
 
 ---
 
-<a id="28-idempotency"></a>
-## 28. Idempotency
+<a id="idempotency"></a>
+## Idempotency
 
 An operation is idempotent when repeating it has the same intended final effect as doing it once.
 
@@ -1185,8 +1185,8 @@ Repeated client retries should not create duplicate expensive image-search jobs.
 
 ---
 
-<a id="29-api-authentication-and-authorization"></a>
-## 29. API Authentication and Authorization
+<a id="api-authentication-and-authorization"></a>
+## API Authentication and Authorization
 
 **Authentication:** Who are you?
 
@@ -1214,8 +1214,8 @@ Response
 
 ---
 
-<a id="30-api-security"></a>
-## 30. API Security
+<a id="api-security"></a>
+## API Security
 
 High-value points:
 
@@ -1239,8 +1239,8 @@ High-value points:
 
 ---
 
-<a id="31-api-gateway"></a>
-## 31. API Gateway
+<a id="api-gateway"></a>
+## API Gateway
 
 An API gateway is an API-facing entry point in a distributed architecture.
 
@@ -1269,8 +1269,8 @@ API Gateway
 
 ---
 
-<a id="32-reverse-proxy-vs-load-balancer-vs-api-gateway"></a>
-## 32. Reverse Proxy vs Load Balancer vs API Gateway
+<a id="reverse-proxy-vs-load-balancer-vs-api-gateway"></a>
+## Reverse Proxy vs Load Balancer vs API Gateway
 
 ### Reverse proxy
 
@@ -1290,8 +1290,8 @@ They can be separate components or combined in one infrastructure product.
 
 ---
 
-<a id="33-api-reliability"></a>
-## 33. API Reliability
+<a id="api-reliability"></a>
+## API Reliability
 
 Production API reliability includes:
 
@@ -1326,8 +1326,8 @@ Fallback / controlled error
 
 ---
 
-<a id="34-api-documentation-and-openapi"></a>
-## 34. API Documentation and OpenAPI
+<a id="api-documentation-and-openapi"></a>
+## API Documentation and OpenAPI
 
 **OpenAPI** is a machine-readable description of an HTTP API.
 
@@ -1356,8 +1356,8 @@ Common endpoints:
 
 ---
 
-<a id="35-api-testing"></a>
-## 35. API Testing
+<a id="api-testing"></a>
+## API Testing
 
 Test more than the happy path.
 
@@ -1395,10 +1395,10 @@ Test scene creation for:
 
 ---
 
-# 🧪 Part 3 — Testing and Quality
+# Testing and Quality
 
-<a id="36-stlc"></a>
-## 36. STLC
+<a id="stlc"></a>
+## STLC
 
 **STLC = Software Testing Life Cycle.**
 
@@ -1431,8 +1431,8 @@ Closure
 
 ---
 
-<a id="37-testing-levels"></a>
-## 37. Testing Levels
+<a id="testing-levels"></a>
+## Testing Levels
 
 ### Unit testing
 Tests a small component in isolation.
@@ -1450,8 +1450,8 @@ Tests a realistic user journey across the whole system.
 
 ---
 
-<a id="38-testing-types"></a>
-## 38. Testing Types
+<a id="testing-types"></a>
+## Testing Types
 
 Know:
 
@@ -1470,8 +1470,8 @@ Know:
 
 ---
 
-<a id="39-unit-vs-integration-vs-e2e"></a>
-## 39. Unit vs Integration vs E2E
+<a id="unit-vs-integration-vs-e2e"></a>
+## Unit vs Integration vs E2E
 
 | Type | Scope | Strength | Cost |
 |---|---|---|---|
@@ -1487,8 +1487,8 @@ Know:
 
 ---
 
-<a id="40-contract-testing"></a>
-## 40. Contract Testing
+<a id="contract-testing"></a>
+## Contract Testing
 
 Contract testing checks whether communicating systems agree on an API contract.
 
@@ -1510,8 +1510,8 @@ Useful when independently deployed services evolve separately.
 
 ---
 
-<a id="41-test-case-thinking"></a>
-## 41. Test Case Thinking
+<a id="test-case-thinking"></a>
+## Test Case Thinking
 
 For an endpoint or feature, think:
 
@@ -1545,10 +1545,10 @@ This is highly useful during project-defense questions.
 
 ---
 
-# 🌿 Part 4 — Git, Collaboration and CI/CD
+# Git, Collaboration and CI/CD
 
-<a id="42-git-and-version-control"></a>
-## 42. Git and Version Control
+<a id="git-and-version-control"></a>
+## Git and Version Control
 
 Know:
 
@@ -1592,8 +1592,8 @@ Remote repository
 
 ---
 
-<a id="43-merge-vs-rebase"></a>
-## 43. Merge vs Rebase
+<a id="merge-vs-rebase"></a>
+## Merge vs Rebase
 
 ### Merge
 
@@ -1613,8 +1613,8 @@ Replays commits onto a new base and rewrites commit history.
 
 ---
 
-<a id="44-pull-requests-and-code-review"></a>
-## 44. Pull Requests and Code Review
+<a id="pull-requests-and-code-review"></a>
+## Pull Requests and Code Review
 
 ### Typical workflow
 
@@ -1651,8 +1651,8 @@ A code review is more than syntax checking.
 
 ---
 
-<a id="45-branching-strategies"></a>
-## 45. Branching Strategies
+<a id="branching-strategies"></a>
+## Branching Strategies
 
 Know the concepts behind:
 
@@ -1668,8 +1668,8 @@ Know the concepts behind:
 
 ---
 
-<a id="46-cicd"></a>
-## 46. CI/CD
+<a id="cicd"></a>
+## CI/CD
 
 ### Continuous Integration
 
@@ -1689,8 +1689,8 @@ Automatically deploy qualifying changes to production.
 
 ---
 
-<a id="47-build--test--deploy-pipeline"></a>
-## 47. Build → Test → Deploy Pipeline
+<a id="build--test--deploy-pipeline"></a>
+## Build → Test → Deploy Pipeline
 
 Typical pipeline:
 
@@ -1722,8 +1722,8 @@ Monitor
 
 ---
 
-<a id="48-environments-and-configuration"></a>
-## 48. Environments and Configuration
+<a id="environments-and-configuration"></a>
+## Environments and Configuration
 
 Common environments:
 
@@ -1749,8 +1749,8 @@ Keep environment-specific configuration outside application logic and store secr
 
 ---
 
-<a id="49-release-strategies"></a>
-## 49. Release Strategies
+<a id="release-strategies"></a>
+## Release Strategies
 
 ### Rolling
 Replace instances gradually.
@@ -1770,10 +1770,10 @@ Deploy code while separately controlling user exposure.
 
 ---
 
-# 🏗️ Part 5 — Architecture and Design
+# Architecture and Design
 
-<a id="50-monolith-vs-modular-monolith-vs-microservices"></a>
-## 50. Monolith vs Modular Monolith vs Microservices
+<a id="monolith-vs-modular-monolith-vs-microservices"></a>
+## Monolith vs Modular Monolith vs Microservices
 
 ### Monolith
 
@@ -1801,8 +1801,8 @@ Multiple independently deployable services, often organized around business capa
 
 ---
 
-<a id="51-layered-architecture"></a>
-## 51. Layered Architecture
+<a id="layered-architecture"></a>
+## Layered Architecture
 
 Common backend structure:
 
@@ -1829,8 +1829,8 @@ Database
 
 ---
 
-<a id="52-event-driven-architecture"></a>
-## 52. Event-Driven Architecture
+<a id="event-driven-architecture"></a>
+## Event-Driven Architecture
 
 Instead of synchronously invoking every downstream component:
 
@@ -1859,8 +1859,8 @@ Know:
 
 ---
 
-<a id="53-message-queues-and-pubsub"></a>
-## 53. Message Queues and Pub/Sub
+<a id="message-queues-and-pubsub"></a>
+## Message Queues and Pub/Sub
 
 ### Queue
 
@@ -1905,8 +1905,8 @@ Image processing
 
 ---
 
-<a id="54-clean-architecture-and-separation-of-concerns"></a>
-## 54. Clean Architecture and Separation of Concerns
+<a id="clean-architecture-and-separation-of-concerns"></a>
+## Clean Architecture and Separation of Concerns
 
 Core idea: keep business rules from becoming tightly coupled to frameworks and infrastructure.
 
@@ -1928,8 +1928,8 @@ You do not need to memorize one exact diagram. Explain responsibilities and depe
 
 ---
 
-<a id="55-coupling-and-cohesion"></a>
-## 55. Coupling and Cohesion
+<a id="coupling-and-cohesion"></a>
+## Coupling and Cohesion
 
 ### Coupling
 
@@ -1953,8 +1953,8 @@ Low unnecessary coupling
 
 ---
 
-<a id="56-solid-dry-kiss-and-yagni"></a>
-## 56. SOLID, DRY, KISS and YAGNI
+<a id="solid-dry-kiss-and-yagni"></a>
+## SOLID, DRY, KISS and YAGNI
 
 ### SOLID
 
@@ -1978,10 +1978,10 @@ Do not build speculative functionality before it is needed.
 
 ---
 
-# 🚀 Part 6 — Production Engineering
+# Production Engineering
 
-<a id="57-logging"></a>
-## 57. Logging
+<a id="logging"></a>
+## Logging
 
 A useful log answers:
 
@@ -2009,8 +2009,8 @@ Use structured logging where practical.
 
 ---
 
-<a id="58-monitoring-and-metrics"></a>
-## 58. Monitoring and Metrics
+<a id="monitoring-and-metrics"></a>
+## Monitoring and Metrics
 
 Useful metrics:
 
@@ -2036,8 +2036,8 @@ Average latency can hide poor tail latency.
 
 ---
 
-<a id="59-observability-and-tracing"></a>
-## 59. Observability and Tracing
+<a id="observability-and-tracing"></a>
+## Observability and Tracing
 
 Common telemetry:
 
@@ -2067,8 +2067,8 @@ Qdrant / PostgreSQL
 
 ---
 
-<a id="60-health-checks"></a>
-## 60. Health Checks
+<a id="health-checks"></a>
+## Health Checks
 
 ### Liveness
 
@@ -2091,8 +2091,8 @@ Readiness is especially useful during startup, deployment and dependency failure
 
 ---
 
-<a id="61-timeouts-retries-and-circuit-breakers"></a>
-## 61. Timeouts, Retries and Circuit Breakers
+<a id="timeouts-retries-and-circuit-breakers"></a>
+## Timeouts, Retries and Circuit Breakers
 
 ### Timeout
 
@@ -2136,8 +2136,8 @@ Fallback / controlled error
 
 ---
 
-<a id="62-graceful-shutdown"></a>
-## 62. Graceful Shutdown
+<a id="graceful-shutdown"></a>
+## Graceful Shutdown
 
 During shutdown:
 
@@ -2157,8 +2157,8 @@ This reduces dropped requests and incomplete work during deployments.
 
 ---
 
-<a id="63-performance-and-profiling"></a>
-## 63. Performance and Profiling
+<a id="performance-and-profiling"></a>
+## Performance and Profiling
 
 Use:
 
@@ -2189,8 +2189,8 @@ Potential bottlenecks:
 
 ---
 
-<a id="64-caching"></a>
-## 64. Caching
+<a id="caching"></a>
+## Caching
 
 Common flow:
 
@@ -2224,8 +2224,8 @@ is a natural cache entry.
 
 ---
 
-<a id="65-database-connection-pooling"></a>
-## 65. Database Connection Pooling
+<a id="database-connection-pooling"></a>
+## Database Connection Pooling
 
 Opening a new DB connection for every request can be expensive.
 
@@ -2253,8 +2253,8 @@ Benefits:
 
 ---
 
-<a id="66-docker-and-container-basics"></a>
-## 66. Docker and Container Basics
+<a id="docker-and-container-basics"></a>
+## Docker and Container Basics
 
 Know:
 
@@ -2284,10 +2284,10 @@ Container
 
 ---
 
-# 🔐 Part 7 — Security
+# Security
 
-<a id="67-authentication-vs-authorization"></a>
-## 67. Authentication vs Authorization
+<a id="authentication-vs-authorization"></a>
+## Authentication vs Authorization
 
 **Authentication:** Who are you?
 
@@ -2313,8 +2313,8 @@ Authorization
 
 ---
 
-<a id="68-sessions-vs-jwt"></a>
-## 68. Sessions vs JWT
+<a id="sessions-vs-jwt"></a>
+## Sessions vs JWT
 
 ### Session-based
 
@@ -2338,8 +2338,8 @@ Both have trade-offs around state, revocation, storage, token lifetime and scali
 
 ---
 
-<a id="69-oauth-20"></a>
-## 69. OAuth 2.0
+<a id="oauth-20"></a>
+## OAuth 2.0
 
 OAuth 2.0 is an authorization framework for delegated access.
 
@@ -2363,8 +2363,8 @@ Resource Server
 
 ---
 
-<a id="70-rbac-and-access-control"></a>
-## 70. RBAC and Access Control
+<a id="rbac-and-access-control"></a>
+## RBAC and Access Control
 
 **RBAC = Role-Based Access Control.**
 
@@ -2382,8 +2382,8 @@ Other models use permissions, scopes or attributes.
 
 ---
 
-<a id="71-cors-csrf-and-xss"></a>
-## 71. CORS, CSRF and XSS
+<a id="cors-csrf-and-xss"></a>
+## CORS, CSRF and XSS
 
 ### CORS
 
@@ -2411,8 +2411,8 @@ Defense concepts include:
 
 ---
 
-<a id="72-secrets-and-least-privilege"></a>
-## 72. Secrets and Least Privilege
+<a id="secrets-and-least-privilege"></a>
+## Secrets and Least Privilege
 
 Never hard-code:
 
@@ -2433,10 +2433,10 @@ Use:
 
 ---
 
-# 📐 Part 8 — Documentation and Engineering Practices
+# Documentation and Engineering Practices
 
-<a id="73-uml-diagrams-you-should-recognize"></a>
-## 73. UML Diagrams You Should Recognize
+<a id="uml-diagrams-you-should-recognize"></a>
+## UML Diagrams You Should Recognize
 
 | Diagram | Purpose |
 |---|---|
@@ -2454,8 +2454,8 @@ Use:
 
 ---
 
-<a id="74-api-documentation"></a>
-## 74. API Documentation
+<a id="api-documentation"></a>
+## API Documentation
 
 A useful API document communicates:
 
@@ -2478,8 +2478,8 @@ OpenAPI can represent much of this in a machine-readable format.
 
 ---
 
-<a id="75-architecture-decision-records"></a>
-## 75. Architecture Decision Records
+<a id="architecture-decision-records"></a>
+## Architecture Decision Records
 
 An ADR records an important technical decision.
 
@@ -2511,8 +2511,8 @@ Consequences
 
 ---
 
-<a id="76-maintenance-refactoring-and-technical-debt"></a>
-## 76. Maintenance, Refactoring and Technical Debt
+<a id="maintenance-refactoring-and-technical-debt"></a>
+## Maintenance, Refactoring and Technical Debt
 
 ### Refactoring
 
@@ -2537,8 +2537,8 @@ Future engineering cost created by shortcuts, deferred work or design compromise
 
 ---
 
-<a id="77-backward-compatibility-and-deprecation"></a>
-## 77. Backward Compatibility and Deprecation
+<a id="backward-compatibility-and-deprecation"></a>
+## Backward Compatibility and Deprecation
 
 Backward compatibility means existing consumers continue to work.
 
@@ -2556,10 +2556,10 @@ Backward compatibility means existing consumers continue to work.
 
 ---
 
-# 🎯 Part 9 — Infosys Interview Execution
+# Infosys Interview Execution
 
-<a id="78-generic-software-engineering-qa"></a>
-## 78. Generic Software Engineering Q&A
+<a id="generic-software-engineering-qa"></a>
+## Generic Software Engineering Q&A
 
 ### Q1. What is SDLC?
 
@@ -2589,8 +2589,8 @@ Backward compatibility means existing consumers continue to work.
 
 ---
 
-<a id="79-api-interview-qa"></a>
-## 79. API Interview Q&A
+<a id="api-interview-qa"></a>
+## API Interview Q&A
 
 ### Q1. Is every API a REST API?
 
@@ -2636,8 +2636,8 @@ Backward compatibility means existing consumers continue to work.
 
 ---
 
-<a id="80-infosys-focused-questions"></a>
-## 80. Infosys-Focused Questions
+<a id="infosys-focused-questions"></a>
+## Infosys-Focused Questions
 
 These should be treated as **high-priority practice questions**, not an official Infosys question bank.
 
@@ -2715,10 +2715,10 @@ Measure bottleneck
 
 ---
 
-<a id="81-project-based-questions"></a>
-## 81. Project-Based Questions
+<a id="project-based-questions"></a>
+## Project-Based Questions
 
-## SceneFlow
+### SceneFlow
 
 ### Why FastAPI?
 
@@ -2740,7 +2740,7 @@ Measure bottleneck
 
 > The frontend can submit an asynchronous job and periodically retrieve its status/results. WebSockets are an alternative when push updates are preferable.
 
-## URL Shortener
+### URL Shortener
 
 ### Request flow
 
@@ -2770,7 +2770,7 @@ Redirect
 - load balancing
 - rate limiting/abuse controls
 
-## ScoreHub
+### ScoreHub
 
 ### REST or WebSocket?
 
@@ -2784,8 +2784,8 @@ Redirect
 
 ---
 
-<a id="82-scenario-questions"></a>
-## 82. Scenario Questions
+<a id="scenario-questions"></a>
+## Scenario Questions
 
 ### Q1. API becomes slow. What do you do?
 
@@ -2842,8 +2842,8 @@ Health check
 
 ---
 
-<a id="83-interview-traps"></a>
-## 83. Interview Traps
+<a id="interview-traps"></a>
+## Interview Traps
 
 Avoid statements like:
 
@@ -2878,8 +2878,8 @@ Mention failure mode
 
 ---
 
-<a id="84-final-interview-checklist"></a>
-## 84. Final Interview Checklist
+<a id="final-interview-checklist"></a>
+## Final Interview Checklist
 
 ### Software engineering
 
