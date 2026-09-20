@@ -12,6 +12,10 @@
 - [SQL Interview Depth Model](#sql-interview-depth-model)
 - [SQL Mental Model](#sql-mental-model)
 - [Schemas Used in Examples](#schemas-used-in-examples)
+- [General Interview Schema Library](#general-interview-schema-library)
+- [General Interview Query Bank](#general-interview-query-bank)
+- [General Query Variation Drills](#general-query-variation-drills)
+- [Query Pattern Matrix](#query-pattern-matrix)
 - [SELECT and Projection](#select-and-projection)
 - [WHERE and Filtering](#where-and-filtering)
 - [ORDER BY LIMIT and DISTINCT](#order-by-limit-and-distinct)
@@ -2700,6 +2704,837 @@ JOIN scenes sc
 
 [Back to Table of Contents](#table-of-contents)
 
+
+---
+
+<a id="general-interview-schema-library"></a>
+
+## General Interview Schema Library
+
+Project schemas are useful for project defense, but interviewers can ask SQL using completely generic schemas. These are the schemas to become comfortable with first.
+
+### Employee and Department
+
+```text
+employees(id, name, department_id, manager_id, salary, job_title, hire_date, status)
+departments(id, name, location)
+```
+
+Common question families:
+
+```text
+salary ranking
+department counts
+department averages
+employees above department average
+manager relationships
+highest / second-highest / nth-highest salary
+recent hires
+employees without departments
+departments without employees
+```
+
+### Student, Course and Enrollment
+
+```text
+students(id, name, department_id, age, admission_year)
+courses(id, name, department_id, credits)
+enrollments(student_id, course_id, semester, grade)
+```
+
+Common question families:
+
+```text
+students enrolled in courses
+students with no enrollment
+course enrollment counts
+top students by average grade
+students taking multiple courses
+courses with no students
+department-wise student counts
+semester-wise results
+```
+
+### Teacher and Class
+
+```text
+teachers(id, name, department_id, salary)
+classes(id, name, teacher_id, room, schedule)
+students(id, name, department_id)
+class_enrollments(student_id, class_id)
+```
+
+Common question families:
+
+```text
+teacher workload
+students per class
+teachers with no classes
+classes with no students
+department-wise teaching load
+```
+
+### Customer and Order
+
+```text
+customers(id, name, city, created_at)
+orders(id, customer_id, order_date, amount, status)
+order_items(order_id, product_id, quantity, unit_price)
+products(id, name, category_id, price)
+```
+
+Common question families:
+
+```text
+top customers
+customers without orders
+monthly revenue
+repeat customers
+highest-value order
+latest order per customer
+products never ordered
+category revenue
+```
+
+### Project and Employee Assignment
+
+```text
+projects(id, name, department_id, budget, start_date)
+employees(id, name, department_id, salary)
+project_assignments(employee_id, project_id, assigned_at, hours)
+```
+
+Common question families:
+
+```text
+employees per project
+projects with no employees
+employees on multiple projects
+project cost
+highest-hours employee per project
+department project counts
+```
+
+### User and Event / Activity
+
+```text
+users(id, name, created_at)
+events(id, user_id, event_type, event_time)
+```
+
+Common question families:
+
+```text
+daily active users
+first event per user
+latest event per user
+previous event
+users with no events
+repeated events
+activity by day
+retention-style queries
+```
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="general-interview-query-bank"></a>
+
+## General Interview Query Bank
+
+This is the **primary practice bank**. The goal is to become comfortable with generic schemas that an interviewer can introduce without relying on your project context.
+
+### Employees and Departments
+
+#### Find employees earning more than 70,000
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT id, name, salary
+FROM employees
+WHERE salary > 70000;
+```
+
+Uses a simple row filter with `WHERE`.
+
+#### Count employees in each department
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT department_id,
+       COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id;
+```
+
+Uses grouping because the required answer is one row per department.
+
+#### Find departments with more than 5 employees
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT department_id,
+       COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 5;
+```
+
+`WHERE` filters employees; `HAVING` filters the department groups.
+
+#### Find the highest salary
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT MAX(salary) AS highest_salary
+FROM employees;
+```
+
+#### Find the second-highest distinct salary
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employees
+);
+```
+
+The subquery finds the maximum; the outer query finds the maximum below it.
+
+#### Find employees who earn more than the company average
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+SELECT id, name, salary
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+);
+```
+
+Uses a scalar subquery returning one value.
+
+#### Find employees who earn more than their department average
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+WITH department_avg AS (
+    SELECT department_id,
+           AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department_id
+)
+SELECT e.id,
+       e.name,
+       e.department_id,
+       e.salary
+FROM employees e
+JOIN department_avg d
+    ON d.department_id = e.department_id
+WHERE e.salary > d.avg_salary;
+```
+
+The CTE calculates one average per department, then the main query compares each employee against that value.
+
+#### Find the highest-paid employee in each department
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+WITH ranked AS (
+    SELECT e.*,
+           DENSE_RANK() OVER (
+               PARTITION BY department_id
+               ORDER BY salary DESC
+           ) AS rnk
+    FROM employees e
+)
+SELECT id, name, department_id, salary
+FROM ranked
+WHERE rnk = 1;
+```
+
+`DENSE_RANK` preserves ties, so multiple employees can be returned.
+
+#### Find the second-highest salary in each department
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+WITH ranked AS (
+    SELECT e.*,
+           DENSE_RANK() OVER (
+               PARTITION BY department_id
+               ORDER BY salary DESC
+           ) AS rnk
+    FROM employees e
+)
+SELECT id, name, department_id, salary
+FROM ranked
+WHERE rnk = 2;
+```
+
+The partition resets ranking for every department.
+
+#### Find employees and their managers
+
+Schema: `employees(id, name, department_id, manager_id, salary)`
+
+```sql
+SELECT e.name AS employee,
+       m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+    ON m.id = e.manager_id;
+```
+
+This is a self join because employees and managers are rows in the same table.
+
+#### Find employees earning more than their managers
+
+Schema: `employees(id, name, manager_id, salary)`
+
+```sql
+SELECT e.name AS employee,
+       m.name AS manager
+FROM employees e
+JOIN employees m
+    ON m.id = e.manager_id
+WHERE e.salary > m.salary;
+```
+
+The comparison happens after the employee-manager relationship is formed.
+
+#### Find departments with no employees
+
+Schema: `departments(id, name)`
+Schema: `employees(id, name, department_id)`
+
+```sql
+SELECT d.id,
+       d.name
+FROM departments d
+LEFT JOIN employees e
+    ON e.department_id = d.id
+WHERE e.id IS NULL;
+```
+
+This is the standard anti-join pattern.
+
+#### Count employees by department and status
+
+Schema: `employees(id, name, department_id, status)`
+
+```sql
+SELECT department_id,
+       status,
+       COUNT(*) AS employee_count
+FROM employees
+GROUP BY department_id, status;
+```
+
+The grouping key is the pair `(department_id, status)`.
+
+#### Find the top 3 salaries in each department
+
+Schema: `employees(id, name, department_id, salary)`
+
+```sql
+WITH ranked AS (
+    SELECT e.*,
+           DENSE_RANK() OVER (
+               PARTITION BY department_id
+               ORDER BY salary DESC
+           ) AS rnk
+    FROM employees e
+)
+SELECT id, name, department_id, salary
+FROM ranked
+WHERE rnk <= 3;
+```
+
+Use `ROW_NUMBER` instead when the requirement is exactly three employee rows and ties must not expand the result.
+
+### Students, Courses and Enrollment
+
+#### Find students enrolled in at least one course
+
+Schema: `students(id, name)`
+Schema: `enrollments(student_id, course_id, semester, grade)`
+
+```sql
+SELECT s.id,
+       s.name
+FROM students s
+WHERE EXISTS (
+    SELECT 1
+    FROM enrollments e
+    WHERE e.student_id = s.id
+);
+```
+
+The question is existence-oriented, so `EXISTS` expresses the intent directly.
+
+#### Find students not enrolled in any course
+
+Schema: `students(id, name)`
+Schema: `enrollments(student_id, course_id, semester, grade)`
+
+```sql
+SELECT s.id,
+       s.name
+FROM students s
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM enrollments e
+    WHERE e.student_id = s.id
+);
+```
+
+`NOT EXISTS` safely expresses the absence of a related row.
+
+#### Count students in each course
+
+Schema: `courses(id, name)`
+Schema: `enrollments(student_id, course_id, semester, grade)`
+
+```sql
+SELECT c.id,
+       c.name,
+       COUNT(e.student_id) AS student_count
+FROM courses c
+LEFT JOIN enrollments e
+    ON e.course_id = c.id
+GROUP BY c.id, c.name;
+```
+
+The LEFT JOIN keeps courses with zero students.
+
+#### Find courses with no students
+
+Schema: `courses(id, name)`
+Schema: `enrollments(student_id, course_id)`
+
+```sql
+SELECT c.id,
+       c.name
+FROM courses c
+LEFT JOIN enrollments e
+    ON e.course_id = c.id
+WHERE e.course_id IS NULL;
+```
+
+#### Find students taking more than 3 courses
+
+Schema: `enrollments(student_id, course_id)`
+
+```sql
+SELECT student_id,
+       COUNT(DISTINCT course_id) AS course_count
+FROM enrollments
+GROUP BY student_id
+HAVING COUNT(DISTINCT course_id) > 3;
+```
+
+Use DISTINCT when the schema or business rule allows duplicate enrollment records.
+
+#### Find the student with the highest average grade
+
+Schema: `enrollments(student_id, course_id, grade)`
+
+```sql
+SELECT student_id,
+       AVG(grade) AS avg_grade
+FROM enrollments
+GROUP BY student_id
+ORDER BY avg_grade DESC
+LIMIT 1;
+```
+
+For ties or multiple top students, use a ranking query rather than `LIMIT 1`.
+
+### Customer and Order
+
+#### Find customers who never placed an order
+
+Schema: `customers(id, name)`
+Schema: `orders(id, customer_id, amount)`
+
+```sql
+SELECT c.id,
+       c.name
+FROM customers c
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.customer_id = c.id
+);
+```
+
+#### Find each customer's total spending
+
+Schema: `customers(id, name)`
+Schema: `orders(id, customer_id, amount)`
+
+```sql
+SELECT c.id,
+       c.name,
+       COALESCE(SUM(o.amount), 0) AS total_spending
+FROM customers c
+LEFT JOIN orders o
+    ON o.customer_id = c.id
+GROUP BY c.id, c.name;
+```
+
+The LEFT JOIN keeps customers who have never ordered.
+
+#### Find customers whose total spending exceeds 100,000
+
+Schema: `orders(id, customer_id, amount)`
+
+```sql
+SELECT customer_id,
+       SUM(amount) AS total_spending
+FROM orders
+GROUP BY customer_id
+HAVING SUM(amount) > 100000;
+```
+
+#### Find the latest order for each customer
+
+Schema: `orders(id, customer_id, order_date, amount)`
+
+```sql
+WITH ranked AS (
+    SELECT o.*,
+           ROW_NUMBER() OVER (
+               PARTITION BY customer_id
+               ORDER BY order_date DESC, id DESC
+           ) AS rn
+    FROM orders o
+)
+SELECT id, customer_id, order_date, amount
+FROM ranked
+WHERE rn = 1;
+```
+
+#### Find customers who placed orders in both January and February
+
+Schema: `orders(id, customer_id, order_date)`
+
+```sql
+SELECT customer_id
+FROM orders
+WHERE order_date >= DATE '2026-01-01'
+  AND order_date < DATE '2026-03-01'
+GROUP BY customer_id
+HAVING COUNT(DISTINCT CASE
+           WHEN order_date < DATE '2026-02-01' THEN 'JAN'
+           ELSE 'FEB'
+       END) = 2;
+```
+
+This demonstrates conditional aggregation over a customer group. Exact date literals can vary by SQL dialect.
+
+### Products and Orders
+
+#### Find products that were never ordered
+
+Schema: `products(id, name)`
+Schema: `order_items(order_id, product_id)`
+
+```sql
+SELECT p.id,
+       p.name
+FROM products p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM order_items oi
+    WHERE oi.product_id = p.id
+);
+```
+
+#### Find the top 3 products by quantity sold
+
+Schema: `products(id, name)`
+Schema: `order_items(order_id, product_id, quantity)`
+
+```sql
+SELECT p.id,
+       p.name,
+       SUM(oi.quantity) AS total_quantity
+FROM products p
+JOIN order_items oi
+    ON oi.product_id = p.id
+GROUP BY p.id, p.name
+ORDER BY total_quantity DESC, p.id ASC
+LIMIT 3;
+```
+
+#### Find the highest-revenue category
+
+Schema: `products(id, category_id, price)`
+Schema: `order_items(order_id, product_id, quantity)`
+
+```sql
+SELECT p.category_id,
+       SUM(p.price * oi.quantity) AS revenue
+FROM products p
+JOIN order_items oi
+    ON oi.product_id = p.id
+GROUP BY p.category_id
+ORDER BY revenue DESC
+LIMIT 1;
+```
+
+The important interview point is understanding revenue grain: one order item contributes `price × quantity`.
+
+### Projects and Employee Assignment
+
+#### Find employees assigned to more than one project
+
+Schema: `project_assignments(employee_id, project_id)`
+
+```sql
+SELECT employee_id,
+       COUNT(DISTINCT project_id) AS project_count
+FROM project_assignments
+GROUP BY employee_id
+HAVING COUNT(DISTINCT project_id) > 1;
+```
+
+#### Find projects with no assigned employees
+
+Schema: `projects(id, name)`
+Schema: `project_assignments(employee_id, project_id)`
+
+```sql
+SELECT p.id,
+       p.name
+FROM projects p
+LEFT JOIN project_assignments pa
+    ON pa.project_id = p.id
+WHERE pa.project_id IS NULL;
+```
+
+#### Find the employee with the highest hours on each project
+
+Schema: `project_assignments(employee_id, project_id, hours)`
+
+```sql
+WITH ranked AS (
+    SELECT pa.*,
+           ROW_NUMBER() OVER (
+               PARTITION BY project_id
+               ORDER BY hours DESC, employee_id ASC
+           ) AS rn
+    FROM project_assignments pa
+)
+SELECT employee_id,
+       project_id,
+       hours
+FROM ranked
+WHERE rn = 1;
+```
+
+This is a classic top-1-per-group problem.
+
+### User and Events
+
+#### Find the first event for each user
+
+Schema: `events(id, user_id, event_type, event_time)`
+
+```sql
+WITH ranked AS (
+    SELECT e.*,
+           ROW_NUMBER() OVER (
+               PARTITION BY user_id
+               ORDER BY event_time ASC, id ASC
+           ) AS rn
+    FROM events e
+)
+SELECT id, user_id, event_type, event_time
+FROM ranked
+WHERE rn = 1;
+```
+
+#### Find users whose latest event is LOGIN
+
+Schema: `users(id, name)`
+Schema: `events(id, user_id, event_type, event_time)`
+
+```sql
+WITH ranked AS (
+    SELECT e.*,
+           ROW_NUMBER() OVER (
+               PARTITION BY user_id
+               ORDER BY event_time DESC, id DESC
+           ) AS rn
+    FROM events e
+)
+SELECT u.id,
+       u.name
+FROM users u
+JOIN ranked e
+    ON e.user_id = u.id
+   AND e.rn = 1
+WHERE e.event_type = 'LOGIN';
+```
+
+#### Find the time between consecutive events
+
+Schema: `events(id, user_id, event_type, event_time)`
+
+```sql
+SELECT user_id,
+       event_time,
+       LAG(event_time) OVER (
+           PARTITION BY user_id
+           ORDER BY event_time, id
+       ) AS previous_event_time
+FROM events;
+```
+
+The interviewer may then ask you to calculate the actual duration using the date/time arithmetic supported by the chosen SQL dialect.
+
+#### Count daily active users
+
+Schema: `events(id, user_id, event_time)`
+
+```sql
+SELECT CAST(event_time AS DATE) AS event_date,
+       COUNT(DISTINCT user_id) AS active_users
+FROM events
+GROUP BY CAST(event_time AS DATE)
+ORDER BY event_date;
+```
+
+The exact date-casting syntax can vary by SQL dialect.
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="general-query-variation-drills"></a>
+
+## General Query Variation Drills
+
+After solving a query, expect the interviewer to modify one requirement.
+
+### Example: Top 3 salaries
+
+Start:
+
+```text
+top 3 employees overall
+```
+
+Variation 1:
+
+```text
+top 3 distinct salary values overall
+```
+
+Variation 2:
+
+```text
+top 3 employees in every department
+```
+
+Variation 3:
+
+```text
+top 3 distinct salaries in every department
+```
+
+Variation 4:
+
+```text
+return all employees tied at third place
+```
+
+Variation 5:
+
+```text
+exclude inactive employees
+```
+
+Variation 6:
+
+```text
+return the result for one department only
+```
+
+This is why the real skill is recognizing the pattern rather than memorizing one query.
+
+### Other high-value variations
+
+Be ready to modify a basic query into:
+
+```text
+WHERE
+→ GROUP BY
+→ HAVING
+→ JOIN
+→ LEFT JOIN
+→ EXISTS
+→ window function
+→ CTE
+→ tie-aware ranking
+→ NULL-safe logic
+```
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="query-pattern-matrix"></a>
+
+## Query Pattern Matrix
+
+Use this as a pattern-recognition table during revision.
+
+| Requirement | Natural SQL pattern |
+|---|---|
+| Filter individual rows | WHERE |
+| Return unique values | DISTINCT |
+| One result per group | GROUP BY |
+| Filter groups | HAVING |
+| Need columns from another table | JOIN |
+| Preserve unmatched left rows | LEFT JOIN |
+| Find rows with no match | LEFT JOIN + IS NULL / NOT EXISTS |
+| Test whether related rows exist | EXISTS |
+| Test set membership | IN |
+| Compare with a single calculated value | Scalar subquery |
+| Stage a multi-step query | CTE |
+| Keep rows while calculating group statistics | Window function |
+| Rank every row | ROW_NUMBER / RANK / DENSE_RANK |
+| One latest row per group | ROW_NUMBER |
+| All tied latest/top rows | RANK / DENSE_RANK |
+| Previous row | LAG |
+| Next row | LEAD |
+| Running total | SUM() OVER |
+| Conditional metrics | CASE + aggregate |
+| Combine result sets | UNION / UNION ALL |
+| Large ordered pagination | Keyset/cursor pattern |
+| Understand access strategy | EXPLAIN / execution plan |
+
+[Back to Table of Contents](#table-of-contents)
+
+
 ---
 
 <a id="infosys-sp-follow-up-questions"></a>
@@ -3092,6 +3927,22 @@ execution plan
 - [ ] Keyset pagination
 - [ ] Avoid SELECT *
 - [ ] Measure before optimizing
+
+### General SQL Query Practice
+
+- [ ] Employee / department schema
+- [ ] Student / course / enrollment schema
+- [ ] Teacher / class schema
+- [ ] Customer / order schema
+- [ ] Product / order-item schema
+- [ ] Project / employee-assignment schema
+- [ ] User / event schema
+- [ ] Joins + aggregation
+- [ ] Subqueries + EXISTS
+- [ ] Window functions
+- [ ] Top-N / latest-row problems
+- [ ] NULL / duplicate / tie handling
+- [ ] Query variations
 
 ### Project SQL
 
