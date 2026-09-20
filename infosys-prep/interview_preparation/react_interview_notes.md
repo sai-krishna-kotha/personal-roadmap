@@ -72,6 +72,8 @@ React is a library for building component-based UIs. React's current documentati
 <a id="react-fundamentals"></a>
 ## React Fundamentals
 
+[Back to Table of Contents](#table-of-contents)
+
 React lets you describe UI declaratively using reusable components. A function component receives inputs and returns JSX describing UI.
 
 ```tsx
@@ -87,6 +89,8 @@ Interview points:
 
 <a id="components-props-and-state"></a>
 ## Components, Props and State
+
+[Back to Table of Contents](#table-of-contents)
 
 Props are inputs supplied by a parent. State is data owned by a component that can change over time.
 
@@ -110,6 +114,8 @@ Remember:
 <a id="jsx"></a>
 ## JSX
 
+[Back to Table of Contents](#table-of-contents)
+
 JSX is syntax that describes UI and is transformed into JavaScript. It is not HTML executed by the browser.
 
 ```tsx
@@ -122,6 +128,8 @@ Lowercase JSX tags such as `<div />` are intrinsic elements. Uppercase tags such
 
 <a id="rendering-and-re-rendering"></a>
 ## Rendering and Re-rendering
+
+[Back to Table of Contents](#table-of-contents)
 
 Typical mental model:
 
@@ -144,6 +152,8 @@ A re-render means React recalculates the component output. It does not mean the 
 <a id="react-internals"></a>
 ## React Internals
 
+[Back to Table of Contents](#table-of-contents)
+
 Interview-level internals are easiest to explain as render, reconcile, and commit.
 
 **Render phase:** React calculates the next UI representation. Rendering should be pure.
@@ -158,6 +168,8 @@ Do not say “the virtual DOM is the DOM copy.” A precise answer distinguishes
 
 <a id="reconciliation-and-keys"></a>
 ## Reconciliation and Keys
+
+[Back to Table of Contents](#table-of-contents)
 
 React uses element type and keys to preserve identity across renders.
 
@@ -174,6 +186,8 @@ Key is special and is not received as a normal component prop. Pass an ID separa
 <a id="fiber-and-scheduling"></a>
 ## Fiber and Scheduling
 
+[Back to Table of Contents](#table-of-contents)
+
 Fiber is React's internal representation of component work. A Fiber stores relationships and update-related data that let React process work incrementally.
 
 Know these interview points:
@@ -184,6 +198,8 @@ Know these interview points:
 
 <a id="events-and-forms"></a>
 ## Events and Forms
+
+[Back to Table of Contents](#table-of-contents)
 
 Know React event props such as `onClick`, `onChange`, and `onSubmit`.
 
@@ -206,6 +222,8 @@ Forms interview topics:
 <a id="hooks"></a>
 ## Hooks
 
+[Back to Table of Contents](#table-of-contents)
+
 Hooks let function components use React features such as state, effects, context and refs.
 
 Core Hooks to know:
@@ -223,6 +241,8 @@ Rules of Hooks: call Hooks at the top level of React components or custom Hooks,
 
 <a id="usestate-deep-dive"></a>
 ## useState Deep Dive
+
+[Back to Table of Contents](#table-of-contents)
 
 ```tsx
 const [count, setCount] = useState(0);
@@ -245,6 +265,8 @@ State setters schedule updates. React may batch multiple updates so several chan
 <a id="useeffect-deep-dive"></a>
 ## useEffect Deep Dive
 
+[Back to Table of Contents](#table-of-contents)
+
 `useEffect` is primarily for synchronizing a component with an external system such as subscriptions, timers, browser APIs, or network-related effects.
 
 ```tsx
@@ -260,6 +282,8 @@ Do not answer “useEffect is the lifecycle method.” A better answer is: effec
 
 <a id="useref-and-dom-references"></a>
 ## useRef and DOM References
+
+[Back to Table of Contents](#table-of-contents)
 
 `useRef` returns a stable mutable object whose `.current` can change without triggering a render.
 
@@ -280,6 +304,8 @@ Common uses:
 <a id="usememo-usecallback-and-memo"></a>
 ## useMemo, useCallback and memo
 
+[Back to Table of Contents](#table-of-contents)
+
 - `useMemo` memoizes a computed value.
 - `useCallback` memoizes a function reference.
 - `memo` can skip some component renders when props are unchanged according to its comparison.
@@ -294,6 +320,8 @@ These are optimizations, not correctness tools. Current React documentation note
 <a id="usecontext-and-state-sharing"></a>
 ## useContext and State Sharing
 
+[Back to Table of Contents](#table-of-contents)
+
 Context lets descendants read a shared value from an ancestor provider without threading props through every intermediate component.
 
 Typical use cases include theme, authentication information, localization and other relatively shared values.
@@ -302,6 +330,8 @@ Context is not simply “global state.” A provider update can cause consumers 
 
 <a id="usereducer"></a>
 ## useReducer
+
+[Back to Table of Contents](#table-of-contents)
 
 `useReducer` is useful when related state transitions are easier to express as actions.
 
@@ -322,6 +352,8 @@ function reducer(state: State, action: Action): State {
 <a id="custom-hooks"></a>
 ## Custom Hooks
 
+[Back to Table of Contents](#table-of-contents)
+
 Custom Hooks reuse stateful logic. They do not share one instance of state between components; each call has its own Hook state.
 
 ```tsx
@@ -338,6 +370,8 @@ function useDebouncedValue<T>(value: T, delay: number) {
 <a id="controlled-vs-uncontrolled-components"></a>
 ## Controlled vs Uncontrolled Components
 
+[Back to Table of Contents](#table-of-contents)
+
 **Controlled:** React state is the source of truth.
 
 ```tsx
@@ -351,6 +385,8 @@ Use the approach that fits the form, validation, performance, and integration re
 <a id="lists-and-keys"></a>
 ## Lists and Keys
 
+[Back to Table of Contents](#table-of-contents)
+
 Know how `map`, stable keys, list identity and state preservation interact.
 
 ```tsx
@@ -361,6 +397,8 @@ Know how `map`, stable keys, list identity and state preservation interact.
 
 <a id="conditional-rendering"></a>
 ## Conditional Rendering
+
+[Back to Table of Contents](#table-of-contents)
 
 Common patterns:
 
@@ -375,6 +413,8 @@ Be careful with truthiness. `{count && <Badge />}` can render `0` when `count` i
 <a id="state-management-choices"></a>
 ## State Management Choices
 
+[Back to Table of Contents](#table-of-contents)
+
 Classify state before choosing a tool:
 - local UI state
 - derived state
@@ -388,12 +428,16 @@ Do not put every value into a global store.
 <a id="context-vs-redux-style-stores"></a>
 ## Context vs Redux-style Stores
 
+[Back to Table of Contents](#table-of-contents)
+
 Context solves value propagation. A dedicated state library may add a state model, subscriptions, middleware, devtools and other capabilities depending on the library.
 
 Interview answer: “Context can share values; it is not automatically a replacement for every state management solution.”
 
 <a id="data-fetching"></a>
 ## Data Fetching
+
+[Back to Table of Contents](#table-of-contents)
 
 Typical client flow:
 
@@ -406,12 +450,16 @@ Know loading, success, empty, error, retry, cancellation, stale data, pagination
 <a id="error-handling"></a>
 ## Error Handling
 
+[Back to Table of Contents](#table-of-contents)
+
 Distinguish rendering errors from API/network/validation/authentication errors.
 
 Error boundaries handle certain rendering errors in a component subtree. They are not a replacement for handling failed HTTP requests.
 
 <a id="performance"></a>
 ## Performance
+
+[Back to Table of Contents](#table-of-contents)
 
 Typical sources of unnecessary work include expensive render calculations, unstable props, broad context updates, large lists, repeated requests and oversized bundles.
 
@@ -426,10 +474,14 @@ Useful tools include React DevTools and browser performance tooling.
 <a id="react-compiler"></a>
 ## React Compiler
 
+[Back to Table of Contents](#table-of-contents)
+
 React Compiler is a build-time optimization tool that can automatically memoize React code based on its analysis. React's documentation recommends understanding manual `useMemo`, `useCallback`, and `memo` while allowing the compiler to handle many optimization cases. citeturn675000search6
 
 <a id="code-splitting-and-lazy-loading"></a>
 ## Code Splitting and Lazy Loading
+
+[Back to Table of Contents](#table-of-contents)
 
 Use `lazy` and suitable bundler/framework support to load feature code when required.
 
@@ -441,6 +493,8 @@ Benefits include smaller initial bundles and deferred loading of less-used featu
 
 <a id="suspense"></a>
 ## Suspense
+
+[Back to Table of Contents](#table-of-contents)
 
 Suspense provides a declarative fallback boundary for supported async/lazy rendering scenarios.
 
@@ -455,6 +509,8 @@ Do not say Suspense is only lazy loading; modern React frameworks can use it for
 <a id="portals"></a>
 ## Portals
 
+[Back to Table of Contents](#table-of-contents)
+
 A portal renders children into another DOM node while preserving the logical React tree relationship.
 
 Common use cases are modals, tooltips and dropdowns.
@@ -462,10 +518,14 @@ Common use cases are modals, tooltips and dropdowns.
 <a id="strict-mode"></a>
 ## Strict Mode
 
+[Back to Table of Contents](#table-of-contents)
+
 Strict Mode provides development-only checks. Some code may be intentionally invoked more than once in development to expose unsafe side effects. That does not mean production runs the application twice.
 
 <a id="react-server-components-and-client-components"></a>
 ## React Server Components and Client Components
+
+[Back to Table of Contents](#table-of-contents)
 
 Server Components are part of an architecture supported by frameworks and can execute on the server. Client Components are used when browser interactivity or client-only APIs are required.
 
@@ -473,6 +533,8 @@ Do not equate Server Components with traditional server-side rendering; they are
 
 <a id="ssr-csr-ssg-and-hydration"></a>
 ## SSR, CSR, SSG and Hydration
+
+[Back to Table of Contents](#table-of-contents)
 
 - CSR: the browser builds the UI from client-side JavaScript.
 - SSR: HTML is generated on the server for a request.
@@ -483,6 +545,8 @@ Hydration is not simply “render the HTML again.”
 
 <a id="react-dom-and-createroot"></a>
 ## React DOM and createRoot
+
+[Back to Table of Contents](#table-of-contents)
 
 ```tsx
 import { createRoot } from "react-dom/client";
@@ -497,12 +561,16 @@ root.render(<App />);
 <a id="routing"></a>
 ## Routing
 
+[Back to Table of Contents](#table-of-contents)
+
 Client-side routing maps URL state to rendered UI.
 
 Know route matching, nested routes, parameters, query parameters, navigation, protected routes, lazy routes and 404 handling.
 
 <a id="security"></a>
 ## Security
+
+[Back to Table of Contents](#table-of-contents)
 
 React escapes normal text content, but application security still depends on backend authorization, secure authentication, safe token/cookie handling, validation and careful HTML handling.
 
@@ -511,12 +579,16 @@ React escapes normal text content, but application security still depends on bac
 <a id="testing"></a>
 ## Testing
 
+[Back to Table of Contents](#table-of-contents)
+
 Know unit, component/integration and end-to-end testing.
 
 Prefer behavior-oriented tests: click a button, submit a form, render API success/failure states, and verify user-visible outcomes.
 
 <a id="project-architecture"></a>
 ## Project Architecture
+
+[Back to Table of Contents](#table-of-contents)
 
 A practical feature-based structure:
 
@@ -536,6 +608,8 @@ Keep UI, feature logic, API clients, stateful Hooks and shared types separated b
 <a id="react-with-fastapi"></a>
 ## React with FastAPI
 
+[Back to Table of Contents](#table-of-contents)
+
 Typical flow:
 
 ```text
@@ -546,6 +620,8 @@ Interview topics include CORS, auth, request/response schemas, loading/error sta
 
 <a id="react-in-sceneflow"></a>
 ## React in SceneFlow
+
+[Back to Table of Contents](#table-of-contents)
 
 Explain the frontend as a UI orchestration layer:
 
@@ -559,6 +635,8 @@ Strong discussion points: reusable components, API service modules, polling clea
 <a id="react-in-scorehub"></a>
 ## React in ScoreHub
 
+[Back to Table of Contents](#table-of-contents)
+
 React can power tournament dashboards and live match views. For real-time scores, a WebSocket connection can push server events to the UI instead of continuous polling.
 
 Frontend should update the affected state predictably when multiple score events arrive quickly.
@@ -566,10 +644,14 @@ Frontend should update the affected state predictably when multiple score events
 <a id="react-in-the-url-shortener"></a>
 ## React in the URL Shortener
 
+[Back to Table of Contents](#table-of-contents)
+
 Frontend responsibilities include URL input, validation, submit/loading state, generated short URL display, copy-to-clipboard and error handling. The backend remains authoritative for persistence and redirect behavior.
 
 <a id="typescript-in-react"></a>
 ## TypeScript in React
+
+[Back to Table of Contents](#table-of-contents)
 
 TypeScript adds static type checking to JavaScript. In React it is commonly used for props, state, events, refs, API response contracts and reusable component APIs.
 
@@ -577,6 +659,8 @@ Use `.ts` for TypeScript without JSX and `.tsx` for TypeScript with JSX. TypeScr
 
 <a id="how-typescript-is-added-to-react"></a>
 ## How TypeScript Is Added to React
+
+[Back to Table of Contents](#table-of-contents)
 
 Interview mental model:
 
@@ -606,6 +690,8 @@ Important nuance: modern React build tools may type-check separately from the Ja
 <a id="tsx-and-jsx-compilation"></a>
 ## TSX and JSX Compilation
 
+[Back to Table of Contents](#table-of-contents)
+
 Input:
 
 ```tsx
@@ -616,6 +702,8 @@ For the automatic `react-jsx` mode, TypeScript can transform JSX to calls from `
 
 <a id="typescript-configuration"></a>
 ## TypeScript Configuration
+
+[Back to Table of Contents](#table-of-contents)
 
 Typical project configuration:
 
@@ -637,6 +725,8 @@ Know `strict`, `target`, `module`, `moduleResolution`, `jsx`, `noEmit`, path ali
 <a id="typing-props"></a>
 ## Typing Props
 
+[Back to Table of Contents](#table-of-contents)
+
 ```tsx
 type ButtonProps = {
   label: string;
@@ -654,6 +744,8 @@ Know optional properties, function props, unions, readonly properties and reusab
 <a id="typing-state-and-hooks"></a>
 ## Typing State and Hooks
 
+[Back to Table of Contents](#table-of-contents)
+
 TypeScript can infer many Hook types:
 
 ```tsx
@@ -666,6 +758,8 @@ Use explicit generic types when the initial value does not fully express the sta
 
 <a id="typing-events"></a>
 ## Typing Events
+
+[Back to Table of Contents](#table-of-contents)
 
 ```tsx
 function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -682,6 +776,8 @@ Type the event according to the actual event and DOM element.
 <a id="typing-refs"></a>
 ## Typing refs
 
+[Back to Table of Contents](#table-of-contents)
+
 DOM ref:
 
 ```tsx
@@ -696,6 +792,8 @@ const requestId = useRef<number | null>(null);
 
 <a id="typing-apis-and-async-data"></a>
 ## Typing APIs and Async Data
+
+[Back to Table of Contents](#table-of-contents)
 
 Define API contracts:
 
@@ -717,6 +815,8 @@ Important: TypeScript does not inspect runtime network data. For untrusted exter
 <a id="typing-children-and-components"></a>
 ## Typing Children and Components
 
+[Back to Table of Contents](#table-of-contents)
+
 ```tsx
 type CardProps = {
   children: React.ReactNode;
@@ -731,6 +831,8 @@ function Card({ children }: CardProps) {
 
 <a id="generics-in-react"></a>
 ## Generics in React
+
+[Back to Table of Contents](#table-of-contents)
 
 ```tsx
 type SelectProps<T> = {
@@ -753,6 +855,8 @@ Generics preserve relationships between inputs and outputs without using `any`.
 <a id="union-intersection-and-discriminated-union-patterns"></a>
 ## Union, Intersection and Discriminated Union Patterns
 
+[Back to Table of Contents](#table-of-contents)
+
 Union:
 
 ```ts
@@ -774,6 +878,8 @@ This pattern is excellent for UI state because the discriminator narrows which f
 <a id="typescript-utility-types-for-react"></a>
 ## TypeScript Utility Types for React
 
+[Back to Table of Contents](#table-of-contents)
+
 Useful utility types:
 - `Partial<T>`
 - `Pick<T, K>`
@@ -787,10 +893,14 @@ Useful utility types:
 <a id="type-safety-vs-runtime-validation"></a>
 ## Type Safety vs Runtime Validation
 
+[Back to Table of Contents](#table-of-contents)
+
 Interview answer: “TypeScript catches mistakes at development time. It cannot guarantee that arbitrary runtime API data matches a declared type. Runtime validation can complement static typing at system boundaries.”
 
 <a id="javascript-react-vs-typescript-react"></a>
 ## JavaScript React vs TypeScript React
+
+[Back to Table of Contents](#table-of-contents)
 
 ```jsx
 function UserCard({ name }) {
@@ -810,6 +920,8 @@ The React runtime model is not fundamentally changed by using TypeScript. TypeSc
 
 <a id="generic-interview-questions-and-answers"></a>
 ## Generic Interview Questions and Answers
+
+[Back to Table of Contents](#table-of-contents)
 
 ### What problem does React solve?
 React provides a declarative component model for interactive UIs and updates the UI when application data changes.
@@ -844,6 +956,8 @@ New references make state transitions predictable and allow identity-based optim
 <a id="internals-interview-questions-and-answers"></a>
 ## Internals Interview Questions and Answers
 
+[Back to Table of Contents](#table-of-contents)
+
 ### What happens after a state update?
 React schedules work, renders the affected tree, reconciles the result and commits the needed host changes.
 
@@ -864,6 +978,8 @@ Key influences identity matching among siblings and therefore whether a componen
 
 <a id="hooks-interview-questions-and-answers"></a>
 ## Hooks Interview Questions and Answers
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Why can't Hooks be conditional?
 React relies on stable Hook call order to associate Hook state with each call.
@@ -889,6 +1005,8 @@ No. They share logic; each invocation has its own Hook state.
 <a id="performance-interview-questions-and-answers"></a>
 ## Performance Interview Questions and Answers
 
+[Back to Table of Contents](#table-of-contents)
+
 ### How do you debug unnecessary re-renders?
 Measure first with React DevTools and browser profiling, then inspect state, props, context, parent renders and expensive calculations.
 
@@ -906,6 +1024,8 @@ Splitting application code into chunks that can be loaded when needed.
 
 <a id="typescript-interview-questions-and-answers"></a>
 ## TypeScript Interview Questions and Answers
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Why TypeScript with React?
 It catches incorrect props, state shapes, event usage, API assumptions and component contracts during development.
@@ -937,6 +1057,8 @@ Through its JSX type system and React typings, combined with the configured JSX 
 <a id="project-based-questions-and-answers"></a>
 ## Project-Based Questions and Answers
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Explain React architecture in SceneFlow.
 “I keep reusable UI, feature-specific scene/project components, API service functions, Hooks and types separated. The UI triggers FastAPI calls, tracks loading/error state, and refreshes when background jobs produce results.”
 
@@ -957,6 +1079,8 @@ Keep URL form state local, centralize API calls, type request/response contracts
 
 <a id="implementation-drills"></a>
 ## Implementation Drills
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Counter with functional updates
 
@@ -997,6 +1121,8 @@ Production discussion should add cancellation, race-condition handling, caching 
 <a id="interview-traps"></a>
 ## Interview Traps
 
+[Back to Table of Contents](#table-of-contents)
+
 - “Virtual DOM means React copies the whole DOM every time.”
 - “A re-render means the whole page is redrawn.”
 - “Every state update immediately mutates the DOM.”
@@ -1017,6 +1143,8 @@ Production discussion should add cancellation, race-condition handling, caching 
 
 <a id="final-checklist"></a>
 ## Final Checklist
+
+[Back to Table of Contents](#table-of-contents)
 
 Be able to explain from memory:
 
@@ -1052,6 +1180,8 @@ Be able to explain from memory:
 - static typing vs runtime validation
 
 ## Sources
+
+[Back to Table of Contents](#table-of-contents)
 
 React current documentation: Quick Start, TypeScript integration, React reference and React Compiler. TypeScript documentation: React integration, JSX and TSConfig JSX options. citeturn675000search2turn675000search4turn675000search5turn675000search6turn675000search0turn675000search1turn675000search9
 
