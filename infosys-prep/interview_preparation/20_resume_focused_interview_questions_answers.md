@@ -79,6 +79,246 @@ Your resume describes your main strength as Python backend development using Fas
 ---
 
 <a id="skills"></a>
+<a id="basic-technology-questions"></a>
+## Basic Technology Questions
+
+[Back to Table of Contents](#table-of-contents)
+
+These are the simple questions interviewers can ask directly from the names in your resume. Keep these answers very basic first. Go deeper only when they ask.
+
+### What is Python?
+
+**Answer:**
+
+"Python is a high-level programming language. It has simple syntax and is used for backend development, automation, data work and AI. I mainly use it for backend development."
+
+**Follow-up: What makes Python popular?**
+
+"It is easy to read, has a large number of libraries and lets us build applications quickly."
+
+**Follow-up: Is Python compiled or interpreted?**
+
+"Python code is generally compiled to bytecode first and then executed by the Python virtual machine. In normal interview terms, we usually call Python an interpreted language."
+
+### What is SQL?
+
+**Answer:**
+
+"SQL is a language used to work with relational databases. We use it to read, insert, update and delete data, and also to join and analyze data."
+
+**Follow-up: Where did you use SQL?**
+
+"I used SQL mainly with PostgreSQL and MySQL for application data and queries."
+
+**Follow-up: SQL vs NoSQL?**
+
+"SQL databases use a structured relational model. NoSQL is a broader category of databases that can use different models such as document, key-value or wide-column storage."
+
+### What is FastAPI?
+
+**Answer:**
+
+"FastAPI is a Python web framework mainly used for building APIs. It gives request validation, routing and support for asynchronous code."
+
+**Follow-up: Why did you choose it?**
+
+"My projects are mainly API-based with separate React frontends, so FastAPI was a good fit."
+
+### What is Django?
+
+**Answer:**
+
+"Django is a Python web framework that provides many common features for building web applications, including models, URLs, views, authentication and an ORM."
+
+**Follow-up: Why did you use Django in the internship?**
+
+"The client application had business workflows, users, roles and database operations, so Django was a practical fit."
+
+### What is REST API?
+
+**Answer:**
+
+"A REST API is a way for applications to communicate over HTTP using resources and standard operations such as GET, POST, PUT, PATCH and DELETE."
+
+**Follow-up: Give an example from your project.**
+
+"For the URL shortener, the frontend sends an HTTP request to the FastAPI backend to create a short URL, and the backend returns the result as JSON."
+
+### What is Pydantic?
+
+**Answer:**
+
+"Pydantic is used to define and validate data structures in Python. In FastAPI, I use it to validate request and response data."
+
+### What is PostgreSQL?
+
+**Answer:**
+
+"PostgreSQL is a relational database. It stores data in tables and supports SQL, transactions, constraints and relationships between data."
+
+### What is MySQL?
+
+**Answer:**
+
+"MySQL is also a relational database that uses SQL. I have used it as part of my database knowledge and application work."
+
+### PostgreSQL vs MySQL?
+
+**Answer:**
+
+"Both are relational databases and support SQL. PostgreSQL is the one I have used more in my recent projects."
+
+### What is SQLAlchemy?
+
+**Answer:**
+
+"SQLAlchemy is a Python library for working with relational databases. It lets the application work with database models and queries from Python."
+
+### What is an ORM?
+
+**Answer:**
+
+"ORM means Object-Relational Mapping. It lets application code work with database records through programming language objects instead of writing every query manually."
+
+### What is Alembic?
+
+**Answer:**
+
+"Alembic is a database migration tool commonly used with SQLAlchemy. It helps manage schema changes in a controlled way."
+
+### What is Redis?
+
+**Answer:**
+
+"Redis is a fast in-memory data store. It is commonly used for caching, temporary data, counters and messaging."
+
+**Follow-up: How did you use Redis?**
+
+"In the URL shortener I used it for redirect caching and rate limiting. In SceneFlow it is used as the Celery message broker."
+
+### What is Celery?
+
+**Answer:**
+
+"Celery is a background task system. It lets the application send a task to a worker so slow work can happen outside the normal API request."
+
+### What is Qdrant?
+
+**Answer:**
+
+"Qdrant is a vector database. It stores vectors and can find vectors that are similar to a given query vector."
+
+### What is an embedding?
+
+**Answer:**
+
+"An embedding is a list of numbers that represents data in a form that a model or search system can compare. Similar meanings can have nearby vectors."
+
+### What is Docker?
+
+**Answer:**
+
+"Docker packages an application and its dependencies into an image that can run as a container. This helps keep the environment consistent."
+
+### What is a Docker container?
+
+**Answer:**
+
+"A container is a running instance of a Docker image. It gives the application an isolated environment while sharing the host kernel."
+
+### What is Git?
+
+**Answer:**
+
+"Git is a version control system. It tracks code changes and helps developers work on different versions and collaborate safely."
+
+### What is Linux?
+
+**Answer:**
+
+"Linux is an operating system family widely used for servers and development. I use Linux for development, running services and command-line work."
+
+### What is Postman?
+
+**Answer:**
+
+"Postman is a tool for testing APIs. I use it to send requests and check responses, headers, authentication and error cases."
+
+### What is React?
+
+**Answer:**
+
+"React is a JavaScript library for building user interfaces using reusable components."
+
+### What is JavaScript?
+
+**Answer:**
+
+"JavaScript is a programming language widely used for web applications. I mainly use it on the frontend with React."
+
+### What is TypeScript?
+
+**Answer:**
+
+"TypeScript is JavaScript with a type system. It helps catch many mistakes earlier and makes larger frontend codebases easier to maintain."
+
+### What is Nginx?
+
+**Answer:**
+
+"Nginx is a web server and reverse proxy. It can receive client requests and forward them to backend services, and it can also serve static frontend files."
+
+### What is Docker Compose?
+
+**Answer:**
+
+"Docker Compose lets me define and run multiple related containers together, such as an API, PostgreSQL and Redis."
+
+### What is async programming?
+
+**Answer:**
+
+"Async programming lets the application handle waiting operations, such as network or database calls, without blocking the whole flow while it waits."
+
+### What is caching?
+
+**Answer:**
+
+"Caching means storing frequently used data in a faster place so we do not have to calculate or fetch it again every time."
+
+### What is rate limiting?
+
+**Answer:**
+
+"Rate limiting controls how many requests a client can make in a certain time. It helps protect the service from excessive traffic."
+
+### What is an HTTP API?
+
+**Answer:**
+
+"It is an API that communicates using HTTP requests and responses. The request usually contains a method, URL and optional headers/body, and the server returns a status code and response data."
+
+### What is authentication?
+
+**Answer:**
+
+"Authentication checks who the user is."
+
+### What is authorization?
+
+**Answer:**
+
+"Authorization checks what the authenticated user is allowed to do."
+
+### What is background processing?
+
+**Answer:**
+
+"It means moving slow work out of the normal user request so the user does not have to wait for the whole operation."
+
+---
+
+
 ## Skills
 
 [Back to Table of Contents](#table-of-contents)
