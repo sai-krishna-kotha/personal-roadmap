@@ -2,11 +2,50 @@
 
 This is the dedicated Computer Networks reference for the Infosys DSE / Specialist Programmer interview track.
 
-Scope: networking fundamentals, OSI/TCP-IP, Ethernet and switching, IP addressing and subnetting, ARP/NDP, routing, TCP/UDP, reliability, flow/congestion control, DNS, DHCP, NAT/PAT, HTTP/HTTPS, TLS, sockets, proxies, load balancers, CORS, cookies/tokens, WebSockets, latency, packet loss, debugging, implementation drills, hidden terminology, traps, and networking-level engineering trade-offs.
+## What This File Covers
 
-Interview standard: for every major topic, be able to give the definition, explain why it exists, trace the mechanism, use a real-world analogy, identify failure modes, compare alternatives, and answer follow-up questions.
+This file focuses on the Computer Networks concepts most useful for the Infosys DSE / SP interview:
 
-Boundary: this remains Computer Networks. The future System Design course will go deeper into architecture. Here, design discussion stays at the networking boundary: protocols, connections, latency, reliability, security, proxies, load balancing, traffic flow, and failure diagnosis.
+- Network fundamentals and layered models
+- MAC, IP, subnetting, CIDR, ARP/NDP, switching, and routing
+- TCP/UDP, reliability, flow control, congestion control, and connection lifecycle
+- DNS, DHCP, NAT/PAT, HTTP/HTTPS, TLS, sockets, and WebSockets
+- Proxies, load balancers, CORS, cookies, sessions/tokens, caching, and rate limiting
+- Latency, packet loss, MTU/MSS, debugging, and production failure scenarios
+- Small Python networking implementations and project-based discussion
+- Hidden terminology, common interview traps, and likely Infosys follow-up questions
+
+## How Deep You Should Know Each Topic
+
+For the important topics, do not stop at the definition. Prepare in this order:
+
+1. **Definition** — What is it?
+2. **Purpose** — What problem does it solve?
+3. **Mechanism** — How does it work?
+4. **Example** — Explain it with a real-world or concrete example.
+5. **Failure** — What can go wrong?
+6. **Trade-off** — Why use this instead of an alternative?
+7. **Interview follow-up** — What deeper question could come next?
+
+The goal is to be able to move naturally from a simple definition to a technical discussion without memorizing isolated facts.
+
+## Where This File Stops
+
+This is a **Computer Networks** reference, not the full System Design preparation.
+
+System-design topics such as large-scale architecture, service decomposition, distributed systems, scalability strategy, database architecture, and broader system-design trade-offs will be handled separately.
+
+Here, architecture is discussed only when it directly helps explain networking:
+
+- protocol and connection behavior
+- request/response traffic flow
+- latency and reliability
+- TLS and network security
+- proxies and load balancing
+- connection pooling
+- network-level failures and debugging
+
+> **Study rule:** Whenever a networking term feels vague, ask **“What exact problem is this solving?”** Understand that problem first, then learn the mechanism and terminology.
 
 <a id="table-of-contents"></a>
 
