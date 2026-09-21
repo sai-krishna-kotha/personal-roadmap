@@ -122,11 +122,12 @@ I need to protect this state
 
 ## Class and Object
 
+### Definition
+A **class** is a blueprint that defines a type's data and behavior. An **object** is a concrete instance of that class.
+
 ### Understanding
 
-A **class** is the design of a type of object: it describes what data the object owns and what behavior it exposes.
-
-An **object** is one concrete instance created from that class.
+A class describes the structure and behavior that objects of that type should have. An object is the actual runtime instance that stores its own instance data.
 
 Think:
 
@@ -179,11 +180,12 @@ Good direction:
 
 ## Constructor and Object Initialization
 
+### Definition
+In Python, `__new__` creates an instance and `__init__` initializes that instance with its initial state.
+
 ### Understanding
 
-In Python, `__init__` initializes an already-created object. It is not literally the low-level object-construction mechanism; `__new__` creates the instance and `__init__` initializes it.
-
-For most application interviews, `__init__` is the practical constructor-style method to discuss.
+When you call `User("sai")`, Python creates the object and then initializes it through `__init__`. In normal application code, `__init__` is the method you usually write to set the object's initial state.
 
 ### Example
 
@@ -216,15 +218,12 @@ Examples include immutable types, custom instance creation, or advanced metaprog
 
 ## Encapsulation
 
+### Definition
+**Encapsulation** is the practice of keeping an object's state and the operations that enforce its rules together, while controlling how that state is accessed or changed.
+
 ### Understanding
 
-Encapsulation is about keeping an object's state and the rules that protect that state together, while controlling how outside code can interact with it.
-
-The important idea is not simply “make variables private”.
-
-It is:
-
-> **Protect invariants and control mutation.**
+The goal is to prevent outside code from changing an object's state in ways that break its rules. Instead of exposing unrestricted mutation, the object provides methods or properties that validate and control changes.
 
 ### Simple example
 
@@ -310,21 +309,12 @@ Better:
 
 ## Abstraction
 
+### Definition
+**Abstraction** means exposing a simple, relevant interface while hiding implementation details that the caller does not need to know.
+
 ### Understanding
 
-Abstraction means exposing the part of a system that users of the component need, while hiding unnecessary implementation details.
-
-Think:
-
-```text
-What should callers know?
-        ↓
-Expose that
-        ↓
-What should callers not care about?
-        ↓
-Hide that
-```
+The caller should know **what operation is available**, not **how the operation is implemented internally**. This creates a stable interface while allowing the implementation to change behind it.
 
 ### Simple example
 
@@ -383,11 +373,12 @@ Then improve it with `ABC` and `@abstractmethod` when you want an explicit contr
 
 ## Inheritance
 
+### Definition
+**Inheritance** allows a class to derive from another class, reuse its behavior, and specialize or override that behavior. It should represent a genuine **IS-A** relationship.
+
 ### Understanding
 
-Inheritance lets a new class reuse or specialize behavior from an existing class.
-
-It expresses a relationship where the child type can be treated as the parent type when that relationship is genuinely valid.
+A subclass inherits accessible behavior from its base class and may add or override behavior. Use inheritance when the subclass is genuinely a specialized form of the base class, not merely because some code can be reused.
 
 ### Simple example
 
@@ -436,19 +427,12 @@ Because composition usually gives looser coupling and lets us change collaborato
 
 ## Polymorphism
 
+### Definition
+**Polymorphism** allows code to use a common operation or interface while different concrete objects provide different implementations of that operation.
+
 ### Understanding
 
-Polymorphism means code can work with a common interface while the actual object determines the behavior.
-
-The useful interview mental model is:
-
-```text
-Same operation
-+
-Different object
-=
-Different implementation
-```
+The caller uses the same operation without needing to know which concrete implementation it received. Each object supplies the behavior appropriate to its own type.
 
 ### Simple example
 
@@ -511,11 +495,12 @@ Because the caller depends on a stable contract rather than a specific implement
 
 ## Overloading
 
+### Definition
+**Method overloading** means providing multiple ways to call the same operation using different parameter lists. Python does not support traditional signature-based method overloading.
+
 ### Understanding
 
-Method overloading means using the same operation name with different parameter signatures.
-
-Python does **not** support traditional compile-time method overloading like Java or C++.
+In languages such as Java, overloading allows multiple methods with the same name but different parameter lists. Python does not keep multiple definitions with the same name; a later definition replaces the earlier one. Python instead commonly uses default arguments, `*args`/`**kwargs`, or explicit dispatch.
 
 Instead, Python commonly uses:
 
@@ -577,9 +562,12 @@ Overriding
 
 ## Overriding
 
+### Definition
+**Method overriding** occurs when a subclass provides a new implementation of a method inherited from its parent class.
+
 ### Understanding
 
-Overriding happens when a child class provides its own implementation of a method inherited from the parent.
+When a subclass defines a method with the same name as an inherited method, the subclass implementation is used for calls on subclass instances. This is a common mechanism for runtime polymorphism.
 
 ### Example
 
@@ -621,9 +609,12 @@ class EmailNotification(Notification):
 
 ## Dynamic Dispatch
 
+### Definition
+**Dynamic dispatch** is runtime selection of the implementation of an overridden method based on the actual object receiving the call.
+
 ### Understanding
 
-Dynamic dispatch means the implementation of an overridden method is selected based on the actual object involved at runtime.
+When a variable refers to a subclass object, Python selects the appropriate overridden method at runtime. This lets one function work with different object types through the same operation.
 
 ### Example
 
@@ -669,9 +660,12 @@ They are usually checking whether you understand:
 
 ## Static and Dynamic Binding
 
+### Definition
+**Binding** is the process of associating a call with the implementation that will execute. Static binding is resolved earlier, commonly at compile time; dynamic binding is resolved at runtime.
+
 ### Understanding
 
-**Binding** means connecting a call or reference to the implementation it uses.
+The distinction is about **when the implementation is determined**. Static binding is typically resolved earlier, often at compile time; dynamic binding selects the implementation at runtime. Python relies heavily on runtime lookup.
 
 High-level distinction:
 
@@ -705,11 +699,12 @@ The terminology is language-dependent and context-dependent.
 
 ## Interface and Abstract Class
 
+### Definition
+An **interface** defines a contract for what operations a type should provide. An **abstract class** is a base class that can define such a contract and can also provide shared state or implementation.
+
 ### Understanding
 
-An interface is primarily a **contract**: what operations a component promises.
-
-An abstract class can provide a contract **and** shared implementation / state.
+Use an interface-like abstraction when callers should depend on a contract rather than a specific implementation. In Python, `ABC`/`@abstractmethod` provides an explicit abstract base class, while `Protocol` supports structural typing.
 
 Python does not have a Java-style `interface` keyword. Common Python approaches are:
 
@@ -768,17 +763,14 @@ A class can satisfy the protocol by providing a compatible `search()` method wit
 
 ## Composition
 
+### Definition
+**Composition** builds a class by giving it objects of other classes as components or collaborators. It represents a **HAS-A** relationship.
+
 ### Understanding
 
-Composition means building an object from other objects instead of inheriting all behavior from a parent.
+Composition means giving an object other objects as collaborators instead of making it inherit their behavior. For example, a `Car` can contain an `Engine` and delegate engine-related work to it.
 
 Think:
-
-```text
-Object A
-  HAS
-Object B
-```
 
 ### Simple example
 
@@ -825,6 +817,9 @@ Because a car **has an engine**; it is not a specialized type of engine.
 <a id="association-aggregation-and-composition"></a>
 
 ## Association, Aggregation, and Composition
+
+### Definition
+**Association** is a general relationship between objects. **Aggregation** is a weak whole-part relationship with independent lifetimes. **Composition** is a strong whole-part relationship in which the whole controls the lifecycle of the parts.
 
 These three are worth distinguishing because interviewers may ask them together.
 
@@ -876,6 +871,9 @@ These are primarily **design relationships**, not special Python language keywor
 
 ## Is-a vs Has-a
 
+### Definition
+**IS-A** describes a subtype relationship and is commonly modeled with inheritance. **HAS-A** describes a usage or ownership relationship and is commonly modeled with composition or aggregation.
+
 A quick recognition rule:
 
 ```text
@@ -909,6 +907,9 @@ If not, composition is usually worth considering.
 <a id="access-control-and-name-mangling-in-python"></a>
 
 ## Access Control and Name Mangling in Python
+
+### Definition
+Python mainly uses naming conventions and name mangling rather than strict access modifiers. `_name` signals internal use by convention, while `__name` triggers name mangling.
 
 Python uses conventions rather than Java-style access modifiers.
 
@@ -951,6 +952,9 @@ They may test whether you know that Python's “private” fields are not true s
 <a id="class-variables-instance-variables-class-methods-and-static-methods"></a>
 
 ## Class Variables, Instance Variables, Class Methods, and Static Methods
+
+### Definition
+An **instance variable** belongs to one object; a **class variable** is associated with the class; a **class method** receives `cls`; a **static method** receives neither `self` nor `cls` automatically.
 
 ### Instance variable
 
@@ -1015,6 +1019,9 @@ class URLValidator:
 
 ## Special Methods and Operator Overloading
 
+### Definition
+**Special methods** (dunder methods) define how objects interact with Python's built-in operations and protocols. **Operator overloading** means customizing operations such as `+` or `==` for your own types.
+
 Python special methods let objects participate in built-in language operations.
 
 Examples:
@@ -1066,6 +1073,9 @@ Do not confuse `NotImplemented` with `NotImplementedError`:
 <a id="method-resolution-order-and-super"></a>
 
 ## Method Resolution Order and super()
+
+### Definition
+The **Method Resolution Order (MRO)** is the order Python follows to find methods and attributes through an inheritance hierarchy. `super()` delegates to the next implementation according to that MRO.
 
 ### Understanding
 
@@ -1131,6 +1141,9 @@ More accurate:
 
 ## Multiple Inheritance
 
+### Definition
+**Multiple inheritance** means a class inherits from more than one base class. Python resolves method lookup through its MRO, using C3 linearization.
+
 Python supports a class inheriting from multiple base classes.
 
 ```python
@@ -1170,6 +1183,9 @@ Know the **diamond problem** concept and explain that Python resolves multiple i
 <a id="object-identity-equality-and-hashing"></a>
 
 ## Object Identity, Equality, and Hashing
+
+### Definition
+**Identity** asks whether two references point to the same object (`is`). **Equality** asks whether two objects are considered equal (`==`). **Hashing** provides a hash value used by dictionaries and sets.
 
 This is a useful “hidden keyword” area for Python interviews.
 
@@ -1219,11 +1235,14 @@ Because hash-based collections rely on equality and hashing being consistent. Py
 
 ## Dependency Inversion in OOP
 
+### Definition
+**Dependency inversion** means high-level business logic should depend on abstractions rather than directly on low-level implementation details.
+
 SOLID is intentionally kept separate from the main notes, but the **OOP implementation connection** is worth knowing.
 
 ### Understanding
 
-High-level business logic should not be tightly coupled to low-level infrastructure details.
+The business layer should depend on a contract such as `SearchProvider`, while concrete providers implement that contract. Dependencies are supplied from outside, so the business logic does not need to construct a specific provider.
 
 Instead:
 
@@ -1278,6 +1297,9 @@ Do not turn this section into a full SOLID lesson.
 <a id="coupling-and-cohesion"></a>
 
 ## Coupling and Cohesion
+
+### Definition
+**Coupling** measures how strongly components depend on each other. **Cohesion** measures how closely related the responsibilities within a component are.
 
 ### Coupling
 
