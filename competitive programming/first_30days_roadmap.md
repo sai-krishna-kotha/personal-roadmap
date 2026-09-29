@@ -601,3 +601,127 @@ What I should notice next time:
 The process is:
 
 **Learn → Attempt → Solve → Upsolve → Record mistake → Repeat.**
+
+
+---
+
+# Theory & Learning Resources (Added)
+
+The roadmap is intentionally problem-first: learn only the theory needed for the day's problems, then immediately apply it. This aligns with Codeforces practice guidance to learn a new technique in context, use a focused article when needed, and then implement it yourself. citeturn661665search2turn661665search1
+
+## Core Resources
+
+- [Codeforces EDU](https://codeforces.com/edu/courses) — structured competitive-programming courses.
+- [CP-Algorithms](https://cp-algorithms.com/) — reference for algorithms, data structures, mathematics, and implementation.
+- [USACO Guide](https://usaco.guide/) — structured topic learning and practice.
+- [Codeforces Problemset](https://codeforces.com/problemset) — filter by rating/tag when extra practice is needed.
+
+## Daily Theory Checklist
+
+For every day:
+
+1. Read the listed topic/resource for **20–30 minutes maximum** when it is new.
+2. Write down the core idea, when to use it, and time complexity.
+3. Implement the basic template once.
+4. Solve the scheduled problems.
+5. When a problem reveals a new trick, add that trick to the mistake notebook.
+6. Re-implement any editorial-based solution without looking at the editorial.
+
+## Topic Reference Map
+
+### Implementation / Simulation
+- [USACO Guide](https://usaco.guide/general/)
+- Learn: input/output, loops, conditionals, state updates, direct simulation.
+- Key question: **Can I directly simulate the statement?**
+
+### Arrays / Strings
+- [CP-Algorithms](https://cp-algorithms.com/)
+- Learn: traversal, indexing, frequency counting, character sets, prefix/suffix state.
+- Key question: **Can one pass or one precomputation maintain everything I need?**
+
+### Sorting
+- [CP-Algorithms — Sorting / searching overview](https://cp-algorithms.com/)
+- Learn: sorting as preprocessing; inspect adjacent/order relationships after sorting.
+- Key question: **What becomes obvious after sorting?**
+
+### Greedy
+- [USACO Guide](https://usaco.guide/)
+- Learn: local choice, exchange intuition, maintaining an invariant.
+- Key question: **Why is this local choice safe?**
+
+### Sets / Hash Maps
+- [USACO Guide](https://usaco.guide/)
+- Learn: membership, frequency maps, duplicate detection, pair counting.
+- Key question: **Do I need O(1)-average lookup or counting?**
+
+### Prefix Sums
+- [CP-Algorithms — Prefix sums](https://cp-algorithms.com/data_structures/prefix-sums.html)
+- Learn: precompute cumulative information so a range query can become O(1).
+- Template:
+```python
+pref = [0]
+for x in a:
+    pref.append(pref[-1] + x)
+```
+
+### Two Pointers / Sliding Window
+- [USACO Guide](https://usaco.guide/)
+- Learn: left/right pointers, maintaining a valid window, advancing the left pointer only when the invariant breaks.
+- Key question: **What condition does my current window satisfy?**
+
+### Binary Search
+- [CP-Algorithms — Binary search](https://cp-algorithms.com/num_methods/binary_search.html)
+- Learn: monotonic predicates, search bounds, lower/upper-bound thinking, binary search on answer.
+- Key question: **Can I define a yes/no condition that changes only once?**
+
+### Number Theory
+- [CP-Algorithms — Algebra](https://cp-algorithms.com/algebra/)
+- [Sieve of Eratosthenes](https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html)
+- Learn: gcd, divisibility, factors, primes, powers, modular arithmetic.
+- Key question: **Can I reduce the candidates mathematically before checking them?**
+
+### Dynamic Programming
+- [CP-Algorithms — Introduction to DP](https://cp-algorithms.com/dynamic_programming/intro-to-dp.html)
+- Learn: state, transition, base case, answer, computation order.
+- Required template:
+```text
+State:
+Transition:
+Base case:
+Answer:
+Complexity:
+```
+- Key question: **What is the minimum information needed to describe the remaining problem?**
+
+### BFS / DFS
+- [CP-Algorithms — BFS](https://cp-algorithms.com/graph/breadth-first-search.html)
+- [CP-Algorithms — DFS](https://cp-algorithms.com/graph/depth-first-search.html)
+- Learn: graph representation, traversal, visited state, connected components.
+- Key question: **What are the states/nodes and how do I move between them?**
+
+## New-Trick Protocol
+
+Whenever a scheduled problem introduces something not explicitly taught yet:
+
+```text
+1. Try for the day's time limit.
+2. Read the editorial.
+3. Identify the new trick/algorithm.
+4. Open exactly ONE focused resource above.
+5. Learn the concept + complexity.
+6. Close the resource.
+7. Re-implement the problem from scratch.
+8. Add the trick to the mistake notebook.
+```
+
+Do not stop the 30-day program to complete a large course just because one problem introduces a new technique. The purpose of theory is to unlock the current problem and build reusable pattern recognition.
+
+## Recommended Learning Allocation
+
+```text
+20%  Theory
+70%  Problem solving
+10%  Review / mistake analysis
+```
+
+Codeforces practice discussions commonly emphasize consistent problem solving, contest participation, upsolving, and learning new techniques in context rather than spending the entire preparation period on theory. citeturn661665search0turn661665search2
