@@ -725,3 +725,212 @@ Do not stop the 30-day program to complete a large course just because one probl
 ```
 
 Codeforces practice discussions commonly emphasize consistent problem solving, contest participation, upsolving, and learning new techniques in context rather than spending the entire preparation period on theory. citeturn661665search0turn661665search2
+
+
+---
+
+# Exact Theory / Article Links by Day
+
+Use these links **before the day's problems** when the topic is new. Keep theory to the stated limit; the problems are still the main training.
+
+## Day 1 — Implementation
+**Read (20–25 min):**
+- [USACO Guide — General](https://usaco.guide/general/)
+- [CP-Algorithms — Complexity](https://cp-algorithms.com/)
+
+**Learn:** input/output, conditions, loops, direct simulation, O(1)/O(n)/O(n²).
+
+## Day 2 — Arrays + Simulation
+**Read (20 min):**
+- [USACO Guide — General](https://usaco.guide/general/)
+
+**Learn:** arrays/lists, indexing, traversal, counters, state simulation.
+
+## Day 3 — Strings
+**Read (25 min):**
+- [CP-Algorithms — String Algorithms](https://cp-algorithms.com/string/)
+
+**Learn:** string traversal, character operations, frequency counting, sets.
+
+## Day 4 — Sorting + Greedy
+**Read (30 min):**
+- [USACO Guide — Greedy](https://usaco.guide/bronze/intro-greedy/)
+- [CP-Algorithms — Sorting](https://cp-algorithms.com/sequences/sorting.html)
+
+**Learn:** when sorting exposes structure; local choice; basic greedy reasoning.
+
+## Day 5 — Basic Math + Sets
+**Read (25 min):**
+- [CP-Algorithms — Euclidean Algorithm](https://cp-algorithms.com/algebra/euclid-algorithm.html)
+- [CP-Algorithms — Modular Arithmetic](https://cp-algorithms.com/algebra/module-inverse.html)
+
+**Learn:** divisibility, modulo, GCD, set membership.
+
+## Day 6 — Contest
+**Theory:** no new material. Review Days 1–5 for 15 minutes.
+
+## Day 7 — Math + Strings
+**Read (20 min):**
+- [CP-Algorithms — Algebra](https://cp-algorithms.com/algebra/)
+
+**Learn:** translating story statements into simple mathematical conditions.
+
+## Day 8 — Implementation + Strings
+**Read (20 min):**
+- [CP-Algorithms — String Algorithms](https://cp-algorithms.com/string/)
+
+**Learn:** scanning, state updates, exact condition matching.
+
+## Day 9 — Arrays + Simulation
+**Read (20 min):**
+- [USACO Guide — General](https://usaco.guide/general/)
+
+**Learn:** one-pass processing and maintaining running state.
+
+## Day 10 — Consolidation
+**Read (15–20 min):**
+- Re-read your notes from Days 1–9.
+- No new article.
+
+## Day 11 — Greedy + Sorting
+**Read (25 min):**
+- [USACO Guide — Greedy](https://usaco.guide/bronze/intro-greedy/)
+- [CP-Algorithms — Sorting](https://cp-algorithms.com/sequences/sorting.html)
+
+**Learn:** greedy choice, sorting as preprocessing, simple proof intuition.
+
+## Day 12 — Contest
+**Theory:** 15-minute review only. No editorial during contest.
+
+## Day 13 — Arrays + Strings
+**Read (20 min):**
+- [CP-Algorithms — String Algorithms](https://cp-algorithms.com/string/)
+
+**Learn:** runs/streaks and scanning; divisibility by powers of two.
+
+## Day 14 — Prefix Sums
+**Read (30 min):**
+- [CP-Algorithms — Prefix Sums](https://cp-algorithms.com/data_structures/prefix-sums.html)
+
+**Learn:** cumulative arrays, range sums, O(1) range queries after O(n) preprocessing.
+
+## Day 15 — Mathematical Modeling
+**Read (20 min):**
+- [CP-Algorithms — Algebra](https://cp-algorithms.com/algebra/)
+
+**Learn:** floor/ceiling reasoning and turning geometry/story into equations.
+
+**Must know:** for positive integers, ceil(a/b) = (a+b-1)//b.
+
+## Day 16 — Greedy + Graph-Like Simulation
+**Read (25 min):**
+- [CP-Algorithms — Breadth-First Search](https://cp-algorithms.com/graph/breadth-first-search.html)
+- [CP-Algorithms — Depth-First Search](https://cp-algorithms.com/graph/depth-first-search.html)
+
+**Learn:** nodes/states, transitions, visited state, direct pointer/jump simulation.
+
+## Day 17 — DP-Style Thinking
+**Read (30 min):**
+- [CP-Algorithms — Introduction to Dynamic Programming](https://cp-algorithms.com/dynamic_programming/intro-to-dp.html)
+
+**Learn:** state, transition, base case, answer, computation order.
+
+**Template:** State → Transition → Base case → Answer → Complexity.
+
+## Day 18 — Contest
+**Theory:** review Day 15–17 concepts for 15 minutes.
+
+## Day 19 — Greedy + Number Theory
+**Read (30 min):**
+- [CP-Algorithms — Algebra](https://cp-algorithms.com/algebra/)
+- [CP-Algorithms — Number Theoretic Algorithms](https://cp-algorithms.com/algebra/)
+
+**Learn:** factors, primes, GCD, modular reasoning, cost comparison.
+
+## Day 20 — Binary Search
+**Read (35 min):**
+- [CP-Algorithms — Binary Search](https://cp-algorithms.com/num_methods/binary_search.html)
+
+**Learn:** invariant, bounds, monotonic predicate, lower/upper bound, binary search on answer.
+
+**Must answer before coding:** What is monotonic? What are my bounds? What does mid represent?
+
+## Day 21 — Maps + Greedy
+**Read (25 min):**
+- [CP-Algorithms — Data Structures](https://cp-algorithms.com/data_structures/)
+- [USACO Guide](https://usaco.guide/)
+
+**Learn:** hash map/set membership, frequencies, duplicate detection, counting.
+
+## Day 22 — Prefix + Array Observations
+**Read (20 min):**
+- [CP-Algorithms — Prefix Sums](https://cp-algorithms.com/data_structures/prefix-sums.html)
+
+**Learn:** left/right aggregates, incremental maintenance, prefix/suffix transformations.
+
+## Day 23 — DP + Two Pointers
+**Read (30 min):**
+- [USACO Guide — Two Pointers](https://usaco.guide/gold/sliding-window)
+- Re-read [CP-Algorithms — Introduction to DP](https://cp-algorithms.com/dynamic_programming/intro-to-dp.html)
+
+**Learn:** valid-window invariant; when moving the left pointer is safe; DP state compression.
+
+## Day 24 — Contest
+**Theory:** review binary search + prefix sums + maps + greedy + DP for 15 minutes.
+
+## Day 25 — Binary Search + Math
+**Read (30 min):**
+- Re-read [CP-Algorithms — Binary Search](https://cp-algorithms.com/num_methods/binary_search.html)
+- [CP-Algorithms — Binary Exponentiation](https://cp-algorithms.com/algebra/binary-exp.html) for fast-power intuition.
+
+**Learn:** counting valid values ≤ x; monotonic count functions; closed-form counting.
+
+## Day 26 — Prefix + Sorting
+**Read (25 min):**
+- [CP-Algorithms — Prefix Sums](https://cp-algorithms.com/data_structures/prefix-sums.html)
+
+**Learn:** sorted prefix sums and using preprocessing to answer many query types.
+
+## Day 27 — Greedy + Two Pointers
+**Read (25 min):**
+- [USACO Guide — Sliding Window](https://usaco.guide/gold/sliding-window)
+- [USACO Guide — Greedy](https://usaco.guide/bronze/intro-greedy/)
+
+**Learn:** maximize what you keep; maintain a valid interval; greedy invariant.
+
+## Day 28 — 1300: Hash Maps + Number Theory + DP
+**Read (35–40 min):**
+- [CP-Algorithms — Sieve of Eratosthenes](https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html)
+- [CP-Algorithms — Introduction to DP](https://cp-algorithms.com/dynamic_programming/intro-to-dp.html)
+- [CP-Algorithms — Data Structures](https://cp-algorithms.com/data_structures/)
+
+**Learn:** sieve, primality, perfect-square reasoning, frequency maps, DP state minimization.
+
+## Day 29 — 1300/1400
+**Read (30 min):**
+- [CP-Algorithms — Breadth-First Search](https://cp-algorithms.com/graph/breadth-first-search.html)
+- [CP-Algorithms — Depth-First Search](https://cp-algorithms.com/graph/depth-first-search.html)
+- Re-read binary search and two-pointers notes.
+
+**Learn:** BFS shortest path in unweighted graphs, DFS traversal/components, choosing between traversal and simpler observation.
+
+## Day 30 — Final Test
+**Before contest:** no new article.
+
+**After contest:** for every missed problem, open exactly one relevant article from the links above and write the new trick in the mistake notebook.
+
+---
+
+# Article Usage Rule
+
+Do **not** open five articles for one topic.
+
+For every new concept:
+
+**One article → understand → one small template → scheduled problems.**
+
+When the problem itself introduces a new trick:
+
+**Attempt → editorial → identify trick → one focused article → re-code from scratch.**
+
+This keeps the roadmap deterministic without turning the 30 days into a theory-only course.
