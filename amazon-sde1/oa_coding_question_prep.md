@@ -21,8 +21,6 @@
 
 ---
 
-[Back to TOC](#table-of-contents)
-
 ## 1. Goal
 
 Build the ability to read an unfamiliar problem, strip away business-story wording, infer constraints, recognize the underlying DSA pattern, implement correct Python, test edge cases, and finish under time pressure.
