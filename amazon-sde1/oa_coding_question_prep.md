@@ -17,6 +17,7 @@
 - [10. Mistake Log](#10-mistake-log)
 - [11. Official/Current OA Note](#11-officialcurrent-oa-note)
 - [12. Final Readiness Checklist](#12-final-readiness-checklist)
+- [13. Additional OA Confidence Practice Set](#13-additional-oa-confidence-practice-set)
 - [Core Principle](#core-principle)
 
 ---
@@ -363,6 +364,79 @@ Recent 2026 candidate reports describe a newer SDE I variant containing one Leet
 - Complexity follows from constraints
 - Business story can be reduced to an algorithmic statement
 - Unseen Medium can be solved under time
+
+[Back to TOC](#table-of-contents)
+
+
+## 13. Additional OA Confidence Practice Set
+
+This set is intentionally separate from the 30-day core roadmap. Use it after the core set to build confidence on unfamiliar variations and common OA patterns.
+
+### A. Arrays, Hashing and Prefix Sums
+- [238. Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
+- [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+- [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
+- [525. Contiguous Array](https://leetcode.com/problems/contiguous-array/)
+- [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+
+### B. Sliding Window and Two Pointers
+- [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+- [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/)
+- [904. Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
+- [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+
+### C. Binary Search and Monotonic Stack
+- [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+- [875. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+- [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+- [853. Car Fleet](https://leetcode.com/problems/car-fleet/)
+- [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+
+### D. Heap, Greedy and Scheduling
+- [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
+- [621. Task Scheduler](https://leetcode.com/problems/task-scheduler/)
+- [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+- [55. Jump Game](https://leetcode.com/problems/jump-game/)
+
+### E. Linked Lists and Trees
+- [143. Reorder List](https://leetcode.com/problems/reorder-list/)
+- [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+- [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+### F. Graphs, Backtracking and DP
+- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
+- [133. Clone Graph](https://leetcode.com/problems/clone-graph/)
+- [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
+- [322. Coin Change](https://leetcode.com/problems/coin-change/)
+- [139. Word Break](https://leetcode.com/problems/word-break/)
+- [198. House Robber](https://leetcode.com/problems/house-robber/)
+- [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+
+### How to use this set
+
+1. First solve problems you have never seen before.
+2. Time Medium problems at about 30–40 minutes.
+3. For every problem, identify the pattern before coding.
+4. After an unsuccessful attempt, study the idea, close the editorial, and reimplement from scratch.
+5. Re-attempt failed problems after 48–72 hours.
+6. Prioritize correctness, complexity, and pattern recognition over raw question count.
+
+### OA Confidence Rule
+
+You do **not** need to memorize these exact questions. The goal is to become comfortable when the same underlying pattern is wrapped in a different business story.
+
+For every practice problem, ask:
+
+```text
+What are the entities?
+What operation is required?
+What constraint kills brute force?
+What pattern fits?
+What is the target complexity?
+What edge case could break my implementation?
+```
 
 [Back to TOC](#table-of-contents)
 
